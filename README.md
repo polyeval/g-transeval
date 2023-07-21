@@ -1,5 +1,5 @@
 # G-TransEval
-This artifact for our paper "On the Evaluation of Neural Code Translation: Taxonomy and Benchmark" includes benchmark suite, results, materials and source code of our automatic unit test tool. We hope this artifact can motivate and help future research on code translation. 
+This artifact for our ASE 2023 paper "On the Evaluation of Neural Code Translation: Taxonomy and Benchmark" includes benchmark suite, results, materials and source code of our automatic unit test tool. We hope this artifact can motivate and help future research on code translation. 
 
 ## What's inside the artifact:
 
