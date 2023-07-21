@@ -1,0 +1,4678 @@
+def green_common_divisor ( a , b ) :
+    if not a or not b :
+        return a + b
+    if a == b :
+        return a
+    if a > b :
+        return green_common_divisor ( a % b , b )
+    else :
+        return green_common_divisor ( a , b % a )
+
+***Example ends here:
+def largestDivisor ( n ) :
+    for i in range ( 2 , n + 1 ) :
+        if n % i == 0 :
+            return n // i
+    return 1
+
+***Example ends here:
+def is_prime ( n ) :
+    if n < 2 :
+        return False
+    for k in range ( 2 , n ) :
+        if n % k == 0 :
+            return False
+    return True
+
+***Example ends here:
+def fizzBuzz ( n ) :
+    count = 0
+    for i in range ( 1 , n ) :
+        if i % 11 == 0 or i % 13 == 0 :
+            q = i
+            while q > 0 :
+                if q % 10 == 7 :
+                    count += 1
+                q //= 10
+    return count
+
+***Example ends here:
+def prime_fib ( n ) :
+    f0 = 0
+    f1 = 1
+    while n > 0 :
+        p = f0 + f1
+        is_prime = p >= 2
+        for i in range ( 2 , p ) :
+            if p % i == 0 :
+                is_prime = False
+                break
+        if is_prime :
+            n -= 1
+        f0 = f1
+        f1 = p
+    return f1
+
+***Example ends here:
+def triangle_area ( a , h ) :
+    return a * h / 2
+
+***Example ends here:
+def mod_p ( n , p ) :
+    ret = 1
+    for i in range ( n ) :
+        ret = ( ret * 2 ) % p
+    return ret
+
+***Example ends here:
+def add ( x , y ) :
+    return x + y
+
+***Example ends here:
+def fib ( n ) :
+    if n == 0 :
+        return 0
+    if n == 1 :
+        return 1
+    return fib ( n - 1 ) + fib ( n - 2 )
+
+***Example ends here:
+def largestPrimeFactor ( n ) :
+    for i in range ( 2 , n ) :
+        while n % i == 0 and n > i :
+            n //= i
+    return n
+
+***Example ends here:
+def sum_to_n ( n ) :
+    result = 0
+    for i in range ( 1 , n + 1 ) :
+        result += i
+    return result
+
+***Example ends here:
+def fibfib ( n ) :
+    if n == 0 :
+        return 0
+    if n == 1 :
+        return 0
+    if n == 2 :
+        return 1
+    return fibfib ( n - 1 ) + fibfib ( n - 2 ) + fibfib ( n - 3 )
+
+***Example ends here:
+def is_multiply_prime ( a ) :
+    num = 0
+    for i in range ( 2 , a + 1 ) :
+        while a % i == 0 and a >= i :
+            a //= i
+            num += 1
+    return num == 3
+
+***Example ends here:
+def is_simple_power ( x , n ) :
+    if n == 1 :
+        return x == 1
+    power = 1
+    while power < x :
+        power *= n
+    return power == x
+
+***Example ends here:
+def choose_num ( x , y ) :
+    if x > y :
+        return - 1
+    if y % 2 == 0 :
+        return y
+    if x == y :
+        return - 1
+    return y - 1
+
+***Example ends here:
+def is_equal_to_sum_even ( n ) :
+    return n % 2 == 0 and n >= 8
+
+***Example ends here:
+def special_factorial ( n ) :
+    fact , special_fact = 1 , 1
+    for i in range ( 1 , n + 1 ) :
+        fact *= i
+        special_fact *= fact
+    return special_fact
+
+***Example ends here:
+def x_or_y ( n , x , y ) :
+    is_prime = n >= 2
+    for i in range ( 2 , n ) :
+        if n % i == 0 :
+            is_prime = False
+            break
+    if is_prime :
+        return x
+    return y
+
+***Example ends here:
+def right_angle_triangle ( a , b , c ) :
+    return a * a == b * b + c * c or b * b == a * a + c * c or c * c == a * a + b * b
+
+***Example ends here:
+def fast_pow ( n , k ) :
+    if k == 0 :
+        return 1
+    temp = fast_pow ( n , k // 2 )
+    if k % 2 == 0 :
+        return temp * temp
+    else :
+        return n * temp * temp
+
+***Example ends here:
+def is_palin ( s ) :
+    l = len ( s ) // 2
+    for i in range ( l ) :
+        if s [ i ] != s [ - i - 1 ] :
+            return False
+    return True
+
+***Example ends here:
+def find_sum ( n ) :
+    ans , temp = 0 , 0
+    for i in range ( 1 , n + 1 ) :
+        temp = i - 1
+        num = 1
+        while temp < n :
+            if temp + i <= n :
+                ans += i * num
+            else :
+                ans += ( n - temp ) * num
+            temp += i
+            num += 1
+    return ans
+
+***Example ends here:
+def get_next_gap ( gap ) :
+    gap = gap * 10 / 13
+    if gap < 1 :
+        return 1
+    return gap
+
+***Example ends here:
+def count_non_decreasing ( n ) :
+    k = 10
+    count = 1
+    for i in range ( 1 , n + 1 ) :
+        count *= k + i - 1
+        count //= i
+    return count
+
+***Example ends here:
+def power ( x , y ) :
+    if y == 0 :
+        return 1
+    elif y % 2 == 0 :
+        return power ( x , y // 2 ) ** 2
+    else :
+        return x * power ( x , y // 2 ) ** 2
+
+***Example ends here:
+def power ( x , y ) :
+    if y == 0 :
+        return 1
+    temp = power ( x , y // 2 )
+    if y % 2 == 0 :
+        return temp * temp
+    else :
+        if y > 0 :
+            return x * temp * temp
+        else :
+            return temp * temp / x
+
+***Example ends here:
+def multiply ( x , y ) :
+    if y == 0 :
+        return 0
+    elif y > 0 :
+        return x + multiply ( x , y - 1 )
+    else :
+        return - multiply ( x , - y )
+
+***Example ends here:
+def smallest ( x , y , z ) :
+    if y // x == 0 :
+        return y if y // z == 0 else z
+    return x if x // z == 0 else z
+
+***Example ends here:
+def is_power_of_four ( n ) :
+    if n == 0 :
+        return False
+    while n != 1 :
+        if n % 4 != 0 :
+            return False
+        n = n // 4
+    return True
+
+***Example ends here:
+def mod_inverse ( a , m ) :
+    m0 = m
+    x0 , x1 = 0 , 1
+    if m == 1 :
+        return 0
+    while a > 1 :
+        q = a // m
+        t = m
+        m = a % m
+        a = t
+        t = x0
+        x0 = x1 - q * x0
+        x1 = t
+    if x1 < 0 :
+        x1 += m0
+    return x1
+
+***Example ends here:
+def cntRotations ( s , n ) :
+    s2 = s + s
+    pre = [ 0 ] * 2 * n
+    for i in range ( 2 * n ) :
+        if i != 0 :
+            pre [ i ] += pre [ i - 1 ]
+        if s2 [ i ] in [ 'a' , 'e' , 'i' , 'o' , 'u' ] :
+            pre [ i ] += 1
+    ans = 0
+    for i in range ( n - 1 , 2 * n - 1 ) :
+        r , l = i , i - n
+        x1 = pre [ r ]
+        if l >= 0 :
+            x1 -= pre [ l ]
+        r = i - n // 2
+        left = pre [ r ]
+        if l >= 0 :
+            left -= pre [ l ]
+        right = x1 - left
+        if left > right :
+            ans += 1
+    return ans
+
+***Example ends here:
+def binomial_coeff ( n , k ) :
+    res = 1
+    if k > n - k :
+        k = n - k
+    for i in range ( k ) :
+        res *= n - i
+        res //= i + 1
+    return res
+
+***Example ends here:
+def is_prefix ( temp , s ) :
+    if len ( temp ) < len ( s ) :
+        return False
+    else :
+        for c in s :
+            if c != temp [ c ] :
+                return False
+        return True
+
+***Example ends here:
+def lexicographicallySmallestString ( s , n ) :
+    lastZe = - 1
+    ans = ""
+    for i in range ( n - 1 , - 1 , - 1 ) :
+        if s [ i ] == '0' :
+            lastZe = i
+            break
+    for i in range ( n ) :
+        if i <= lastZe and s [ i ] == '0' :
+            ans += s [ i ]
+        elif i > lastZe :
+            ans += s [ i ]
+    return ans
+
+***Example ends here:
+def calculate_max ( n , m , k ) :
+    ans = - 1
+    low , high = 0 , m
+    while low <= high :
+        mid = ( low + high ) // 2
+        val = 0
+        l = k - 1
+        r = n - k
+        val += mid
+        if mid >= l :
+            val += l * ( 2 * mid - l - 1 ) // 2
+        else :
+            val += mid * ( mid - 1 ) // 2 + ( l - mid )
+        if mid >= r :
+            val += r * ( 2 * mid - r - 1 ) // 2
+        else :
+            val += mid * ( mid - 1 ) // 2 + ( r - mid )
+        if val <= m :
+            ans = max ( ans , mid )
+            low = mid + 1
+        else :
+            high = mid - 1
+    return ans
+
+***Example ends here:
+def find_length ( s , i , j ) :
+    required = i
+    length = 0
+    for curr in s :
+        if curr == required :
+            length += 1
+            if required == i :
+                required = j
+            else :
+                required = i
+    return length
+
+***Example ends here:
+def check_reverse ( left_sum , right_sum ) :
+    rev = 0
+    temp = right_sum
+    while temp != 0 :
+        rev = rev * 10 + temp % 10
+        temp //= 10
+    if rev == left_sum :
+        return True
+    return False
+
+***Example ends here:
+def is_composite ( n ) :
+    if n <= 1 :
+        return False
+    if n <= 3 :
+        return False
+    if n % 2 == 0 or n % 3 == 0 :
+        return True
+    for i in range ( 5 , i * n + 1 , 6 ) :
+        if n % i == 0 or n % ( i + 2 ) == 0 :
+            return True
+    return False
+
+***Example ends here:
+def min_deletion ( s ) :
+    n = len ( s )
+    first_idx1 = - 1
+    last_idx0 = - 1
+    for i in range ( n ) :
+        if s [ i ] == '1' :
+            first_idx1 = i
+            break
+    for i in range ( n - 1 , - 1 , - 1 ) :
+        if s [ i ] == '0' :
+            last_idx0 = i
+            break
+    if first_idx1 == - 1 or last_idx0 == - 1 :
+        return 0
+    count1 , count0 = 0 , 0
+    for i in range ( last_idx0 ) :
+        if s [ i ] == '1' :
+            count1 += 1
+    for i in range ( first_idx1 + 1 , n ) :
+        if s [ i ] == '1' :
+            count0 += 1
+    return min ( count0 , count1 )
+
+***Example ends here:
+def min_steps ( s , n ) :
+    global smaller , cost
+    f = [ 0 ] * 26
+    for i in range ( n ) :
+        curr_ele = ord ( s [ i ] ) - ord ( 'a' )
+        smaller = 0
+        for j in range ( 0 , curr_ele + 1 ) :
+            if f [ j ] != 0 :
+                smaller += f [ j ]
+        if smaller == 0 :
+            cost += i + 1
+        else :
+            cost += i - smaller + 1
+        f [ ord ( s [ i ] ) - ord ( 'a' ) ] += 1
+    return cost
+
+***Example ends here:
+def number_of_ways ( n ) :
+    count = 0
+    for a in range ( 1 , n ) :
+        for b in range ( n ) :
+            c = n - ( a + b )
+            if a + b > c and a + c > b and b + c > a :
+                count += 1
+    return count
+
+***Example ends here:
+def slope_of_num ( num , n ) :
+    slope = 0
+    for i in range ( 1 , n - 1 ) :
+        if num [ i ] > num [ i - 1 ] and num [ i ] > num [ i + 1 ] :
+            slope += 1
+        elif num [ i ] < num [ i - 1 ] and num [ i ] < num [ i + 1 ] :
+            slope += 1
+    return slope
+
+***Example ends here:
+def middle_of_three ( a , b , c ) :
+    x = a - b
+    y = b - c
+    z = a - c
+    if x * y > 0 :
+        return b
+    elif x * z > 0 :
+        return c
+    else :
+        return a
+
+***Example ends here:
+def count_max_set_bits ( left , right ) :
+    while ( left | ( left + 1 ) ) <= right :
+        left |= left + 1
+    return left
+
+***Example ends here:
+def find_s ( s ) :
+    l , r = 1 , ( s // 2 ) + 1
+    while l <= r :
+        mid = ( l + r ) // 2
+        sum = mid * ( mid + 1 ) // 2
+        if sum == s :
+            return mid
+        elif sum > s :
+            r = mid - 1
+        else :
+            l = mid + 1
+    return - 1
+
+***Example ends here:
+def check ( s ) :
+    min = sys.maxsize
+    max = sys.maxsize
+    sum = 0
+    for ascii in s :
+        if ascii < 96 or ascii > 122 :
+            return False
+        sum += ascii
+        if min > ascii :
+            min = ascii
+        if max < ascii :
+            max = ascii
+    min -= 1
+    e_sum = max * ( max + 1 ) / 2 - min * ( min + 1 ) / 2
+    return sum == e_sum
+
+***Example ends here:
+def minimum_possible_product ( k ) :
+    res = 1
+    r = ( 1 << k ) - 1
+    for i in range ( k ) :
+        res *= r - 1
+    res *= r
+    return res
+
+***Example ends here:
+def find_in_grid ( i , j ) :
+    if i == j :
+        return i * i - ( i - 1 )
+    elif i > j :
+        if i % 2 == 0 :
+            return i * i - ( j - 1 )
+        else :
+            return ( i - 1 ) * ( i - 1 ) + 1 + ( j - 1 )
+    else :
+        if j % 2 == 0 :
+            return ( j - 1 ) * ( j - 1 ) + 1 + ( i - 1 )
+        else :
+            return j * j - ( i - 1 )
+
+***Example ends here:
+def find_min_operations_req_emp_str ( s ) :
+    cntOne = 0
+    cntZero = 0
+    n = len ( s )
+    for c in s :
+        if c == '0' :
+            if cntOne != 0 :
+                cntOne -= 1
+            cntZero += 1
+        else :
+            if cntZero != 0 :
+                cntZero -= 1
+            cntOne += 1
+    return cntOne + cntZero
+
+***Example ends here:
+def is_reachable ( x1 , y1 , x2 , y2 ) :
+    while x2 > x1 and y2 > y1 :
+        if x2 > y2 :
+            x2 %= y2
+        else :
+            y2 %= x2
+    if x2 == x1 :
+        return ( y2 - y1 ) >= 0 and ( y2 - y1 ) % x1 == 0
+    elif y2 == y1 :
+        return ( x2 - x1 ) >= 0 and ( x2 - x1 ) % y1 == 0
+    else :
+        return False
+
+***Example ends here:
+def find_max_soln ( n , x , y ) :
+    ans = int ( 0 )
+    for k in range ( 0 , n + 1 ) :
+        if k % x == y :
+            ans = max ( ans , k )
+    return ans if ans >= 0 and ans <= n else - 1
+
+***Example ends here:
+def number_of_pairs ( n ) :
+    count = 0
+    i , j = 1 , n - 1
+    while i < j :
+        if i + j == n :
+            count += 1
+        i += 1
+        j -= 1
+    return count
+
+***Example ends here:
+def min_changes ( s , n ) :
+    count , zeros , ones = 0 , 0 , 0
+    if s [ 0 ] != '1' :
+        count += 1
+        ones += 1
+    for i in range ( 1 , n ) :
+        if s [ i ] == '0' :
+            zeros += 1
+        else :
+            ones += 1
+        if zeros > ones :
+            zeros -= 1
+            ones += 1
+            count += 1
+    return count
+
+***Example ends here:
+def k_visible_from_left ( n , k ) :
+    if n == k :
+        return 1
+    if k == 1 :
+        ans = 1
+        for i in range ( 1 , n ) :
+            ans *= i
+        return ans
+    return k_visible_from_left ( n - 1 , k - 1 ) + ( n - 1 ) * k_visible_from_left ( n - 1 , k )
+
+***Example ends here:
+def find ( n , sum ) :
+    if sum > 6 * n or sum < n :
+        return 0
+    if n == 1 :
+        if sum >= 1 and sum <= 6 :
+            return 1.0 / 6
+        else :
+            return 0
+    s = 0
+    for i in range ( 1 , 6 + 1 ) :
+        s += find ( n - 1 , sum - i ) / 6
+    return s
+
+***Example ends here:
+def binCoff ( n , r ) :
+    val = 1
+    if r > n - r :
+        r = n - r
+    for i in range ( r ) :
+        val *= n - i
+        val //= i + 1
+    return val
+
+***Example ends here:
+def get_mask ( val ) :
+    mask = 0
+    if val == 0 :
+        return 1
+    while val > 0 :
+        d = val % 10
+        mask |= 1 << d
+        val //= 10
+    return mask
+
+***Example ends here:
+def ways_to_k_adjacent_set_bits ( n , k , current_index , adjacent_set_bits , last_bit ) :
+    if current_index == n :
+        if adjacent_set_bits == k :
+            return 1
+        return 0
+    nb_ways = 0
+    if last_bit == 1 :
+        nb_ways += ways_to_k_adjacent_set_bits ( n , k , current_index + 1 , adjacent_set_bits + 1 , 1 )
+        nb_ways += ways_to_k_adjacent_set_bits ( n , k , current_index + 1 , adjacent_set_bits , 0 )
+    elif last_bit == 0 :
+        nb_ways += ways_to_k_adjacent_set_bits ( n , k , current_index + 1 , adjacent_set_bits , 1 )
+        nb_ways += ways_to_k_adjacent_set_bits ( n , k , current_index + 1 , adjacent_set_bits , 0 )
+    return nb_ways
+
+***Example ends here:
+def check_func ( i , j , st ) :
+    if st [ i ] == '(' and st [ j ] == ')' :
+        return 1
+    if st [ i ] == '(' and st [ j ] == '?' :
+        return 1
+    if st [ i ] == '?' and st [ j ] == ')' :
+        return 1
+    if st [ i ] == '[' and st [ j ] == ']' :
+        return 1
+    if st [ i ] == '[' and st [ j ] == '?' :
+        return 1
+    if st [ i ] == '?' and st [ j ] == ']' :
+        return 1
+    if st [ i ] == '{' and st [ j ] == '}' :
+        return 1
+    if st [ i ] == '{' and st [ j ] == '?' :
+        return 1
+    if st [ i ] == '?' and st [ j ] == '}' :
+        return 1
+    return 0
+
+***Example ends here:
+def find_golomb ( n ) :
+    if n == 1 :
+        return 1
+    return 1 + find_golomb ( n - find_golomb ( find_golomb ( n - 1 ) ) )
+
+***Example ends here:
+def all_ones ( s , n ) :
+    co = 0
+    for c in s :
+        co += 1 if c == '1' else 0
+    return co == n
+
+***Example ends here:
+def pad ( n ) :
+    p_prev_prev , p_prev , pCurr , pNext = 1 , 1 , 1 , 1
+    for i in range ( 3 , n + 1 ) :
+        pNext = p_prev_prev + p_prev
+        p_prev_prev = p_prev
+        p_prev = pCurr
+        pCurr = pNext
+    return pNext
+
+***Example ends here:
+def oddLengthPalindrome ( k ) :
+    palin = k
+    k = k // 10
+    while k > 0 :
+        rev = k % 10
+        palin = palin * 10 + rev
+        k = k // 10
+    return palin
+
+***Example ends here:
+def change_string ( s0 ) :
+    s = list ( s0 )
+    n = len ( s0 )
+    if s [ 0 ] == '?' :
+        s [ 0 ] = 'a'
+        if s [ 0 ] == s [ 1 ] :
+            s [ 0 ] += 1
+    for i in range ( 1 , n - 1 ) :
+        if s [ i ] == '?' :
+            s [ i ] = 'a'
+            if s [ i ] == s [ i - 1 ] :
+                s [ i ] += 1
+            if s [ i ] == s [ i + 1 ] :
+                s [ i ] += 1
+            if s [ i ] == s [ i - 1 ] :
+                s [ i ] += 1
+    if s [ n - 1 ] == '?' :
+        s [ n - 1 ] = 'a'
+        if s [ n - 1 ] == s [ n - 2 ] :
+            s [ n - 1 ] += 1
+    return ''.join ( s )
+
+***Example ends here:
+def total_hamming_distance ( n ) :
+    i , sum = 1 , 0
+    while n // i > 0 :
+        sum = sum + n // i
+        i = i * 2
+    return sum
+
+***Example ends here:
+def check_bitonic ( s ) :
+    i = 1
+    for i in range ( len ( s ) ) :
+        if s [ i ] > s [ i - 1 ] :
+            continue
+        if s [ i ] <= s [ i - 1 ] :
+            break
+    if i == len ( s ) - 1 :
+        return 1
+    j = i + 1
+    for j in range ( len ( s ) ) :
+        if s [ j ] < s [ j - 1 ] :
+            continue
+        if s [ j ] >= s [ j - 1 ] :
+            break
+    i = j
+    if i != len ( s ) :
+        return 0
+    return 1
+
+***Example ends here:
+def endswith ( str , pat ) :
+    patLen = len ( pat )
+    strLen = len ( str )
+    if patLen > strLen :
+        return False
+    patLen -= 1
+    strLen -= 1
+    while patLen >= 0 :
+        if pat [ patLen ] != str [ strLen ] :
+            return False
+        patLen -= 1
+        strLen -= 1
+    return True
+
+***Example ends here:
+def get_sum ( n , d ) :
+    if n < d :
+        return 0
+    while n % 10 != d :
+        n -= 1
+    k = n // 10
+    return ( k + 1 ) * d + ( k * 10 + 10 * k * k ) // 2
+
+***Example ends here:
+def balancedStringBySwapping ( s ) :
+    unbalancedPair = 0
+    for c in s :
+        if unbalancedPair > 0 and c in " ] " :
+            unbalancedPair -= 1
+        elif c in " [ " :
+            unbalancedPair += 1
+    return ( unbalancedPair + 1 ) // 2
+
+***Example ends here:
+def compute_hash ( s ) :
+    p = 31
+    mod = int ( 1e9 ) + 7
+    hash_val = 0
+    mul = 1
+    for ch in s :
+        hash_val = ( hash_val + ( ch - 'a' + 1 ) * mul ) % mod
+        mul = mul * p % mod
+    return int ( hash_val )
+
+***Example ends here:
+def count_of_substring_with_only_ones ( s ) :
+    res , count = 0 , 0
+    for c in s :
+        count = count + 1 if c == '1' else 0
+        res = res + count
+    return res
+
+***Example ends here:
+def composite ( n ) :
+    flag = 0
+    c = 0
+    for j in range ( 1 , n + 1 ) :
+        if n % j == 0 :
+            c += 1
+    if c >= 3 :
+        flag = 1
+    return flag
+
+***Example ends here:
+def is_div_by_six ( s , n ) :
+    sum = 0
+    for i in range ( n ) :
+        sum += ord ( s [ i ] ) - ord ( 'a' ) + 1
+    if sum % 3 != 0 :
+        return False
+    last_digit = ( ord ( s [ n - 1 ] ) - ord ( 'a' ) + 1 ) % 10
+    if last_digit % 2 != 0 :
+        return False
+    return True
+
+***Example ends here:
+def is_redundant_braces ( s ) :
+    a , b = 0 , 0
+    for i in range ( len ( s ) ) :
+        if s [ i ] in "(" and s [ i + 2 ] in ")" :
+            return True
+        if s [ i ] in "*" or s [ i ] in "+" or s [ i ] in "-" or s [ i ] in "/" :
+            a += 1
+        if s [ i ] in "(" :
+            b += 1
+    if b > a :
+        return True
+    return False
+
+***Example ends here:
+def count_sub_str ( s , n ) :
+    count = 0
+    for i in range ( n - 2 ) :
+        if s [ i ] == '0' and s [ i + 1 ] == '1' and s [ i + 2 ] == '0' :
+            count += 1
+            i += 3
+        elif s [ i ] == '1' and s [ i + 1 ] == '0' and s [ i + 2 ] == '1' :
+            count += 1
+            i += 3
+        else :
+            i += 1
+    return count
+
+***Example ends here:
+def prefix_occurrences ( s ) :
+    c = s [ 0 ]
+    count_c = 0
+    for c in s :
+        if c == c :
+            count_c += 1
+    return count_c
+
+***Example ends here:
+def is_valid ( s , len_ ) :
+    for i in range ( 1 , len_ ) :
+        if s [ i ] == s [ i - 1 ] :
+            return False
+    return True
+
+***Example ends here:
+def count ( s , k ) :
+    n = len ( s )
+    d = 0
+    count = 0
+    for c in s :
+        d += ord ( c )
+    if d % k == 0 :
+        count += 1
+    for c in s [ k : n ] :
+        prev = ord ( c ) - k
+        d -= prev
+        d += ord ( c )
+        if d % k == 0 :
+            count += 1
+    return count
+
+***Example ends here:
+def findSubstringCount ( s ) :
+    result = 0
+    n = len ( s )
+    i = 0
+    while i < n - 1 :
+        if s [ i ] + 1 == s [ i + 1 ] :
+            result += 1
+            while i < n - 1 and s [ i ] + 1 == s [ i + 1 ] :
+                i += 1
+        i += 1
+    return result
+
+***Example ends here:
+def find ( s1 , s2 ) :
+    len1 , len2 = len ( s1 ) , len ( s2 )
+    if len1 != len2 :
+        return False
+    d = [ 0 ] * len1
+    d [ 0 ] = s2 [ 0 ] - s1 [ 0 ]
+    for i in range ( 1 , len1 ) :
+        if s1 [ i ] > s2 [ i ] :
+            return False
+        else :
+            d [ i ] = s2 [ i ] - s1 [ i ]
+    for i in range ( len1 - 1 ) :
+        if d [ i ] < d [ i + 1 ] :
+            return False
+    return True
+
+***Example ends here:
+def isInGivenBase ( s , bas ) :
+    if bas > 16 :
+        return False
+    elif bas <= 10 :
+        for c in s :
+            if not ( ord ( c ) >= ord ( '0' ) and ord ( c ) < ord ( '0' + bas ) ) :
+                return False
+    else :
+        for c in s :
+            if not ( ( ord ( c ) >= ord ( '0' ) and ord ( c ) < ord ( '0' + bas ) ) or ( ord ( c ) >= ord ( 'A' ) and ord ( c ) < ord ( 'A' + bas - 10 ) ) ) :
+                return False
+    return True
+
+***Example ends here:
+def count_non_empty_substr ( s ) :
+    n = len ( s )
+    return n * ( n + 1 ) / 2
+
+***Example ends here:
+def even_decimal_value ( s , n ) :
+    result = 0
+    for i in range ( n ) :
+        for j in range ( i , n ) :
+            decimal_value = 0
+            power_of_2 = 1
+            for k in range ( i , j + 1 ) :
+                decimal_value += ( s [ k ] - '0' ) * power_of_2
+                power_of_2 *= 2
+            if decimal_value % 2 == 0 :
+                result += 1
+    return result
+
+***Example ends here:
+def calculate ( s ) :
+    ans = 6
+    for i in range ( 10 ) :
+        for j in range ( 10 ) :
+            for k in range ( 10 ) :
+                for l in range ( 10 ) :
+                    for m in range ( 10 ) :
+                        for n in range ( 10 ) :
+                            if i + j + k == l + m + n :
+                                c = 0
+                                if i != s [ 0 ] - '0' :
+                                    c += 1
+                                if j != s [ 1 ] - '0' :
+                                    c += 1
+                                if k != s [ 2 ] - '0' :
+                                    c += 1
+                                if l != s [ 3 ] - '0' :
+                                    c += 1
+                                if m != s [ 4 ] - '0' :
+                                    c += 1
+                                if n != s [ 5 ] - '0' :
+                                    c += 1
+                                if c < ans :
+                                    ans = c
+    return ans
+
+***Example ends here:
+def xor_zero ( s ) :
+    one_count , zero_count = 0 , 0
+    n = len ( s )
+    for i in range ( n ) :
+        if s [ i ] == '1' :
+            one_count += 1
+        else :
+            zero_count += 1
+    if one_count % 2 == 0 :
+        return zero_count
+    return one_count
+
+***Example ends here:
+def even_length ( n ) :
+    res = n
+    for j in range ( len ( n ) - 1 , - 1 , - 1 ) :
+        res += n [ j ]
+    return res
+
+***Example ends here:
+def count_substring_with_equal_ends ( s ) :
+    result = 0
+    n = len ( s )
+    for i in range ( n ) :
+        for j in range ( i , n ) :
+            if s [ i ] == s [ j ] :
+                result += 1
+    return result
+
+***Example ends here:
+def normal_slope ( a , b , x1 , y1 ) :
+    g = a / 2
+    f = b / 2
+    if g - x1 == 0 :
+        return - 1
+    slope = ( f - y1 ) / ( g - x1 )
+    if slope == 0 :
+        return - 2
+    return slope
+
+***Example ends here:
+def orthogonality ( x1 , y1 , x2 , y2 , r1 , r2 ) :
+    dsquare = ( x1 - x2 ) ** 2 + ( y1 - y2 ) ** 2
+    if dsquare == r1 ** 2 + r2 ** 2 :
+        return True
+    else :
+        return False
+
+***Example ends here:
+def find_area_shaded ( a ) :
+    sqArea = a * a
+    semiCircleArea = 3.14 * ( a * a ) / 8
+    shadedArea = 4 * semiCircleArea - sqArea
+    return shadedArea
+
+***Example ends here:
+def factorial ( a , b ) :
+    res = 1
+    for i in range ( 1 , a + b + 1 ) :
+        res = res * i
+    for i in range ( 1 , a + 1 ) :
+        res = res / i
+    for i in range ( 1 , b + 1 ) :
+        res = res / i
+    return res
+
+***Example ends here:
+def factorTree ( n ) :
+    height = 0
+    while n > 1 :
+        flag = False
+        for i in range ( 2 , math.sqrt ( n ) + 1 ) :
+            if n % i == 0 :
+                n = n // i
+                flag = True
+                break
+        height += 1
+        if not flag :
+            break
+    return height
+
+***Example ends here:
+def find_if_possible ( n , s , x ) :
+    if s >= x and s % 2 == x % 2 :
+        if n >= 3 :
+            return "Yes"
+        if n == 1 :
+            if s == x :
+                return "Yes"
+            else :
+                return "No"
+        if n == 2 :
+            c = ( s - x ) // 2
+            a = c
+            b = c
+            a = a + x
+            if ( a ^ b ) == x :
+                return "Yes"
+            else :
+                return "No"
+    return "No"
+
+***Example ends here:
+def maximum_triplet_xor ( a , b , c ) :
+    ans = 0
+    for i in range ( 30 , - 1 , - 1 ) :
+        cur = 1 << i
+        if a >= cur :
+            ans += cur
+            a -= cur
+        elif b >= cur :
+            ans += cur
+            b -= cur
+        elif c >= cur :
+            ans += cur
+            c -= cur
+    return ans
+
+***Example ends here:
+def item_type ( n ) :
+    count = 0
+    day = 1
+    while count + day * ( day + 1 ) // 2 < n :
+        count += day * ( day + 1 ) // 2
+        day += 1
+    for type in range ( day , 0 , - 1 ) :
+        count += type
+        if count >= n :
+            return type
+    return 0
+
+***Example ends here:
+def max_gcd_in_range ( l , r ) :
+    ans = 1
+    for z in range ( r , 1 , - 1 ) :
+        if r // z - ( l - 1 ) // z > 1 :
+            ans = z
+            break
+    return ans
+
+***Example ends here:
+def sum_of_digits ( n ) :
+    sum = 0
+    while n != 0 :
+        sum += n % 10
+        n = n // 10
+    return sum
+
+***Example ends here:
+def is_rep_unit_num ( n , b ) :
+    length = 0
+    count_one = 0
+    while n != 0 :
+        r = n % b
+        length += 1
+        if r == 1 :
+            count_one += 1
+        n = n // b
+    return count_one >= 3 and count_one == length
+
+***Example ends here:
+def is_straight_line_num ( n ) :
+    if n <= 99 :
+        return False
+    s = str ( n )
+    d = s [ 1 ] - s [ 0 ]
+    for i in range ( 2 , len ( s ) ) :
+        if s [ i ] - s [ i - 1 ] != d :
+            return False
+    return True
+
+***Example ends here:
+def get_count ( d , n ) :
+    no = n // d
+    result = no
+    for p in range ( 2 , 2 * no + 1 ) :
+        if no % p == 0 :
+            while no % p == 0 :
+                no //= p
+            result -= result // p
+    if no > 1 :
+        result -= result // no
+    return result
+
+***Example ends here:
+def is_even_parity ( x ) :
+    parity = 0
+    while x != 0 :
+        if x % 2 == 1 :
+            parity += 1
+        x = x >> 1
+    if parity % 2 == 0 :
+        return True
+    else :
+        return False
+
+***Example ends here:
+def is_perfect ( n ) :
+    sum = 1
+    for i in range ( 2 , n + 1 ) :
+        if n % i == 0 :
+            if i * i != n :
+                sum = sum + i + n // i
+            else :
+                sum = sum + i
+    if sum == n and n != 1 :
+        return n
+    return 0
+
+***Example ends here:
+def log_a_to_base_b ( a , b ) :
+    return 1 + log_a_to_base_b ( a // b , b ) if a > b - 1 else 0
+
+***Example ends here:
+def using_binary_search ( start , end , n , s ) :
+    if start >= end :
+        return start
+    mid = start + ( end - start ) // 2
+    total_sum = n * ( n + 1 ) // 2
+    mid_sum = mid * ( mid + 1 ) // 2
+    if total_sum - mid_sum <= s :
+        return using_binary_search ( start , mid , n , s )
+    return using_binary_search ( mid + 1 , end , n , s )
+
+***Example ends here:
+def min_int ( s ) :
+    s1 = list ( s )
+    for i in range ( len ( s ) ) :
+        if s1 [ i ] >= '5' :
+            s1 [ i ] = chr ( '9' - s1 [ i ] + ord ( '0' ) )
+    if s1 [ 0 ] == '0' :
+        s1 [ 0 ] = '9'
+    return ''.join ( s1 )
+
+***Example ends here:
+def count_triplets ( a , b , c ) :
+    ans = 0
+    for i in range ( 1 , a + 1 ) :
+        for j in range ( 1 , b + 1 ) :
+            for k in range ( 1 , c + 1 ) :
+                if i * k > j * j :
+                    ans += 1
+    return ans
+
+***Example ends here:
+def topsyTurvy ( s ) :
+    for c in s :
+        if c in [ '2' , '4' , '5' , '6' , '7' , '9' ] :
+            return False
+    return True
+
+***Example ends here:
+def sum_of_last_dig ( n , m ) :
+    sum = 0
+    k = n // m
+    arr = [ 0 ] * 10
+    for i in range ( 10 ) :
+        arr [ i ] = m * ( i + 1 ) % 10
+        sum += arr [ i ]
+    rem = k % 10
+    ans = k // 10 * sum
+    for i in range ( rem ) :
+        ans += arr [ i ]
+    return ans
+
+***Example ends here:
+def total_pay ( total_items , price_of_one_item , n , m ) :
+    free_items , actual = 0 , 0
+    free_items = total_items // ( n + m )
+    actual = total_items - free_items
+    amount = actual * price_of_one_item
+    return amount
+
+***Example ends here:
+def min_operations ( x , y , p , q ) :
+    if y % x != 0 :
+        return - 1
+    d = y // x
+    a = 0
+    while d % p == 0 :
+        d //= p
+        a += 1
+    b = 0
+    while d % q == 0 :
+        d //= q
+        b += 1
+    if d != 1 :
+        return - 1
+    return a + b
+
+***Example ends here:
+def is_mersenne ( n ) :
+    while n != 0 :
+        r = n % 2
+        if r == 0 :
+            return False
+        n //= 2
+    return True
+
+***Example ends here:
+def findThirdDigit ( n ) :
+    if n < 3 :
+        return 0
+    return ( 1 if n & 1 else 6 )
+
+***Example ends here:
+def is_odd_length ( num ) :
+    count = 0
+    while num > 0 :
+        num //= 10
+        count += 1
+    if count % 2 != 0 :
+        return True
+    return False
+
+***Example ends here:
+def check_is_possible ( l , r , k ) :
+    count = 0
+    for i in range ( l , r + 1 ) :
+        if i % k == 0 :
+            count += 1
+    return count > 1
+
+***Example ends here:
+def bytes ( kilobytes ) :
+    b = kilobytes * 1024
+    return b
+
+***Example ends here:
+def octahedralNum ( n ) :
+    return n * ( 2 * n * n + 1 ) / 3
+
+***Example ends here:
+def check_equal ( s ) :
+    for c in s :
+        if ord ( c ) != '1' and ord ( c ) != '0' and ord ( c ) != '8' :
+            return "No"
+    start , end = 0 , len ( s ) - 1
+    while start < end :
+        if s [ start ] != s [ end ] :
+            return "No"
+        start += 1
+        end -= 1
+    return "Yes"
+
+***Example ends here:
+def is_undulating ( n ) :
+    if len ( n ) <= 2 :
+        return False
+    for i in range ( 2 , len ( n ) ) :
+        if n [ i - 2 ] != n [ i ] :
+            return False
+    return True
+
+***Example ends here:
+def first_digit ( n ) :
+    while n >= 10 :
+        n //= 10
+    return n
+
+***Example ends here:
+def count_digit ( n ) :
+    if n == 0 :
+        return 0
+    return 1 + count_digit ( n // 10 )
+
+***Example ends here:
+def is_divisible_by_5 ( s ) :
+    n = len ( s )
+    return s [ n - 1 ] - '0' == 0 or s [ n - 1 ] - '0' == 5
+
+***Example ends here:
+def inv ( a , m ) :
+    m0 = m
+    x0 , x1 = 0 , 1
+    if m == 1 :
+        return 0
+    while a > 1 :
+        q = a // m
+        t = m
+        m = a % m
+        a = t
+        t = x0
+        x0 = x1 - q * x0
+        x1 = t
+    if x1 < 0 :
+        x1 += m0
+    return x1
+
+***Example ends here:
+def only_first_and_last_are_set ( n ) :
+    if n == 1 :
+        return True
+    if n == 2 :
+        return False
+    return ( ( n - 1 ) & ( n - 2 ) ) == 0
+
+***Example ends here:
+def divide ( dividend , divisor ) :
+    sign = ( - 1 if ( dividend < 0 ) ^ ( divisor < 0 ) else 1 )
+    dividend = abs ( dividend )
+    divisor = abs ( divisor )
+    quotient = 0
+    temp = 0
+    for i in range ( 31 , - 1 , - 1 ) :
+        if temp + ( int ( divisor ) << i ) <= dividend :
+            temp += int ( divisor ) << i
+            quotient |= 1 << i
+    if sign == - 1 :
+        quotient = - quotient
+    return quotient
+
+***Example ends here:
+def find_profession ( level , pos ) :
+    if level == 1 :
+        return 'e'
+    if find_profession ( level - 1 , ( pos + 1 ) // 2 ) == 'd' :
+        return 'd' if pos % 2 != 0 else 'e'
+    return 'e' if pos % 2 != 0 else 'd'
+
+***Example ends here:
+def has_close_elements ( numbers , threshold ) :
+    for i in range ( len ( numbers ) ) :
+        for j in range ( i + 1 , len ( numbers ) ) :
+            distance = abs ( numbers [ i ] - numbers [ j ] )
+            if distance < threshold :
+                return True
+    return False
+
+***Example ends here:
+def truncate_number ( number ) :
+    return number % 1.0
+
+***Example ends here:
+def below_zero ( operations ) :
+    balance = 0
+    for op in operations :
+        balance += op
+        if balance < 0 :
+            return True
+    return False
+
+***Example ends here:
+def mean_absolute_deviation ( numbers ) :
+    sum_num = 0
+    for num in numbers :
+        sum_num += num
+    mean = sum_num / len ( numbers )
+    sum_abs_diff = 0
+    for num in numbers :
+        sum_abs_diff += abs ( num - mean )
+    return sum_abs_diff / len ( numbers )
+
+***Example ends here:
+def intersperse ( numbers , delimiter ) :
+    result = [ ]
+    if not numbers :
+        return result
+    for i in range ( len ( numbers ) - 1 ) :
+        result.append ( numbers [ i ] )
+        result.append ( delimiter )
+    result.append ( numbers [ - 1 ] )
+    return result
+
+***Example ends here:
+def sum_product ( numbers ) :
+    sum_value = 0
+    prod_value = 1
+    for n in numbers :
+        sum_value += n
+        prod_value *= n
+    return [ sum_value , prod_value ]
+
+***Example ends here:
+def all_prefixes ( s ) :
+    result = [ ]
+    for i in range ( 1 , len ( s ) + 1 ) :
+        result.append ( s [ : i ] )
+    return result
+
+***Example ends here:
+def parse_music ( music_string ) :
+    current = [ ]
+    result = [ ]
+    for i in range ( 0 , len ( music_string ) + 1 ) :
+        if i == len ( music_string ) or music_string [ i ] == ' ' :
+            if 'o' in current :
+                result.append ( 4 )
+            if 'o|' in current :
+                result.append ( 2 )
+            if '.|' in current :
+                result.append ( 1 )
+            current = [ ]
+        else :
+            current.append ( music_string [ i ] )
+    return result
+
+***Example ends here:
+def strlen ( s ) :
+    return len ( s )
+
+***Example ends here:
+def factorize ( n ) :
+    factors = [ ]
+    for i in range ( 2 , n + 1 ) :
+        if n % i == 0 :
+            n //= i
+            factors.append ( i )
+            i -= 1
+    return factors
+
+***Example ends here:
+def concatenate ( strings ) :
+    result = [ ]
+    for s in strings :
+        result.append ( s )
+    return ''.join ( result )
+
+***Example ends here:
+def get_positive ( l ) :
+    result = [ ]
+    for i in l :
+        if i > 0 :
+            result.append ( i )
+    return result
+
+***Example ends here:
+def sort_even ( l ) :
+    evens = [ l [ i ] for i in range ( 0 , len ( l ) , 2 ) ]
+    evens.sort ( )
+    result = [ ]
+    for i in range ( len ( l ) ) :
+        if i % 2 == 0 :
+            result.append ( evens [ i // 2 ] )
+        if i % 2 == 1 :
+            result.append ( l [ i ] )
+    return result
+
+***Example ends here:
+def decode_cyclic ( s ) :
+    output = [ ]
+    i = 0
+    while i <= len ( s ) - 3 :
+        x = s [ i + 2 ] + s [ i : i + 2 ]
+        output.append ( x )
+        i += 3
+    return ''.join ( output ) + s [ i : ]
+
+***Example ends here:
+def car_race_collision ( n ) :
+    return int ( math.pow ( n , 2 ) )
+
+***Example ends here:
+def incr_list ( l ) :
+    result = [ ]
+    for i in l :
+        result.append ( i + 1 )
+    return result
+
+***Example ends here:
+def pairs_sum_to_zero ( l ) :
+    for i in range ( len ( l ) ) :
+        for j in range ( i + 1 , len ( l ) ) :
+            if l [ i ] + l [ j ] == 0 :
+                return True
+    return False
+
+***Example ends here:
+def change_base ( x , b ) :
+    ret = [ ]
+    while x > 0 :
+        ret.insert ( 0 , x % b )
+        x //= b
+    return ''.join ( ret )
+
+***Example ends here:
+def median ( l ) :
+    l.sort ( )
+    if len ( l ) % 2 == 1 :
+        return l [ len ( l ) // 2 ]
+    return ( l [ len ( l ) // 2 - 1 ] + l [ len ( l ) // 2 ] ) / 2.0
+
+***Example ends here:
+def decode_shift ( s ) :
+    s = [ ]
+    for ch in s :
+        w = chr ( ( ord ( ch ) + 21 - ord ( 'a' ) ) % 26 + ord ( 'a' ) )
+        s.append ( w )
+    return ''.join ( s )
+
+***Example ends here:
+def below_threshold ( l , t ) :
+    for n in l :
+        if n >= t :
+            return False
+    return True
+
+***Example ends here:
+def correct_brackets ( brackets ) :
+    depth = 0
+    for b in brackets :
+        if b == '<' :
+            depth += 1
+        if b == '>' :
+            depth -= 1
+        if depth < 0 :
+            return False
+    return depth == 0
+
+***Example ends here:
+def monotonic ( l ) :
+    incr = 0
+    decr = 0
+    for i in range ( 1 , len ( l ) ) :
+        if l [ i ] > l [ i - 1 ] :
+            incr = 1
+        if l [ i ] < l [ i - 1 ] :
+            decr = 1
+    return incr + decr != 2
+
+***Example ends here:
+def derivative ( xs ) :
+    result = [ ]
+    for i in xs [ 1 : ] :
+        result.append ( i * i )
+    return result
+
+***Example ends here:
+def vowels_count ( s ) :
+    vowels = 'aeiouAEIOU'
+    count = 0
+    for ch in s :
+        if ch in vowels :
+            count += 1
+    if s [ - 1 ] in [ 'y' , 'Y' ] :
+        count += 1
+    return count
+
+***Example ends here:
+def digital_sum ( s ) :
+    sum = 0
+    for c in s :
+        if c.isupper ( ) :
+            sum += ord ( c )
+    return sum
+
+***Example ends here:
+def fruit_distribution ( s , n ) :
+    num1 = [ ]
+    num2 = [ ]
+    flag = False
+    for c in s :
+        if c.isdigit ( ) :
+            if not flag :
+                num1.append ( c )
+            if flag :
+                num2.append ( c )
+        elif not flag and len ( num1 ) > 0 :
+            flag = True
+    return n - int ( ''.join ( num1 ) ) - int ( ''.join ( num2 ) )
+
+***Example ends here:
+def pluck ( arr ) :
+    result = [ ]
+    for i in range ( len ( arr ) ) :
+        if arr [ i ] % 2 == 0 :
+            if not result :
+                result.append ( arr [ i ] )
+                result.append ( i )
+            elif arr [ i ] < result [ 0 ] :
+                result [ 0 ] = arr [ i ]
+                result [ 1 ] = i
+    return result
+
+***Example ends here:
+def strangeSortList ( lst ) :
+    res = [ ]
+    lst.sort ( )
+    l = 0
+    r = len ( lst ) - 1
+    while l < r :
+        res.append ( lst [ l ] )
+        l += 1
+        res.append ( lst [ r ] )
+        r -= 1
+    if l == r :
+        res.append ( lst [ l ] )
+    return res
+
+***Example ends here:
+def triangle_area ( a , b , c ) :
+    if a + b <= c or a + c <= b or b + c <= a :
+        return - 1
+    s = ( a + b + c ) / 2
+    return math.sqrt ( s * ( s - a ) * ( s - b ) * ( s - c ) )
+
+***Example ends here:
+def willItFly ( q , w ) :
+    sum = 0
+    for i in range ( len ( q ) ) :
+        if not q [ i ] == q [ - i - 1 ] :
+            return False
+        sum += q [ i ]
+    return sum <= w
+
+***Example ends here:
+def is_cube ( a ) :
+    a = abs ( a )
+    i = int ( round ( pow ( a , 1.0 / 3 ) ) )
+    return int ( pow ( i , 3 ) ) == a
+
+***Example ends here:
+def hex_key ( num ) :
+    key = '2357BD'
+    total = 0
+    for c in num :
+        if c in key :
+            total += 1
+    return total
+
+***Example ends here:
+def decimal_to_binary ( dec ) :
+    ans = [ ]
+    if dec != 0 :
+        while dec > 0 :
+            ans.insert ( 0 , dec % 2 )
+            dec //= 2
+    else :
+        ans.append ( '0' )
+    return 'db' + ''.join ( ans ) + 'db'
+
+***Example ends here:
+def prime_length ( s ) :
+    l = len ( s )
+    if l < 2 :
+        return False
+    for i in range ( 2 , l ) :
+        if l % i == 0 :
+            return False
+    return True
+
+***Example ends here:
+def startsOneEnds ( n ) :
+    if n < 1 :
+        return 0
+    if n == 1 :
+        return 1
+    return int ( 18 * pow ( 10 , n - 2 ) )
+
+***Example ends here:
+def add ( lst ) :
+    sum = 0
+    for i in range ( 1 , len ( lst ) , 2 ) :
+        if lst [ i ] % 2 == 0 :
+            sum += lst [ i ]
+    return sum
+
+***Example ends here:
+def get_row ( lst , x ) :
+    coords = [ ]
+    for i in range ( len ( lst ) ) :
+        for j in range ( len ( lst [ i ] ) - 1 , - 1 , - 1 ) :
+            if lst [ i ] [ j ] == x :
+                coords.append ( [ i , j ] )
+    return coords
+
+***Example ends here:
+def next_smallest ( lst ) :
+    lst.sort ( )
+    for i in range ( 1 , len ( lst ) ) :
+        if not lst [ i ] == lst [ i - 1 ] :
+            return lst [ i ]
+    return - 1
+
+***Example ends here:
+def any_int ( a , b , c ) :
+    if round ( a ) != a or round ( b ) != b or round ( c ) != c :
+        return False
+    return a + b == c or a + c == b or b + c == a
+
+***Example ends here:
+def count_up_to ( n ) :
+    primes = [ ]
+    for i in range ( 2 , n ) :
+        is_prime = True
+        for j in range ( 2 , i ) :
+            if i % j == 0 :
+                is_prime = False
+                break
+        if is_prime :
+            primes.append ( i )
+    return primes
+
+***Example ends here:
+def closest_integer ( value ) :
+    w = float ( value )
+    return int ( round ( w ) )
+
+***Example ends here:
+def make_apile ( n ) :
+    result = [ ]
+    for i in range ( n ) :
+        result.append ( n + 2 * i )
+    return result
+
+***Example ends here:
+def word_strings ( s ) :
+    current = [ ]
+    words = [ ]
+    for i in range ( 0 , len ( s ) + 1 ) :
+        if i == len ( s ) or s [ i ] in "" or s [ i ] in "," :
+            if current :
+                words.append ( "".join ( current ) )
+                current = [ ]
+        else :
+            current.append ( s [ i ] )
+    return words
+
+***Example ends here:
+def rounded_avg ( n , m ) :
+    if n > m :
+        return '-1'
+    num = ( m + n ) // 2
+    ret = [ ]
+    while num > 0 :
+        ret.insert ( 0 , num % 2 )
+        num //= 2
+    return ''.join ( ret )
+
+***Example ends here:
+def unique_digits ( x ) :
+    digits = [ ]
+    for i in x :
+        is_unique = True
+        for c in str ( i ) :
+            if c % 2 == 0 :
+                is_unique = False
+                break
+        if is_unique :
+            digits.append ( i )
+    digits.sort ( )
+    return digits
+
+***Example ends here:
+def count_nums ( arr ) :
+    num = 0
+    for n in arr :
+        neg = - 1 if n < 0 else 1
+        n = abs ( n )
+        digits = [ c - '0' for c in str ( n ) ]
+        digits [ 0 ] = digits [ 0 ] * neg
+        sum = 0
+        for d in digits :
+            sum += d
+        if sum > 0 :
+            num += 1
+    return num
+
+***Example ends here:
+def move_one_ball ( arr ) :
+    if not arr :
+        return True
+    num = 0
+    for i in range ( 1 , len ( arr ) ) :
+        if arr [ i ] < arr [ i - 1 ] :
+            num += 1
+    if arr [ - 1 ] > arr [ 0 ] :
+        num += 1
+    if num < 2 :
+        return True
+    return False
+
+***Example ends here:
+def exchange ( lst1 , lst2 ) :
+    odd = 0
+    even = 0
+    for n in lst1 :
+        if n % 2 == 1 :
+            odd += 1
+    for n in lst2 :
+        if n % 2 == 0 :
+            even += 1
+    if even >= odd :
+        return "YES"
+    return "NO"
+
+***Example ends here:
+def oddCount ( lst ) :
+    results = [ ]
+    originalStr = "the number of odd elements in the string i of the input."
+    for s in lst :
+        sum = 0
+        for d in s :
+            if d.isdigit ( ) and d % 2 == 1 :
+                sum += 1
+        result = [ ]
+        for c in originalStr :
+            if c == "i" :
+                result.append ( sum )
+            else :
+                result.append ( c )
+        results.append ( "".join ( result ) )
+    return results
+
+***Example ends here:
+def min_sub_array_sum ( nums ) :
+    min_sum = sys.maxint
+    sum = 0
+    for num in nums :
+        sum += num
+        if min_sum > sum :
+            min_sum = sum
+        if sum > 0 :
+            sum = 0
+    return min_sum
+
+***Example ends here:
+def max_fill ( grid , capacity ) :
+    res = 0
+    for well in grid :
+        sum = 0
+        for n in well :
+            sum += n
+        if sum > 0 :
+            res += ( sum - 1 ) / capacity + 1
+    return res
+
+***Example ends here:
+def select_words ( s , n ) :
+    vowels = 'aeiouAEIOU'
+    current = [ ]
+    result = [ ]
+    consonant_num = 0
+    for i in range ( 0 , len ( s ) + 1 ) :
+        if i == len ( s ) or s [ i ] == '' :
+            if consonant_num == n :
+                result.append ( ''.join ( current ) )
+            current = [ ]
+            consonant_num = 0
+        else :
+            current.append ( s [ i ] )
+            if vowels.find ( s [ i ] ) == - 1 :
+                consonant_num += 1
+    return result
+
+***Example ends here:
+def solution ( lst ) :
+    sum = 0
+    for i in range ( 0 , len ( lst ) , 2 ) :
+        if ( lst [ i ] % 2 ) == 1 :
+            sum += lst [ i ]
+    return sum
+
+***Example ends here:
+def add_elements ( arr , k ) :
+    sum = 0
+    for i in range ( k ) :
+        if arr [ i ] >= - 99 and arr [ i ] <= 99 :
+            sum += arr [ i ]
+    return sum
+
+***Example ends here:
+def get_oddcollatz ( n ) :
+    oddcollatz = [ ]
+    while n != 1 :
+        if n % 2 == 1 :
+            oddcollatz.append ( n )
+            n = n * 3 + 1
+        else :
+            n //= 2
+    oddcollatz.append ( 1 )
+    oddcollatz.sort ( )
+    return oddcollatz
+
+***Example ends here:
+def is_sorted ( lst ) :
+    for i in range ( 1 , len ( lst ) ) :
+        if lst [ i ] < lst [ i - 1 ] :
+            return False
+        if i >= 2 and lst [ i ] == lst [ i - 1 ] and lst [ i ] == lst [ i - 2 ] :
+            return False
+    return True
+
+***Example ends here:
+def intersection ( interval1 , interval2 ) :
+    inter1 = max ( interval1 [ 0 ] , interval2 [ 0 ] )
+    inter2 = min ( interval1 [ 1 ] , interval2 [ 1 ] )
+    l = inter2 - inter1
+    if l < 2 :
+        return "NO"
+    for i in range ( 2 , l ) :
+        if l % i == 0 :
+            return "NO"
+    return "YES"
+
+***Example ends here:
+def prod_signs ( arr ) :
+    if not arr :
+        return - 32768
+    sum = 0
+    prods = 1
+    for i in arr :
+        sum += abs ( i )
+        if i == 0 :
+            prods = 0
+        if i < 0 :
+            prods = - prods
+    return sum * prods
+
+***Example ends here:
+def min_path ( grid , k ) :
+    n = len ( grid )
+    min_num = 0
+    for i in range ( n ) :
+        for j in range ( n ) :
+            if grid [ i ] [ j ] == 1 :
+                tmp = [ ]
+                if i != 0 :
+                    tmp.append ( grid [ i - 1 ] [ j ] )
+                if j != 0 :
+                    tmp.append ( grid [ i ] [ j - 1 ] )
+                if i != n - 1 :
+                    tmp.append ( grid [ i + 1 ] [ j ] )
+                if j != n - 1 :
+                    tmp.append ( grid [ i ] [ j + 1 ] )
+                min_num = min ( tmp )
+    ans = [ ]
+    for i in range ( k ) :
+        if i % 2 == 0 :
+            ans.append ( 1 )
+        else :
+            ans.append ( min_num )
+    return ans
+
+***Example ends here:
+def digits ( n ) :
+    prod = 0
+    for digit in str ( n ) :
+        if digit % 2 == 1 :
+            if prod == 0 :
+                prod = 1
+            prod *= digit - '0'
+    return prod
+
+***Example ends here:
+def is_nested ( s ) :
+    count = 0
+    max_count = 0
+    for ch in s :
+        if ch == '[' :
+            count += 1
+        if ch == ']' :
+            count -= 1
+        if count < 0 :
+            count = 0
+        if count > max_count :
+            max_count = count
+        if count <= max_count - 2 :
+            return True
+    return False
+
+***Example ends here:
+def sum_squares ( lst ) :
+    sum = 0
+    for i in lst :
+        sum += math.ceil ( i ) ** 2
+    return sum
+
+***Example ends here:
+def canArrange ( arr ) :
+    index = - 1
+    for i in range ( len ( arr ) ) :
+        if arr [ i ] <= i :
+            index = i
+    return index
+
+***Example ends here:
+def largestSmallestIntegers ( lst ) :
+    maxNeg , minPos = 0 , 0
+    for n in lst :
+        if n < 0 and ( maxNeg == 0 or n > maxNeg ) :
+            maxNeg = n
+        if n > 0 and ( minPos == 0 or n < minPos ) :
+            minPos = n
+    return [ maxNeg , minPos ]
+
+***Example ends here:
+def fix_spaces ( text ) :
+    res = [ ]
+    space_len = 0
+    for i in range ( 0 , len ( text ) + 1 ) :
+        if i == len ( text ) or text [ i ] != '' :
+            if space_len == 1 :
+                res.append ( '_' )
+            if space_len == 2 :
+                res.append ( '__' )
+            if space_len > 2 :
+                res.append ( '-' )
+            space_len = 0
+            if i != len ( text ) :
+                res.append ( text [ i ] )
+        else :
+            space_len += 1
+    return ''.join ( res )
+
+***Example ends here:
+def filename_check ( file_name ) :
+    digital_num , dotal_num = 0 , 0
+    if len ( file_name ) < 5 or not file_name [ 0 ].isalpha ( ) :
+        return "No"
+    suffix = file_name [ - 4 : ]
+    if suffix not in [ ".txt" , ".exe" , ".dll" ] :
+        return "No"
+    for c in file_name :
+        if c.isdigit ( ) :
+            digital_num += 1
+        if c == "." :
+            dotal_num += 1
+    if digital_num > 3 or dotal_num != 1 :
+        return "No"
+    return "Yes"
+
+***Example ends here:
+def sum_squares ( lst ) :
+    sum = 0
+    for i in range ( len ( lst ) ) :
+        if i % 3 == 0 :
+            sum += lst [ i ] * lst [ i ]
+        elif i % 4 == 0 :
+            sum += lst [ i ] * lst [ i ] * lst [ i ]
+        else :
+            sum += lst [ i ]
+    return sum
+
+***Example ends here:
+def words_in_sentence ( sentence ) :
+    result = [ ]
+    current = [ ]
+    for i in range ( 0 , len ( sentence ) + 1 ) :
+        if i == len ( sentence ) or sentence [ i ] == '' :
+            is_prime = True
+            l = len ( current )
+            if l < 2 :
+                is_prime = False
+            for j in range ( 2 , l ) :
+                if l % j == 0 :
+                    is_prime = False
+                    break
+            if is_prime :
+                result.append ( ''.join ( current ) + '' )
+            current = [ ]
+        else :
+            current.append ( sentence [ i ] )
+    if result :
+        result.pop ( )
+    return ''.join ( result )
+
+***Example ends here:
+def simplify ( x , n ) :
+    a , b , c , d = 0 , 0 , 0 , 0
+    for i in range ( len ( x ) ) :
+        if x [ i ] in "/" :
+            a = int ( x [ : i ] )
+            b = int ( x [ i + 1 : ] )
+    for i in range ( len ( n ) ) :
+        if n [ i ] in "/" :
+            c = int ( n [ : i ] )
+            d = int ( n [ i + 1 : ] )
+    return ( a * c ) % ( b * d ) == 0
+
+***Example ends here:
+def special_filter ( nums ) :
+    count = 0
+    for num in nums :
+        if num > 10 :
+            w = str ( num )
+            if w [ 0 ] % 2 == 1 and w [ - 1 ] % 2 == 1 :
+                count += 1
+    return count
+
+***Example ends here:
+def get_max_triples ( n ) :
+    arr = [ ]
+    for i in range ( 1 , n + 1 ) :
+        arr.append ( i * i - i + 1 )
+    count = 0
+    for i in range ( n ) :
+        for j in range ( i + 1 , n ) :
+            for k in range ( j + 1 , n ) :
+                if ( arr [ i ] + arr [ j ] + arr [ k ] ) % 3 == 0 :
+                    count += 1
+    return count
+
+***Example ends here:
+def double_the_difference ( lst ) :
+    sum = 0
+    for d in lst :
+        num = int ( round ( d ) )
+        if d == num :
+            if num > 0 and num % 2 == 1 :
+                sum += num * num
+    return sum
+
+***Example ends here:
+def compare ( game , guess ) :
+    result = [ ]
+    for i in range ( len ( game ) ) :
+        result.append ( abs ( game [ i ] - guess [ i ] ) )
+    return result
+
+***Example ends here:
+def strongest_extension ( class_name , extensions ) :
+    strongest = ""
+    max = None
+    for extension in extensions :
+        strength = 0
+        for chr in extension :
+            if chr.isupper ( ) :
+                strength += 1
+            if chr.islower ( ) :
+                strength -= 1
+        if strength > max :
+            max = strength
+            strongest = extension
+    return class_name + '.' + strongest
+
+***Example ends here:
+def int_to_miniroman ( number ) :
+    num = [ 1000 , 900 , 500 , 400 , 100 , 90 , 50 , 40 , 10 , 9 , 5 , 4 , 1 ]
+    sym = [ 'm' , 'cm' , 'd' , 'cd' , 'c' , 'xc' , 'l' , 'xl' , 'x' , 'ix' , 'v' , 'iv' , 'i' ]
+    pos = 0
+    res = [ ]
+    while number > 0 :
+        while number >= num [ pos ] :
+            res.append ( sym [ pos ] )
+            number -= num [ pos ]
+        if number > 0 :
+            pos += 1
+    return ''.join ( res )
+
+***Example ends here:
+def eat ( number , need , remaining ) :
+    return [ number + remaining , 0 ] if need > remaining else [ number + need , remaining - need ]
+
+***Example ends here:
+def do_algebra ( ops , operands ) :
+    nums = list ( operands )
+    current_ops = list ( ops )
+    i = len ( current_ops ) - 1
+    while i >= 0 :
+        if current_ops [ i ] == '**' :
+            nums [ i ] = int ( math.pow ( nums [ i ] , nums [ i + 1 ] ) )
+            nums.pop ( i + 1 )
+            current_ops.pop ( i )
+        i -= 1
+    i = 0
+    while i < len ( current_ops ) :
+        if current_ops [ i ] == '*' :
+            nums [ i ] = nums [ i ] * nums [ i + 1 ]
+            nums.pop ( i + 1 )
+            current_ops.pop ( i )
+        elif current_ops [ i ] == '//' :
+            nums [ i ] = nums [ i ] / nums [ i + 1 ]
+            nums.pop ( i + 1 )
+            current_ops.pop ( i )
+        else :
+            i += 1
+    i = 0
+    while i < len ( current_ops ) :
+        if current_ops [ i ] == '+' :
+            nums [ i ] = nums [ i ] + nums [ i + 1 ]
+            nums.pop ( i + 1 )
+            current_ops.pop ( i )
+        elif current_ops [ i ] == '-' :
+            nums [ i ] = nums [ i ] - nums [ i + 1 ]
+            nums.pop ( i + 1 )
+            current_ops.pop ( i )
+        else :
+            i += 1
+    return nums [ 0 ]
+
+***Example ends here:
+def generate_integers ( a , b ) :
+    lower = max ( 2 , min ( a , b ) )
+    upper = min ( 8 , max ( a , b ) )
+    result = [ ]
+    for i in range ( lower , upper + 1 , 2 ) :
+        result.append ( i )
+    return result
+
+***Example ends here:
+def is_step_num ( n ) :
+    prev_digit = - 1
+    while n > 0 :
+        cur_digit = n % 10
+        if prev_digit != - 1 :
+            if abs ( cur_digit - prev_digit ) != 1 :
+                return False
+        n //= 10
+        prev_digit = cur_digit
+    return True
+
+***Example ends here:
+def nb_ways ( n , k ) :
+    p = 1
+    if k % 2 :
+        p = - 1
+    return int ( pow ( n - 1 , k ) + p * ( n - 1 ) ) / n
+
+***Example ends here:
+def find_divisors ( n ) :
+    v = [ ]
+    for i in range ( 1 , math.sqrt ( n ) + 1 ) :
+        if n % i == 0 :
+            if n / i == i :
+                v.append ( i )
+            else :
+                v.append ( i )
+                v.append ( n / i )
+    return v
+
+***Example ends here:
+def eggDrop ( n , k ) :
+    if k == 1 or k == 0 :
+        return k
+    if n == 1 :
+        return k
+    min = sys.maxsize
+    x , res = 0 , 0
+    for x in range ( 1 , k + 1 ) :
+        res = max ( eggDrop ( n - 1 , x - 1 ) , eggDrop ( n , k - x ) )
+        if res < min :
+            min = res
+    return min + 1
+
+***Example ends here:
+def is_power_of_two ( n ) :
+    if n == 0 :
+        return False
+    return math.ceil ( math.log ( n ) / math.log ( 2 ) ) == math.floor ( math.log ( n ) / math.log ( 2 ) )
+
+***Example ends here:
+def shortestPalindrome ( s ) :
+    n = len ( s )
+    v = [ ]
+    for i in range ( n ) :
+        l = i
+        r = i
+        ans1 = ""
+        ans2 = ""
+        while l >= 0 and r < n and s [ l ] == s [ r ] :
+            ans1 += s [ l ]
+            l -= 1
+            r += 1
+        l = i - 1
+        r = i
+        while l >= 0 and r < n and s [ l ] == s [ r ] :
+            ans2 += s [ l ]
+            l -= 1
+            r += 1
+        v.append ( ans1 )
+        v.append ( ans2 )
+    ans = v [ 0 ]
+    for i in range ( len ( v ) ) :
+        if v [ i ] != "" :
+            if ans [ 0 ] >= v [ i ] [ 0 ] :
+                ans = v [ i ]
+    return ans
+
+***Example ends here:
+def minimum_adjacent_difference ( a , n , k ) :
+    min_diff = sys.maxsize
+    for i in range ( 0 , k + 1 ) :
+        max_diff = sys.maxsize
+        for j in range ( n - k - 1 ) :
+            for p in range ( i , i + j + 1 ) :
+                max_diff = max ( max_diff , a [ p + 1 ] - a [ p ] )
+        min_diff = min ( min_diff , max_diff )
+    return min_diff
+
+***Example ends here:
+def cal ( arr , mid ) :
+    chocolate = 0
+    for i in arr :
+        if i >= mid :
+            chocolate += i - mid
+    return chocolate
+
+***Example ends here:
+def check ( v , a , m ) :
+    tec , ans = 0 , 0
+    b = list ( a )
+    for i in range ( len ( a ) ) :
+        tec -= b [ i ]
+        if a [ i ] + tec < v :
+            mov = v - a [ i ] - tec
+            ans = ans + mov
+            tec += mov
+            b [ i + 2 ] = mov
+    return ans <= m
+
+***Example ends here:
+def largestNum ( arr ) :
+    res = 0
+    arr.sort ( )
+    l , r = 0 , len ( arr ) - 1
+    while l < r :
+        sum = arr [ l ] + arr [ r ]
+        if sum == 0 :
+            res = max ( res , max ( arr [ l ] , arr [ r ] ) )
+            return res
+        elif sum < 0 :
+            l += 1
+        else :
+            r -= 1
+    return res
+
+***Example ends here:
+def binary_search ( p , n ) :
+    i = 0
+    j = len ( p ) - 1
+    index = - 1
+    while i <= j :
+        mid = i + ( j - i ) // 2
+        if p [ mid ] >= n :
+            index = mid
+            j = mid - 1
+        else :
+            i = mid + 1
+    return index
+
+***Example ends here:
+def find_min_length ( arr ) :
+    index = len ( arr ) - 1
+    while index > 0 and arr [ index ] >= arr [ index - 1 ] :
+        index -= 1
+    return index
+
+***Example ends here:
+def min_digits ( n , k ) :
+    digits_num = int ( math.floor ( math.log ( n ) + 1 ) )
+    temp_sum = 0
+    temp = digits_num
+    result = 0
+    x , v = 0 , 0
+    sum = 0
+    num2 = n
+    while num2 != 0 :
+        sum += num2 % 10
+        num2 //= 10
+    if sum <= k :
+        x = 0
+    else :
+        while temp > 0 :
+            v = n // int ( math.pow ( 10 , temp - 1 ) )
+            temp_sum += v % 10
+            if temp_sum >= k :
+                v //= 10
+                v += 1
+                result = v * int ( math.pow ( 10 , temp ) )
+                break
+            temp -= 1
+        x = result - n
+        return x
+    return - 1
+
+***Example ends here:
+def check_for_perfect_square ( arr , i , j ) :
+    mid , sum = 0 , 0
+    for m in range ( i , j + 1 ) :
+        sum += arr [ m ]
+    low , high = 0 , sum // 2
+    while low <= high :
+        mid = low + ( high - low ) // 2
+        if mid * mid == sum :
+            return mid
+        elif mid * mid > sum :
+            high = mid - 1
+        else :
+            low = mid + 1
+    return - 1
+
+***Example ends here:
+def minFlips ( mat , s ) :
+    n = len ( mat )
+    m = len ( mat [ 0 ] )
+    count = 0
+    for i in range ( n ) :
+        for j in range ( m ) :
+            if mat [ i ] [ j ] != s [ i + j ] - '0' :
+                count += 1
+    return count
+
+***Example ends here:
+def construct_tree ( n , edges ) :
+    adjl = [ [ ] for i in range ( n ) ]
+    for e in edges :
+        u = e [ 0 ]
+        v = e [ 1 ]
+        adjl [ u ].append ( v )
+        adjl [ v ].append ( u )
+    return adjl
+
+***Example ends here:
+def find_sum_of_values ( v , parent , values_children ) :
+    curNode = v
+    sum = 0
+    while curNode != - 1 :
+        sum += values_children [ curNode ]
+        curNode = parent [ curNode ]
+    return sum
+
+***Example ends here:
+def get_distinct ( d , count ) :
+    num = 0
+    count = int ( math.pow ( 10 , count - 1 ) )
+    while count > 0 :
+        num += count * d
+        count //= 10
+    return num
+
+***Example ends here:
+def is_increasing ( arr ) :
+    for i in range ( len ( arr ) - 1 ) :
+        if arr [ i ] > arr [ i + 1 ] :
+            return False
+    return True
+
+***Example ends here:
+def min_adj_swaps ( mat ) :
+    n = len ( mat )
+    cntzero = list ( range ( n ) )
+    for i in range ( n ) :
+        for j in range ( n - 1 , - 1 , - 1 ) :
+            cntzero [ i ] = cntzero [ i ] + 1
+    cntswaps = 0
+    for i in range ( n ) :
+        if cntzero [ i ] < ( n - i - 1 ) :
+            first = i
+            while first < n and cntzero [ first ] < ( n - i - 1 ) :
+                first += 1
+            if first == n :
+                return - 1
+            while first > i :
+                cntzero [ first ] = first - 1
+                first -= 1
+                cntswaps += 1
+    return cntswaps
+
+***Example ends here:
+def solve ( values , salary , mod ) :
+    ret = 1
+    amt = 0
+    values.sort ( )
+    salary.sort ( )
+    while salary :
+        while values and values [ - 1 ] >= salary [ - 1 ] :
+            amt += 1
+            values.pop ( )
+        if amt == 0 :
+            return 0
+        ret *= amt
+        amt -= 1
+        ret %= mod
+        salary.pop ( )
+    return ret
+
+***Example ends here:
+def organize_in_order ( vec , op , n ) :
+    result = list ( range ( n ) )
+    vec.sort ( )
+    i , j , k = 0 , n - 1 , 0
+    while i <= j and k <= n - 2 :
+        if op [ k ] == '<' :
+            result [ k ] = vec [ i ]
+            i += 1
+        else :
+            result [ k ] = vec [ j ]
+            j -= 1
+        k += 1
+    result [ n - 1 ] = vec [ i ]
+    return result
+
+***Example ends here:
+def count_points ( n , m , a , b , x , y ) :
+    a.sort ( )
+    b.sort ( )
+    j = 0
+    count = 0
+    for i in range ( n ) :
+        while j < m :
+            if a [ i ] + y < b [ j ] :
+                break
+            if b [ j ] >= a [ i ] - x and b [ j ] <= a [ i ] + y :
+                count += 1
+                j += 1
+                break
+            else :
+                j += 1
+    return count
+
+***Example ends here:
+def are_same ( a , b ) :
+    a.sort ( )
+    b.sort ( )
+    return a == b
+
+***Example ends here:
+def count_number_of_strings ( s ) :
+    n = len ( s ) - 1
+    count = int ( math.pow ( 2 , n ) )
+    return count
+
+***Example ends here:
+def prime_power ( x ) :
+    prime_pow = [ ]
+    for i in range ( 2 , x + 1 ) :
+        if x % i == 0 :
+            p = 1
+            while x % i == 0 :
+                x //= i
+                p *= i
+            prime_pow.append ( p )
+    if x > 1 :
+        prime_pow.append ( x )
+    return prime_pow
+
+***Example ends here:
+def is_perfect ( n0 ) :
+    n = math.sqrt ( n0 )
+    if math.floor ( n ) != math.ceil ( n ) :
+        return False
+    return True
+
+***Example ends here:
+def find_sum ( l , r ) :
+    arr = [ ]
+    i = 0
+    x = 2
+    while i <= r :
+        arr.append ( i + x )
+        if i + 1 <= r :
+            arr.append ( i + 1 + x )
+        x *= - 1
+        i += 2
+    sum = 0
+    for i in range ( l , r + 1 ) :
+        sum += arr [ i ]
+    return sum
+
+***Example ends here:
+def results ( n , k ) :
+    return int ( round ( pow ( n , 1.0 / pow ( 2.0 , k ) ) ) )
+
+***Example ends here:
+def factors ( n ) :
+    v = [ 1 ]
+    for i in range ( 2 , math.sqrt ( n ) + 1 ) :
+        if n % i == 0 :
+            v.append ( i )
+            if n / i != i :
+                v.append ( n / i )
+    return v
+
+***Example ends here:
+def smallest_num ( n ) :
+    x = pow ( 10 , ( n - 1 ) / 2.0 )
+    return int ( math.ceil ( x ) )
+
+***Example ends here:
+def smallest ( s ) :
+    a = list ( s )
+    for c in s :
+        a [ c ] = ord ( c ) - ord ( '0' )
+    b = [ ]
+    for c in a :
+        if ord ( c ) % 2 :
+            b.append ( ord ( c ) )
+    b.sort ( )
+    if len ( b ) > 1 :
+        return b [ 0 ] * 10 + b [ 1 ]
+    return - 1
+
+***Example ends here:
+def Diagonals ( a , b , c , d ) :
+    ans = [ ]
+    ans.append ( math.sqrt ( ( a * c + b * d ) ** 2 / ( a * d + b * c ) ) )
+    ans.append ( math.sqrt ( ( a * c + b * d ) ** 2 / ( a * d + b * c ) ) )
+    return ans
+
+***Example ends here:
+def find_number_of_digits ( n , bas ) :
+    dig = int ( math.floor ( math.log ( n ) / math.log ( bas ) ) ) + 1
+    return dig
+
+***Example ends here:
+def nGon ( n ) :
+    if n % 4 == 0 :
+        proAngleVar = math.pi * ( 180.0 / n ) / 180
+    else :
+        proAngleVar = math.pi * ( 180.0 / ( 2 * n ) ) / 180
+    negX , posX , negY , posY = 1.0e+99 , - 1.0e+99 , - 1.0e+99 , - 1.0e+99
+    for j in range ( n ) :
+        px = math.cos ( 2 * math.pi * j / n + proAngleVar )
+        py = math.sin ( 2 * math.pi * j / n + proAngleVar )
+        negX = min ( negX , px )
+        posX = max ( posX , px )
+        negY = min ( negY , py )
+        posY = max ( posY , py )
+    opt2 = max ( posX - negX , posY - negY )
+    return opt2 / math.sin ( math.pi / n ) / 2
+
+***Example ends here:
+def find_max_k ( n ) :
+    p = int ( math.log ( n ) / math.log ( 2 ) )
+    return int ( math.pow ( 2 , p ) )
+
+***Example ends here:
+def nth_fibo ( n ) :
+    a = ( pow ( 5 , 0.5 ) + 1 ) / 2
+    b = ( - 1 * pow ( 5 , 0.5 ) + 1 ) / 2
+    r = pow ( 5 , 0.5 )
+    ans = ( pow ( a , n ) - pow ( b , n ) ) / r
+    return int ( ans )
+
+***Example ends here:
+def find_prob ( l , r ) :
+    count_of_ps = math.floor ( math.sqrt ( r ) ) - math.ceil ( math.sqrt ( l ) ) + 1
+    total = r - l + 1
+    prob = count_of_ps / total
+    return prob
+
+***Example ends here:
+def previous_fibonacci ( n ) :
+    a = n / ( ( 1 + math.sqrt ( 5 ) ) / 2.0 )
+    return int ( round ( a ) )
+
+***Example ends here:
+def dist_prime ( arr , all_primes ) :
+    list1 = [ ]
+    for i in all_primes :
+        for j in arr :
+            if j % i == 0 :
+                list1.append ( i )
+                break
+    return list1
+
+***Example ends here:
+def get_array ( n ) :
+    ans = [ ]
+    p2 = 1
+    while n > 0 :
+        if n % 2 == 1 :
+            ans.append ( p2 )
+        n >>= 1
+        p2 *= 2
+    return ans
+
+***Example ends here:
+def maximum_length ( a ) :
+    counts = list ( range ( 11 ) )
+    ans = 0
+    for index in range ( len ( a ) ) :
+        counts [ index ] = counts [ index ] + 1
+        k = [ ]
+        for i in counts :
+            if i != 0 :
+                k.append ( i )
+        k.sort ( )
+        if len ( k ) == 1 or ( k [ 0 ] == k [ - 2 ] and k [ - 1 ] - k [ - 2 ] == 1 ) or ( k [ 0 ] == 1 and k [ 1 ] == k [ - 1 ] ) :
+            ans = index
+    return ans + 1
+
+***Example ends here:
+def max_edges ( n ) :
+    edges = math.floor ( n * n / 4 )
+    return int ( edges )
+
+***Example ends here:
+def find_k ( n , k ) :
+    a = [ ]
+    for i in range ( 1 , n ) :
+        if i % 2 == 1 :
+            a.append ( i )
+    for i in range ( 1 , n ) :
+        if i % 2 == 0 :
+            a.append ( i )
+    return a [ k - 1 ]
+
+***Example ends here:
+def is_keith ( x , temp ) :
+    terms = [ ]
+    n = 0
+    while temp > 0 :
+        terms.append ( temp % 10 )
+        temp = temp // 10
+        n += 1
+    terms.reverse ( )
+    next_term , i = 0 , n
+    while next_term < x :
+        next_term = 0
+        for j in range ( 1 , n + 1 ) :
+            next_term += terms [ i - j ]
+        terms.append ( next_term )
+        i += 1
+    return next_term == x
+
+***Example ends here:
+def factors ( n , k ) :
+    v = [ ]
+    while n % 2 == 0 :
+        v.append ( 2 )
+        n //= 2
+    if len ( v ) >= k :
+        return True
+    for i in range ( 3 , 2 * n + 1 , 2 ) :
+        while n % i == 0 :
+            n = n // i
+            v.append ( i )
+        if len ( v ) >= k :
+            return True
+    if n > 2 :
+        v.append ( n )
+    if len ( v ) >= k :
+        return True
+    return False
+
+***Example ends here:
+def separate_paren_groups ( paren_string ) :
+    all_parens = [ ]
+    current_paren = [ ]
+    current_depth = 0
+    for c in paren_string :
+        if c == '(' :
+            current_depth += 1
+            current_paren.append ( c )
+        elif c == ')' :
+            current_depth -= 1
+            current_paren.append ( c )
+            if current_depth == 0 :
+                all_parens.append ( ''.join ( current_paren ) )
+                current_paren = [ ]
+    return all_parens
+
+***Example ends here:
+def parse_nested_parens ( paren_string ) :
+    all_levels = [ ]
+    level = 0
+    max_level = 0
+    for chr in paren_string :
+        if chr == '(' :
+            level += 1
+            if level > max_level :
+                max_level = level
+        if chr == ')' :
+            level -= 1
+            if level == 0 :
+                all_levels.append ( max_level )
+                max_level = 0
+    return all_levels
+
+***Example ends here:
+def filter_by_substring ( strings , substring ) :
+    result = [ ]
+    for s in strings :
+        if substring in s :
+            result.append ( s )
+    return result
+
+***Example ends here:
+def rolling_max ( numbers ) :
+    result = [ ]
+    running_max = 0
+    for n in numbers :
+        if n > running_max :
+            running_max = n
+        result.append ( running_max )
+    return result
+
+***Example ends here:
+def make_palindrome ( s ) :
+    if not s :
+        return ''
+    for i , r_str in enumerate ( s ) :
+        if r_str == u'' :
+            n_str = s [ : i ]
+            n2_str = u''.join ( reversed ( n_str ) )
+            return s + n2_str
+    return s [ : - 1 ] + u''.join ( reversed ( s ) )
+
+***Example ends here:
+def string_xor ( a , b ) :
+    result = [ ]
+    for c in a :
+        if c == b [ c ] :
+            result.append ( '0' )
+        else :
+            result.append ( '1' )
+    return ''.join ( result )
+
+***Example ends here:
+def longest ( strings ) :
+    if not strings :
+        return ''
+    max_len = max ( len ( s ) for s in strings )
+    for s in strings :
+        if len ( s ) == max_len :
+            return s
+    return ''
+
+***Example ends here:
+def StringSequence ( n ) :
+    s = [ ]
+    for i in range ( n ) :
+        s.append ( '%d %d' % ( i , n ) )
+    return ''.join ( s )
+
+***Example ends here:
+def count_distinct_characters ( s ) :
+    distinct = set ( )
+    for c in s.lower ( ) :
+        distinct.add ( c )
+    return len ( distinct )
+
+***Example ends here:
+def howManyTimes ( s , sub ) :
+    times = 0
+    for i in range ( 0 , len ( s ) - len ( sub ) + 1 ) :
+        if s.startswith ( sub [ i ] ) :
+            times += 1
+    return times
+
+***Example ends here:
+def sort_numbers ( numbers ) :
+    to_num = dict ( zero = 0 , one = 1 , two = 2 , three = 3 , four = 4 , five = 5 , six = 6 , seven = 7 , eight = 8 , nine = 9 )
+    from_num = dict ( zero = 0 , one = 1 , two = 2 , three = 3 , four = 4 , four = 5 , five = 6 , six = 7 , seven = 8 , eight = 9 , nine = 9 )
+    ints = [ ]
+    current = [ ]
+    for i in range ( 0 , len ( numbers ) + 1 ) :
+        if i == len ( numbers ) or numbers [ i ] == '' :
+            if current [ i ] in to_num :
+                ints.append ( to_num [ current [ i ] ] )
+                current = [ ]
+        else :
+            current.append ( numbers [ i ] )
+    ints.sort ( )
+    result = [ ]
+    for i , num in enumerate ( ints ) :
+        result.append ( from_num [ num [ num ] ] )
+        if i != len ( ints ) - 1 :
+            result.append ( '' )
+    return ''.join ( result )
+
+***Example ends here:
+def find_closest_elements ( numbers ) :
+    closest_pair = [ numbers [ 0 ] , numbers [ 1 ] ]
+    distance = abs ( numbers [ 0 ] - numbers [ 1 ] )
+    for i in range ( len ( numbers ) ) :
+        for j in range ( i + 1 , len ( numbers ) ) :
+            if abs ( numbers [ i ] - numbers [ j ] ) < distance :
+                closest_pair [ 0 ] = numbers [ i ]
+                closest_pair [ 1 ] = numbers [ j ]
+                distance = abs ( numbers [ i ] - numbers [ j ] )
+    closest_pair.sort ( )
+    return closest_pair
+
+***Example ends here:
+def rescale_to_unit ( numbers ) :
+    min_num = min ( numbers )
+    max_num = max ( numbers )
+    result = [ ( n - min_num ) / ( max_num - min_num ) for n in numbers ]
+    return result
+
+***Example ends here:
+def filter_intergers ( values ) :
+    result = [ ]
+    for e in values :
+        if isinstance ( e , int ) :
+            result.append ( e )
+    return result
+
+***Example ends here:
+def remove_duplicates ( numbers ) :
+    c = { }
+    for i in numbers :
+        c [ i ] = c.get ( i , 0 ) + 1
+    result = [ ]
+    for i in numbers :
+        if c [ i ] == 1 :
+            result.append ( i )
+    return result
+
+***Example ends here:
+def flip_case ( s ) :
+    result = [ ]
+    for c in s :
+        if c.islower ( ) :
+            result.append ( c.upper ( ) )
+        else :
+            result.append ( c.lower ( ) )
+    return ''.join ( result )
+
+***Example ends here:
+def filter_by_prefix ( strings , prefix ) :
+    result = [ ]
+    for i in strings :
+        if i.startswith ( prefix ) :
+            result.append ( i )
+    return result
+
+***Example ends here:
+def find_zero ( xs ) :
+    ans = 0
+    value = 0
+    for i in xs :
+        value += i * pow ( ans , i )
+    while abs ( value ) > 1e-6 :
+        driv = 0
+        for i in xs [ 1 : ] :
+            driv += i * pow ( ans , i - 1 ) * i
+        ans -= value / driv
+        value = 0
+        for i in xs :
+            value += i * pow ( ans , i )
+    return ans
+
+***Example ends here:
+def sort_third ( l ) :
+    thirds = [ ]
+    for i in range ( 0 , len ( l ) , 3 ) :
+        thirds.append ( l [ i ] )
+    thirds.sort ( )
+    result = [ ]
+    for i in range ( len ( l ) ) :
+        if i % 3 == 0 :
+            result.append ( thirds [ i // 3 ] )
+        else :
+            result.append ( l [ i ] )
+    return result
+
+***Example ends here:
+def unique ( l ) :
+    result = list ( set ( l ) )
+    result.sort ( )
+    return result
+
+***Example ends here:
+def max_element ( l ) :
+    return max ( l )
+
+***Example ends here:
+def triple_sum_to_zero ( l ) :
+    for i in range ( len ( l ) ) :
+        for j in range ( i + 1 , len ( l ) ) :
+            for k in range ( j + 1 , len ( l ) ) :
+                if l [ i ] + l [ j ] + l [ k ] == 0 :
+                    return True
+    return False
+
+***Example ends here:
+def fib4 ( n ) :
+    results = [ 0 , 0 , 2 , 0 ]
+    for i in range ( 4 , n + 1 ) :
+        results.append ( results [ i - 4 ] + results [ i - 3 ] + results [ i - 2 ] + results [ i - 1 ] )
+    return results [ n ]
+
+***Example ends here:
+def is_palindrome ( text ) :
+    pr = list ( reversed ( text ) )
+    return pr == text
+
+***Example ends here:
+def remove_vowels ( text ) :
+    result = [ ]
+    vowels = 'aeiou'
+    for ch in text :
+        if vowels.find ( ch.lower ( ) ) == - 1 :
+            result.append ( ch )
+    return ''.join ( result )
+
+***Example ends here:
+def same_chars ( s0 , s1 ) :
+    set0 = set ( )
+    for c in s0 :
+        set0.add ( c )
+    set1 = set ( )
+    for c in s1 :
+        set1.add ( c )
+    return set0 == set1
+
+***Example ends here:
+def common ( l1 , l2 ) :
+    us = set ( )
+    for e1 in l1 :
+        for e2 in l2 :
+            if e1 == e2 :
+                us.add ( e1 )
+    ret = list ( us )
+    ret.sort ( )
+    return ret
+
+***Example ends here:
+def correct_brackets ( brackets ) :
+    depth = 0
+    for b in brackets :
+        if b == '(' :
+            depth += 1
+        if b == ')' :
+            depth -= 1
+        if depth < 0 :
+            return False
+    return depth == 0
+
+***Example ends here:
+def circular_shift ( x , shift ) :
+    xs = str ( x )
+    if shift > len ( xs ) :
+        return ''.join ( reversed ( xs ) )
+    return xs [ - shift : ] + xs [ : - shift ]
+
+***Example ends here:
+def search ( lst ) :
+    counter = { }
+    for i in lst :
+        counter [ i ] = counter.get ( i , 0 ) + 1
+    ans = - 1
+    for item in counter.items ( ) :
+        if item [ 1 ] >= item [ 0 ] and item [ 0 ] > ans :
+            ans = item [ 0 ]
+    return ans
+
+***Example ends here:
+def smallest_change ( arr ) :
+    ans = 0
+    for i in range ( len ( arr ) // 2 ) :
+        if not arr [ i ] == arr [ - i - 1 ] :
+            ans += 1
+    return ans
+
+***Example ends here:
+def total_match ( lst1 , lst2 ) :
+    sum1 = 0
+    for st in lst1 :
+        sum1 += len ( st )
+    sum2 = 0
+    for st in lst2 :
+        sum2 += len ( st )
+    return lst2 if sum1 > sum2 else lst1
+
+***Example ends here:
+def is_happy ( s ) :
+    if len ( s ) < 3 :
+        return False
+    for i in range ( len ( s ) - 2 ) :
+        if s [ i ] == s [ i + 1 ] or s [ i ] == s [ i + 2 ] or s [ i + 1 ] == s [ i + 2 ] :
+            return False
+    return True
+
+***Example ends here:
+def numerical_letter_grade ( grades ) :
+    letter_grade = [ ]
+    for gpa in grades :
+        if gpa == 4.0 :
+            letter_grade.append ( "A+" )
+        elif gpa > 3.7 :
+            letter_grade.append ( "A" )
+        elif gpa > 3.3 :
+            letter_grade.append ( "A-" )
+        elif gpa > 3.0 :
+            letter_grade.append ( "B+" )
+        elif gpa > 2.7 :
+            letter_grade.append ( "B" )
+        elif gpa > 2.3 :
+            letter_grade.append ( "B-" )
+        elif gpa > 2.0 :
+            letter_grade.append ( "C+" )
+        elif gpa > 1.7 :
+            letter_grade.append ( "C" )
+        elif gpa > 1.3 :
+            letter_grade.append ( "C-" )
+        elif gpa > 1.0 :
+            letter_grade.append ( "D+" )
+        elif gpa > 0.7 :
+            letter_grade.append ( "D" )
+        elif gpa > 0.0 :
+            letter_grade.append ( "D-" )
+        else :
+            letter_grade.append ( "E" )
+    return letter_grade
+
+***Example ends here:
+def solve ( n ) :
+    bi_str = [ ]
+    sum = 0
+    for c in str ( n ) :
+        sum += ord ( c ) - ord ( '0' )
+    while sum > 0 :
+        bi_str.insert ( 0 , sum % 2 )
+        sum //= 2
+    return ''.join ( bi_str )
+
+***Example ends here:
+def anti_shuffle ( s ) :
+    ret = [ ]
+    current = [ ]
+    for i in range ( 0 , len ( s ) + 1 ) :
+        if i == len ( s ) or s [ i ] == '' :
+            tmp = ''.join ( current )
+            tmp.sort ( )
+            if not ret :
+                ret.append ( '' )
+            ret.append ( str ( tmp ) )
+            current = [ ]
+        else :
+            current.append ( s [ i ] )
+    return ''.join ( ret )
+
+***Example ends here:
+def sort_array ( array ) :
+    if not array :
+        return array
+    if ( array [ 0 ] + array [ - 1 ] ) % 2 == 1 :
+        array.sort ( )
+    else :
+        array.sort ( reverse = True )
+    return array
+
+***Example ends here:
+def encrypt ( s ) :
+    ans = [ ]
+    for c in s :
+        if c.isalpha ( ) :
+            ans.append ( chr ( ord ( 'a' ) + ( ord ( c ) - ord ( 'a' ) + 4 ) % 26 ) )
+        else :
+            ans.append ( c )
+    return ''.join ( ans )
+
+***Example ends here:
+def is_bored ( s ) :
+    is_start = True
+    sum = 0
+    for i in range ( len ( s ) ) :
+        if s [ i ] in "." or s [ i ] in " ? " or s [ i ] in " ! " :
+            is_start = True
+        elif is_start :
+            if s [ i ] in " " :
+                continue
+            if s.startswith ( "I " , i ) :
+                sum += 1
+            is_start = False
+    return sum
+
+***Example ends here:
+def encode ( message ) :
+    vowels = 'aeiouAEIOU'
+    ret = [ ]
+    for c in message :
+        if c.isupper ( ) :
+            c = c.lower ( )
+            if c in vowels :
+                c = chr ( ord ( 'a' ) + ( ord ( c ) - ord ( 'a' ) + 2 ) % 26 )
+        elif c.islower ( ) :
+            c = c.upper ( )
+            if c in vowels :
+                c = chr ( ord ( 'A' ) + ( ord ( c ) - ord ( 'A' ) + 2 ) % 26 )
+        ret.append ( c )
+    return ''.join ( ret )
+
+***Example ends here:
+def skjkasdkd ( lst ) :
+    largest = 0
+    for n in lst :
+        if n > largest :
+            prime = True
+            for i in range ( 2 , n ) :
+                if n % i == 0 :
+                    prime = False
+            if prime :
+                largest = n
+    sum = 0
+    s = str ( largest )
+    for c in s :
+        sum += ord ( c ) - ord ( '0' )
+    return sum
+
+***Example ends here:
+def check_dict_case ( dict ) :
+    if not dict :
+        return False
+    is_lower = 0
+    is_upper = 0
+    for key in dict :
+        for c in key :
+            if c.islower ( ) :
+                is_lower = 1
+            elif c.isupper ( ) :
+                is_upper = 1
+            else :
+                return False
+    return is_lower + is_upper == 1
+
+***Example ends here:
+def multiply ( a , b ) :
+    return ( abs ( a ) % 10 ) * ( abs ( b ) % 10 )
+
+***Example ends here:
+def count_upper ( s ) :
+    u_vowel = 'AEIOU'
+    count = 0
+    for i in range ( 0 , len ( s ) , 2 ) :
+        if s [ i ] in u_vowel :
+            count += 1
+    return count
+
+***Example ends here:
+def by_length ( arr ) :
+    num_to = dict ( 1 , "One" , 2 , "Two" , 3 , "Three" , 4 , "Four" , 5 , "Five" , 6 , "Six" , 7 , "Seven" , 8 , "Eight" , 9 , "Nine" )
+    sorted_arr = sorted ( arr , reverse = True )
+    new_arr = [ ]
+    for n in sorted_arr :
+        if n >= 1 and n <= 9 :
+            new_arr.append ( num_to [ n ] )
+    return new_arr
+
+***Example ends here:
+def f ( n ) :
+    sum = 0
+    prod = 1
+    result = [ ]
+    for i in range ( 1 , n + 1 ) :
+        sum += i
+        prod *= i
+        if i % 2 == 0 :
+            result.append ( prod )
+        else :
+            result.append ( sum )
+    return result
+
+***Example ends here:
+def evenOddPalindrome ( n ) :
+    evenCount , oddCount = 0 , 0
+    for i in range ( 1 , n + 1 ) :
+        s = str ( i )
+        rStr = u''.join ( reversed ( s ) )
+        if s == rStr :
+            if i % 2 == 1 :
+                oddCount += 1
+            else :
+                evenCount += 1
+    return [ evenCount , oddCount ]
+
+***Example ends here:
+def histogram ( test ) :
+    count = { }
+    max = 0
+    for c in test :
+        if c in " " :
+            count [ c ] = count.get ( c , 0 ) + 1
+            if count [ c ] > max :
+                max = count [ c ]
+    result = { }
+    for item , count in count.items ( ) :
+        if count [ item ] == max :
+            result [ item ] = count [ item ]
+    return result
+
+***Example ends here:
+def reverse_delete ( s , c ) :
+    ret = [ ]
+    for ch in s :
+        if ch in c :
+            ret.append ( ch )
+    flag = "False"
+    if ret == [ ] :
+        flag = "True"
+    return [ ret , flag ]
+
+***Example ends here:
+def sort_array ( arr ) :
+    bin = [ ]
+    for i in arr :
+        b = 0
+        n = abs ( i )
+        while n > 0 :
+            b += n % 2
+            n //= 2
+        bin.append ( b )
+    for i in range ( len ( arr ) ) :
+        for j in range ( 1 , len ( arr ) ) :
+            if bin [ j ] < bin [ j - 1 ] or ( bin [ j ] == bin [ j - 1 ] and arr [ j ] < arr [ j - 1 ] ) :
+                bin [ j ] = j - 1
+                arr [ j ] = j - 1
+    return arr
+
+***Example ends here:
+def get_closest_vowel ( word ) :
+    vowels = "AEIOUaeiou"
+    for i in range ( len ( word ) - 2 , 0 , - 1 ) :
+        if word [ i ] in vowels and word [ i + 1 ] in vowels and word [ i - 1 ] in vowels :
+            return str ( word [ i ] )
+    return ""
+
+***Example ends here:
+def match_parens ( lst ) :
+    strings = [ lst [ 0 ] + lst [ 1 ] , lst [ 1 ] + lst [ 0 ] ]
+    for l in strings :
+        count = 0
+        for c in l :
+            if c == '(' :
+                count += 1
+            else :
+                count -= 1
+            if count < 0 :
+                break
+        if count == 0 :
+            return 'Yes'
+    return 'No'
+
+***Example ends here:
+def maximum ( arr , k ) :
+    if k == 0 :
+        return [ ]
+    arr.sort ( )
+    return arr [ - k : ]
+
+***Example ends here:
+def valid_date ( date ) :
+    if len ( date ) != 10 :
+        return False
+    for i in range ( 10 ) :
+        if i == 2 or i == 5 :
+            if date [ i ] != '-' :
+                return False
+        elif not date [ i ].isdigit ( ) :
+            return False
+    month = int ( date [ : 2 ] )
+    day = int ( date [ 3 : 5 ] )
+    year = int ( date [ 6 : 10 ] )
+    if month < 1 or month > 12 :
+        return False
+    if day < 1 or day > 31 :
+        return False
+    if day == 31 and ( month == 4 or month == 6 or month == 9 or month == 11 or month == 2 ) :
+        return False
+    if day == 30 and month == 2 :
+        return False
+    return True
+
+***Example ends here:
+def split_words ( txt ) :
+    current = [ ]
+    result = [ ]
+    if '' in txt :
+        for i in range ( 0 , len ( txt ) + 1 ) :
+            if i == len ( txt ) or txt [ i ] in '' :
+                if current :
+                    result.append ( ''.join ( current ) )
+                current = [ ]
+            else :
+                current.append ( txt [ i ] )
+        return result
+    if ',' in txt :
+        for i in range ( 0 , len ( txt ) + 1 ) :
+            if i == len ( txt ) or txt [ i ] in ',' :
+                if current :
+                    result.append ( ''.join ( current ) )
+                current = [ ]
+            else :
+                current.append ( txt [ i ] )
+        return result
+    num = 0
+    for c in txt :
+        if c.islower ( ) and c % 2 == 0 :
+            num += 1
+    return [ str ( num ) ]
+
+***Example ends here:
+def tri ( n ) :
+    if n == 0 :
+        return [ 1 ]
+    tris = [ 1 , 3 ]
+    for i in range ( 2 , n + 1 ) :
+        if i % 2 == 0 :
+            tris.append ( i // 2 + 1 )
+        else :
+            tris.append ( tris [ i - 1 ] + tris [ i - 2 ] + ( i + 3 ) // 2 )
+    return tris
+
+***Example ends here:
+def check_if_last_char_is_aletter ( txt ) :
+    if txt == '' :
+        return False
+    return txt [ - 1 ].isalpha ( ) and ( len ( txt ) == 1 or not txt [ - 2 ].isalpha ( ) )
+
+***Example ends here:
+def by_points ( nums ) :
+    result = [ ]
+    for num in nums :
+        w = str ( abs ( num ) )
+        sum = 0
+        for c in w :
+            sum += ord ( c ) - ord ( '0' )
+        if num < 0 :
+            sum -= 2 * ( ord ( w [ 0 ] ) - ord ( '0' ) )
+        result.append ( sum )
+    for i in range ( len ( nums ) ) :
+        for j in range ( 1 , len ( nums ) ) :
+            if result [ j - 1 ] > result [ j ] :
+                result [ j ] = result [ j - 1 ]
+                nums [ j ] = nums [ j ]
+    return nums
+
+***Example ends here:
+def bf ( planet1 , planet2 ) :
+    planets = [ "Mercury" , "Venus" , "Earth" , "Mars" , "Jupiter" , "Saturn" , "Uranus" , "Neptune" ]
+    idx1 = planets.find ( planet1 )
+    idx2 = planets.find ( planet2 )
+    if idx1 == - 1 or idx2 == - 1 or idx1 == idx2 :
+        return [ ]
+    return planets [ idx2 + 1 : idx1 ] if idx1 > idx2 else planets [ idx1 + 1 : idx2 ]
+
+***Example ends here:
+def sorted_list_sum ( lst ) :
+    result = [ ]
+    for i in lst :
+        if len ( i ) % 2 == 0 :
+            result.append ( i )
+    result.sort ( lambda l , r : cmp ( len ( l ) , len ( r ) ) )
+    return result
+
+***Example ends here:
+def cycpatternCheck ( a , b ) :
+    for i in range ( 0 , len ( b ) + 1 ) :
+        rotate = b [ i : ] + b [ : i ]
+        if rotate in a :
+            return True
+    return False
+
+***Example ends here:
+def evenOddCount ( num ) :
+    evenCount , oddCount = 0 , 0
+    for i in str ( abs ( num ) ) :
+        if i % 2 == 0 :
+            evenCount += 1
+        else :
+            oddCount += 1
+    return [ evenCount , oddCount ]
+
+***Example ends here:
+def find_max ( words ) :
+    max = ""
+    max_length = 0
+    for word in words :
+        unique = [ ]
+        for w in word :
+            if w not in unique :
+                unique.append ( w )
+        if len ( unique ) > max_length or ( len ( unique ) == max_length and word < max ) :
+            max = word
+            max_length = len ( unique )
+    return max
+
+***Example ends here:
+def solve ( s ) :
+    no_letter = True
+    result = [ ]
+    for ch in s :
+        if ch.isupper ( ) :
+            ch = ch.lower ( )
+            no_letter = False
+        elif ch.islower ( ) :
+            ch = ch.upper ( )
+            no_letter = False
+        result.append ( ch )
+    if no_letter :
+        return ''.join ( reversed ( result ) )
+    else :
+        return ''.join ( reversed ( result ) )
+
+***Example ends here:
+def most_frequent ( arr , n ) :
+    hp = { }
+    for i in range ( n ) :
+        if arr [ i ] in hp :
+            hp [ arr [ i ] ] = hp [ arr [ i ] ] + 1
+        else :
+            hp [ arr [ i ] ] = 1
+    max_count , res = 0 , - 1
+    for key , value in hp.items ( ) :
+        if max_count < value :
+            res = key
+            max_count = value
+    return res
+
+***Example ends here:
+def find ( a , b , k , n1 , n2 ) :
+    s = set ( )
+    for i in range ( n2 ) :
+        s.add ( b [ i ] )
+    missing = 0
+    for i in range ( n1 ) :
+        if a [ i ] not in s :
+            missing += 1
+        if missing == k :
+            return a [ i ]
+    return - 1
+
+***Example ends here:
+def solve_query ( start , end , arr ) :
+    mp = { }
+    for i in range ( start , end + 1 ) :
+        mp [ arr [ i ] ] = mp.get ( arr [ i ] , 0 ) + 1
+    count = 0
+    for key , value in mp.items ( ) :
+        if key == value :
+            count += 1
+    return count
+
+***Example ends here:
+def segregate ( arr , size ) :
+    j = 0
+    for i in range ( size ) :
+        if arr [ i ] <= 0 :
+            arr [ i ] = j
+            j += 1
+    return j
+
+***Example ends here:
+def count_triplets ( a , n ) :
+    s = set ( a )
+    count = 0
+    for i in range ( n ) :
+        for j in range ( i + 1 , n ) :
+            xr = a [ i ] ^ a [ j ]
+            if xr in s and xr != a [ i ] and xr != a [ j ] :
+                count += 1
+    return count // 3
+
+***Example ends here:
+def least_frequent ( arr , n ) :
+    hp = { }
+    for i in range ( n ) :
+        if arr [ i ] in hp :
+            hp [ arr [ i ] ] = hp [ arr [ i ] ] + 1
+        else :
+            hp [ arr [ i ] ] = 1
+    min_count , res = n + 1 , - 1
+    for key , value in hp.items ( ) :
+        if min_count >= value :
+            res = key
+            min_count = value
+    return res
+
+***Example ends here:
+def find_permutations ( arr ) :
+    cnt = 0
+    max_ind , min_ind = - 1 , 10000000
+    n = len ( arr )
+    find = { }
+    for i in range ( n ) :
+        find [ arr [ i ] ] = i + 1
+    for i in range ( 1 , n + 1 ) :
+        max_ind = max ( max_ind , find.get ( i , 0 ) )
+        min_ind = min ( min_ind , find.get ( i , 0 ) )
+        if max_ind - min_ind + 1 == i :
+            cnt += 1
+    return cnt
+
+***Example ends here:
+def form_quadruplets ( arr , n ) :
+    ans , pairs = 0 , 0
+    pairs = n // 4
+    arr.sort ( reverse = True )
+    for i in range ( 0 , n - pairs , 3 ) :
+        ans += arr [ i + 2 ]
+    return ans
+
+***Example ends here:
+def lexicographicallyMaximum ( s , n ) :
+    m = { }
+    for i in range ( n ) :
+        if s [ i ] in m :
+            m [ s [ i ] ] = m [ s [ i ] ] + 1
+        else :
+            m [ s [ i ] ] = 1
+    v = [ ]
+    for i in range ( 'a' , 'a' + min ( n , 25 ) ) :
+        if i not in m :
+            v.append ( i )
+    j = len ( v ) - 1
+    for i in range ( n ) :
+        if s [ i ] >= 'a' + min ( n , 25 ) or ( s [ i ] in m and m [ s [ i ] ] > 1 ) :
+            if v [ j ] < s [ i ] :
+                continue
+            m [ s [ i ] ] = m [ s [ i ] ] - 1
+            s = s [ : i ] + v [ j ] + s [ i + 1 : ]
+            j -= 1
+        if j < 0 :
+            break
+    l = 0
+    for i in range ( n - 1 , - 1 , - 1 ) :
+        if l > j :
+            break
+        if s [ i ] >= 'a' + min ( n , 25 ) or s [ i ] in m and m [ s [ i ] ] > 1 :
+            m [ s [ i ] ] = m [ s [ i ] ] - 1
+            s = s [ : i ] + v [ l ] + s [ i + 1 : ]
+            l += 1
+    return s
+
+***Example ends here:
+def nb_valid_bers ( k , arr ) :
+    s = set ( )
+    while k != 0 :
+        s.add ( k % 10 )
+        k = k // 10
+    count = 0
+    for no in arr :
+        flag = True
+        while no != 0 :
+            digit = no % 10
+            if digit not in s :
+                flag = False
+                break
+            no = no // 10
+        if flag :
+            count += 1
+    return count
+
+***Example ends here:
+def del_cost ( s , cost ) :
+    ans = 0
+    for_max = { }
+    for_tos = { }
+    for c in s :
+        if c not in for_max :
+            for_max [ c ] = cost [ c ]
+        else :
+            for_max [ c ] = max ( cost [ c ] , for_max [ c ] )
+        if c not in for_tos :
+            for_tos [ c ] = cost [ c ]
+        else :
+            for_tos [ c ] = for_tos [ c ] + cost [ c ]
+    for i , j in for_max.items ( ) :
+        ans += for_tos [ i ] - j
+    return ans
+
+***Example ends here:
+def replace_duplicates ( names ) :
+    hash = { }
+    for i in range ( len ( names ) ) :
+        if names [ i ] not in hash :
+            hash [ names [ i ] ] = 1
+        else :
+            count = hash [ names [ i ] ]
+            hash [ names [ i ] ] = hash [ names [ i ] ] + 1
+            names [ i ] = names [ i ] + str ( count )
+    return names
+
+***Example ends here:
+def minmax_numbers ( matrix , res ) :
+    seen = set ( )
+    for i in range ( len ( matrix ) ) :
+        min_r = sys.maxsize
+        for j in range ( len ( matrix [ i ] ) ) :
+            min_r = min ( min_r , matrix [ i ] [ j ] )
+        seen.add ( min_r )
+    for j in range ( len ( matrix [ 0 ] ) ) :
+        max_c = sys.maxsize
+        for i in range ( len ( matrix ) ) :
+            max_c = max ( max_c , matrix [ i ] [ j ] )
+        if max_c in seen :
+            res.append ( max_c )
+    return res
+
+***Example ends here:
+def length_of_longest_ap ( a , n ) :
+    dp = { }
+    res = 2
+    for i in range ( n ) :
+        for j in range ( i + 1 , n ) :
+            d = a [ j ] - a [ i ]
+            if d in dp :
+                if i in dp [ d ] :
+                    dp [ d ] [ j ] = dp [ d ] [ i ] + 1
+                else :
+                    dp [ d ] [ j ] = 2
+            else :
+                dp [ d ] = { }
+                dp [ d ] [ j ] = 2
+            res = max ( res , dp [ d ] [ j ] )
+    return res
+
+***Example ends here:
+def find_kth_char ( n , k ) :
+    prev = "A"
+    cur = ""
+    if n == 1 :
+        return "A"
+    for j in range ( 2 , n + 1 ) :
+        cur = prev + "B"
+        for i in range ( len ( prev ) ) :
+            if prev [ i ] == "A" :
+                prev = prev [ : i ] + "B" + prev [ i + 1 : ]
+            else :
+                prev = prev [ : i ] + "A" + prev [ i + 1 : ]
+        prev = "".join ( reversed ( prev ) )
+        cur += prev
+        prev = cur
+    return cur [ k - 1 ]
+
+***Example ends here:
+def find_kth_largest ( s , k ) :
+    tmp = list ( s )
+    tmp.sort ( )
+    tmp.reverse ( )
+    return tmp [ k - 1 ]
+
+***Example ends here:
+def sub_arraylen ( arr , n , k ) :
+    mp = { }
+    mp [ arr [ 0 ] ] = 0
+    for i in range ( 1 , n ) :
+        arr [ i ] = arr [ i ] + arr [ i - 1 ]
+        mp [ arr [ i ] ] = i
+    len_ = sys.maxsize
+    for i in range ( n ) :
+        if arr [ i ] < k :
+            continue
+        else :
+            x = arr [ i ] - k
+            if x == 0 :
+                len_ = min ( len_ , i )
+            if x not in mp :
+                continue
+            else :
+                len_ = min ( len_ , i - mp [ x ] )
+    return len_
+
+***Example ends here:
+def find_maxlen ( a , k ) :
+    n = len ( a )
+    a.sort ( )
+    vis = [ False ] * n
+    mp = { }
+    for i in range ( n ) :
+        mp [ a [ i ] ] = i
+    c = 0
+    for i in range ( n ) :
+        if not vis [ i ] :
+            check = a [ i ] * k
+            if check in mp :
+                c += 1
+                vis [ mp [ check ] ] = True
+    return n - c
+
+***Example ends here:
+def min_distance_points ( a , k , n ) :
+    m = { }
+    q = [ ]
+    for i in range ( n ) :
+        m [ a [ i ] ] = 1
+        q.append ( a [ i ] )
+    ans = [ ]
+    while k > 0 :
+        x = q.pop ( )
+        if x - 1 not in m and k > 0 :
+            m [ x - 1 ] = 1
+            q.append ( x - 1 )
+            ans.append ( x - 1 )
+            k -= 1
+        if x + 1 not in m and k > 0 :
+            m [ x + 1 ] = 1
+            q.append ( x + 1 )
+            ans.append ( x + 1 )
+            k -= 1
+    return ans
+
+***Example ends here:
+def is_valid_len ( s , len_ , k ) :
+    n = len ( s )
+    mp = { }
+    right = 0
+    while right < len_ :
+        if s [ right ] in mp :
+            mp [ s [ right ] ] = mp [ s [ right ] ] + 1
+        else :
+            mp [ s [ right ] ] = 1
+        right += 1
+    if len ( mp ) <= k :
+        return True
+    while right < n :
+        if s [ right ] in mp :
+            mp [ s [ right ] ] = mp [ s [ right ] ] + 1
+        else :
+            mp [ s [ right ] ] = 1
+        if s [ right - len_ : ] in mp :
+            mp [ s [ right - len_ : ] ] = mp [ s [ right - len_ : ] ] - 1
+        if mp [ s [ right - len_ : ] ] == 0 :
+            del mp [ s [ right - len_ : ] ]
+        if len ( mp ) <= k :
+            return True
+        right += 1
+    return len ( mp ) <= k
+
+***Example ends here:
+def partition ( arr , low , high ) :
+    pivot = arr [ high ]
+    i = ( low - 1 )
+    for j in range ( low , high - 1 + 1 ) :
+        if arr [ j ] <= pivot :
+            i += 1
+            arr [ i ] = j
+    arr [ i + 1 ] = high
+    return i + 1
+
+***Example ends here:
+def str_score ( strs , s , n ) :
+    m = { }
+    for i in range ( n ) :
+        m [ strs [ i ] ] = i + 1
+    if s not in m :
+        return 0
+    score = 0
+    for c in s :
+        score += ord ( c ) - ord ( 'a' ) + 1
+    score = score * m [ s ]
+    return score
+
+***Example ends here:
+def count_le ( s , a , n ) :
+    mp = { }
+    ans = [ ]
+    for num in a :
+        if num in mp :
+            ans.append ( 0 )
+        else :
+            cnt = 0
+            while s [ 0 ] != num :
+                mp [ s [ 0 ] ] = True
+                s.pop ( 0 )
+                cnt += 1
+            s.pop ( 0 )
+            cnt += 1
+            ans.append ( cnt )
+    return ans
+
+***Example ends here:
+def max_distinct_char ( s , n , k ) :
+    freq = { }
+    for c in s :
+        if c in freq :
+            freq [ c ] = freq [ c ] + 1
+        else :
+            freq [ c ] = 1
+    v = [ v [ i ] for it in freq.items ( ) ]
+    v.sort ( )
+    for i in range ( len ( v ) ) :
+        mn = min ( v [ i ] - 1 , k )
+        v [ i ] = v [ i ] - mn
+        k -= mn
+    if k > 0 :
+        for i in range ( len ( v ) ) :
+            mn = min ( v [ i ] , k )
+            v [ i ] = v [ i ] - mn
+            k -= mn
+    res = 0
+    for i in range ( len ( v ) ) :
+        if v [ i ] == 1 :
+            res += 1
+    return res
+
+***Example ends here:
+def find_th ( arr , n , k ) :
+    missing = set ( )
+    count = 0
+    for i in range ( n ) :
+        missing.add ( arr [ i ] )
+    max_m = max ( arr )
+    min_m = min ( arr )
+    for i in range ( min_m + 1 , max_m ) :
+        if i not in missing :
+            count += 1
+        if count == k :
+            return i
+    return - 1
+
+***Example ends here:
+def almostSort ( a , n ) :
+    for i in range ( n - 1 ) :
+        if a [ i ] > a [ i + 1 ] :
+            a [ i ] = a [ i + 1 ]
+            i += 1
+    for i in range ( n - 1 ) :
+        if a [ i ] > a [ i + 1 ] :
+            return False
+    return True
+
+***Example ends here:
+def maximum_sum ( s , n , k ) :
+    sum = 0
+    freq = list ( range ( 256 ) )
+    for i in range ( n ) :
+        freq [ s [ i ] ] = freq [ s [ i ] ] + 1
+    freq.sort ( reverse = True )
+    for i in range ( 256 ) :
+        if k > freq [ i ] :
+            sum += freq [ i ] * freq [ i ]
+            k -= freq [ i ]
+        else :
+            sum += freq [ i ] * k
+            break
+    return sum
+
+***Example ends here:
+def find_min_operations ( arr , N , K ) :
+    operations = 0
+    for i in range ( K ) :
+        freq = { }
+        for j in range ( i , N , K ) :
+            freq [ arr [ j ] ] = freq.get ( arr [ j ] , 0 ) + 1
+        max1 , num = 0 , 0
+        for key , value in freq.items ( ) :
+            if value > max1 :
+                max1 = value
+                num = key
+        for key , value in freq.items ( ) :
+            if key != num :
+                operations += value
+    return operations
+
+***Example ends here:
+def sub_string ( s , n ) :
+    v = [ ]
+    for i in range ( n ) :
+        for len in range ( 1 , n - i + 1 ) :
+            find = s [ i : i + len ]
+            v.append ( find )
+    return ''.join ( v )
+
+***Example ends here:
+def check_unique_frequency ( arr , n ) :
+    freq = { }
+    for i in range ( n ) :
+        freq [ arr [ i ] ] = freq.get ( arr [ i ] , 0 ) + 1
+    unique_freq = set ( )
+    for key , value in freq.items ( ) :
+        if value in unique_freq :
+            return False
+        else :
+            unique_freq.add ( value )
+    return True
+
+***Example ends here:
+def min_cost ( str1 , str2 , n ) :
+    cost = 0
+    tmp = list ( str1 )
+    for i in range ( n ) :
+        if tmp [ i ] != str2 [ i ] :
+            if i < n - 1 and tmp [ i + 1 ] != str2 [ i + 1 ] :
+                c = tmp [ i ]
+                tmp [ i ] = tmp [ i + 1 ]
+                tmp [ i + 1 ] = c
+                cost += 1
+            else :
+                cost += 1
+    return cost
+
+***Example ends here:
+def is_valid_num ( x ) :
+    mp = { }
+    for c in x :
+        if c - '0' in mp :
+            return False
+        elif c - '0' > 5 :
+            return False
+        else :
+            mp [ c - '0' ] = 1
+    return True
+
+***Example ends here:
+def minimize_diff ( arr , n , k ) :
+    max = max ( arr )
+    min = min ( arr )
+    if max - min <= k :
+        return max - min
+    avg = ( max + min ) / 2
+    for i in range ( n ) :
+        if arr [ i ] > avg :
+            arr [ i ] = arr [ i ] - k
+        else :
+            arr [ i ] = arr [ i ] + k
+    max = max ( arr )
+    min = min ( arr )
+    return max - min
+
+***Example ends here:
+def get_min_cost ( arr , n ) :
+    min_elm = min ( arr )
+    return min_elm * ( n - 1 )
+
+***Example ends here:
+def possibility ( m , length , s ) :
+    count_odd = 0
+    for i in range ( length ) :
+        if m [ s [ i ] - '0' ] & 1 :
+            count_odd += 1
+        if count_odd > 1 :
+            return False
+    return True
+
+***Example ends here:
+def minimum_cost_of_breaking ( x , y , m , n ) :
+    res = 0
+    x.sort ( reverse = True )
+    y.sort ( reverse = True )
+    hzntl , vert = 1 , 1
+    i , j = 0 , 0
+    while i < m and j < n :
+        if x [ i ] > y [ j ] :
+            res += x [ i ] * vert
+            hzntl += 1
+            i += 1
+        else :
+            res += y [ j ] * hzntl
+            vert += 1
+            j += 1
+    total = 0
+    while i < m :
+        total += x [ i ]
+        i += 1
+    res += total * vert
+    total = 0
+    while j < n :
+        total += y [ j ]
+        j += 1
+    res += total * hzntl
+    return res
+
+***Example ends here:
+def find_maximum_score ( a , n ) :
+    freq = { }
+    for i in range ( n ) :
+        if a [ i ] in freq :
+            freq [ a [ i ] ] = freq [ a [ i ] ] + 1
+        else :
+            freq [ a [ i ] ] = 1
+    dp = [ 0 ] * ( max ( a ) + 1 )
+    dp [ 0 ] = 0
+    dp [ 1 ] = freq.get ( 1 , 0 )
+    for i in range ( 2 , len ( dp ) ) :
+        dp [ i ] = max ( dp [ i - 1 ] , dp [ i - 2 ] + freq.get ( i , 0 ) * i )
+    return dp [ - 1 ]
+
+***Example ends here:
+def count_ways ( s , t , k , mod ) :
+    n = len ( s )
+    a , b = 0 , 0
+    for i in range ( n ) :
+        p = s [ i : n ] + s [ : i ]
+        if p == t :
+            a += 1
+        else :
+            b += 1
+    dp1 = [ 0 ] * ( k + 1 )
+    dp2 = [ 0 ] * ( k + 1 )
+    if s == t :
+        dp1 [ 0 ] = 1
+        dp2 [ 0 ] = 0
+    else :
+        dp1 [ 0 ] = 0
+        dp2 [ 0 ] = 1
+    for i in range ( 1 , k + 1 ) :
+        dp1 [ i ] = ( ( dp1 [ i - 1 ] * ( a - 1 ) ) % mod + ( dp2 [ i - 1 ] * a ) % mod ) % mod
+        dp2 [ i ] = ( ( dp1 [ i - 1 ] * ( b ) ) % mod + ( dp2 [ i - 1 ] * ( b - 1 ) ) % mod ) % mod
+    return dp1 [ k ]
+
+***Example ends here:
+def find_subarray_sum ( arr , n , k ) :
+    prev_sum = { }
+    res = 0
+    curr_sum = 0
+    for i in range ( n ) :
+        curr_sum += arr [ i ]
+        if curr_sum == k :
+            res += 1
+        if curr_sum - k in prev_sum :
+            res += prev_sum [ curr_sum - k ]
+        prev_sum [ curr_sum ] = prev_sum.get ( curr_sum , 0 ) + 1
+    return res
+
+***Example ends here:
+def maximum_occurrence ( s ) :
+    n = len ( s )
+    freq = { }
+    i , j = 0 , 0
+    for i in range ( n ) :
+        temp = ""
+        temp += s [ i ]
+        freq [ temp ] = freq.get ( temp , 0 ) + 1
+    for i in range ( n ) :
+        for j in range ( i + 1 , n ) :
+            temp = ""
+            temp += s [ i ]
+            temp += s [ j ]
+            freq [ temp ] = freq.get ( temp , 0 ) + 1
+    answer = int ( 0 )
+    for key , value in freq.items ( ) :
+        answer = max ( answer , value )
+    return answer
+
+***Example ends here:
+def count_characters ( strings , chars ) :
+    res = 0
+    freq = { }
+    for c in chars :
+        freq [ c ] = freq.get ( c , 0 ) + 1
+    for st in strings :
+        flag = 1
+        for c in st :
+            if c not in freq :
+                flag = 0
+                break
+        if flag :
+            res += len ( st )
+    return res
+
+***Example ends here:
+def distinctSubstring ( p , q , k , n ) :
+    ss = set ( )
+    for i in range ( n ) :
+        sum = 0
+        s = ""
+        for j in range ( i , n ) :
+            pos = ord ( p [ j ] ) - ord ( 'a' )
+            sum += ord ( q [ pos ] ) - ord ( '0' )
+            s += p [ j ]
+            if sum <= k :
+                ss.add ( s )
+            else :
+                break
+    return len ( ss )
+
+***Example ends here:
+def unique_morse_rep ( arr ) :
+    morse_code = [ '.-' , '-...' , '-.-.' , '-..' , '.' , '..-.' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' , '-..' ]
+    st = set ( )
+    n = len ( arr )
+    for i in range ( n ) :
+        temp = ''
+        m = len ( arr [ i ] )
+        for j in range ( m ) :
+            temp += morse_code [ arr [ i ] [ j ] - 'a' ]
+        st.add ( temp )
+    return len ( st )
+
+***Example ends here:
+def count_substrings ( st , k ) :
+    n = len ( st )
+    answer = 0
+    d = { }
+    for i in range ( k ) :
+        if st [ i ] not in d :
+            d [ st [ i ] ] = 1
+        else :
+            d [ st [ i ] ] = d [ st [ i ] ] + 1
+    if len ( d ) == k :
+        answer += 1
+    for i in range ( k , n ) :
+        if st [ i ] not in d :
+            d [ st [ i ] ] = 1
+        else :
+            d [ st [ i ] ] = d [ st [ i ] ] + 1
+        d [ st [ i - k ] ] = d [ st [ i - k ] ] - 1
+        if d [ st [ i - k ] ] == 0 :
+            del d [ st [ i - k ] ]
+        if len ( d ) == k :
+            answer += 1
+    return answer
+
+***Example ends here:
+def can_construct ( s , k ) :
+    m = { }
+    p = 0
+    if len ( s ) == k :
+        return True
+    for c in s :
+        m [ c ] = m.get ( c , 0 ) + 1
+    if k > len ( s ) :
+        return False
+    else :
+        for h , v in m.items ( ) :
+            if v % 2 :
+                p = p + 1
+    if k < p :
+        return False
+    return True
+
+***Example ends here:
+def equalIgnoreCase ( str1 , str2 ) :
+    str1 = str1.upper ( )
+    str2 = str2.upper ( )
+    return str1 == str2
+
+***Example ends here:
+def find_longest_sub ( bin ) :
+    n , i = len ( bin ) , 0
+    sum = 0
+    prev_sum = { }
+    max_len = 0
+    for i in range ( n ) :
+        if bin [ i ] == '1' :
+            sum += 1
+        else :
+            sum -= 1
+        if sum > 0 :
+            max_len = i + 1
+        elif sum <= 0 :
+            if sum - 1 in prev_sum :
+                curr_len = i - prev_sum [ sum - 1 ]
+                max_len = max ( max_len , curr_len )
+        if sum not in prev_sum :
+            prev_sum [ sum ] = i
+    return max_len
+
+***Example ends here:
+def has_all_codes ( s , k ) :
+    us = set ( )
+    for i in range ( 0 , i + k ) :
+        us.add ( s [ i : i + k ] )
+    return len ( us ) == 1 << k
+
+***Example ends here:
+def check_palin ( word ) :
+    n = len ( word )
+    word = word.lower ( )
+    for i , n in enumerate ( word ) :
+        if word [ i ] != word [ n - 1 ] :
+            return False
+    return True
+
+***Example ends here:
+def convert ( st ) :
+    w , z = "" , ""
+    st = st.upper ( ) + ""
+    for ch in st :
+        if ch != "" :
+            w += ch
+        else :
+            z += w [ 0 ] + w [ 1 : ] + ""
+            w = ""
+    return z
+
+***Example ends here:
+def max_lines ( n , x1 , y1 , x2 , y2 ) :
+    s = set ( )
+    for i in range ( n ) :
+        if x1 [ i ] == x2 [ i ] :
+            slope = sys.maxsize
+        else :
+            slope = ( y2 [ i ] - y1 [ i ] ) * 1.0 / ( x2 [ i ] - x1 [ i ] )
+        s.add ( slope )
+    return len ( s )
+
+***Example ends here:
+def PrimeFactor ( n ) :
+    primef = { }
+    while n % 2 == 0 :
+        if 2 in primef :
+            primef [ 2 ] = primef [ 2 ] + 1
+        else :
+            primef [ 2 ] = 1
+        n //= 2
+    for i in range ( 3 , math.sqrt ( n ) + 1 ) :
+        while n % i == 0 :
+            if i in primef :
+                primef [ i ] = primef [ i ] + 1
+            else :
+                primef [ i ] = 1
+            n //= i
+    if n > 2 :
+        primef [ n ] = 1
+    return primef
+
+***Example ends here:
+def is_divisible_by_divisor ( s , d ) :
+    s %= d
+    hash_map = set ( [ s ] )
+    for i in range ( 0 , d + 1 ) :
+        s += s % d
+        s %= d
+        if s in hash_map :
+            if s == 0 :
+                return "Yes"
+            return "No"
+        else :
+            hash_map.add ( s )
+    return "Yes"
+
+***Example ends here:
+def oddSum ( a , n , k ) :
+    odd = set ( )
+    even = set ( )
+    for i in range ( n ) :
+        if a [ i ] % 2 == 0 :
+            even.add ( a [ i ] )
+        else :
+            odd.add ( a [ i ] )
+    if len ( odd ) >= k :
+        return True
+    flag = False
+    for i in range ( 1 , k , 2 ) :
+        needed = k - i
+        if needed <= len ( even ) :
+            return True
+    return flag
+
+***Example ends here:
+def day_of_year ( date ) :
+    days = [ 31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 31 , 30 , 31 , 30 , 31 ]
+    year = int ( date [ : 4 ] )
+    month = int ( date [ 5 : 7 ] )
+    day = int ( date [ 8 : ] )
+    if month > 2 and year % 4 == 0 and ( year % 100 != 0 or year % 400 == 0 ) :
+        day += 1
+    while month > 1 :
+        day = day + days [ month - 2 ]
+        month -= 1
+    return day
+
+***Example ends here:
+def is_perfect_square ( arr , n ) :
+    udict = { }
+    for i in range ( n ) :
+        udict [ arr [ i ] ] = udict.get ( arr [ i ] , 0 ) + 1
+    for itr , v in udict.items ( ) :
+        if v % 2 == 1 :
+            return False
+    return True
+
+***Example ends here:
+def min_moves ( n ) :
+    s = str ( n )
+    ans = sys.maxsize
+    length = len ( s )
+    for i in range ( length ) :
+        for j in range ( length ) :
+            if i == j :
+                continue
+            t = s [ : ]
+            cur = 0
+            for k in range ( i , length - 1 ) :
+                c = t [ k ]
+                t [ k ] = t [ k + 1 ]
+                t [ k + 1 ] = c
+                cur += 1
+            for k in range ( j - ( i if j > i else 0 ) , length - 2 ) :
+                c = t [ k ]
+                t [ k ] = t [ k + 1 ]
+                t [ k + 1 ] = c
+                cur += 1
+            pos = - 1
+            for k in range ( length ) :
+                if t [ k ] != '0' :
+                    pos = k
+                    break
+            for k in range ( pos , 0 , - 1 ) :
+                c = t [ k ]
+                t [ k ] = t [ k - 1 ]
+                t [ k - 1 ] = c
+                cur += 1
+            nn = int ( ''.join ( t ) )
+            if nn % 25 == 0 :
+                ans = min ( ans , cur )
+    if ans == sys.maxsize :
+        return - 1
+    return ans
+
+***Example ends here:
+def minimum_operations ( a , n ) :
+    mp = { }
+    for i in range ( n ) :
+        mp [ a [ i ] ] = mp.get ( a [ i ] , 0 ) + 1
+    count = 0
+    for key , value in mp.items ( ) :
+        if value > 1 :
+            count += value - 1
+    return count
+
+***Example ends here:
+def kaprekarRec ( n , prev ) :
+    if n == 0 :
+        return 0
+    prev = n
+    digits = [ ]
+    for i in range ( 4 ) :
+        digits.append ( n % 10 )
+        n = n // 10
+    digits.sort ( )
+    asc = 0
+    for i in range ( 4 ) :
+        asc = asc * 10 + digits [ i ]
+    digits.sort ( )
+    desc = 0
+    for i in range ( 3 , - 1 , - 1 ) :
+        desc = desc * 10 + digits [ i ]
+    diff = abs ( asc - desc )
+    if diff == prev :
+        return diff
+    return kaprekarRec ( diff , prev )
+
+***Example ends here:
+def fraction_to_decimal ( numr , denr ) :
+    res = ""
+    mp = { }
+    rem = numr % denr
+    while rem != 0 and rem not in mp :
+        mp [ rem ] = len ( res )
+        rem = rem * 10
+        res_part = rem // denr
+        res += str ( res_part )
+        rem = rem % denr
+    if rem == 0 :
+        return ""
+    if rem in mp :
+        return res [ mp [ rem ] : ]
+    return ""
+
+***Example ends here:
+def is_fancy ( num ) :
+    fp = { '0' : '0' , '1' : '1' , '6' : '9' , '8' : '8' , '9' : '6' }
+    n = len ( num )
+    l , r = 0 , n - 1
+    while l <= r :
+        if num [ l ] not in fp or fp [ num [ l ] ] != num [ r ] :
+            return False
+        l += 1
+        r -= 1
+    return True
+
+***Example ends here:
+def distinctOddRatio ( numbers ) :
+    distinctCount = int ( len ( numbers ) )
+    distinctOddCount = int ( len ( numbers ) )
+    return float ( distinctOddCount ) / distinctCount
+
+***Example ends here:
+def compare_sum ( numbers , words ) :
+    int_sum = sum ( numbers )
+    word_length_sum = sum ( words )
+    if int_sum < word_length_sum :
+        return - 1
+    if int_sum > word_length_sum :
+        return 1
+    return 0
+
+***Example ends here:
+def all_longest_than ( short_words , long_words ) :
+    max_of_short = max ( short_words )
+    min_of_long = min ( long_words )
+    return min_of_long > max_of_short
+
+***Example ends here:
+def compare_odd_even_range ( numbers ) :
+    range_odd = len ( numbers ) - len ( numbers )
+    range_even = len ( numbers ) - len ( numbers )
+    if range_odd < range_even :
+        return - 1
+    if range_odd > range_even :
+        return 1
+    return 0
+
+***Example ends here:
+def average_distinct_length ( words ) :
+    average_len = len ( words )
+    return average_len
+
+***Example ends here:
+def withdraw_balance ( start , withdrawals ) :
+    end = sum ( ( balance - next_withdrawal if next_withdrawal <= balance else balance for next_withdrawal in withdrawals ) )
+    return end
+
+***Example ends here:
+def first_short_and_starts_with_o ( words ) :
+    matched_element = [ w for w in words if len ( w ) < 5 and w [ 0 ] == 'o' ] [ 0 ]
+    return matched_element
+
+***Example ends here:
+def big_number_at_index ( numbers , index ) :
+    target_num = len ( numbers )
+    return target_num
+
+***Example ends here:
+def contains_square_in_range ( range_start , range_length ) :
+    contains_square = sum ( int ( math.sqrt ( n ) ) for n in range_start + range_length if math.pow ( int ( math.sqrt ( n ) ) , 2 ) == n )
+    return contains_square
+
+***Example ends here:
+def group_numbers_by_mod ( numbers , mod ) :
+    number_groups = { n % mod : [ n ] for n in numbers }
+    return number_groups
+
+***Example ends here:
+def group_words_by_first_char ( words ) :
+    word_groups = { w [ 0 ] : w for w in words }
+    return word_groups
+
+***Example ends here:
+def by_length_and_descending ( words ) :
+    sorted_words = sorted ( words , key = len , reverse = True )
+    return sorted_words
+
+***Example ends here:
+def order_first_char_descending_reverse ( words ) :
+    sorted_words = list ( words )
+    sorted_words.sort ( key = lambda w : w [ 0 ] )
+    sorted_words.reverse ( )
+    return sorted_words
+
+***Example ends here:
+def get_sub_list_of_negative ( numbers , start , length ) :
+    subList = [ n for n in numbers if n < 0 ]
+    return subList
+
+***Example ends here:
+def get_positive_sequence ( numbers ) :
+    sub_sequence = numbers.dropwhile ( lambda n : n <= 0 ).takewhile ( lambda n : n >= 0 )
+    return sub_sequence
+
+***Example ends here:
+def get_larger_than_index_sequence ( numbers ) :
+    sub_sequence = list ( range ( len ( numbers ) ) )
+    sub_sequence.sort ( )
+    return sub_sequence
+
+***Example ends here:
+def rearrangeWordByIndexes ( words , indexes ) :
+    newIndexes = [ n for n in indexes if n >= len ( words ) ]
+    newWords = [ words [ n ] for n in newIndexes ]
+    return newWords
+
+***Example ends here:
+def get_words_upper_lower ( words ) :
+    upper_lower_words = [ [ w.upper ( ) , w.lower ( ) ] for w in words ]
+    return upper_lower_words
+
+***Example ends here:
+def select_if_inplace ( numbers ) :
+    nums_in_place = [ True for index in numbers if numbers [ index ] == index ]
+    return nums_in_place
+
+***Example ends here:
+def select_pairs ( numbers_a , numbers_b ) :
+    pairs = [ [ a , b ] for a in numbers_a if a < b ]
+    return pairs
+
+***Example ends here:
+def string_cross_join ( end_words , begin_words ) :
+    cross_strings = [ e + b for b in begin_words if b [ 0 ] == e [ - 1 ] ]
+    return cross_strings
+
+***Example ends here:
+def elements_contain_subword ( words , subword ) :
+    if words.count ( subword ) > 5 :
+        return 1
+    elif words.count ( subword ) > 5 :
+        return 0
+    else :
+        return - 1
+
+***Example ends here:
+def concat_large_numbers ( numbers_a , numbers_b , flag ) :
+    all_numbers = zip ( numbers_a , numbers_b )
+    return all_numbers
+
+***Example ends here:
+def DotProduct ( vectorA , vectorB ) :
+    dotProduct = sum ( vectorA * vectorB )
+    return dotProduct
+
+***Example ends here:
+def SetDifference ( setA , setB ) :
+    difference = list ( setA )
+    difference.extend ( setB )
+    intersection = list ( setA )
+    intersection.sort ( )
+    difference.extend ( intersection )
+    difference.sort ( )
+    return difference
+
+***Example ends here:

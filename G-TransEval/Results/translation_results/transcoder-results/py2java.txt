@@ -1,0 +1,6423 @@
+int greatestCommonDivisor ( int a , int b ) throws Exception {
+  if ( a == 0 || b == 0 ) return a + b ;
+  if ( a == b ) return a ;
+  if ( a > b ) return greatestCommonDivisor ( a % b , b ) ;
+  else return greatestCommonDivisor ( a , b % a ) ;
+}
+
+***Example ends here:
+int largegestDivisor ( int n ) {
+  for ( int i = 2 ;
+  i <= n ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      return n / i ;
+    }
+  }
+  return 1 ;
+}
+
+***Example ends here:
+boolean isPrime ( int n ) {
+  if ( n < 2 ) {
+    return false ;
+  }
+  for ( int k = 2 ;
+  k < n ;
+  k ++ ) {
+    if ( n % k == 0 ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int fizzBuzz ( int n ) {
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( i % 11 == 0 || i % 13 == 0 ) {
+      int q = i ;
+      while ( q > 0 ) {
+        if ( q % 10 == 7 ) {
+          count ++ ;
+        }
+        q /= 10 ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int prime_fib ( int n ) {
+  int f0 = 0 ;
+  int f1 = 1 ;
+  while ( n > 0 ) {
+    int p = f0 + f1 ;
+    boolean isPrime = p >= 2 ;
+    for ( int i = 2 ;
+    i < p ;
+    i ++ ) {
+      if ( p % i == 0 ) {
+        isPrime = false ;
+        break ;
+      }
+    }
+    if ( isPrime ) {
+      n -- ;
+    }
+    f0 = f1 ;
+    f1 = p ;
+  }
+  return f1 ;
+}
+
+***Example ends here:
+double triangleArea ( double a , double h ) {
+  return a * h / 2 ;
+}
+
+***Example ends here:
+int modp ( int n , int p ) {
+  int ret = 1 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) ret = ( ret * 2 ) % p ;
+  return ret ;
+}
+
+***Example ends here:
+int add ( int x , int y ) {
+  return x + y ;
+}
+
+***Example ends here:
+int fib ( int n ) {
+  if ( n == 0 ) return 0 ;
+  if ( n == 1 ) return 1 ;
+  return fib ( n - 1 ) + fib ( n - 2 ) ;
+}
+
+***Example ends here:
+int largestPrimeFactor ( int n ) {
+  for ( int i = 2 ;
+  i < n ;
+  i ++ ) {
+    while ( n % i == 0 && n > i ) {
+      n /= i ;
+    }
+  }
+  return n ;
+}
+
+***Example ends here:
+int sumToN ( int n ) {
+  int result = 0 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) result += i ;
+  return result ;
+}
+
+***Example ends here:
+int fibFib ( int n ) {
+  if ( n == 0 ) return 0 ;
+  if ( n == 1 ) return 0 ;
+  if ( n == 2 ) return 1 ;
+  return fibFib ( n - 1 ) + fibFib ( n - 2 ) + fibFib ( n - 3 ) ;
+}
+
+***Example ends here:
+boolean isMultiply_prime ( int a ) {
+  int num = 0 ;
+  for ( int i = 2 ;
+  i <= a ;
+  i ++ ) {
+    while ( a % i == 0 && a >= i ) {
+      a /= i ;
+      num ++ ;
+    }
+  }
+  return num == 3 ;
+}
+
+***Example ends here:
+boolean isSimplePower ( int x , int n ) {
+  if ( n == 1 ) return x == 1 ;
+  int power = 1 ;
+  while ( power < x ) power *= n ;
+  return power == x ;
+}
+
+***Example ends here:
+int chooseNum ( int x , int y ) {
+  if ( x > y ) return - 1 ;
+  if ( y % 2 == 0 ) return y ;
+  if ( x == y ) return - 1 ;
+  return y - 1 ;
+}
+
+***Example ends here:
+boolean isEqualToSumEven ( int n ) {
+  return n % 2 == 0 && n >= 8 ;
+}
+
+***Example ends here:
+int specialFactorial ( int n ) {
+  int fact = 1 ;
+  int specialFact = 1 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    fact *= i ;
+    specialFact *= fact ;
+  }
+  return specialFact ;
+}
+
+***Example ends here:
+int xOrY ( int n , int x , int y ) {
+  boolean isPrime = n >= 2 ;
+  for ( int i = 2 ;
+  i < n ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      isPrime = false ;
+      break ;
+    }
+  }
+  if ( isPrime ) return x ;
+  return y ;
+}
+
+***Example ends here:
+boolean rightAngleTriangle ( float a , float b , float c ) {
+  return a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b ;
+}
+
+***Example ends here:
+int fastPow ( int n , int k ) {
+  if ( k == 0 ) return 1 ;
+  int temp = fastPow ( n , k / 2 ) ;
+  if ( k % 2 == 0 ) return temp * temp ;
+  else return n * temp * temp ;
+}
+
+***Example ends here:
+boolean isPalin ( String s ) {
+  int l = s . length ( ) / 2 ;
+  for ( int i = 0 ;
+  i < l ;
+  i ++ ) {
+    if ( s . charAt ( i ) != s . charAt ( s . length ( ) - i - 1 ) ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int findSum ( int n ) {
+  int ans = 0 ;
+  int temp = 0 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    if ( ! temp < n ) break ;
+    temp = i - 1 ;
+    int num = 1 ;
+    while ( temp < n ) {
+      if ( temp + i <= n ) ans += i * num ;
+      else ans += ( n - temp ) * num ;
+      temp += i ;
+      num ++ ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int getNextGap ( int gap ) {
+  gap = gap * 10 / 13 ;
+  if ( gap < 1 ) return 1 ;
+  return gap ;
+}
+
+***Example ends here:
+int countNonDecreasing ( int n ) {
+  int k = 10 ;
+  int count = 1 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    count *= k + i - 1 ;
+    count /= i ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int power ( int x , int y ) {
+  if ( y == 0 ) {
+    return 1 ;
+  }
+  else if ( y % 2 == 0 ) {
+    return power ( x , y / 2 ) * power ( x , y / 2 ) ;
+  }
+  else {
+    return x * power ( x , y / 2 ) * power ( x , y / 2 ) ;
+  }
+}
+
+***Example ends here:
+int power ( int x , int y ) {
+  if ( y == 0 ) return 1 ;
+  int temp = power ( x , y / 2 ) ;
+  if ( y % 2 == 0 ) return temp * temp ;
+  else {
+    if ( y > 0 ) return x * temp * temp ;
+    else return temp * temp / x ;
+  }
+}
+
+***Example ends here:
+int multiply ( int x , int y ) {
+  if ( y == 0 ) return 0 ;
+  if ( y > 0 ) return x + multiply ( x , y - 1 ) ;
+  if ( y < 0 ) return - multiply ( x , - y ) ;
+  return 0 ;
+}
+
+***Example ends here:
+int smallest ( int x , int y , int z ) {
+  if ( ! y / x ) return y < ( ! y / z ) ? z : y ;
+  return x < ( ! x / z ) ? z : x ;
+}
+
+***Example ends here:
+boolean isPowerOfFour ( int n ) {
+  if ( n == 0 ) return false ;
+  while ( n != 1 ) {
+    if ( n % 4 != 0 ) return false ;
+    n = n / 4 ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int modInverse ( int a , int m ) {
+  int m0 = m ;
+  int x0 = 0 , x1 = 1 ;
+  if ( m == 1 ) return 0 ;
+  while ( a > 1 ) {
+    int q = a / m ;
+    int t = m ;
+    m = a % m ;
+    a = t ;
+    t = x0 ;
+    x0 = x1 - q * x0 ;
+    x1 = t ;
+  }
+  if ( x1 < 0 ) x1 += m0 ;
+  return x1 ;
+}
+
+***Example ends here:
+int cntRotations ( String s , int n ) {
+  String s2 = s + s ;
+  int [ ] pre = new int [ 2 * n ] ;
+  for ( int i = 0 ;
+  i < 2 * n ;
+  i ++ ) {
+    if ( i != 0 ) pre [ i ] += pre [ i - 1 ] ;
+    if ( s2 . charAt ( i ) == 'a' || s2 . charAt ( i ) == 'e' || s2 . charAt ( i ) == 'i' || s2 . charAt ( i ) == 'o' || s2 . charAt ( i ) == 'u' ) pre [ i ] ++ ;
+  }
+  int ans = 0 ;
+  for ( int i = n - 1 ;
+  i < 2 * n - 1 ;
+  i ++ ) {
+    int r = i , l = i - n ;
+    int x1 = pre [ r ] ;
+    if ( l >= 0 ) x1 -= pre [ l ] ;
+    r = i - n / 2 ;
+    int left = pre [ r ] ;
+    if ( l >= 0 ) left -= pre [ l ] ;
+    int right = x1 - left ;
+    if ( left > right ) ans ++ ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int binomialCoeff ( int n , int k ) {
+  int res = 1 ;
+  if ( k > n - k ) k = n - k ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    res *= n - i ;
+    res /= i + 1 ;
+  }
+  return res ;
+}
+
+***Example ends here:
+boolean isPrefix ( String temp , String s ) {
+  if ( temp . length ( ) < s . length ( ) ) {
+    return false ;
+  }
+  else {
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      if ( ( s . charAt ( i ) != temp . charAt ( i ) ) && ( s . charAt ( i ) != temp . charAt ( i ) ) ) {
+        return false ;
+      }
+    }
+    return true ;
+  }
+}
+
+***Example ends here:
+String lexicographicallySmallestString ( String s , int n ) {
+  int last_ze = - 1 ;
+  String ans = "" ;
+  for ( int i = n - 1 ;
+  i >= 0 ;
+  i -- ) {
+    if ( s . charAt ( i ) == '0' ) {
+      last_ze = i ;
+      break ;
+    }
+  }
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( i <= last_ze && s . charAt ( i ) == '0' ) {
+      ans += s . charAt ( i ) ;
+    }
+    else if ( i > last_ze ) {
+      ans += s . charAt ( i ) ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int calculateMax ( int n , int m , int k ) {
+  int ans = - 1 ;
+  int low = 0 , high = m ;
+  while ( low <= high ) {
+    int mid = ( low + high ) / 2 ;
+    int val = 0 ;
+    int l = k - 1 ;
+    int r = n - k ;
+    val += mid ;
+    if ( mid >= l ) val += l * ( 2 * mid - l - 1 ) / 2 ;
+    else val += mid * ( mid - 1 ) / 2 + ( l - mid ) ;
+    if ( mid >= r ) val += r * ( 2 * mid - r - 1 ) / 2 ;
+    else val += mid * ( mid - 1 ) / 2 + ( r - mid ) ;
+    if ( val <= m ) {
+      ans = Math . max ( ans , mid ) ;
+      low = mid + 1 ;
+    }
+    else high = mid - 1 ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int findLength ( String s , int i , int j ) {
+  int required = i ;
+  int length = 0 ;
+  for ( int curr = 0 ;
+  curr < s . length ( ) ;
+  curr ++ ) {
+    if ( s . charAt ( curr ) == required ) {
+      length ++ ;
+      if ( required == i ) required = j ;
+      else required = i ;
+    }
+  }
+  return length ;
+}
+
+***Example ends here:
+boolean checkReverse ( int leftSum , int rightSum ) {
+  int rev = 0 ;
+  int temp = rightSum ;
+  while ( temp != 0 ) {
+    rev = rev * 10 + temp % 10 ;
+    temp /= 10 ;
+  }
+  if ( rev == leftSum ) return true ;
+  return false ;
+}
+
+***Example ends here:
+boolean isComposite ( int n ) {
+  if ( n <= 1 ) return false ;
+  if ( n <= 3 ) return false ;
+  if ( n % 2 == 0 || n % 3 == 0 ) return true ;
+  for ( int i = 5 ;
+  i <= n ;
+  i += 6 ) {
+    if ( i * i > n ) break ;
+    if ( n % i == 0 || n % ( i + 2 ) == 0 ) return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+int minDeletion ( String s ) {
+  int n = s . length ( ) ;
+  int firstId1 = - 1 ;
+  int lastIdx0 = - 1 ;
+  for ( int i = 0 ;
+  i <= n ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '1' ) {
+      firstId1 = i ;
+      break ;
+    }
+  }
+  for ( int i = n - 1 ;
+  i >= 0 ;
+  i -- ) {
+    if ( s . charAt ( i ) == '0' ) {
+      lastIdx0 = i ;
+      break ;
+    }
+  }
+  if ( firstId1 == - 1 || lastIdx0 == - 1 ) {
+    return 0 ;
+  }
+  int count1 = 0 , count0 = 0 ;
+  for ( int i = 0 ;
+  i <= lastIdx0 ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '1' ) {
+      count1 ++ ;
+    }
+  }
+  for ( int i = firstId1 + 1 ;
+  i < n ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '1' ) {
+      count0 ++ ;
+    }
+  }
+  return Math . min ( count0 , count1 ) ;
+}
+
+***Example ends here:
+int minSteps ( String s , int n ) {
+  int cost = 0 ;
+  int [ ] f = new int [ 26 ] ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    int currEle = ( char ) s . charAt ( i ) - 'a' ;
+    int smaller = 0 ;
+    for ( int j = 0 ;
+    j < currEle + 1 ;
+    j ++ ) {
+      if ( f [ j ] != 0 ) {
+        smaller += f [ j ] ;
+      }
+    }
+    if ( smaller == 0 ) {
+      cost += i + 1 ;
+    }
+    else {
+      cost += i - smaller + 1 ;
+    }
+    f [ ( char ) s . charAt ( i ) - 'a' ] ++ ;
+  }
+  return cost ;
+}
+
+***Example ends here:
+int numberOfWays ( int n ) {
+  int count = 0 ;
+  for ( int a = 1 ;
+  a <= n ;
+  a ++ ) {
+    for ( int b = 1 ;
+    b <= n ;
+    b ++ ) {
+      int c = n - ( a + b ) ;
+      if ( a < b + c && b < a + c && c < a + b ) {
+        count ++ ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int slopeOfNum ( int [ ] num , int n ) {
+  int slope = 0 ;
+  for ( int i = 1 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( num [ i ] > num [ i - 1 ] && num [ i ] > num [ i + 1 ] ) {
+      slope ++ ;
+    }
+    else if ( num [ i ] < num [ i - 1 ] && num [ i ] < num [ i + 1 ] ) {
+      slope ++ ;
+    }
+  }
+  return slope ;
+}
+
+***Example ends here:
+int middleOfThree ( int a , int b , int c ) {
+  int x = a - b ;
+  int y = b - c ;
+  int z = a - c ;
+  if ( x * y > 0 ) {
+    return b ;
+  }
+  else if ( x * z > 0 ) {
+    return c ;
+  }
+  else {
+    return a ;
+  }
+}
+
+***Example ends here:
+int countMaxSetBits ( int left , int right ) {
+  while ( ( left | ( left + 1 ) ) <= right ) {
+    left |= left + 1 ;
+  }
+  return left ;
+}
+
+***Example ends here:
+int findS ( int s ) {
+  int l = 1 ;
+  int r = s / 2 + 1 ;
+  while ( l <= r ) {
+    int mid = ( l + r ) / 2 ;
+    int sum = mid * ( mid + 1 ) / 2 ;
+    if ( sum == s ) {
+      return mid ;
+    }
+    else if ( sum > s ) {
+      r = mid - 1 ;
+    }
+    else {
+      l = mid + 1 ;
+    }
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+boolean check ( String s ) {
+  int min = Integer . MAX_VALUE ;
+  int max = - Integer . MAX_VALUE ;
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    int ascii = ( int ) s . charAt ( i ) ;
+    if ( ascii < 96 || ascii > 122 ) return false ;
+    sum += ascii ;
+    if ( min > ascii ) min = ascii ;
+    if ( max < ascii ) max = ascii ;
+  }
+  min -- ;
+  int eSum = max * ( max + 1 ) / 2 - min * ( min + 1 ) / 2 ;
+  return sum == eSum ;
+}
+
+***Example ends here:
+int minimumPossibleProduct ( int k ) {
+  int res = 1 ;
+  int r = ( 1 << k ) - 1 ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) res *= r - 1 ;
+  res *= r ;
+  return res ;
+}
+
+***Example ends here:
+int findInGrid ( int i , int j ) {
+  if ( i == j ) {
+    return i * i - ( i - 1 ) ;
+  }
+  else if ( i > j ) {
+    if ( i % 2 == 0 ) {
+      return i * i - ( j - 1 ) ;
+    }
+    else {
+      return ( i - 1 ) * ( i - 1 ) + 1 + ( j - 1 ) ;
+    }
+  }
+  else {
+    if ( j % 2 == 0 ) {
+      return ( j - 1 ) * ( j - 1 ) + 1 + ( i - 1 ) ;
+    }
+    else {
+      return j * j - ( i - 1 ) ;
+    }
+  }
+}
+
+***Example ends here:
+int findMinOperationsReqEmpStr ( String s ) {
+  int cntOne = 0 ;
+  int cntZero = 0 ;
+  int n = s . length ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '0' ) {
+      if ( cntOne > 0 ) {
+        cntOne = cntOne - 1 ;
+      }
+      cntZero = cntZero + 1 ;
+    }
+    else {
+      if ( cntZero > 0 ) {
+        cntZero = cntZero - 1 ;
+      }
+      cntOne = cntOne + 1 ;
+    }
+  }
+  return cntOne + cntZero ;
+}
+
+***Example ends here:
+boolean isReachable ( int x1 , int y1 , int x2 , int y2 ) {
+  while ( x2 > x1 && y2 > y1 ) {
+    if ( x2 > y2 ) x2 %= y2 ;
+    else y2 %= x2 ;
+  }
+  if ( x2 == x1 ) return y2 - y1 >= 0 && ( y2 - y1 ) % x1 == 0 ;
+  else if ( y2 == y1 ) return x2 - x1 >= 0 && ( x2 - x1 ) % y1 == 0 ;
+  else return false ;
+}
+
+***Example ends here:
+int findMaxSoln ( int n , int x , int y ) {
+  int ans = - Integer . MAX_VALUE ;
+  for ( int k = 0 ;
+  k < n + 1 ;
+  k ++ ) {
+    if ( k % x == y ) ans = Math . max ( ans , k ) ;
+  }
+  return ans >= 0 && ans <= n ? ans : - 1 ;
+}
+
+***Example ends here:
+int numberOfPairs ( int n ) {
+  int count = 0 ;
+  int i = 1 ;
+  int j = n - 1 ;
+  while ( i < j ) {
+    if ( ( i + j ) == n ) {
+      count ++ ;
+    }
+    i ++ ;
+    j -- ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int minChanges ( String s , int n ) {
+  int count = 0 , zeros = 0 , ones = 0 ;
+  if ( s . charAt ( 0 ) != '1' ) {
+    count ++ ;
+    ones ++ ;
+  }
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '0' ) zeros ++ ;
+    else ones ++ ;
+    if ( zeros > ones ) {
+      zeros -- ;
+      ones ++ ;
+      count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int kVisibleFromLeft ( int n , int k ) {
+  if ( n == k ) return 1 ;
+  if ( k == 1 ) {
+    int ans = 1 ;
+    for ( int i = 1 ;
+    i < n ;
+    i ++ ) ans *= i ;
+    return ans ;
+  }
+  return kVisibleFromLeft ( n - 1 , k - 1 ) + ( n - 1 ) * kVisibleFromLeft ( n - 1 , k ) ;
+}
+
+***Example ends here:
+double find ( int n , int sum ) {
+  if ( sum > 6 * n || sum < n ) return 0 ;
+  if ( n == 1 ) {
+    if ( sum >= 1 && sum <= 6 ) return 1.0 / 6 ;
+    else return 0 ;
+  }
+  double s = 0 ;
+  for ( int i = 1 ;
+  i <= 7 ;
+  i ++ ) s += find ( n - 1 , sum - i ) / 6 ;
+  return s ;
+}
+
+***Example ends here:
+int binCoff ( int n , int r ) {
+  int val = 1 ;
+  if ( r > ( n - r ) ) r = n - r ;
+  for ( int i = 0 ;
+  i < r ;
+  i ++ ) {
+    val *= n - i ;
+    val /= i + 1 ;
+  }
+  return val ;
+}
+
+***Example ends here:
+int getMask ( int val ) {
+  int mask = 0 ;
+  if ( val == 0 ) return 1 ;
+  while ( val > 0 ) {
+    int d = val % 10 ;
+    mask |= ( 1 << d ) ;
+    val /= 10 ;
+  }
+  return mask ;
+}
+
+***Example ends here:
+int waysToKAdjacentSetBits ( int n , int k , int currentIndex , int adjacentSetBits , int lastBit ) {
+  if ( currentIndex == n ) {
+    if ( adjacentSetBits == k ) return 1 ;
+    return 0 ;
+  }
+  int noOfWays = 0 ;
+  if ( lastBit == 1 ) {
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits + 1 , 1 ) ;
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits , 0 ) ;
+  }
+  else if ( lastBit != 1 ) {
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits , 1 ) ;
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits , 0 ) ;
+  }
+  return noOfWays ;
+}
+
+***Example ends here:
+int checkMethod ( int i , int j , String st ) {
+  if ( st . charAt ( i ) == '(' && st . charAt ( j ) == ')' ) return 1 ;
+  if ( st . charAt ( i ) == '(' && st . charAt ( j ) == '?' ) return 1 ;
+  if ( st . charAt ( i ) == '?' && st . charAt ( j ) == ')' ) return 1 ;
+  return 0 ;
+}
+
+***Example ends here:
+int findGolomb ( int n ) {
+  if ( n == 1 ) return 1 ;
+  return 1 + findGolomb ( n - findGolomb ( findGolomb ( n - 1 ) ) ) ;
+}
+
+***Example ends here:
+boolean allOnes ( String s , int n ) {
+  int co = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    co ++ == s . charAt ( i ) == '1' ? 0 : 1 ;
+  }
+  return co == n ;
+}
+
+***Example ends here:
+int pad ( int n ) {
+  int p_prev_prev = 1 , p_prev = 1 , p_curr = 1 , p_next = 1 ;
+  for ( int i = 3 ;
+  i <= n ;
+  i ++ ) {
+    p_next = p_prev_prev + p_prev ;
+    p_prev_prev = p_prev ;
+    p_prev = p_curr ;
+    p_curr = p_next ;
+  }
+  return p_next ;
+}
+
+***Example ends here:
+;
+int odd_length_palindrome ( int k ) {
+  int palin = k ;
+  k = k / 10 ;
+  while ( k > 0 ) {
+    int rev = k % 10 ;
+    palin = palin * 10 + rev ;
+    k = k / 10 ;
+  }
+  return palin ;
+}
+
+***Example ends here:
+String changeString ( String s0 ) {
+  List s = Lists . newArrayList ( s0 ) ;
+  int n = s0 . length ( ) ;
+  if ( s . get ( 0 ) . equals ( "?" ) ) {
+    s . set ( 0 , "a" ) ;
+    if ( s . get ( 0 ) . equals ( s . get ( 1 ) ) ) {
+      s . set ( 0 , Character . toUpperCase ( s . get ( 0 ) . charAt ( 0 ) ) + 1 ) ;
+    }
+  }
+  for ( int i = 1 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( s . get ( i ) . equals ( "?" ) ) {
+      s . set ( i , "a" ) ;
+      if ( s . get ( i ) . equals ( s . get ( i - 1 ) ) ) {
+        s . set ( i , Character . toUpperCase ( s . get ( i ) . charAt ( 0 ) ) + 1 ) ;
+      }
+      if ( s . get ( i ) . equals ( s . get ( i + 1 ) ) ) {
+        s . set ( i , Character . toUpperCase ( s . get ( i + 1 ) . charAt ( 0 ) ) + 1 ) ;
+      }
+      if ( s . get ( i ) . equals ( s . get ( i - 1 ) ) ) {
+        s . set ( i , Character . toUpperCase ( s . get ( i - 1 ) . charAt ( 0 ) ) + 1 ) ;
+      }
+    }
+  }
+  if ( s . get ( n - 1 ) . equals ( "?" ) ) {
+    s . set ( n - 1 , "a" ) ;
+    if ( s . get ( n - 1 ) . equals ( s . get ( n - 2 ) ) ) {
+      s . set ( n - 1 , Character . toUpperCase ( s . get ( n - 1 ) . charAt ( 0 ) ) + 1 ) ;
+    }
+  }
+  return "" ;
+}
+
+***Example ends here:
+int totalHammingDistance ( int n ) {
+  int i = 1 , sum = 0 ;
+  while ( n / i > 0 ) {
+    sum = sum + n / i ;
+    i = i * 2 ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+int checkBitonic ( int [ ] s ) {
+  int i = 1 ;
+  for ( i = 1 ;
+  i < s . length ;
+  i ++ ) {
+    if ( s [ i ] > s [ i - 1 ] ) continue ;
+    if ( s [ i ] <= s [ i - 1 ] ) break ;
+  }
+  if ( i == s . length - 1 ) return 1 ;
+  int j ;
+  for ( j = i + 1 ;
+  j < s . length ;
+  j ++ ) {
+    if ( s [ j ] < s [ j - 1 ] ) continue ;
+    if ( s [ j ] >= s [ j - 1 ] ) break ;
+  }
+  i = j ;
+  if ( i != s . length - 1 ) return 0 ;
+  return 1 ;
+}
+
+***Example ends here:
+boolean endsWith ( String str , String pat ) {
+  int pat_len = pat . length ( ) ;
+  int str_len = str . length ( ) ;
+  if ( pat_len > str_len ) return false ;
+  pat_len -- ;
+  str_len -- ;
+  while ( pat_len >= 0 ) {
+    if ( pat . charAt ( pat_len ) != str . charAt ( str_len ) ) return false ;
+    pat_len -- ;
+    str_len -- ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int getSum ( int n , int d ) {
+  if ( n < d ) return 0 ;
+  while ( n % 10 != d ) n -- ;
+  int k = n / 10 ;
+  return ( k + 1 ) * d + ( k * 10 + 10 * k * k ) / 2 ;
+}
+
+***Example ends here:
+int balanceStringBySwapping ( String s ) {
+  int unbalancePair = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( unbalancePair > 0 && s . charAt ( i ) == ']' ) {
+      unbalancePair -- ;
+    }
+    else if ( s . charAt ( i ) == '[' ) {
+      unbalancePair ++ ;
+    }
+  }
+  return ( unbalancePair + 1 ) / 2 ;
+}
+
+***Example ends here:
+int computeHash ( String s ) {
+  int p = 31 ;
+  int mod = 10 * 9 + 7 ;
+  int hashVal = 0 ;
+  int mul = 1 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    hashVal = ( hashVal + ( Character . digit ( s . charAt ( i ) , 16 ) - 'a' + 1 ) * mul ) % mod ;
+    mul = mul * p % mod ;
+  }
+  return hashVal ;
+}
+
+***Example ends here:
+int countOfSubstringWithOnlyOnes ( String s ) {
+  int res = 0 , count = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    count = count + 1 == s . charAt ( i ) ? 0 : 1 ;
+    res = res + count ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int composite ( int n ) {
+  int flag = 0 ;
+  int c = 0 ;
+  for ( int j = 1 ;
+  j <= n ;
+  j ++ ) {
+    if ( n % j == 0 ) {
+      c ++ ;
+    }
+  }
+  if ( c >= 3 ) {
+    flag = 1 ;
+  }
+  return flag ;
+}
+
+***Example ends here:
+boolean isDivByVInt ( byte [ ] bytes , int n ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    sum += ( bytes [ i ] & 0xFF ) - ( bytes [ i + 1 ] & 0xFF ) + 1 ;
+  }
+  if ( sum % 3 != 0 ) {
+    return false ;
+  }
+  int lastDigit = ( ( bytes [ n - 1 ] & 0xFF ) - ( bytes [ n - 2 ] & 0xFF ) + 1 ) % 10 ;
+  if ( lastDigit % 2 != 0 ) {
+    return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+boolean isRedundantBraces ( String s ) {
+  int a = 0 , b = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '(' && s . charAt ( i + 2 ) == ')' ) return true ;
+    if ( s . charAt ( i ) == '*' || s . charAt ( i ) == '+' || s . charAt ( i ) == '-' || s . charAt ( i ) == '/' ) a ++ ;
+    if ( s . charAt ( i ) == '(' ) b ++ ;
+  }
+  if ( b > a ) return true ;
+  return false ;
+}
+
+***Example ends here:
+int countSubStr ( String s , int n ) {
+  int count = 0 ;
+  int i = 0 ;
+  while ( i < ( n - 2 ) ) {
+    if ( s . charAt ( i ) == '0' && s . charAt ( i + 1 ) == '1' && s . charAt ( i + 2 ) == '0' ) {
+      count ++ ;
+      i += 3 ;
+    }
+    else if ( s . charAt ( i ) == '1' && s . charAt ( i + 1 ) == '0' && s . charAt ( i + 2 ) == '1' ) {
+      count ++ ;
+      i += 3 ;
+    }
+    else {
+      i ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int prefixOccurrences ( String s ) {
+  char c = s . charAt ( 0 ) ;
+  int countC = 0 ;
+  for ( int i = 1 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) == c ) {
+      countC ++ ;
+    }
+  }
+  return countC ;
+}
+
+***Example ends here:
+boolean isValid ( char [ ] s , int len ) {
+  for ( int i = 1 ;
+  i < len ;
+  i ++ ) {
+    if ( s [ i ] == s [ i - 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int count ( String s , int k ) {
+  int n = s . length ( ) ;
+  int d = 0 ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    d += ( int ) s . charAt ( i ) ;
+  }
+  if ( d % k == 0 ) {
+    count ++ ;
+  }
+  for ( int i = k ;
+  i < n ;
+  i ++ ) {
+    int prev = ( int ) s . charAt ( i - k ) ;
+    d -= prev ;
+    d += ( int ) s . charAt ( i ) ;
+    if ( d % k == 0 ) {
+      count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int findSubstringCount ( String s ) {
+  int result = 0 ;
+  int n = s . length ( ) ;
+  int i = 0 ;
+  while ( i < n - 1 ) {
+    if ( Character . toUpperCase ( s . charAt ( i ) ) + 1 == Character . toUpperCase ( s . charAt ( i + 1 ) ) ) {
+      result ++ ;
+      while ( i < n - 1 && Character . toUpperCase ( s . charAt ( i ) ) + 1 == Character . toUpperCase ( s . charAt ( i + 1 ) ) ) {
+        i ++ ;
+      }
+    }
+    i ++ ;
+  }
+  return result ;
+}
+
+***Example ends here:
+boolean find ( String s1 , String s2 ) {
+  int len1 = s1 . length ( ) ;
+  int len2 = s2 . length ( ) ;
+  if ( len1 != len2 ) return false ;
+  int [ ] d = new int [ len1 ] ;
+  d [ 0 ] = ( int ) s2 . charAt ( 0 ) - ( int ) s1 . charAt ( 0 ) ;
+  for ( int i = 1 ;
+  i < len1 ;
+  i ++ ) {
+    if ( s1 . charAt ( i ) > s2 . charAt ( i ) ) return false ;
+    else d [ i ] = ( int ) s2 . charAt ( i ) - ( int ) s1 . charAt ( i ) ;
+  }
+  for ( int i = 0 ;
+  i < len1 - 1 ;
+  i ++ ) {
+    if ( d [ i ] < d [ i + 1 ] ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+boolean isInGivenBase ( String s , int bas ) {
+  if ( bas > 16 ) {
+    return false ;
+  }
+  else if ( bas <= 10 ) {
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      if ( ! ( Character . isDigit ( s . charAt ( i ) ) && Character . isLetter ( s . charAt ( i ) ) ) ) {
+        return false ;
+      }
+    }
+  }
+  else {
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      if ( ! ( ( Character . isDigit ( s . charAt ( i ) ) && Character . isLetter ( s . charAt ( i ) ) ) || ( Character . isDigit ( s . charAt ( i ) ) && Character . isLetter ( s . charAt ( i ) ) ) ) ) {
+        return false ;
+      }
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int countNonEmptySubstring ( String s ) {
+  int n = s . length ( ) ;
+  return n * ( n + 1 ) / 2 ;
+}
+
+***Example ends here:
+int evenDecimalValue ( String s , int n ) {
+  int result = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i ;
+    j < n ;
+    j ++ ) {
+      int decimalValue = 0 ;
+      int powerOf2 = 1 ;
+      for ( int k = i ;
+      k <= j ;
+      k ++ ) {
+        decimalValue += ( Character . digit ( s . charAt ( k ) , 16 ) - '0' ) * powerOf2 ;
+        powerOf2 *= 2 ;
+      }
+      if ( decimalValue % 2 == 0 ) {
+        result ++ ;
+      }
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+int calculate ( String s ) {
+  int ans = 6 ;
+  for ( int i = 0 ;
+  i < 10 ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < 10 ;
+    j ++ ) {
+      for ( int k = 0 ;
+      k < 10 ;
+      k ++ ) {
+        for ( int l = 0 ;
+        l < 10 ;
+        l ++ ) {
+          for ( int m = 0 ;
+          m < 10 ;
+          m ++ ) {
+            for ( int n = 0 ;
+            n < 10 ;
+            n ++ ) {
+              if ( i + j + k == l + m + n ) {
+                int c = 0 ;
+                if ( i != Character . digit ( s . charAt ( 0 ) , 10 ) - Character . digit ( '0' , 10 ) ) c ++ ;
+                if ( j != Character . digit ( s . charAt ( 1 ) , 10 ) - Character . digit ( '0' , 10 ) ) c ++ ;
+                if ( k != Character . digit ( s . charAt ( 2 ) , 10 ) - Character . digit ( '0' , 10 ) ) c ++ ;
+                if ( l != Character . digit ( s . charAt ( 3 ) , 10 ) - Character . digit ( '0' , 10 ) ) c ++ ;
+                if ( m != Character . digit ( s . charAt ( 4 ) , 10 ) - Character . digit ( '0' , 10 ) ) c ++ ;
+                if ( n != Character . digit ( s . charAt ( 5 ) , 10 ) - Character . digit ( '0' , 10 ) ) c ++ ;
+                if ( c < ans ) ans = c ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int xorZero ( String s ) {
+  int oneCount = 0 ;
+  int zeroCount = 0 ;
+  int n = s . length ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '1' ) {
+      oneCount ++ ;
+    }
+    else {
+      zeroCount ++ ;
+    }
+  }
+  if ( oneCount % 2 == 0 ) {
+    return zeroCount ;
+  }
+  return oneCount ;
+}
+
+***Example ends here:
+int evenLength ( int [ ] n ) {
+  int res = n [ 0 ] ;
+  for ( int j = n . length - 1 ;
+  j >= 0 ;
+  j -- ) res += n [ j ] ;
+  return res ;
+}
+
+***Example ends here:
+int countSubstringWithEqualEnds ( String s ) {
+  int result = 0 ;
+  int n = s . length ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i ;
+    j < n ;
+    j ++ ) {
+      if ( s . charAt ( i ) == s . charAt ( j ) ) {
+        result = result + 1 ;
+      }
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+double normalSlope ( double a , double b , double x1 , double y1 ) {
+  double g = a / 2 ;
+  double f = b / 2 ;
+  if ( g - x1 == 0 ) return - 1 ;
+  double slope = ( f - y1 ) / ( g - x1 ) ;
+  if ( slope == 0 ) return - 2 ;
+  return slope ;
+}
+
+***Example ends here:
+boolean orthogonality ( double x1 , double y1 , double x2 , double y2 , double r1 , double r2 ) {
+  double dSquare = ( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 ) ;
+  if ( dSquare == r1 * r1 + r2 * r2 ) return true ;
+  else return false ;
+}
+
+***Example ends here:
+double findAreaShaded ( double a ) {
+  double sqArea = a * a ;
+  double semiCircleArea = ( 3.14 * ( a * a ) / 8 ) ;
+  double shadedArea = 4 * semiCircleArea - sqArea ;
+  return shadedArea ;
+}
+
+***Example ends here:
+int factorial ( int a , int b ) {
+  int res = 1 ;
+  for ( int i = 1 ;
+  i <= a + b ;
+  i ++ ) res = res * i ;
+  for ( int i = 1 ;
+  i <= a ;
+  i ++ ) res = res / i ;
+  for ( int i = 1 ;
+  i <= b ;
+  i ++ ) res = res / i ;
+  return res ;
+}
+
+***Example ends here:
+int factorTree ( int n ) {
+  int height = 0 ;
+  while ( n > 1 ) {
+    boolean flag = false ;
+    for ( int i = 2 ;
+    i <= Integer . MAX_VALUE ;
+    i ++ ) {
+      if ( n % i == 0 ) {
+        n = n / i ;
+        flag = true ;
+        break ;
+      }
+    }
+    height ++ ;
+    if ( ! flag ) break ;
+  }
+  return height ;
+}
+
+***Example ends here:
+String findIfPossible ( int n , int s , int x ) {
+  if ( s >= x && s % 2 == x % 2 ) {
+    if ( n >= 3 ) return "Yes" ;
+    if ( n == 1 ) {
+      if ( s == x ) return "Yes" ;
+      else return "No" ;
+    }
+    if ( n == 2 ) {
+      int c = ( s - x ) / 2 ;
+      int a = c ;
+      int b = c ;
+      a = a + x ;
+      if ( ( a ^ b ) == x ) return "Yes" ;
+      else return "No" ;
+    }
+  }
+  else return "No" ;
+}
+
+***Example ends here:
+int maximumTripletXor ( int a , int b , int c ) {
+  int ans = 0 ;
+  for ( int i = 30 ;
+  i >= 0 ;
+  i -- ) {
+    int cur = 1 << i ;
+    if ( a >= cur ) {
+      ans += cur ;
+      a -= cur ;
+    }
+    else if ( b >= cur ) {
+      ans += cur ;
+      b -= cur ;
+    }
+    else if ( c >= cur ) {
+      ans += cur ;
+      c -= cur ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int itemType ( int n ) {
+  int count = 0 ;
+  int day = 1 ;
+  while ( count + day * ( day + 1 ) / 2 < n ) {
+    count += day * ( day + 1 ) / 2 ;
+    day ++ ;
+  }
+  for ( int type = day ;
+  type >= 0 ;
+  type -- ) {
+    count += type ;
+    if ( count >= n ) {
+      return type ;
+    }
+  }
+  return 0 ;
+}
+
+***Example ends here:
+int maxGCInRange ( int l , int r ) {
+  int ans = 1 ;
+  for ( int z = r ;
+  z > 0 ;
+  z -- ) {
+    if ( r / z - ( l - 1 ) / z > 1 ) {
+      ans = z ;
+      break ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int sumOfDigits ( int n ) {
+  int sum = 0 ;
+  while ( n != 0 ) {
+    sum += ( n % 10 ) ;
+    n = n / 10 ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+;
+int isRepUnitNum ( int n , int b ) {
+  int length = 0 ;
+  int countOne = 0 ;
+  while ( ( n != 0 ) && ( countOne == length ) ) {
+    int r = n % b ;
+    length ++ ;
+    if ( r == 1 ) countOne ++ ;
+    n = n / b ;
+  }
+  return countOne >= 3 && countOne == length ;
+}
+
+***Example ends here:
+boolean isStraighLineNum ( int n ) {
+  if ( ( n <= 99 ) && ( n > 0 ) ) return false ;
+  String s = String . valueOf ( n ) ;
+  char d = ( char ) ( s . charAt ( 1 ) - ( char ) s . charAt ( 0 ) ) ;
+  for ( int i = 2 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( ( char ) ( s . charAt ( i ) - ( char ) s . charAt ( i - 1 ) ) != d ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int getCount ( int d , int n ) {
+  int no = n / d ;
+  int result = no ;
+  for ( int p = 2 ;
+  p <= no ;
+  p ++ ) {
+    if ( p * p > no ) break ;
+    if ( no % p == 0 ) {
+      while ( no % p == 0 ) no /= p ;
+      result -= result / p ;
+    }
+  }
+  if ( no > 1 ) result -= result / no ;
+  return result ;
+}
+
+***Example ends here:
+boolean isEvenParity ( int x ) {
+  int parity = 0 ;
+  while ( x != 0 ) {
+    if ( x & 1 ) {
+      parity ++ ;
+    }
+    x = x >> 1 ;
+  }
+  if ( parity % 2 == 0 ) {
+    return true ;
+  }
+  else {
+    return false ;
+  }
+}
+
+***Example ends here:
+int isPerfect ( int n ) {
+  int sum = 1 ;
+  for ( int i = 2 ;
+  i <= n ;
+  i ++ ) {
+    if ( i * i > n ) break ;
+    if ( n % i == 0 ) {
+      if ( i * i != n ) sum = sum + i + n / i ;
+      else sum = sum + i ;
+    }
+  }
+  if ( sum == n && n != 1 ) return n ;
+  return 0 ;
+}
+
+***Example ends here:
+int logAToBaseB ( int a , int b ) {
+  return 1 + logAToBaseB ( a / b , b ) == 0 ? 0 : 1 ;
+}
+
+***Example ends here:
+int usingBinarySearch ( int start , int end , int n , int s ) {
+  if ( start >= end ) return start ;
+  int mid = start + ( end - start ) / 2 ;
+  int totalSum = ( n * ( n + 1 ) ) / 2 ;
+  int midSum = ( mid * ( mid + 1 ) ) / 2 ;
+  if ( totalSum - midSum <= s ) return usingBinarySearch ( start , mid , n , s ) ;
+  return usingBinarySearch ( mid + 1 , end , n , s ) ;
+}
+
+***Example ends here:
+String minInt ( String s ) {
+  List < Character > s1 = Arrays . asList ( s . toCharArray ( ) ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( Character . digit ( s1 . get ( i ) , 10 ) >= '5' ) {
+      s1 . set ( i , ( char ) ( '9' - Character . digit ( s1 . get ( i ) , 10 ) + '0' ) ) ;
+    }
+  }
+  if ( s1 . get ( 0 ) == '0' ) {
+    s1 . set ( 0 , '9' ) ;
+  }
+  return "" ;
+}
+
+***Example ends here:
+int countTriplets ( int a , int b , int c ) {
+  int ans = 0 ;
+  for ( int i = 1 ;
+  i <= a ;
+  i ++ ) {
+    for ( int j = 1 ;
+    j <= b ;
+    j ++ ) {
+      for ( int k = 1 ;
+      k <= c ;
+      k ++ ) {
+        if ( i * k > j * j ) {
+          ans ++ ;
+        }
+      }
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+boolean topsyTurvy ( String s ) {
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '2' || s . charAt ( i ) == '4' || s . charAt ( i ) == '5' || s . charAt ( i ) == '6' || s . charAt ( i ) == '7' || s . charAt ( i ) == '9' ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int sumOfLastDigDig ( int n , int m ) {
+  int sum = 0 ;
+  int k = n / m ;
+  int [ ] arr = new int [ 10 ] ;
+  for ( int i = 0 ;
+  i < 10 ;
+  i ++ ) {
+    arr [ i ] = m * ( i + 1 ) % 10 ;
+    sum += arr [ i ] ;
+  }
+  int rem = k % 10 ;
+  int ans = k / 10 * sum ;
+  for ( int i = 0 ;
+  i < rem ;
+  i ++ ) {
+    ans += arr [ i ] ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int totalPay ( int totalItems , int priceOfOneItem , int n , int m ) {
+  int freeItems ;
+  int actual ;
+  freeItems = totalItems / ( n + m ) ;
+  actual = totalItems - freeItems ;
+  int amount = actual * priceOfOneItem ;
+  return amount ;
+}
+
+***Example ends here:
+int minOperations ( int x , int y , int p , int q ) {
+  if ( y % x != 0 ) return - 1 ;
+  int d = y / x ;
+  int a = 0 ;
+  while ( d % p == 0 ) {
+    d /= p ;
+    a ++ ;
+  }
+  int b = 0 ;
+  while ( d % q == 0 ) {
+    d /= q ;
+    b ++ ;
+  }
+  if ( d != 1 ) return - 1 ;
+  return a + b ;
+}
+
+***Example ends here:
+boolean isMersenne ( int n ) {
+  while ( n != 0 ) {
+    int r = n % 2 ;
+    if ( r == 0 ) {
+      return false ;
+    }
+    n /= 2 ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int findThirdDigit ( int n ) {
+  if ( n < 3 ) return 0 ;
+  return n & 1 ? 6 : 0 ;
+}
+
+***Example ends here:
+boolean isOddLength ( long num ) {
+  int count = 0 ;
+  while ( num > 0 ) {
+    num = num / 10 ;
+    count ++ ;
+  }
+  if ( count % 2 != 0 ) {
+    return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+boolean checkIsPossible ( int l , int r , int k ) {
+  int count = 0 ;
+  for ( int i = l ;
+  i <= r ;
+  i ++ ) {
+    if ( i % k == 0 ) {
+      count ++ ;
+    }
+  }
+  return count > 1 ;
+}
+
+***Example ends here:
+int bytes ( int kilobytes ) {
+  int b = kilobytes * 1024 ;
+  return b ;
+}
+
+***Example ends here:
+int octahedralNum ( int n ) {
+  return n * ( 2 * n * n + 1 ) / 3 ;
+}
+
+***Example ends here:
+String checkEqual ( String s ) {
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) != '1' && s . charAt ( i ) != '0' && s . charAt ( i ) != '8' ) {
+      return "No" ;
+    }
+  }
+  int start = 0 ;
+  int end = s . length ( ) - 1 ;
+  while ( start < end ) {
+    if ( s . charAt ( start ) != s . charAt ( end ) ) {
+      return "No" ;
+    }
+    start ++ ;
+    end -- ;
+  }
+  return "Yes" ;
+}
+
+***Example ends here:
+boolean isundulating ( int [ ] n ) {
+  if ( n . length <= 2 ) return false ;
+  for ( int i = 2 ;
+  i < n . length ;
+  i ++ ) {
+    if ( n [ i - 2 ] != n [ i ] ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int firstDigit ( int n ) {
+  while ( n >= 10 ) {
+    n /= 10 ;
+  }
+  return n ;
+}
+
+***Example ends here:
+int countDigit ( int n ) {
+  if ( n == 0 ) return 0 ;
+  return 1 + countDigit ( n / 10 ) ;
+}
+
+***Example ends here:
+boolean isDivisibleBy5 ( String s ) {
+  int n = s . length ( ) ;
+  return s . charAt ( n - 1 ) == '0' || s . charAt ( n - 1 ) == '5' ;
+}
+
+***Example ends here:
+int inv ( int a , int m ) {
+  int m0 = m ;
+  int x0 = 0 , x1 = 1 ;
+  if ( m == 1 ) return 0 ;
+  while ( a > 1 ) {
+    int q = a / m ;
+    int t = m ;
+    m = a % m ;
+    a = t ;
+    t = x0 ;
+    x0 = x1 - q * x0 ;
+    x1 = t ;
+  }
+  if ( x1 < 0 ) x1 = x1 + m0 ;
+  return x1 ;
+}
+
+***Example ends here:
+boolean onlyFirstAndLastAreSet ( int n ) {
+  if ( n == 1 ) return true ;
+  if ( n == 2 ) return false ;
+  return ( ( n - 1 ) & ( n - 2 ) ) == 0 ;
+}
+
+***Example ends here:
+int divide ( int dividend , int divisor ) {
+  int sign = - 1 == ( ( dividend < 0 ) ^ ( divisor < 0 ) ) ? 1 : - 1 ;
+  dividend = Math . abs ( dividend ) ;
+  divisor = Math . abs ( divisor ) ;
+  int quotient = 0 ;
+  int temp = 0 ;
+  for ( int i = 31 ;
+  i >= 0 ;
+  i -- ) {
+    if ( temp + ( divisor << i ) <= dividend ) {
+      temp += divisor << i ;
+      quotient |= 1 << i ;
+    }
+  }
+  if ( sign == - 1 ) quotient = - quotient ;
+  return quotient ;
+}
+
+***Example ends here:
+char findProfession ( int level , int pos ) {
+  if ( level == 1 ) return 'e' ;
+  if ( findProfession ( level - 1 , ( pos + 1 ) / 2 ) == 'd' ) return 'd' ;
+  return pos % 2 == 0 ? 'e' : 'd' ;
+}
+
+***Example ends here:
+boolean hasCloseElements ( int [ ] numbers , double threshold ) {
+  for ( int i = 0 ;
+  i < numbers . length ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < numbers . length ;
+    j ++ ) {
+      double distance = Math . abs ( numbers [ i ] - numbers [ j ] ) ;
+      if ( distance < threshold ) {
+        return true ;
+      }
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+int truncateNumber ( int number ) {
+  return number % 1 ;
+}
+
+***Example ends here:
+boolean belowZero ( int [ ] operations ) {
+  int balance = 0 ;
+  for ( int i = 0 ;
+  i < operations . length ;
+  i ++ ) {
+    balance += operations [ i ] ;
+    if ( balance < 0 ) return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+double meanAbsoluteDeviation ( double [ ] numbers ) {
+  double sumNum = 0 ;
+  for ( double num : numbers ) {
+    sumNum += num ;
+  }
+  double mean = sumNum / numbers . length ;
+  double sumAbsDiff = 0 ;
+  for ( double num : numbers ) {
+    sumAbsDiff += Math . abs ( num - mean ) ;
+  }
+  return sumAbsDiff / numbers . length ;
+}
+
+***Example ends here:
+String intersperse ( String [ ] numbers , String delimiter ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  if ( numbers . length == 0 ) return sb . toString ( ) ;
+  for ( int i = 0 ;
+  i < numbers . length - 1 ;
+  i ++ ) {
+    sb . append ( numbers [ i ] ) ;
+    sb . append ( delimiter ) ;
+  }
+  sb . append ( numbers [ numbers . length - 1 ] ) ;
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+int [ ] sumProduct ( int [ ] numbers ) {
+  int sumValue = 0 ;
+  int prodValue = 1 ;
+  for ( int n : numbers ) {
+    sumValue += n ;
+    prodValue *= n ;
+  }
+  return new int [ ] {
+    sumValue , prodValue }
+    ;
+  }
+  
+***Example ends here:
+List < String > allPrefixes ( String string ) {
+  List < String > result = new ArrayList < > ( ) ;
+  for ( int i = 1 ;
+  i <= string . length ( ) ;
+  i ++ ) {
+    result . add ( string . substring ( 0 , i ) ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+int parseMusic ( String musicString ) {
+  StringBuilder current = new StringBuilder ( ) ;
+  int result = 0 ;
+  for ( int i = 0 ;
+  i < musicString . length ( ) + 1 ;
+  i ++ ) {
+    if ( i == musicString . length ( ) || musicString . charAt ( i ) == ' ' ) {
+      if ( "" . equals ( current . toString ( ) ) ) {
+        result ++ ;
+      }
+      if ( "" . equals ( current . toString ( ) ) ) {
+        result ++ ;
+      }
+      if ( "" . equals ( current . toString ( ) ) ) {
+        result ++ ;
+      }
+      current . setLength ( 0 ) ;
+    }
+    else {
+      current . append ( musicString . charAt ( i ) ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+int strlen ( String s ) {
+  return s . length ( ) ;
+}
+
+***Example ends here:
+List < Integer > factorize ( int n ) {
+  List < Integer > factors = new ArrayList < > ( ) ;
+  int i = 2 ;
+  while ( i <= n ) {
+    if ( n % i == 0 ) {
+      factors . add ( i ) ;
+      n /= i ;
+    }
+    else {
+      i ++ ;
+    }
+  }
+  return factors ;
+}
+
+***Example ends here:
+String concatenate ( String [ ] strings ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( String s : strings ) {
+    sb . append ( s ) ;
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+int [ ] getPositive ( int [ ] l ) {
+  int [ ] result = new int [ l . length ] ;
+  for ( int i = 0 ;
+  i < l . length ;
+  i ++ ) {
+    if ( l [ i ] > 0 ) {
+      result [ i ] = l [ i ] ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+< T extends Comparable < T >> List < T > sortEven ( List < T > l ) {
+  List < T > evens = new ArrayList < T > ( ) ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i += 2 ) {
+    evens . add ( l . get ( i ) ) ;
+  }
+  Collections . sort ( evens ) ;
+  List < T > result = new ArrayList < T > ( ) ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    if ( i % 2 == 0 ) {
+      result . add ( evens . get ( i / 2 ) ) ;
+    }
+    if ( i % 2 == 1 ) {
+      result . add ( l . get ( i ) ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+String decodeCyclic ( String s ) {
+  StringBuilder output = new StringBuilder ( ) ;
+  int i = 0 ;
+  while ( i <= s . length ( ) - 3 ) {
+    String x = s . substring ( i + 2 ) + s . substring ( i , i + 2 ) ;
+    output . append ( x ) ;
+    i += 3 ;
+  }
+  return output . toString ( ) + s . substring ( i ) ;
+}
+
+***Example ends here:
+int carRaceCollision ( int n ) {
+  return n * n ;
+}
+
+***Example ends here:
+List incrList ( List l ) {
+  List result = new ArrayList ( ) ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    result . add ( l . get ( i ) + 1 ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+boolean pairsSumToZero ( int [ ] l ) {
+  for ( int i = 0 ;
+  i < l . length ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < l . length ;
+    j ++ ) {
+      if ( l [ i ] + l [ j ] == 0 ) {
+        return true ;
+      }
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+String changeBase ( int x , int b ) {
+  StringBuilder ret = new StringBuilder ( ) ;
+  while ( x > 0 ) {
+    ret . insert ( 0 , Integer . toString ( x % b , 16 ) ) ;
+    x /= b ;
+  }
+  return ret . toString ( ) ;
+}
+
+***Example ends here:
+double median ( List < Double > l ) {
+  Collections . sort ( l ) ;
+  if ( l . size ( ) % 2 == 1 ) {
+    return l . get ( l . size ( ) / 2 ) ;
+  }
+  else {
+    return ( l . get ( l . size ( ) / 2 - 1 ) + l . get ( l . size ( ) / 2 ) ) / 2.0 ;
+  }
+}
+
+***Example ends here:
+String decodeShift ( String s ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char ch = s . charAt ( i ) ;
+    int w = ( Character . digit ( ch , 16 ) + 21 - Character . digit ( ch , 16 ) ) % 26 + Character . digit ( ch , 16 ) ;
+    sb . append ( ( char ) w ) ;
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+boolean belowThreshold ( int [ ] l , int t ) {
+  for ( int n : l ) {
+    if ( n >= t ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+boolean correctBracketing ( String [ ] brackets ) {
+  int depth = 0 ;
+  for ( String b : brackets ) {
+    if ( b . equals ( "<" ) ) {
+      depth ++ ;
+    }
+    else {
+      depth -- ;
+    }
+    if ( depth < 0 ) {
+      return false ;
+    }
+  }
+  return depth == 0 ;
+}
+
+***Example ends here:
+boolean monotonic ( double [ ] l ) {
+  int incr = 0 ;
+  int decr = 0 ;
+  for ( int i = 1 ;
+  i < l . length ;
+  i ++ ) {
+    if ( l [ i ] > l [ i - 1 ] ) incr = 1 ;
+    if ( l [ i ] < l [ i - 1 ] ) decr = 1 ;
+  }
+  return incr + decr != 2 ;
+}
+
+***Example ends here:
+double [ ] derivative ( double [ ] xs ) {
+  double [ ] result = new double [ xs . length ] ;
+  for ( int i = 1 ;
+  i < xs . length ;
+  i ++ ) result [ i ] = i * xs [ i ] ;
+  return result ;
+}
+
+***Example ends here:
+int vowelsCount ( String s ) {
+  String vowels = "aeiouAEIOU" ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char ch = s . charAt ( i ) ;
+    if ( ch == vowels . charAt ( i ) ) {
+      count ++ ;
+    }
+  }
+  if ( s . endsWith ( "y" ) || s . endsWith ( "Y" ) ) {
+    count ++ ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int digit_sum ( String s ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) == ' ' ) {
+      sum += ( int ) s . charAt ( i ) ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+int fruitDistribution ( String s , int n ) {
+  StringBuilder num1 = new StringBuilder ( ) ;
+  StringBuilder num2 = new StringBuilder ( ) ;
+  boolean flag = false ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) == ' ' ) {
+      if ( ! flag ) num1 . append ( s . charAt ( i ) ) ;
+      if ( flag ) num2 . append ( s . charAt ( i ) ) ;
+    }
+    else if ( ! flag && num1 . length ( ) > 0 ) flag = true ;
+  }
+  return n - Integer . parseInt ( num1 . toString ( ) ) - Integer . parseInt ( num2 . toString ( ) ) ;
+}
+
+***Example ends here:
+int [ ] pluck ( int [ ] arr ) {
+  int [ ] result = new int [ arr . length ] ;
+  for ( int i = 0 ;
+  i < arr . length ;
+  i ++ ) {
+    if ( arr [ i ] % 2 == 0 ) {
+      if ( result == null ) {
+        result = new int [ arr . length ] ;
+        result [ 0 ] = arr [ i ] ;
+        result [ 1 ] = i ;
+      }
+      else if ( arr [ i ] < result [ 0 ] ) {
+        result [ 0 ] = arr [ i ] ;
+        result [ 1 ] = i ;
+      }
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+List < String > strangeSortList ( List < String > list ) {
+  List < String > res = new ArrayList < String > ( ) ;
+  Collections . sort ( list ) ;
+  int l = 0 ;
+  int r = list . size ( ) - 1 ;
+  while ( l < r ) {
+    res . add ( list . get ( l ) ) ;
+    l ++ ;
+    res . add ( list . get ( r ) ) ;
+    r -- ;
+  }
+  if ( l == r ) res . add ( list . get ( l ) ) ;
+  return res ;
+}
+
+***Example ends here:
+double triangleArea ( double a , double b , double c ) {
+  if ( a + b <= c || a + c <= b || b + c <= a ) return - 1.0 ;
+  double s = ( a + b + c ) / 2 ;
+  double area = Math . sqrt ( s * ( s - a ) * ( s - b ) * ( s - c ) ) ;
+  return area ;
+}
+
+***Example ends here:
+boolean will_it_fly ( int [ ] q , int w ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < q . length ;
+  i ++ ) {
+    if ( q [ i ] != q [ q . length - i - 1 ] ) return false ;
+    sum += q [ i ] ;
+  }
+  return sum <= w ;
+}
+
+***Example ends here:
+boolean isCube ( double a ) {
+  a = Math . abs ( a ) ;
+  int i = Math . round ( a * ( 1.0 / 3 ) ) ;
+  return i * i == a ;
+}
+
+***Example ends here:
+int hexKey ( String num ) {
+  String key = "2357BD" ;
+  int total = 0 ;
+  for ( int i = 0 ;
+  i < num . length ( ) ;
+  i ++ ) {
+    if ( num . charAt ( i ) == key . charAt ( i ) ) {
+      total ++ ;
+    }
+  }
+  return total ;
+}
+
+***Example ends here:
+String decimalToBinary ( int dec ) {
+  StringBuilder ans = new StringBuilder ( ) ;
+  if ( dec != 0 ) {
+    while ( dec > 0 ) {
+      ans . insert ( 0 , Integer . toString ( dec % 2 ) ) ;
+      dec /= 2 ;
+    }
+  }
+  else {
+    ans . append ( "0" ) ;
+  }
+  return "db" + ans . toString ( ) + "db" ;
+}
+
+***Example ends here:
+boolean primalLength ( String s ) {
+  int l = s . length ( ) ;
+  if ( l < 2 ) return false ;
+  for ( int i = 2 ;
+  i < l ;
+  i ++ ) {
+    if ( l % i == 0 ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int startsOneEnds ( int n ) {
+  if ( n < 1 ) return 0 ;
+  if ( n == 1 ) return 1 ;
+  return 18 * ( 10 * ( n - 2 ) ) ;
+}
+
+***Example ends here:
+int add ( int [ ] lst ) {
+  int sum = 0 ;
+  for ( int i = 1 ;
+  i < lst . length ;
+  i += 2 ) {
+    if ( lst [ i ] % 2 == 0 ) {
+      sum += lst [ i ] ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+int [ ] getRow ( int [ ] [ ] lst , int x ) {
+  int [ ] coords = new int [ lst . length ] ;
+  for ( int i = 0 ;
+  i < lst . length ;
+  i ++ ) {
+    for ( int j = lst [ i ] . length - 1 ;
+    j >= 0 ;
+    j -- ) {
+      if ( lst [ i ] [ j ] == x ) {
+        coords [ i ] = j ;
+      }
+    }
+  }
+  return coords ;
+}
+
+***Example ends here:
+int nextSmallest ( List < Integer > list ) {
+  Collections . sort ( list ) ;
+  for ( int i = 1 ;
+  i < list . size ( ) ;
+  i ++ ) {
+    if ( list . get ( i ) != list . get ( i - 1 ) ) {
+      return list . get ( i ) ;
+    }
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+boolean anyInt ( int a , int b , int c ) {
+  if ( Math . round ( a ) != a || Math . round ( b ) != b || Math . round ( c ) != c ) return false ;
+  return a + b == c || a + c == b || b + c == a ;
+}
+
+***Example ends here:
+List < Integer > countUpTo ( int n ) {
+  List < Integer > primes = new ArrayList < > ( ) ;
+  for ( int i = 2 ;
+  i <= n ;
+  i ++ ) {
+    boolean isPrime = true ;
+    for ( int j = 2 ;
+    j <= i ;
+    j ++ ) {
+      if ( i % j == 0 ) {
+        isPrime = false ;
+        break ;
+      }
+    }
+    if ( isPrime ) {
+      primes . add ( i ) ;
+    }
+  }
+  return primes ;
+}
+
+***Example ends here:
+int closestInteger ( String value ) {
+  double w = Double . parseDouble ( value ) ;
+  return Math . round ( w ) ;
+}
+
+***Example ends here:
+int [ ] makeAile ( int n ) {
+  int [ ] result = new int [ n ] ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) result [ i ] = n + 2 * i ;
+  return result ;
+}
+
+***Example ends here:
+String [ ] words_string ( String s ) {
+  StringBuilder current = new StringBuilder ( ) ;
+  String [ ] words = new String [ s . length ( ) + 1 ] ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( i == s . length ( ) || s . charAt ( i ) == ' ' || s . charAt ( i ) == ',' ) {
+      if ( current . length ( ) > 0 ) {
+        words [ i ] = "" . concat ( current . toString ( ) ) ;
+        current . setLength ( 0 ) ;
+      }
+    }
+    else {
+      current . append ( s . charAt ( i ) ) ;
+    }
+  }
+  return words ;
+}
+
+***Example ends here:
+String roundedAvg ( int n , int m ) {
+  if ( n > m ) return - 1 ;
+  int num = ( n + m ) / 2 ;
+  StringBuilder ret = new StringBuilder ( ) ;
+  while ( num > 0 ) {
+    ret . insert ( 0 , Integer . toString ( num % 2 ) ) ;
+    num /= 2 ;
+  }
+  return ret . toString ( ) ;
+}
+
+***Example ends here:
+int [ ] uniqueDigits ( int [ ] x ) {
+  int [ ] digits = new int [ x . length ] ;
+  for ( int i = 0 ;
+  i < x . length ;
+  i ++ ) {
+    int n = x [ i ] ;
+    boolean isUnique = true ;
+    for ( int j = 0 ;
+    j < Integer . SIZE ;
+    j ++ ) {
+      if ( Character . digit ( x [ i ] , j ) % 2 == 0 ) {
+        isUnique = false ;
+        break ;
+      }
+    }
+    if ( isUnique ) {
+      digits [ i ] = n ;
+    }
+  }
+  Arrays . sort ( digits ) ;
+  return digits ;
+}
+
+***Example ends here:
+int countNums ( int [ ] arr ) {
+  int num = 0 ;
+  for ( int n : arr ) {
+    int neg = n < 0 ? 1 : - 1 ;
+    n = Math . abs ( n ) ;
+    int [ ] digits = new int [ n ] ;
+    for ( int c : String . valueOf ( n ) . toCharArray ( ) ) {
+      digits [ c ] = ( int ) ( c - '0' ) ;
+    }
+    digits [ 0 ] *= neg ;
+    int sum = 0 ;
+    for ( int d : digits ) {
+      sum += d ;
+    }
+    if ( sum > 0 ) {
+      num ++ ;
+    }
+  }
+  return num ;
+}
+
+***Example ends here:
+boolean moveOneBall ( int [ ] arr ) {
+  if ( arr == null ) return true ;
+  int num = 0 ;
+  for ( int i = 1 ;
+  i < arr . length ;
+  i ++ ) {
+    if ( arr [ i ] < arr [ i - 1 ] ) num ++ ;
+  }
+  if ( arr [ arr . length - 1 ] > arr [ 0 ] ) num ++ ;
+  if ( num < 2 ) return true ;
+  return false ;
+}
+
+***Example ends here:
+String exchange ( List < Integer > lst1 , List < Integer > lst2 ) {
+  int odd = 0 ;
+  int even = 0 ;
+  for ( int n : lst1 ) {
+    if ( n % 2 == 1 ) odd ++ ;
+  }
+  for ( int n : lst2 ) {
+    if ( n % 2 == 0 ) even ++ ;
+  }
+  if ( even >= odd ) return "YES" ;
+  return "NO" ;
+}
+
+***Example ends here:
+List < String > oddCount ( List < String > lst ) {
+  List < String > results = new ArrayList < String > ( ) ;
+  String originalStr = "the number of odd elements in the string i of the input." ;
+  for ( String s : lst ) {
+    int sum = 0 ;
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      if ( s . charAt ( i ) == ' ' && Character . isDigit ( s . charAt ( i ) ) ) {
+        sum ++ ;
+      }
+    }
+    StringBuilder sb = new StringBuilder ( ) ;
+    for ( int i = 0 ;
+    i < originalStr . length ( ) ;
+    i ++ ) {
+      if ( originalStr . charAt ( i ) == 'i' ) {
+        sb . append ( String . valueOf ( sum ) ) ;
+      }
+      else {
+        sb . append ( originalStr . charAt ( i ) ) ;
+      }
+    }
+    results . add ( sb . toString ( ) ) ;
+  }
+  return results ;
+}
+
+***Example ends here:
+int minSubArraySum ( int [ ] nums ) {
+  int min_sum = Integer . MAX_VALUE ;
+  int sum = 0 ;
+  for ( int num : nums ) {
+    sum += num ;
+    if ( min_sum > sum ) min_sum = sum ;
+    if ( sum > 0 ) sum = 0 ;
+  }
+  return min_sum ;
+}
+
+***Example ends here:
+int maxFill ( int [ ] [ ] grid , int capacity ) {
+  int res = 0 ;
+  for ( int [ ] well : grid ) {
+    int sum = 0 ;
+    for ( int n : well ) {
+      sum += n ;
+    }
+    if ( sum > 0 ) {
+      res += ( sum - 1 ) / capacity + 1 ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+String selectWords ( String s , int n ) {
+  String vowels = "aeiouAEIOU" ;
+  StringBuilder current = new StringBuilder ( ) ;
+  StringBuilder result = new StringBuilder ( ) ;
+  int consonantNum = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) + 1 ;
+  i ++ ) {
+    if ( i == s . length ( ) || s . charAt ( i ) == ' ' ) {
+      if ( consonantNum == n ) {
+        result . append ( "" ) ;
+      }
+      current . setLength ( 0 ) ;
+      consonantNum = 0 ;
+    }
+    else {
+      current . append ( s . charAt ( i ) ) ;
+      if ( s . charAt ( i ) != vowels . charAt ( 0 ) ) {
+        consonantNum ++ ;
+      }
+    }
+  }
+  return result . toString ( ) ;
+}
+
+***Example ends here:
+int solution ( int [ ] lst ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < lst . length ;
+  i += 2 ) {
+    if ( lst [ i ] % 2 == 1 ) {
+      sum += lst [ i ] ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+int addElements ( int [ ] arr , int k ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    if ( - 99 <= arr [ i ] && arr [ i ] <= 99 ) {
+      sum += arr [ i ] ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+List < Integer > getOddCollatz ( int n ) {
+  List < Integer > oddCollatz = new ArrayList < Integer > ( ) ;
+  while ( n > 1 ) {
+    if ( n % 2 == 1 ) {
+      oddCollatz . add ( n ) ;
+      n = n * 3 + 1 ;
+    }
+    else {
+      n /= 2 ;
+    }
+  }
+  oddCollatz . add ( 1 ) ;
+  Collections . sort ( oddCollatz ) ;
+  return oddCollatz ;
+}
+
+***Example ends here:
+boolean isSorted ( int [ ] array ) {
+  for ( int i = 1 ;
+  i < array . length ;
+  i ++ ) {
+    if ( array [ i ] < array [ i - 1 ] ) {
+      return false ;
+    }
+    if ( i >= 2 && array [ i ] == array [ i - 1 ] && array [ i ] == array [ i - 2 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+String intersection ( Interval interval1 , Interval interval2 ) {
+  int inter1 = Math . max ( interval1 . getStart ( ) , interval2 . getStart ( ) ) ;
+  int inter2 = Math . min ( interval1 . getEnd ( ) , interval2 . getEnd ( ) ) ;
+  int l = inter2 - inter1 ;
+  if ( l < 2 ) return "NO" ;
+  for ( int i = 2 ;
+  i < l ;
+  i ++ ) {
+    if ( l % i == 0 ) return "NO" ;
+  }
+  return "YES" ;
+}
+
+***Example ends here:
+double prodSigns ( double [ ] arr ) {
+  if ( arr == null ) return - 32768 ;
+  double sum = 0 ;
+  double prods = 1 ;
+  for ( int i = 0 ;
+  i < arr . length ;
+  i ++ ) {
+    sum += Math . abs ( arr [ i ] ) ;
+    if ( arr [ i ] == 0 ) prods = 0 ;
+    if ( arr [ i ] < 0 ) prods = - prods ;
+  }
+  return sum * prods ;
+}
+
+***Example ends here:
+int [ ] minPath ( int [ ] [ ] grid , int k ) {
+  int n = grid . length ;
+  int min_num = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < n ;
+    j ++ ) {
+      if ( grid [ i ] [ j ] == 1 ) {
+        int [ ] tmp = new int [ n ] ;
+        if ( i != 0 ) tmp [ i ] = grid [ i - 1 ] [ j ] ;
+        if ( j != 0 ) tmp [ j ] = grid [ i ] [ j - 1 ] ;
+        if ( i != n - 1 ) tmp [ i ] = grid [ i + 1 ] [ j ] ;
+        if ( j != n - 1 ) tmp [ j ] = grid [ i ] [ j + 1 ] ;
+        min_num = Math . min ( tmp ) ;
+      }
+    }
+  }
+  int [ ] ans = new int [ k ] ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    if ( i % 2 == 0 ) ans [ i ] = 1 ;
+    else ans [ i ] = min_num ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int digits ( int n ) {
+  int prod = 1 ;
+  for ( int i = 0 ;
+  i < String . valueOf ( n ) . length ( ) ;
+  i ++ ) {
+    if ( Character . digit ( String . valueOf ( n ) . charAt ( i ) , 10 ) == 1 ) {
+      if ( prod == 0 ) {
+        prod = 1 ;
+      }
+      prod *= Character . digit ( String . valueOf ( n ) . charAt ( i ) , 10 ) - '0' ;
+    }
+  }
+  return prod ;
+}
+
+***Example ends here:
+boolean isNested ( String s ) {
+  int count = 0 ;
+  int maxCount = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char ch = s . charAt ( i ) ;
+    if ( ch == '[' ) count ++ ;
+    if ( ch == ']' ) count -- ;
+    if ( count < 0 ) count = 0 ;
+    if ( count > maxCount ) maxCount = count ;
+    if ( count <= maxCount - 2 ) return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+double sumSquares ( double [ ] lst ) {
+  double sum = 0 ;
+  for ( int i = 0 ;
+  i < lst . length ;
+  i ++ ) {
+    sum += Math . ceil ( lst [ i ] ) * Math . ceil ( lst [ i ] ) ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+int canArrange ( int [ ] arr ) {
+  int index = - 1 ;
+  for ( int i = 0 ;
+  i < arr . length ;
+  i ++ ) {
+    if ( arr [ i ] <= i ) {
+      index = i ;
+    }
+  }
+  return index ;
+}
+
+***Example ends here:
+int [ ] largestSmallestIntegers ( int [ ] array ) {
+  int maxNeg = 0 , minPos = 0 ;
+  for ( int n : array ) {
+    if ( n < 0 && ( maxNeg == 0 || n > maxNeg ) ) maxNeg = n ;
+    if ( n > 0 && ( minPos == 0 || n < minPos ) ) minPos = n ;
+  }
+  return new int [ ] {
+    maxNeg , minPos }
+    ;
+  }
+  
+***Example ends here:
+String fixSpaces ( String text ) {
+  StringBuilder res = new StringBuilder ( ) ;
+  int spaceLen = 0 ;
+  for ( int i = 0 ;
+  i < text . length ( ) + 1 ;
+  i ++ ) {
+    if ( i == text . length ( ) || text . charAt ( i ) != ' ' ) {
+      if ( spaceLen == 1 ) res . append ( '_' ) ;
+      if ( spaceLen == 2 ) res . append ( "__" ) ;
+      if ( spaceLen > 2 ) res . append ( '-' ) ;
+      spaceLen = 0 ;
+      if ( i != text . length ( ) ) res . append ( text . charAt ( i ) ) ;
+    }
+    else {
+      spaceLen ++ ;
+    }
+  }
+  return res . toString ( ) ;
+}
+
+***Example ends here:
+String fileNameCheck ( String fileName ) {
+  int digit_num = 0 , dot_num = 0 ;
+  if ( fileName . length ( ) < 5 || ! fileName . startsWith ( "." ) ) return "No" ;
+  String suffix = fileName . substring ( fileName . length ( ) - 4 ) ;
+  if ( suffix != ".txt" && suffix != ".exe" && suffix != ".dll" ) return "No" ;
+  for ( int i = 0 ;
+  i < fileName . length ( ) ;
+  i ++ ) {
+    if ( fileName . charAt ( i ) == '.' ) digit_num ++ ;
+    if ( fileName . charAt ( i ) == '.' ) dot_num ++ ;
+  }
+  if ( digit_num > 3 || dot_num != 1 ) return "No" ;
+  return "Yes" ;
+}
+
+***Example ends here:
+int sumSquares ( int [ ] lst ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < lst . length ;
+  i ++ ) {
+    if ( i % 3 == 0 ) sum += lst [ i ] * lst [ i ] ;
+    else if ( i % 4 == 0 ) sum += lst [ i ] * lst [ i ] * lst [ i ] ;
+    else sum += lst [ i ] ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+String wordsInSentence ( String sentence ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  StringBuilder current = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < sentence . length ( ) + 1 ;
+  i ++ ) {
+    if ( i == sentence . length ( ) || sentence . charAt ( i ) == ' ' ) {
+      boolean isPrime = true ;
+      int l = current . length ( ) ;
+      if ( l < 2 ) {
+        isPrime = false ;
+      }
+      for ( int j = 2 ;
+      j < l ;
+      j ++ ) {
+        if ( l % j == 0 ) {
+          isPrime = false ;
+          break ;
+        }
+      }
+      if ( isPrime ) {
+        sb . append ( "" ) . append ( current ) . append ( " " ) ;
+      }
+      current . setLength ( 0 ) ;
+    }
+    else {
+      current . append ( sentence . charAt ( i ) ) ;
+    }
+  }
+  sb . append ( "" ) ;
+  if ( sb . length ( ) > 0 ) {
+    sb . setLength ( sb . length ( ) - 1 ) ;
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+boolean simplify ( String x , String n ) {
+  int a = 0 , b = 0 , c = 0 , d = 0 ;
+  for ( int i = 0 ;
+  i < x . length ( ) ;
+  i ++ ) {
+    if ( x . charAt ( i ) == '/' ) {
+      a = Integer . parseInt ( x . substring ( 0 , i ) ) ;
+      b = Integer . parseInt ( x . substring ( i + 1 ) ) ;
+    }
+  }
+  for ( int i = 0 ;
+  i < n . length ( ) ;
+  i ++ ) {
+    if ( n . charAt ( i ) == '/' ) {
+      c = Integer . parseInt ( n . substring ( 0 , i ) ) ;
+      d = Integer . parseInt ( n . substring ( i + 1 ) ) ;
+    }
+  }
+  return ( a * c ) % ( b * d ) == 0 ;
+}
+
+***Example ends here:
+int specialFilter ( int [ ] nums ) {
+  int count = 0 ;
+  for ( int num : nums ) {
+    if ( num > 10 ) {
+      String w = Integer . toString ( num ) ;
+      if ( Character . digit ( w . charAt ( 0 ) , 2 ) == 1 && Character . digit ( w . charAt ( w . length ( ) - 1 ) , 2 ) == 1 ) {
+        count ++ ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int getMaxTriples ( int n ) {
+  int [ ] arr = new int [ n + 1 ] ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    arr [ i ] = i * i - i + 1 ;
+  }
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    j ++ ) {
+      for ( int k = j + 1 ;
+      k < n ;
+      k ++ ) {
+        if ( ( arr [ i ] + arr [ j ] + arr [ k ] ) % 3 == 0 ) {
+          count ++ ;
+        }
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+double doubleTheDifference ( List < Double > list ) {
+  double sum = 0 ;
+  for ( Double d : list ) {
+    int num = Math . round ( d ) ;
+    if ( d == num ) {
+      if ( num > 0 && num % 2 == 1 ) {
+        sum += num * num ;
+      }
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+int [ ] compare ( int [ ] game , int [ ] guess ) {
+  int [ ] result = new int [ game . length ] ;
+  for ( int i = 0 ;
+  i < game . length ;
+  i ++ ) {
+    result [ i ] = Math . abs ( game [ i ] - guess [ i ] ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+String strongestExtension ( String className , String [ ] extensions ) {
+  String strongest = "" ;
+  int max = - Integer . MAX_VALUE ;
+  for ( int i = 0 ;
+  i < extensions . length ;
+  i ++ ) {
+    int strength = 0 ;
+    for ( int j = 0 ;
+    j < extensions . length ;
+    j ++ ) {
+      if ( extensions [ j ] . isUpperCase ( ) ) strength ++ ;
+      if ( extensions [ j ] . isLowerCase ( ) ) strength -- ;
+    }
+    if ( strength > max ) {
+      max = strength ;
+      strongest = extensions [ i ] ;
+    }
+  }
+  return className + "." + strongest ;
+}
+
+***Example ends here:
+String intToMiniRoman ( int number ) {
+  int [ ] num = {
+    1000 , 900 , 500 , 400 , 100 , 90 , 50 , 40 , 10 , 9 , 5 , 4 , 1 }
+    ;
+    String [ ] sym = {
+      "m" , "cm" , "d" , "cd" , "c" , "xc" , "l" , "xl" , "x" , "ix" , "v" , "iv" , "i" }
+      ;
+      int pos = 0 ;
+      StringBuilder res = new StringBuilder ( ) ;
+      while ( number > 0 ) {
+        while ( number >= num [ pos ] ) {
+          res . append ( sym [ pos ] ) ;
+          number -= num [ pos ] ;
+        }
+        if ( number > 0 ) pos ++ ;
+      }
+      return res . toString ( ) ;
+    }
+    
+***Example ends here:
+int eat ( int number , int need , int remaining ) {
+  return need > remaining ? number + remaining : 0 ;
+}
+
+***Example ends here:
+int doAlgebra ( List < String > ops , List < String > operands ) {
+  List < Integer > nums = Lists . newArrayList ( operands ) ;
+  List < String > currentOps = Lists . newArrayList ( ops ) ;
+  int i = currentOps . size ( ) - 1 ;
+  while ( i >= 0 ) {
+    if ( currentOps . get ( i ) . equals ( "**" ) ) {
+      nums . set ( i , Math . pow ( nums . get ( i ) , nums . get ( i + 1 ) ) ) ;
+      nums . remove ( i + 1 ) ;
+      currentOps . remove ( i ) ;
+    }
+    i -- ;
+  }
+  i = 0 ;
+  while ( i < currentOps . size ( ) ) {
+    if ( currentOps . get ( i ) . equals ( "*" ) ) {
+      nums . set ( i , nums . get ( i + 1 ) ) ;
+      nums . remove ( i + 1 ) ;
+      currentOps . remove ( i ) ;
+    }
+    else if ( currentOps . get ( i ) . equals ( "//" ) ) {
+      nums . set ( i , nums . get ( i + 1 ) ) ;
+      nums . remove ( i + 1 ) ;
+      currentOps . remove ( i ) ;
+    }
+    else i ++ ;
+  }
+  i = 0 ;
+  while ( i < currentOps . size ( ) ) {
+    if ( currentOps . get ( i ) . equals ( "+" ) ) {
+      nums . set ( i , nums . get ( i + 1 ) ) ;
+      nums . remove ( i + 1 ) ;
+      currentOps . remove ( i ) ;
+    }
+    else if ( currentOps . get ( i ) . equals ( "-" ) ) {
+      nums . set ( i , nums . get ( i + 1 ) ) ;
+      nums . remove ( i + 1 ) ;
+      currentOps . remove ( i ) ;
+    }
+    else i ++ ;
+  }
+  return nums . get ( 0 ) ;
+}
+
+***Example ends here:
+int [ ] generateIntegers ( int a , int b ) {
+  int lower = Math . max ( 2 , Math . min ( a , b ) ) ;
+  int upper = Math . min ( 8 , Math . max ( a , b ) ) ;
+  int [ ] result = new int [ upper ] ;
+  for ( int i = lower ;
+  i <= upper ;
+  i += 2 ) {
+    result [ i ] = i ;
+  }
+  return result ;
+}
+
+***Example ends here:
+boolean isStepNum ( int n ) {
+  int prevDigit = - 1 ;
+  while ( n > 0 ) {
+    int curDigit = n % 10 ;
+    if ( prevDigit == - 1 ) {
+      prevDigit = curDigit ;
+    }
+    else {
+      if ( Math . abs ( prevDigit - curDigit ) != 1 ) {
+        return false ;
+      }
+    }
+    prevDigit = curDigit ;
+    n /= 10 ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int numOfWays ( int n , int k ) {
+  int p = 1 ;
+  if ( k % 2 ) p = - 1 ;
+  return ( ( n - 1 ) * k + p * ( n - 1 ) ) / n ;
+}
+
+***Example ends here:
+List < Integer > findDivisors ( int n ) {
+  List < Integer > v = new ArrayList < Integer > ( ) ;
+  for ( int i = 1 ;
+  i <= Integer . MAX_VALUE ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      if ( n / i == i ) {
+        v . add ( i ) ;
+      }
+      else {
+        v . add ( i ) ;
+        v . add ( n / i ) ;
+      }
+    }
+  }
+  return v ;
+}
+
+***Example ends here:
+int egg_drop ( int n , int k ) {
+  if ( k == 1 || k == 0 ) return k ;
+  if ( n == 1 ) return k ;
+  int min = Integer . MAX_VALUE ;
+  for ( int x = 1 ;
+  x <= k ;
+  x ++ ) {
+    int res = Math . max ( egg_drop ( n - 1 , x - 1 ) , egg_drop ( n , k - x ) ) ;
+    if ( res < min ) min = res ;
+  }
+  return min + 1 ;
+}
+
+***Example ends here:
+boolean isPowerOfTwo ( int n ) {
+  return Math . ceil ( Math . log2 ( n ) ) == Math . floor ( Math . log2 ( n ) ) ;
+}
+
+***Example ends here:
+String shortestPalindrome ( String s ) {
+  int n = s . length ( ) ;
+  Vector v = new Vector ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    int l = i ;
+    int r = i ;
+    String ans1 = "" ;
+    String ans2 = "" ;
+    while ( l >= 0 && r < n && s . charAt ( l ) == s . charAt ( r ) ) {
+      ans1 += s . charAt ( l ) ;
+      l -- ;
+      r ++ ;
+    }
+    l = i - 1 ;
+    r = i ;
+    while ( l >= 0 && r < n && s . charAt ( l ) == s . charAt ( r ) ) {
+      ans2 += s . charAt ( l ) ;
+      l -- ;
+      r ++ ;
+    }
+    v . addElement ( ans1 ) ;
+    v . addElement ( ans2 ) ;
+  }
+  String ans = v . elementAt ( 0 ) ;
+  for ( int i = 0 ;
+  i < v . size ( ) ;
+  i ++ ) {
+    if ( v . elementAt ( i ) != "" ) ans = Math . min ( ans , v . elementAt ( i ) ) ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int minimumAdjacentDifference ( int [ ] a , int n , int k ) {
+  int minDiff = Integer . MAX_VALUE ;
+  for ( int i = 0 ;
+  i < k + 1 ;
+  i ++ ) {
+    int maxDiff = - Integer . MAX_VALUE ;
+    for ( int j = 0 ;
+    j < n - k - 1 ;
+    j ++ ) {
+      for ( int p = i ;
+      p < i + j + 1 ;
+      p ++ ) {
+        maxDiff = Math . max ( maxDiff , a [ p + 1 ] - a [ p ] ) ;
+      }
+    }
+    minDiff = Math . min ( minDiff , maxDiff ) ;
+  }
+  return minDiff ;
+}
+
+***Example ends here:
+int cal ( int [ ] a , int mid ) {
+  int chocolate = 0 ;
+  for ( int i = 0 ;
+  i < a . length ;
+  i ++ ) {
+    if ( a [ i ] >= mid ) chocolate += a [ i ] - mid ;
+  }
+  return chocolate ;
+}
+
+***Example ends here:
+boolean check ( int v , int [ ] a , int m ) {
+  int tec = 0 ;
+  int ans = 0 ;
+  int [ ] b = new int [ a . length + 3 ] ;
+  for ( int i = 0 ;
+  i < a . length ;
+  i ++ ) {
+    tec -= b [ i ] ;
+    if ( a [ i ] + tec < v ) {
+      int mov = v - a [ i ] - tec ;
+      ans = ans + mov ;
+      tec += mov ;
+      b [ i + 2 ] = mov ;
+    }
+  }
+  return ans <= m ;
+}
+
+***Example ends here:
+int largestNum ( int [ ] arr ) {
+  int res = 0 ;
+  Arrays . sort ( arr ) ;
+  int l = 0 , r = arr . length - 1 ;
+  while ( l < r ) {
+    int sum = arr [ l ] + arr [ r ] ;
+    if ( sum == 0 ) {
+      res = Math . max ( res , Math . max ( arr [ l ] , arr [ r ] ) ) ;
+      return res ;
+    }
+    else if ( sum < 0 ) {
+      l ++ ;
+    }
+    else {
+      r -- ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int binarySearch ( int [ ] p , int n ) {
+  int i = 0 ;
+  int j = p . length - 1 ;
+  int index = - 1 ;
+  while ( i <= j ) {
+    int mid = i + ( j - i ) / 2 ;
+    if ( p [ mid ] >= n ) {
+      index = mid ;
+      j = mid - 1 ;
+    }
+    else {
+      i = mid + 1 ;
+    }
+  }
+  return index ;
+}
+
+***Example ends here:
+int findMinLength ( int [ ] arr ) {
+  int index = arr . length - 1 ;
+  while ( index > 0 && arr [ index ] >= arr [ index - 1 ] ) {
+    index -- ;
+  }
+  return index ;
+}
+
+***Example ends here:
+int minDigits ( int n , int k ) {
+  int digits_num = Math . floor ( Math . log10 ( n ) + 1 ) ;
+  int temp_sum = 0 ;
+  int temp = digits_num ;
+  int result = 0 ;
+  int x = 0 , v ;
+  int sum = 0 ;
+  int num2 = n ;
+  while ( num2 != 0 ) {
+    sum += num2 % 10 ;
+    num2 /= 10 ;
+  }
+  if ( sum <= k ) {
+    x = 0 ;
+  }
+  else {
+    while ( temp > 0 ) {
+      v = n / ( 10 * ( temp - 1 ) ) ;
+      temp_sum += v % 10 ;
+      if ( temp_sum >= k ) {
+        v /= 10 ;
+        v ++ ;
+        result = v * ( 10 * temp ) ;
+        break ;
+      }
+      temp -- ;
+    }
+    x = result - n ;
+    return x ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+int checkForPerfectSquare ( int [ ] arr , int i , int j ) {
+  int mid , sum = 0 ;
+  for ( int m = i ;
+  m <= j ;
+  m ++ ) sum += arr [ m ] ;
+  int low = 0 , high = sum / 2 ;
+  while ( low <= high ) {
+    mid = low + ( high - low ) / 2 ;
+    if ( mid * mid == sum ) return mid ;
+    else if ( mid * mid > sum ) high = mid - 1 ;
+    else low = mid + 1 ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+int minFlips ( char [ ] [ ] mat , String s ) {
+  int n = mat . length ;
+  int m = mat [ 0 ] . length ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < m ;
+    j ++ ) {
+      if ( mat [ i ] [ j ] != ( char ) s . charAt ( i + j ) - ( char ) '0' ) {
+        count ++ ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+List < List < Integer >> constructTree ( int n , List < List < Integer >> edges ) {
+  List < List < Integer >> adjl = new ArrayList < List < Integer >> ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) adjl . add ( new ArrayList < Integer > ( ) ) ;
+  for ( List < Integer > e : edges ) {
+    int u = e . get ( 0 ) ;
+    int v = e . get ( 1 ) ;
+    adjl . get ( u ) . add ( v ) ;
+    adjl . get ( v ) . add ( u ) ;
+  }
+  return adjl ;
+}
+
+***Example ends here:
+int findSumOfValues ( int v , int [ ] parent , int [ ] valuesChildren ) {
+  int curNode = v ;
+  int Sum = 0 ;
+  while ( curNode != - 1 ) {
+    Sum += valuesChildren [ curNode ] ;
+    curNode = parent [ curNode ] ;
+  }
+  return Sum ;
+}
+
+***Example ends here:
+long getDistinct ( long d , long count ) {
+  long num = 0 ;
+  count = 10 * ( count - 1 ) ;
+  while ( count > 0 ) {
+    num += count * d ;
+    count /= 10 ;
+  }
+  return num ;
+}
+
+***Example ends here:
+boolean isIncreasing ( int [ ] arr ) {
+  for ( int i = 0 ;
+  i < arr . length - 1 ;
+  i ++ ) {
+    if ( arr [ i ] > arr [ i + 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int minAdjSwaps ( int [ ] [ ] mat ) {
+  int n = mat . length ;
+  int cntZero [ ] = new int [ n ] ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = n - 1 ;
+    j >= 0 ;
+    j -- ) {
+      if ( mat [ i ] [ j ] != 0 ) {
+        break ;
+      }
+      cntZero [ i ] ++ ;
+    }
+  }
+  cntSwaps = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( cntZero [ i ] < ( n - i - 1 ) ) {
+      int first = i ;
+      while ( first < n && cntZero [ first ] < ( n - i - 1 ) ) {
+        first ++ ;
+      }
+      if ( first == n ) {
+        return - 1 ;
+      }
+      while ( first > i ) {
+        cntZero [ first ] = cntZero [ first - 1 ] ;
+        cntZero [ first - 1 ] = cntZero [ first ] ;
+        first -- ;
+        cntSwaps ++ ;
+      }
+    }
+  }
+  return cntSwaps ;
+}
+
+***Example ends here:
+int solve ( List < Integer > values , List < Integer > salary , int mod ) {
+  int ret = 1 ;
+  int amt = 0 ;
+  Collections . sort ( values ) ;
+  Collections . sort ( salary ) ;
+  while ( salary . size ( ) > 0 ) {
+    while ( values . size ( ) > 0 && values . get ( values . size ( ) - 1 ) >= salary . get ( salary . size ( ) - 1 ) ) {
+      amt ++ ;
+      values . remove ( values . size ( ) - 1 ) ;
+    }
+    if ( amt == 0 ) return 0 ;
+    ret *= amt ;
+    amt -- ;
+    ret %= mod ;
+    salary . remove ( salary . size ( ) - 1 ) ;
+  }
+  return ret ;
+}
+
+***Example ends here:
+int [ ] organizeInOrder ( int [ ] vec , String op , int n ) {
+  int [ ] result = new int [ n ] ;
+  Arrays . sort ( vec ) ;
+  int i = 0 , j = n - 1 , k = 0 ;
+  while ( i <= j && k <= n - 2 ) {
+    if ( op . charAt ( k ) == '<' ) {
+      result [ k ] = vec [ i ] ;
+      i ++ ;
+    }
+    else {
+      result [ k ] = vec [ j ] ;
+      j -- ;
+    }
+    k ++ ;
+  }
+  result [ n - 1 ] = vec [ i ] ;
+  return result ;
+}
+
+***Example ends here:
+int countPoints ( int n , int m , int [ ] a , int [ ] b , int x , int y ) {
+  Arrays . sort ( a ) ;
+  Arrays . sort ( b ) ;
+  int j = 0 ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    while ( j < m ) {
+      if ( a [ i ] + y < b [ j ] ) break ;
+      if ( b [ j ] >= a [ i ] - x && b [ j ] <= a [ i ] + y ) {
+        count ++ ;
+        j ++ ;
+        break ;
+      }
+      else {
+        j ++ ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+boolean areSame ( List < ? > a , List < ? > b ) {
+  Collections . sort ( a ) ;
+  Collections . sort ( b ) ;
+  return a . equals ( b ) ;
+}
+
+***Example ends here:
+int countNumberOfStrings ( String s ) {
+  int n = s . length ( ) - 1 ;
+  int count = 2 * n ;
+  return count ;
+}
+
+***Example ends here:
+int [ ] prime_power ( int x ) {
+  int [ ] prime_pow = new int [ x + 1 ] ;
+  for ( int i = 2 ;
+  i <= x ;
+  i ++ ) {
+    if ( i * i > x + 1 ) break ;
+    if ( x % i == 0 ) {
+      int p = 1 ;
+      while ( x % i == 0 ) {
+        x /= i ;
+        p *= i ;
+      }
+      prime_pow [ i ] = p ;
+    }
+  }
+  if ( x > 1 ) prime_pow [ x ] = 1 ;
+  return prime_pow ;
+}
+
+***Example ends here:
+int isPerfect ( double n0 ) {
+  double n = Math . sqrt ( n0 ) ;
+  if ( Math . floor ( n ) != Math . ceil ( n ) ) return 0 ;
+  return 1 ;
+}
+
+***Example ends here:
+int findSum ( int l , int r ) {
+  int [ ] arr = new int [ r + 1 ] ;
+  int i = 0 ;
+  int x = 2 ;
+  while ( i <= r ) {
+    arr [ i ] = i + x ;
+    if ( i + 1 <= r ) arr [ i + 1 ] = i + 1 + x ;
+    x *= - 1 ;
+    i += 2 ;
+  }
+  int sum = 0 ;
+  for ( i = l ;
+  i <= r ;
+  i ++ ) sum += arr [ i ] ;
+  return sum ;
+}
+
+***Example ends here:
+long results ( long n , int k ) {
+  return Math . round ( n * ( 1.0 / 2 * k ) ) ;
+}
+
+***Example ends here:
+List < Integer > factors ( int n ) {
+  List < Integer > v = new ArrayList < Integer > ( ) ;
+  v . add ( 1 ) ;
+  for ( int i = 2 ;
+  i <= Integer . MAX_VALUE ;
+  i += 1 ) {
+    if ( n % i == 0 ) {
+      v . add ( i ) ;
+      if ( n / i != i ) {
+        v . add ( n / i ) ;
+      }
+    }
+  }
+  return v ;
+}
+
+***Example ends here:
+double smallestNum ( int n ) {
+  double x = 10.0 * ( ( n - 1 ) / 2.0 ) ;
+  return Math . ceil ( x ) ;
+}
+
+***Example ends here:
+int smallest ( String s ) {
+  int [ ] a = new int [ s . length ( ) ] ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) a [ i ] = ( int ) ( s . charAt ( i ) - '0' ) ;
+  int [ ] b = new int [ a . length ] ;
+  for ( int i = 0 ;
+  i < a . length ;
+  i ++ ) if ( a [ i ] % 2 != 0 ) b [ i ] = a [ i ] ;
+  Arrays . sort ( b ) ;
+  if ( b . length > 1 ) return b [ 0 ] * 10 + b [ 1 ] ;
+  return - 1 ;
+}
+
+***Example ends here:
+double [ ] diagonals ( double a , double b , double c , double d ) {
+  double [ ] ans = new double [ 2 ] ;
+  ans [ 0 ] = Math . sqrt ( ( a * c + b * d ) * ( a * d + b * c ) / ( a * b + c * d ) ) ;
+  ans [ 1 ] = Math . sqrt ( ( a * c + b * d ) * ( a * b + c * d ) / ( a * d + b * c ) ) ;
+  return ans ;
+}
+
+***Example ends here:
+int findNumberOfDigits ( int n , int base ) {
+  int dig = Math . floor ( Math . log ( n ) / Math . log ( base ) ) + 1 ;
+  return dig ;
+}
+
+***Example ends here:
+double ngon ( int n ) {
+  double pro_angle_var ;
+  if ( n % 4 == 0 ) {
+    pro_angle_var = Math . PI * ( 180.0 / n ) / 180 ;
+  }
+  else {
+    pro_angle_var = Math . PI * ( 180.0 / ( 2 * n ) ) / 180 ;
+  }
+  double neg_x = 1.0e+99 ;
+  double pos_x = - 1.0e+99 ;
+  double neg_y = 1.0e+99 ;
+  double pos_y = - 1.0e+99 ;
+  for ( int j = 0 ;
+  j < n ;
+  j ++ ) {
+    double px = Math . cos ( 2 * Math . PI * j / n + pro_angle_var ) ;
+    double py = Math . sin ( 2 * Math . PI * j / n + pro_angle_var ) ;
+    neg_x = Math . min ( neg_x , px ) ;
+    pos_x = Math . max ( pos_x , px ) ;
+    neg_y = Math . min ( neg_y , py ) ;
+    pos_y = Math . max ( pos_y , py ) ;
+  }
+  double opt2 = Math . max ( pos_x - neg_x , pos_y - neg_y ) ;
+  return opt2 / Math . sin ( Math . PI / n ) / 2 ;
+}
+
+***Example ends here:
+int findMaxK ( int n ) {
+  int p = ( int ) Math . log2 ( n ) ;
+  return 2 * p ;
+}
+
+***Example ends here:
+int nthFibo ( int n ) {
+  double a = ( 5 * 0.5 + 1 ) / 2 ;
+  double b = ( - 5 * 0.5 + 1 ) / 2 ;
+  double r = 5 * 0.5 ;
+  double ans = ( a * n - b * n ) / r ;
+  return ( int ) ans ;
+}
+
+***Example ends here:
+double findProb ( double l , double r ) {
+  double countOfPS = Math . floor ( Math . sqrt ( r ) ) - Math . ceil ( Math . sqrt ( l ) ) + 1 ;
+  double total = r - l + 1 ;
+  double prob = countOfPS / total ;
+  return prob ;
+}
+
+***Example ends here:
+int previousFibonacci ( int n ) {
+  double a = n / ( ( 1 + Math . sqrt ( 5 ) ) / 2.0 ) ;
+  return Math . round ( a ) ;
+}
+
+***Example ends here:
+List < Integer > distPrime ( int [ ] arr , int [ ] allPrimes ) {
+  List < Integer > list1 = new ArrayList < > ( ) ;
+  for ( int i : allPrimes ) {
+    for ( int j : arr ) {
+      if ( j % i == 0 ) {
+        list1 . add ( i ) ;
+        break ;
+      }
+    }
+  }
+  return list1 ;
+}
+
+***Example ends here:
+int [ ] getArray ( int n ) {
+  int [ ] ans = new int [ 2 ] ;
+  int p2 = 1 ;
+  while ( n > 0 ) {
+    if ( n % 2 == 1 ) ans [ p2 ++ ] = n ;
+    n >>= 1 ;
+    p2 *= 2 ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int maximumLength ( int [ ] a ) {
+  int [ ] counts = new int [ 11 ] ;
+  int ans = 0 ;
+  for ( int index = 0 ;
+  index < a . length ;
+  index ++ ) {
+    counts [ a [ index ] ] ++ ;
+    int [ ] k = new int [ counts . length ] ;
+    for ( int i = 0 ;
+    i < counts . length ;
+    i ++ ) {
+      if ( counts [ i ] != 0 ) k [ i ] = counts [ i ] ;
+    }
+    Arrays . sort ( k ) ;
+    if ( k . length == 1 || ( k [ 0 ] == k [ k . length - 2 ] && k [ k . length - 1 ] - k [ k . length - 2 ] == 1 ) || ( k [ 0 ] == 1 && k [ 1 ] == k [ k . length - 1 ] ) ) ans = index ;
+  }
+  return ans + 1 ;
+}
+
+***Example ends here:
+int maxEdges ( int n ) {
+  int edges = Math . floor ( n * n / 4 ) ;
+  return edges ;
+}
+
+***Example ends here:
+int findK ( int n , int k ) {
+  int [ ] a = new int [ n ] ;
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( i % 2 == 1 ) a [ i ] = i ;
+  }
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( i % 2 == 0 ) a [ i ] = i ;
+  }
+  return a [ k - 1 ] ;
+}
+
+***Example ends here:
+boolean isKeith ( int x , int temp ) {
+  List < Integer > terms = new ArrayList < Integer > ( ) ;
+  int n = 0 ;
+  while ( temp > 0 ) {
+    terms . add ( temp % 10 ) ;
+    temp = temp / 10 ;
+    n ++ ;
+  }
+  Collections . reverse ( terms ) ;
+  int nextTerm = 0 , i = n ;
+  while ( nextTerm < x ) {
+    nextTerm = 0 ;
+    for ( int j = 1 ;
+    j <= n ;
+    j ++ ) {
+      nextTerm += terms . get ( i - j ) ;
+    }
+    terms . add ( nextTerm ) ;
+    i ++ ;
+  }
+  return nextTerm == x ;
+}
+
+***Example ends here:
+boolean factors ( int n , int k ) {
+  List < Integer > v = new ArrayList < Integer > ( ) ;
+  while ( n % 2 == 0 ) {
+    v . add ( 2 ) ;
+    n /= 2 ;
+  }
+  if ( v . size ( ) >= k ) return true ;
+  for ( int i = 3 ;
+  i <= n ;
+  i += 2 ) {
+    if ( i * i > n ) break ;
+    while ( n % i == 0 ) {
+      n = n / i ;
+      v . add ( i ) ;
+    }
+    if ( v . size ( ) >= k ) return true ;
+  }
+  if ( n > 2 ) v . add ( n ) ;
+  if ( v . size ( ) >= k ) return true ;
+  return false ;
+}
+
+***Example ends here:
+String [ ] separateParenGroups ( String parenString ) {
+  String [ ] allParens = new String [ parenString . length ( ) ] ;
+  StringBuilder currentParen = new StringBuilder ( ) ;
+  int currentDepth = 0 ;
+  for ( int i = 0 ;
+  i < parenString . length ( ) ;
+  i ++ ) {
+    char c = parenString . charAt ( i ) ;
+    if ( c == '(' ) {
+      currentDepth ++ ;
+      currentParen . append ( c ) ;
+    }
+    else if ( c == ')' ) {
+      currentDepth -- ;
+      currentParen . append ( c ) ;
+      if ( currentDepth == 0 ) {
+        allParens [ currentDepth ] = "" ;
+        currentParen . setLength ( 0 ) ;
+      }
+    }
+  }
+  return allParens ;
+}
+
+***Example ends here:
+List < Integer > parseNestedParens ( String parenString ) {
+  List < Integer > allLevels = new ArrayList < Integer > ( ) ;
+  int level = 0 ;
+  int maxLevel = 0 ;
+  for ( int i = 0 ;
+  i < parenString . length ( ) ;
+  i ++ ) {
+    char chr = parenString . charAt ( i ) ;
+    if ( chr == '(' ) {
+      level ++ ;
+      if ( level > maxLevel ) maxLevel = level ;
+    }
+    if ( chr == ')' ) {
+      level -- ;
+      if ( level == 0 ) {
+        allLevels . add ( maxLevel ) ;
+        maxLevel = 0 ;
+      }
+    }
+  }
+  return allLevels ;
+}
+
+***Example ends here:
+List < String > filterBySubstring ( List < String > strings , String substring ) {
+  List < String > result = new ArrayList < > ( ) ;
+  for ( String s : strings ) {
+    if ( substring . contains ( s ) ) {
+      result . add ( s ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+int rollingMax ( int [ ] numbers ) {
+  int runningMax = 0 ;
+  int [ ] result = new int [ numbers . length ] ;
+  for ( int n : numbers ) {
+    if ( n > runningMax ) runningMax = n ;
+    result [ n ] = runningMax ;
+  }
+  return result . length ;
+}
+
+***Example ends here:
+String makePalindrome ( String s ) {
+  if ( s == null ) return "" ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    String rStr = s . substring ( i ) ;
+    if ( rStr . equals ( rStr . substring ( 0 , i ) ) ) {
+      String nStr = s . substring ( 0 , i ) ;
+      String n2Str = nStr . substring ( 0 , i ) ;
+      return s + n2Str ;
+    }
+  }
+  return s . substring ( 0 , s . length ( ) - 2 ) + s . substring ( s . length ( ) - 1 ) ;
+}
+
+***Example ends here:
+String stringXor ( String a , String b ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < a . length ( ) ;
+  i ++ ) {
+    if ( a . charAt ( i ) == b . charAt ( i ) ) {
+      sb . append ( "0" ) ;
+    }
+    else {
+      sb . append ( "1" ) ;
+    }
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+String longest ( List < String > strings ) {
+  if ( strings . isEmpty ( ) ) {
+    return "" ;
+  }
+  int maxLen = Math . max ( strings . size ( ) , maxLen ) ;
+  for ( String s : strings ) {
+    if ( s . length ( ) == maxLen ) {
+      return s ;
+    }
+  }
+  return "" ;
+}
+
+***Example ends here:
+String stringSequence ( int n ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    sb . append ( Integer . toString ( i ) ) ;
+    sb . append ( " " ) ;
+  }
+  sb . append ( Integer . toString ( n ) ) ;
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+int countDistinctCharacters ( String s ) {
+  Set < Character > distinct = new HashSet < > ( ) ;
+  for ( char c : s . toLowerCase ( ) ) {
+    distinct . add ( c ) ;
+  }
+  return distinct . size ( ) ;
+}
+
+***Example ends here:
+int howManyTimes ( String s , String sub ) {
+  int times = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) - sub . length ( ) + 1 ;
+  i ++ ) {
+    if ( s . substring ( i , i + sub . length ( ) ) . equals ( sub ) ) {
+      times ++ ;
+    }
+  }
+  return times ;
+}
+
+***Example ends here:
+String sortNumbers ( String numbers ) {
+  Map < Integer , String > toNum = new HashMap < Integer , String > ( ) ;
+  toNum . put ( 0 , "zero" ) ;
+  toNum . put ( 1 , "one" ) ;
+  toNum . put ( 2 , "two" ) ;
+  toNum . put ( 3 , "three" ) ;
+  toNum . put ( 4 , "four" ) ;
+  toNum . put ( 5 , "five" ) ;
+  toNum . put ( 6 , "six" ) ;
+  toNum . put ( 7 , "seven" ) ;
+  toNum . put ( 8 , "eight" ) ;
+  toNum . put ( 9 , "nine" ) ;
+  List < Integer > ints = new ArrayList < Integer > ( ) ;
+  StringBuilder current = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < numbers . length ( ) + 1 ;
+  i ++ ) {
+    if ( i == numbers . length ( ) || numbers . charAt ( i ) == ' ' ) {
+      if ( "" . equals ( current . toString ( ) ) ) {
+        ints . add ( toNum . get ( "" . toString ( ) ) ) ;
+        current . setLength ( 0 ) ;
+      }
+    }
+    else {
+      current . append ( numbers . charAt ( i ) ) ;
+    }
+  }
+  Collections . sort ( ints ) ;
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < ints . size ( ) ;
+  i ++ ) {
+    sb . append ( fromNum . get ( ints . get ( i ) ) ) ;
+    if ( i != ints . size ( ) - 1 ) {
+      sb . append ( " " ) ;
+    }
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+int [ ] findClosestElements ( int [ ] numbers ) {
+  int [ ] closestPair = {
+    numbers [ 0 ] , numbers [ 1 ] }
+    ;
+    int distance = Math . abs ( closestPair [ 0 ] - closestPair [ 1 ] ) ;
+    for ( int i = 0 ;
+    i < numbers . length ;
+    i ++ ) {
+      for ( int j = i + 1 ;
+      j < numbers . length ;
+      j ++ ) {
+        if ( Math . abs ( numbers [ i ] - numbers [ j ] ) < distance ) {
+          closestPair [ 0 ] = numbers [ i ] ;
+          closestPair [ 1 ] = numbers [ j ] ;
+          distance = Math . abs ( numbers [ i ] - numbers [ j ] ) ;
+        }
+      }
+    }
+    Arrays . sort ( closestPair ) ;
+    return closestPair ;
+  }
+  
+***Example ends here:
+double [ ] rescaleToUnit ( double [ ] numbers ) {
+  double minNum = Math . min ( numbers ) ;
+  double maxNum = Math . max ( numbers ) ;
+  double [ ] result = new double [ numbers . length ] ;
+  for ( int n = 0 ;
+  n < numbers . length ;
+  n ++ ) {
+    result [ n ] = ( numbers [ n ] - minNum ) / ( maxNum - minNum ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+List < Integer > filterIntegers ( List < Integer > values ) {
+  List < Integer > result = new ArrayList < Integer > ( ) ;
+  for ( Integer e : values ) {
+    if ( e instanceof Integer ) {
+      result . add ( ( Integer ) e ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+List < Integer > removeDuplicates ( List < Integer > numbers ) {
+  Map < Integer , Integer > counter = new HashMap < Integer , Integer > ( ) ;
+  for ( Integer i : numbers ) {
+    counter . put ( i , counter . get ( i ) + 1 ) ;
+  }
+  List < Integer > result = new ArrayList < Integer > ( ) ;
+  for ( Integer i : numbers ) {
+    if ( counter . get ( i ) == 1 ) {
+      result . add ( i ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+String flipCase ( String s ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char c = s . charAt ( i ) ;
+    if ( c . isLowerCase ( ) ) {
+      sb . append ( c . toUpperCase ( ) ) ;
+    }
+    else {
+      sb . append ( c . toLowerCase ( ) ) ;
+    }
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+List < String > filterByPrefix ( List < String > strings , String prefix ) {
+  List < String > result = new ArrayList < String > ( ) ;
+  for ( int i = 0 ;
+  i < strings . size ( ) ;
+  i ++ ) {
+    if ( strings . get ( i ) . startsWith ( prefix ) ) {
+      result . add ( strings . get ( i ) ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+double findZero ( double [ ] xs ) {
+  double ans = 0 ;
+  double value = 0 ;
+  for ( int i = 0 ;
+  i < xs . length ;
+  i ++ ) {
+    value += xs [ i ] * ans * i ;
+  }
+  while ( Math . abs ( value ) > 1e-6 ) {
+    double driv = 0 ;
+    for ( int i = 1 ;
+    i < xs . length ;
+    i ++ ) {
+      driv += xs [ i ] * ans * ( i - 1 ) * i ;
+    }
+    ans -= value / driv ;
+    value = 0 ;
+    for ( int i = 0 ;
+    i < xs . length ;
+    i ++ ) {
+      value += xs [ i ] * ans * i ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+List < Integer > sortThird ( List < Integer > l ) {
+  List < Integer > thirds = new ArrayList < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i += 3 ) {
+    thirds . add ( l . get ( i ) ) ;
+  }
+  Collections . sort ( thirds ) ;
+  List < Integer > result = new ArrayList < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    if ( i % 3 == 0 ) {
+      result . add ( thirds . get ( i / 3 ) ) ;
+    }
+    else {
+      result . add ( l . get ( i ) ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+< T > List < T > unique ( List < T > l ) {
+  List < T > result = Lists . newArrayList ( l ) ;
+  Collections . sort ( result ) ;
+  return result ;
+}
+
+***Example ends here:
+< T > T maxElement ( List < T > l ) {
+  return Collections . max ( l ) ;
+}
+
+***Example ends here:
+boolean triplesSumToZero ( int [ ] l ) {
+  for ( int i = 0 ;
+  i < l . length ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < l . length ;
+    j ++ ) {
+      for ( int k = j + 1 ;
+      k < l . length ;
+      k ++ ) {
+        if ( l [ i ] + l [ j ] + l [ k ] == 0 ) {
+          return true ;
+        }
+      }
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+int fib4 ( int n ) {
+  int results [ ] = {
+    0 , 0 , 2 , 0 }
+    ;
+    for ( int i = 4 ;
+    i <= n ;
+    i ++ ) results [ i ] = results [ i - 4 ] + results [ i - 3 ] + results [ i - 2 ] + results [ i - 1 ] ;
+    return results [ n ] ;
+  }
+  
+***Example ends here:
+boolean isPalindrome ( String text ) {
+  String pr = text . substring ( 0 , text . length ( ) - 1 ) ;
+  return pr . equals ( text ) ;
+}
+
+***Example ends here:
+String removeVowels ( String text ) {
+  StringBuilder sb = new StringBuilder ( ) ;
+  String vowels = "aeiou" ;
+  for ( int i = 0 ;
+  i < text . length ( ) ;
+  i ++ ) {
+    char ch = text . charAt ( i ) ;
+    if ( ch != vowels . charAt ( i ) ) {
+      sb . append ( ch ) ;
+    }
+  }
+  return sb . toString ( ) ;
+}
+
+***Example ends here:
+boolean sameChars ( char [ ] s0 , char [ ] s1 ) {
+  HashSet set0 = new HashSet ( ) ;
+  for ( int i = 0 ;
+  i < s0 . length ;
+  i ++ ) set0 . add ( s0 [ i ] ) ;
+  HashSet set1 = new HashSet ( ) ;
+  for ( int i = 0 ;
+  i < s1 . length ;
+  i ++ ) set1 . add ( s1 [ i ] ) ;
+  return set0 . equals ( set1 ) ;
+}
+
+***Example ends here:
+< E > List < E > common ( List < E > l1 , List < E > l2 ) {
+  Set < E > us = new HashSet < E > ( ) ;
+  for ( E e1 : l1 ) {
+    for ( E e2 : l2 ) {
+      if ( e1 == e2 ) {
+        us . add ( e1 ) ;
+      }
+    }
+  }
+  List < E > ret = Lists . newArrayList ( us ) ;
+  Collections . sort ( ret ) ;
+  return ret ;
+}
+
+***Example ends here:
+boolean correctBracketing ( String [ ] brackets ) {
+  int depth = 0 ;
+  for ( String b : brackets ) {
+    if ( b . equals ( "(" ) ) {
+      depth ++ ;
+    }
+    else {
+      depth -- ;
+    }
+    if ( depth < 0 ) {
+      return false ;
+    }
+  }
+  return depth == 0 ;
+}
+
+***Example ends here:
+String circularShift ( int x , int shift ) {
+  String s = Integer . toString ( x ) ;
+  if ( shift > s . length ( ) ) return s . substring ( 0 , s . length ( ) - shift ) ;
+  return s . substring ( s . length ( ) - shift ) ;
+}
+
+***Example ends here:
+int search ( List < Integer > lst ) {
+  Map < Integer , Integer > counter = new HashMap < Integer , Integer > ( ) ;
+  for ( int i : lst ) {
+    counter . put ( i , counter . get ( i ) + 1 ) ;
+  }
+  int ans = - 1 ;
+  for ( Map . Entry < Integer , Integer > entry : counter . entrySet ( ) ) {
+    if ( entry . getValue ( ) >= ans ) {
+      ans = entry . getKey ( ) ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int smallestChange ( int [ ] arr ) {
+  int ans = 0 ;
+  for ( int i = 0 ;
+  i < arr . length / 2 ;
+  i ++ ) {
+    if ( arr [ i ] != arr [ arr . length - i - 1 ] ) {
+      ans ++ ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+List < List < String >> totalMatch ( List < List < String >> lst1 , List < List < String >> lst2 ) {
+  int sum1 = 0 ;
+  for ( List < String > st : lst1 ) {
+    sum1 += st . size ( ) ;
+  }
+  int sum2 = 0 ;
+  for ( List < String > st : lst2 ) {
+    sum2 += st . size ( ) ;
+  }
+  return lst2 . isEmpty ( ) ? lst1 : lst2 ;
+}
+
+***Example ends here:
+boolean isHappy ( String s ) {
+  if ( s . length ( ) < 3 ) return false ;
+  for ( int i = 0 ;
+  i < s . length ( ) - 2 ;
+  i ++ ) {
+    if ( s . charAt ( i ) == s . charAt ( i + 1 ) || s . charAt ( i + 1 ) == s . charAt ( i + 2 ) || s . charAt ( i ) == s . charAt ( i + 2 ) ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+List < String > numericalLetterGrade ( List < Double > grades ) {
+  List < String > letter_grade = new ArrayList < String > ( ) ;
+  for ( Double gpa : grades ) {
+    if ( gpa == 4.0 ) {
+      letter_grade . add ( "A+" ) ;
+    }
+    else if ( gpa > 3.7 ) {
+      letter_grade . add ( "A" ) ;
+    }
+    else if ( gpa > 3.3 ) {
+      letter_grade . add ( "A-" ) ;
+    }
+    else if ( gpa > 3.0 ) {
+      letter_grade . add ( "B+" ) ;
+    }
+    else if ( gpa > 2.7 ) {
+      letter_grade . add ( "B" ) ;
+    }
+    else if ( gpa > 2.3 ) {
+      letter_grade . add ( "B-" ) ;
+    }
+    else if ( gpa > 2.0 ) {
+      letter_grade . add ( "C+" ) ;
+    }
+    else if ( gpa > 1.7 ) {
+      letter_grade . add ( "C" ) ;
+    }
+    else if ( gpa > 1.3 ) {
+      letter_grade . add ( "C-" ) ;
+    }
+    else if ( gpa > 1.0 ) {
+      letter_grade . add ( "D+" ) ;
+    }
+    else if ( gpa > 0.7 ) {
+      letter_grade . add ( "D" ) ;
+    }
+    else if ( gpa > 0.0 ) {
+      letter_grade . add ( "D-" ) ;
+    }
+    else {
+      letter_grade . add ( "E" ) ;
+    }
+  }
+  return letter_grade ;
+}
+
+***Example ends here:
+String solve ( int n ) {
+  StringBuilder biStr = new StringBuilder ( ) ;
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < String . valueOf ( n ) . length ( ) ;
+  i ++ ) {
+    sum += Character . digit ( String . valueOf ( n ) . charAt ( i ) , 10 ) - '0' ;
+  }
+  while ( sum > 0 ) {
+    biStr . insert ( 0 , String . valueOf ( sum % 2 ) ) ;
+    sum /= 2 ;
+  }
+  return biStr . toString ( ) ;
+}
+
+***Example ends here:
+String antiShuffle ( String s ) {
+  StringBuilder ret = new StringBuilder ( ) ;
+  StringBuilder current = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) + 1 ;
+  i ++ ) {
+    if ( i == s . length ( ) || s . charAt ( i ) == ' ' ) {
+      Collections . sort ( current ) ;
+      if ( ret . length ( ) > 0 ) ret . append ( " " ) ;
+      ret . append ( "" ) ;
+      current . setLength ( 0 ) ;
+    }
+    else current . append ( s . charAt ( i ) ) ;
+  }
+  return ret . toString ( ) ;
+}
+
+***Example ends here:
+int [ ] sortArray ( int [ ] array ) {
+  if ( array == null ) {
+    return null ;
+  }
+  if ( ( array [ 0 ] + array [ array . length - 1 ] ) % 2 == 1 ) {
+    Arrays . sort ( array ) ;
+  }
+  else {
+    Arrays . sort ( array , 0 , array . length - 1 ) ;
+  }
+  return array ;
+}
+
+***Example ends here:
+String encrypt ( String s ) {
+  StringBuilder ans = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char c = s . charAt ( i ) ;
+    if ( c . isLetter ( ) ) ans . append ( ( char ) ( Character . toUpperCase ( c ) - Character . toLowerCase ( c ) + 4 ) % 26 ) ;
+    else ans . append ( c ) ;
+  }
+  return ans . toString ( ) ;
+}
+
+***Example ends here:
+int isBored ( String s ) {
+  boolean isStart = true ;
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s . charAt ( i ) == '.' || s . charAt ( i ) == '?' || s . charAt ( i ) == '!' ) {
+      isStart = true ;
+    }
+    else if ( isStart ) {
+      if ( s . charAt ( i ) == ' ' ) continue ;
+      if ( s . substring ( i , i + 2 ) . equals ( "I " ) ) {
+        sum ++ ;
+      }
+      isStart = false ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+String encode ( String message ) {
+  String vowels = "aeiouAEIOU" ;
+  StringBuilder ret = new StringBuilder ( message . length ( ) ) ;
+  for ( int i = 0 ;
+  i < message . length ( ) ;
+  i ++ ) {
+    char c = message . charAt ( i ) ;
+    if ( i < vowels . length ( ) ) {
+      c = message . charAt ( i ) ;
+      if ( c < vowels . length ( ) ) {
+        c = ( char ) ( 'a' + ( message . charAt ( i ) - 'a' + 2 ) % 26 ) ;
+      }
+    }
+    else if ( i < vowels . length ( ) ) {
+      c = message . charAt ( i ) ;
+      if ( c < vowels . length ( ) ) {
+        c = ( char ) ( 'A' + ( message . charAt ( i ) - 'A' + 2 ) % 26 ) ;
+      }
+    }
+    ret . append ( c ) ;
+  }
+  return ret . toString ( ) ;
+}
+
+***Example ends here:
+int skjkasdkd ( List < Integer > lst ) {
+  int largest = 0 ;
+  for ( int n : lst ) {
+    if ( n > largest ) {
+      boolean prime = true ;
+      for ( int i = 2 ;
+      i < n ;
+      i ++ ) {
+        if ( n % i == 0 ) {
+          prime = false ;
+        }
+      }
+      if ( prime ) {
+        largest = n ;
+      }
+    }
+  }
+  int sum = 0 ;
+  String s = Integer . toString ( largest ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    sum += ( char ) s . charAt ( i ) - ( char ) "0" ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+boolean checkMapCase ( String dict ) {
+  if ( dict == null ) return false ;
+  int isLower = 0 ;
+  int isUpper = 0 ;
+  for ( int i = 0 ;
+  i < dict . length ( ) ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < dict . length ( ) ;
+    j ++ ) {
+      if ( dict . charAt ( i ) == dict . charAt ( j ) ) isLower = 1 ;
+      else if ( dict . charAt ( i ) == dict . charAt ( j ) ) isUpper = 1 ;
+      else return false ;
+    }
+  }
+  return isLower + isUpper == 1 ;
+}
+
+***Example ends here:
+int multiply ( int a , int b ) {
+  return ( Math . abs ( a ) % 10 ) * ( Math . abs ( b ) % 10 ) ;
+}
+
+***Example ends here:
+int countUpperCase ( String s ) {
+  String uVowel = "AEIOU" ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i += 2 ) {
+    if ( s . charAt ( i ) == uVowel . charAt ( 0 ) ) {
+      count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int [ ] byLength ( int [ ] arr ) {
+  int [ ] numTo = {
+    1 , "One" , 2 , "Two" , 3 , "Three" , 4 , "Four" , 5 , "Five" , 6 , "Six" , 7 , "Seven" , 8 , "Eight" , 9 , "Nine" }
+    ;
+    int [ ] sortedArr = Arrays . copyOf ( arr , arr . length + 1 ) ;
+    int [ ] newArr = new int [ sortedArr . length ] ;
+    System . arraycopy ( sortedArr , 0 , newArr , 0 , sortedArr . length ) ;
+    for ( int n = 0 ;
+    n < sortedArr . length ;
+    n ++ ) {
+      if ( sortedArr [ n ] >= 1 && sortedArr [ n ] <= 9 ) {
+        newArr [ n ] = numTo [ sortedArr [ n ] ] ;
+      }
+    }
+    return newArr ;
+  }
+  
+***Example ends here:
+int [ ] f ( int n ) {
+  int sum = 0 ;
+  int prod = 1 ;
+  int [ ] result = new int [ n + 1 ] ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    sum += i ;
+    prod *= i ;
+    if ( i % 2 == 0 ) result [ i ] = prod ;
+    else result [ i ] = sum ;
+  }
+  return result ;
+}
+
+***Example ends here:
+int [ ] evenodPalindrome ( int n ) {
+  int evenCount = 0 ;
+  int odCount = 0 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    String s = String . valueOf ( i ) ;
+    String rStr = s . substring ( 0 , s . length ( ) - 1 ) ;
+    if ( s . equals ( rStr ) ) {
+      if ( i % 2 == 1 ) {
+        odCount ++ ;
+      }
+      else {
+        evenCount ++ ;
+      }
+    }
+  }
+  return new int [ ] {
+    evenCount , odCount }
+    ;
+  }
+  
+***Example ends here:
+Map < String , Integer > histogram ( String test ) {
+  Map < String , Integer > count = new HashMap < String , Integer > ( ) ;
+  int max = 0 ;
+  for ( int i = 0 ;
+  i < test . length ( ) ;
+  i ++ ) {
+    if ( test . charAt ( i ) != ' ' ) {
+      count . put ( test . substring ( i ) , count . get ( test . substring ( i ) ) + 1 ) ;
+      if ( count . get ( test . substring ( i ) ) > max ) {
+        max = count . get ( test . substring ( i ) ) ;
+      }
+    }
+  }
+  Map < String , Integer > result = new HashMap < String , Integer > ( ) ;
+  for ( Map . Entry < String , Integer > entry : count . entrySet ( ) ) {
+    if ( entry . getValue ( ) == max ) {
+      result . put ( entry . getKey ( ) , entry . getValue ( ) ) ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+String reverseDelete ( String s , char c ) {
+  StringBuilder ret = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char ch = s . charAt ( i ) ;
+    if ( ch != c ) {
+      ret . append ( ch ) ;
+    }
+  }
+  String flag = "false" ;
+  if ( "" . equals ( ret . toString ( ) ) ) {
+    flag = "true" ;
+  }
+  return new String ( ret . toString ( ) ) ;
+}
+
+***Example ends here:
+int [ ] sortArray ( int [ ] arr ) {
+  int [ ] bin = new int [ arr . length ] ;
+  for ( int i = 0 ;
+  i < arr . length ;
+  i ++ ) {
+    int b = 0 ;
+    int n = Math . abs ( arr [ i ] ) ;
+    while ( n > 0 ) {
+      b += n % 2 ;
+      n /= 2 ;
+    }
+    bin [ i ] = b ;
+  }
+  for ( int i = 0 ;
+  i < arr . length ;
+  i ++ ) {
+    for ( int j = 1 ;
+    j < arr . length ;
+    j ++ ) {
+      if ( bin [ j ] < bin [ j - 1 ] || ( bin [ j ] == bin [ j - 1 ] && arr [ j ] < arr [ j - 1 ] ) ) {
+        bin [ j ] = bin [ j - 1 ] ;
+        arr [ j ] = arr [ j - 1 ] ;
+      }
+    }
+  }
+  return arr ;
+}
+
+***Example ends here:
+String getClosestVowel ( String word ) {
+  String vowels = "AEIOUaeiou" ;
+  for ( int i = word . length ( ) - 2 ;
+  i > 0 ;
+  i -- ) {
+    if ( word . charAt ( i ) == vowels . charAt ( 0 ) && word . charAt ( i + 1 ) != vowels . charAt ( 0 ) && word . charAt ( i - 1 ) != vowels . charAt ( 0 ) ) {
+      return word . substring ( i ) ;
+    }
+  }
+  return "" ;
+}
+
+***Example ends here:
+String matchParens ( List < String > lst ) {
+  String [ ] strings = {
+    lst . get ( 0 ) + lst . get ( 1 ) , lst . get ( 1 ) + lst . get ( 0 ) }
+    ;
+    for ( String l : strings ) {
+      int count = 0 ;
+      for ( int i = 0 ;
+      i < l . length ( ) ;
+      i ++ ) {
+        if ( l . charAt ( i ) == '(' ) count ++ ;
+        if ( l . charAt ( i ) == ')' ) count -- ;
+        if ( count < 0 ) break ;
+      }
+      if ( count == 0 ) return "Yes" ;
+    }
+    return "No" ;
+  }
+  
+***Example ends here:
+int [ ] maximum ( int [ ] arr , int k ) {
+  if ( k == 0 ) return new int [ 0 ] ;
+  Arrays . sort ( arr ) ;
+  return arr . length - k ;
+}
+
+***Example ends here:
+boolean validDate ( String date ) {
+  if ( date . length ( ) != 10 ) {
+    return false ;
+  }
+  for ( int i = 0 ;
+  i < 10 ;
+  i ++ ) {
+    if ( i == 2 || i == 5 ) {
+      if ( date . charAt ( i ) != '-' ) {
+        return false ;
+      }
+    }
+    else if ( ! date . charAt ( i ) . isDigit ( ) ) {
+      return false ;
+    }
+  }
+  int month = Integer . parseInt ( date . substring ( 0 , 2 ) ) ;
+  int day = Integer . parseInt ( date . substring ( 3 , 5 ) ) ;
+  int year = Integer . parseInt ( date . substring ( 6 , 10 ) ) ;
+  if ( month < 1 || month > 12 ) {
+    return false ;
+  }
+  if ( day < 1 || day > 31 ) {
+    return false ;
+  }
+  if ( day == 31 && ( month == 4 || month == 6 || month == 9 || month == 11 || month == 2 ) ) {
+    return false ;
+  }
+  if ( day == 30 && month == 2 ) {
+    return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+List < String > splitWords ( String txt ) {
+  List < String > current = new ArrayList < String > ( ) ;
+  List < String > result = new ArrayList < String > ( ) ;
+  if ( " " . equals ( txt ) ) {
+    for ( int i = 0 ;
+    i < txt . length ( ) + 1 ;
+    i ++ ) {
+      if ( i == txt . length ( ) || txt . charAt ( i ) == ' ' ) {
+        if ( current . size ( ) > 0 ) {
+          result . add ( "" . join ( current ) ) ;
+          current . clear ( ) ;
+        }
+      }
+      else {
+        current . add ( txt . charAt ( i ) ) ;
+      }
+    }
+    return result ;
+  }
+  if ( "," . equals ( txt ) ) {
+    for ( int i = 0 ;
+    i < txt . length ( ) + 1 ;
+    i ++ ) {
+      if ( i == txt . length ( ) || txt . charAt ( i ) == ',' ) {
+        if ( current . size ( ) > 0 ) {
+          result . add ( "" . join ( current ) ) ;
+          current . clear ( ) ;
+        }
+      }
+      else {
+        current . add ( txt . charAt ( i ) ) ;
+      }
+    }
+    return result ;
+  }
+  int num = 0 ;
+  for ( int i = 0 ;
+  i < txt . length ( ) ;
+  i ++ ) {
+    char c = txt . charAt ( i ) ;
+    if ( c . isLetter ( ) && Character . digit ( txt . charAt ( i ) , 10 ) % 2 == 0 ) {
+      num ++ ;
+    }
+  }
+  return new ArrayList < String > ( Arrays . asList ( current ) ) ;
+}
+
+***Example ends here:
+int [ ] tri ( int n ) {
+  if ( n == 0 ) return new int [ ] {
+    1 }
+    ;
+    int [ ] tris = new int [ ] {
+      1 , 3 }
+      ;
+      for ( int i = 2 ;
+      i <= n ;
+      i ++ ) {
+        if ( i % 2 == 0 ) tris [ i ] = i / 2 + 1 ;
+        else tris [ i ] = tris [ i - 1 ] + tris [ i - 2 ] + ( i + 3 ) / 2 ;
+      }
+      return tris ;
+    }
+    
+***Example ends here:
+boolean checkIfLastCharIsALetter ( String txt ) {
+  if ( txt == null ) return false ;
+  return txt . charAt ( txt . length ( ) - 1 ) == 'a' && ( txt . length ( ) == 1 || ! txt . charAt ( txt . length ( ) - 2 ) ) ;
+}
+
+***Example ends here:
+int [ ] orderByPoints ( int [ ] nums ) {
+  int [ ] result = new int [ nums . length ] ;
+  for ( int num : nums ) {
+    String w = String . valueOf ( Math . abs ( num ) ) ;
+    int sum = 0 ;
+    for ( int i = 0 ;
+    i < w . length ( ) ;
+    i ++ ) {
+      sum += ( int ) w . charAt ( i ) - ( int ) '0' ;
+    }
+    if ( num < 0 ) {
+      sum -= 2 * ( ( int ) w . charAt ( 0 ) - ( int ) '0' ) ;
+    }
+    result [ i ] = sum ;
+  }
+  for ( int i = 0 ;
+  i < nums . length ;
+  i ++ ) {
+    for ( int j = 1 ;
+    j < nums . length ;
+    j ++ ) {
+      if ( result [ j - 1 ] > result [ j ] ) {
+        result [ j ] = result [ j - 1 ] ;
+        nums [ j ] = nums [ j - 1 ] ;
+      }
+    }
+  }
+  return nums ;
+}
+
+***Example ends here:
+List < String > bf ( String planet1 , String planet2 ) {
+  List < String > planets = new ArrayList < > ( ) ;
+  planets . add ( "Mercury" ) ;
+  planets . add ( "Venus" ) ;
+  planets . add ( "Earth" ) ;
+  planets . add ( "Mars" ) ;
+  planets . add ( "Jupiter" ) ;
+  planets . add ( "Saturn" ) ;
+  planets . add ( "Uranus" ) ;
+  planets . add ( "Neptune" ) ;
+  int idx1 = planets . contains ( planet1 ) ? - 1 : planets . indexOf ( planet1 ) ;
+  int idx2 = planets . contains ( planet2 ) ? - 1 : planets . indexOf ( planet2 ) ;
+  if ( idx1 == - 1 || idx2 == - 1 || idx1 == idx2 ) {
+    return Collections . emptyList ( ) ;
+  }
+  return planets . contains ( idx2 + 1 ) ? null : planets . subList ( idx2 + 1 , idx1 ) ;
+}
+
+***Example ends here:
+< T > List < T > sortedListSum ( List < T > list ) {
+  List < T > result = new ArrayList < > ( ) ;
+  for ( int i = 0 ;
+  i < list . size ( ) ;
+  i ++ ) {
+    if ( list . get ( i ) % 2 == 0 ) {
+      result . add ( list . get ( i ) ) ;
+    }
+  }
+  Collections . sort ( result ) ;
+  return result ;
+}
+
+***Example ends here:
+boolean cycpatternCheck ( String a , String b ) {
+  for ( int i = 0 ;
+  i < b . length ( ) ;
+  i ++ ) {
+    String rotate = b . substring ( i ) + b . substring ( 0 , i ) ;
+    if ( rotate . contains ( a ) ) return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+int evenOddCount ( int num ) {
+  int evenCount = 0 , oddCount = 0 ;
+  for ( String i : String . valueOf ( Math . abs ( num ) ) ) {
+    if ( Integer . parseInt ( i ) % 2 == 0 ) evenCount ++ ;
+    else oddCount ++ ;
+  }
+  return evenCount ;
+}
+
+***Example ends here:
+String findMax ( List < String > words ) {
+  String max = "" ;
+  int maxLength = 0 ;
+  for ( String word : words ) {
+    List < String > unique = new ArrayList < String > ( ) ;
+    for ( String w : word . split ( " " ) ) {
+      if ( w != null ) {
+        unique . add ( w ) ;
+      }
+      if ( unique . size ( ) > maxLength || ( unique . size ( ) == maxLength && word . compareTo ( max ) < 0 ) ) {
+        max = word ;
+        maxLength = unique . size ( ) ;
+      }
+    }
+  }
+  return max ;
+}
+
+***Example ends here:
+String solve ( String s ) {
+  boolean noLetter = true ;
+  StringBuilder sb = new StringBuilder ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    char ch = s . charAt ( i ) ;
+    if ( ch . isUpperCase ( ) ) {
+      ch = s . charAt ( i ) ;
+      noLetter = false ;
+    }
+    else if ( ch . isLowerCase ( ) ) {
+      ch = s . charAt ( i ) ;
+      noLetter = false ;
+    }
+    sb . append ( ch ) ;
+  }
+  if ( noLetter ) {
+    return sb . toString ( ) . substring ( 0 , sb . length ( ) - 1 ) ;
+  }
+  else {
+    return sb . toString ( ) ;
+  }
+  ;
+}
+
+***Example ends here:
+int mostFrequent ( int [ ] arr , int n ) {
+  HashMap < Integer , Integer > hp = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( arr [ i ] < hp . get ( i ) ) hp . put ( arr [ i ] , ++ i ) ;
+    else hp . put ( arr [ i ] , 1 ) ;
+  }
+  int maxCount = 0 , res = - 1 ;
+  for ( Map . Entry < Integer , Integer > entry : hp . entrySet ( ) ) {
+    if ( maxCount < entry . getValue ( ) ) {
+      res = entry . getKey ( ) ;
+      maxCount = entry . getValue ( ) ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int find ( int [ ] a , int [ ] b , int k , int n1 , int n2 ) {
+  Set < Integer > s = new HashSet < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n2 ;
+  i ++ ) {
+    s . add ( b [ i ] ) ;
+  }
+  int missing = 0 ;
+  for ( int i = 0 ;
+  i < n1 ;
+  i ++ ) {
+    if ( a [ i ] != s . contains ( b [ i ] ) ) {
+      missing ++ ;
+    }
+    if ( missing == k ) {
+      return a [ i ] ;
+    }
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+int solveQuery ( int start , int end , int [ ] arr ) {
+  Map < Integer , Integer > frequency = Maps . newHashMap ( ) ;
+  for ( int i = start ;
+  i <= end ;
+  i ++ ) {
+    frequency . put ( arr [ i ] , frequency . get ( arr [ i ] ) + 1 ) ;
+  }
+  int count = 0 ;
+  for ( Map . Entry < Integer , Integer > entry : frequency . entrySet ( ) ) {
+    if ( entry . getValue ( ) == arr [ i ] ) {
+      count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int segregate ( int [ ] arr , int size ) {
+  int j = 0 ;
+  for ( int i = 0 ;
+  i < size ;
+  i ++ ) {
+    if ( arr [ i ] <= 0 ) {
+      arr [ i ] = arr [ j ] ;
+      j ++ ;
+    }
+  }
+  return j ;
+}
+
+***Example ends here:
+int countTriplets ( int [ ] a , int n ) {
+  Set s = new HashSet ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) s . add ( a [ i ] ) ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    j += 1 ) {
+      int xr = a [ i ] ^ a [ j ] ;
+      if ( xr < s . size ( ) && xr != a [ i ] && xr != a [ j ] ) count ++ ;
+    }
+  }
+  return ( int ) ( count / 3 ) ;
+}
+
+***Example ends here:
+int leastFrequent ( int [ ] arr , int n ) {
+  HashMap < Integer , Integer > hp = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( arr [ i ] < hp . get ( i ) ) hp . put ( arr [ i ] , ++ i ) ;
+    else hp . put ( arr [ i ] , 1 ) ;
+  }
+  int minCount = n + 1 ;
+  int res = - 1 ;
+  for ( Entry < Integer , Integer > entry : hp . entrySet ( ) ) {
+    if ( minCount >= entry . getValue ( ) ) {
+      res = entry . getKey ( ) ;
+      minCount = entry . getValue ( ) ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int findPermutations ( int [ ] arr ) {
+  int cnt = 0 ;
+  int maxInd = - 1 , minInd = 10000000 ;
+  int n = arr . length ;
+  Map < Integer , Integer > indexOf = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    indexOf . put ( arr [ i ] , i + 1 ) ;
+  }
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    maxInd = Math . max ( maxInd , indexOf . get ( i ) ) ;
+    minInd = Math . min ( minInd , indexOf . get ( i ) ) ;
+    if ( maxInd - minInd + 1 == i ) {
+      cnt ++ ;
+    }
+  }
+  return cnt ;
+}
+
+***Example ends here:
+int formQuadruplets ( int [ ] arr , int n ) {
+  int ans = 0 , pairs ;
+  pairs = n / 4 ;
+  Arrays . sort ( arr , pairs ) ;
+  for ( int i = 0 ;
+  i < n - pairs ;
+  i += 3 ) {
+    ans += arr [ i + 2 ] ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+String lexicographicallyMaximum ( String s , int n ) {
+  Map < Character , Integer > m = new HashMap < Character , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s . charAt ( i ) < 0 ) {
+      m . put ( s . charAt ( i ) , 1 ) ;
+    }
+    else {
+      m . put ( s . charAt ( i ) , 1 ) ;
+    }
+  }
+  StringBuilder v = new StringBuilder ( ) ;
+  for ( int i = Character . MIN_VALUE ;
+  i < Character . MAX_VALUE + Math . min ( n , 25 ) ;
+  i ++ ) {
+    if ( Character . MIN_VALUE != i ) {
+      v . append ( Character . MIN_VALUE ) ;
+    }
+  }
+  int j = v . length ( ) - 1 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( Character . MIN_VALUE >= s . charAt ( i ) || ( s . charAt ( i ) < 0 && m . get ( s . charAt ( i ) ) > 1 ) ) {
+      if ( Character . MIN_VALUE < v . charAt ( j ) ) {
+        continue ;
+      }
+      m . put ( s . charAt ( i ) , 1 ) ;
+      s = s . substring ( 0 , i ) + v . append ( j ) + s . substring ( i + 1 ) ;
+      j -- ;
+    }
+    if ( j < 0 ) {
+      break ;
+    }
+  }
+  int l = 0 ;
+  for ( int i = n - 1 ;
+  i >= 0 ;
+  i -- ) {
+    if ( l > j ) {
+      break ;
+    }
+    if ( Character . MIN_VALUE >= s . charAt ( i ) || ( s . charAt ( i ) < 0 && m . get ( s . charAt ( i ) ) > 1 ) ) {
+      m . put ( s . charAt ( i ) , 1 ) ;
+      s = s . substring ( 0 , i ) + v . append ( l ) + s . substring ( i + 1 ) ;
+      l ++ ;
+    }
+  }
+  return s ;
+}
+
+***Example ends here:
+int noOfValidKbers ( int k , int [ ] arr ) {
+  HashSet < Integer > st = new HashSet < Integer > ( ) ;
+  while ( k != 0 ) {
+    st . add ( k % 10 ) ;
+    k = k / 10 ;
+  }
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < arr . length ;
+  i ++ ) {
+    int no = arr [ i ] ;
+    boolean flag = true ;
+    while ( no != 0 ) {
+      int digit = no % 10 ;
+      if ( digit != 0 ) {
+        flag = false ;
+        break ;
+      }
+      no = no / 10 ;
+    }
+    if ( flag == true ) {
+      count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int delCost ( int [ ] s , int [ ] cost ) {
+  int ans = 0 ;
+  Map < Integer , Integer > forMax = new HashMap < Integer , Integer > ( ) ;
+  Map < Integer , Integer > forSoFar = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < s . length ;
+  i ++ ) {
+    if ( s [ i ] != 0 ) forMax . put ( s [ i ] , cost [ i ] ) ;
+    else forMax . put ( s [ i ] , Math . max ( cost [ i ] , forMax . get ( s [ i ] ) ) ) ;
+    if ( s [ i ] != 0 ) forSoFar . put ( s [ i ] , cost [ i ] ) ;
+    else forSoFar . put ( s [ i ] , cost [ i ] ) ;
+  }
+  for ( Map . Entry < Integer , Integer > entry : forMax . entrySet ( ) ) {
+    ans += entry . getValue ( ) - entry . getKey ( ) ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+String [ ] replaceDuplicates ( String [ ] names ) {
+  int [ ] hash = new int [ names . length ] ;
+  for ( int i = 0 ;
+  i < names . length ;
+  i ++ ) {
+    if ( names [ i ] != null ) {
+      hash [ names [ i ] ] = 1 ;
+    }
+    else {
+      int count = hash [ names [ i ] ] ;
+      hash [ names [ i ] ] ++ ;
+      names [ i ] += String . valueOf ( count ) ;
+    }
+  }
+  return names ;
+}
+
+***Example ends here:
+void minmaxNumbers ( int [ ] [ ] matrix , List < Integer > res ) {
+  Set < Integer > s = new HashSet < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < matrix . length ;
+  i ++ ) {
+    int min_r = Integer . MAX_VALUE ;
+    for ( int j = 0 ;
+    j < matrix [ i ] . length ;
+    j ++ ) min_r = Math . min ( min_r , matrix [ i ] [ j ] ) ;
+    s . add ( min_r ) ;
+  }
+  for ( int j = 0 ;
+  j < matrix [ 0 ] . length ;
+  j ++ ) {
+    int max_c = - Integer . MAX_VALUE ;
+    for ( int i = 0 ;
+    i < matrix . length ;
+    i ++ ) max_c = Math . max ( max_c , matrix [ i ] [ j ] ) ;
+    if ( max_c < s . size ( ) ) res . add ( max_c ) ;
+  }
+}
+
+***Example ends here:
+int lengthOfLongestAP ( int [ ] a , int n ) {
+  int [ ] [ ] dp = new int [ n ] [ n ] ;
+  int res = 2 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    j ++ ) {
+      int d = a [ j ] - a [ i ] ;
+      if ( d < dp [ d ] . length ) {
+        if ( i < dp [ d ] . length ) {
+          dp [ d ] [ j ] = dp [ d ] [ i ] + 1 ;
+        }
+        else {
+          dp [ d ] [ j ] = 2 ;
+        }
+      }
+      else {
+        dp [ d ] = new int [ n ] ;
+        dp [ d ] [ j ] = 2 ;
+      }
+      res = Math . max ( res , dp [ d ] [ j ] ) ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+String findKthChar ( int n , int k ) {
+  String prev = "A" ;
+  String cur = "" ;
+  if ( n == 1 ) return "A" ;
+  for ( int i = 2 ;
+  i <= n ;
+  i ++ ) {
+    cur = prev + "B" ;
+    for ( int j = 0 ;
+    j < prev . length ( ) ;
+    j ++ ) {
+      if ( prev . charAt ( j ) == 'A' ) prev = prev . substring ( 0 , j ) + "B" + prev . substring ( j + 1 ) ;
+      else prev = prev . substring ( 0 , j ) + "A" + prev . substring ( j + 1 ) ;
+    }
+    prev = prev . substring ( 0 , prev . length ( ) - 1 ) ;
+    cur += prev ;
+    prev = cur ;
+  }
+  return cur . charAt ( k - 1 ) ;
+}
+
+***Example ends here:
+int findKthLargest ( int [ ] s , int k ) {
+  int [ ] tmp = Arrays . copyOf ( s , s . length ) ;
+  System . arraycopy ( s , 0 , tmp , 0 , k ) ;
+  return tmp [ k - 1 ] ;
+}
+
+***Example ends here:
+int subArraylen ( int [ ] arr , int n , int k ) {
+  HashMap mp = new HashMap ( ) ;
+  mp . put ( arr [ 0 ] , 0 ) ;
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    arr [ i ] = arr [ i ] + arr [ i - 1 ] ;
+    mp . put ( arr [ i ] , i ) ;
+  }
+  int len = Integer . MAX_VALUE ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( arr [ i ] < k ) continue ;
+    else {
+      int x = arr [ i ] - k ;
+      if ( x == 0 ) len = Math . min ( len , i ) ;
+      if ( x != 0 ) continue ;
+      else len = Math . min ( len , i - mp . get ( x ) ) ;
+    }
+  }
+  return len ;
+}
+
+***Example ends here:
+int findmaxLen ( int [ ] a , int k ) {
+  int n = a . length ;
+  Arrays . sort ( a ) ;
+  boolean [ ] vis = new boolean [ n ] ;
+  Arrays . fill ( vis , false ) ;
+  Map mp = new HashMap ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    mp . put ( a [ i ] , i ) ;
+  }
+  int c = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( ! vis [ i ] ) {
+      int check = a [ i ] * k ;
+      if ( check < mp . size ( ) ) {
+        c ++ ;
+        vis [ mp . get ( check ) ] = true ;
+      }
+    }
+  }
+  return n - c ;
+}
+
+***Example ends here:
+int [ ] minDistancePoints ( int [ ] a , int k , int n ) {
+  Map < Integer , Integer > m = new HashMap < Integer , Integer > ( ) ;
+  LinkedList < Integer > q = new LinkedList < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    m . put ( a [ i ] , 1 ) ;
+    q . addFirst ( a [ i ] ) ;
+  }
+  int [ ] ans = new int [ n ] ;
+  while ( k > 0 ) {
+    int x = q . getFirst ( ) ;
+    q . removeFirst ( ) ;
+    if ( ( x - 1 ) != 0 && k > 0 ) {
+      m . put ( x - 1 , 1 ) ;
+      q . addFirst ( x - 1 ) ;
+      ans [ x - 1 ] = x ;
+      k -- ;
+    }
+    if ( ( x + 1 ) != 0 && k > 0 ) {
+      m . put ( x + 1 , 1 ) ;
+      q . addFirst ( x + 1 ) ;
+      ans [ x + 1 ] = x ;
+      k -- ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+boolean isValidLen ( String s , int length , int k ) {
+  int n = s . length ( ) ;
+  Map < String , Integer > mp = Maps . newHashMap ( ) ;
+  int right = 0 ;
+  while ( right < length ) {
+    if ( s . charAt ( right ) < 0 ) mp . put ( s . substring ( right ) , 1 ) ;
+    else mp . put ( s . substring ( right ) , 1 ) ;
+    right ++ ;
+  }
+  if ( mp . size ( ) <= k ) return true ;
+  while ( right < n ) {
+    if ( s . charAt ( right ) < 0 ) mp . put ( s . substring ( right ) , 1 ) ;
+    else mp . put ( s . substring ( right ) , 1 ) ;
+    mp . get ( s . substring ( right - length ) ) -- ;
+    if ( mp . get ( s . substring ( right - length ) ) == 0 ) -- mp . get ( s . substring ( right - length ) ) ;
+    if ( mp . size ( ) <= k ) return true ;
+    right ++ ;
+  }
+  return mp . size ( ) <= k ;
+}
+
+***Example ends here:
+int partition ( int [ ] arr , int low , int high ) {
+  int pivot = arr [ high ] ;
+  int i = ( low - 1 ) ;
+  for ( int j = low ;
+  j < high ;
+  j ++ ) {
+    if ( arr [ j ] <= pivot ) {
+      i ++ ;
+      arr [ i ] = arr [ j ] ;
+    }
+  }
+  arr [ i + 1 ] = arr [ high ] ;
+  return i + 1 ;
+}
+
+***Example ends here:
+int strScore ( String [ ] strs , String s , int n ) {
+  HashMap < String , Integer > m = new HashMap < String , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    m . put ( strs [ i ] , i + 1 ) ;
+  }
+  if ( s != null ) {
+    int score = 0 ;
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      score += Character . toUpperCase ( s . charAt ( i ) ) - Character . toUpperCase ( "a" ) + 1 ;
+    }
+    score = score * m . get ( s ) ;
+  }
+  return score ;
+}
+
+***Example ends here:
+List < Integer > countEle ( Stack < Integer > s , int [ ] a , int n ) {
+  Map < Integer , Boolean > mp = new HashMap < > ( ) ;
+  List < Integer > ans = new ArrayList < > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    Integer num = a [ i ] ;
+    if ( num == null ) {
+      ans . add ( 0 ) ;
+    }
+    else {
+      int cnt = 0 ;
+      while ( s . peek ( ) != num ) {
+        mp . put ( s . pop ( ) , true ) ;
+        s . pop ( ) ;
+        cnt ++ ;
+      }
+      s . pop ( ) ;
+      cnt ++ ;
+      ans . add ( cnt ) ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int maxDistinctChar ( String s , int n , int k ) {
+  HashMap < String , Integer > freq = new HashMap < String , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s . charAt ( i ) < 0 ) {
+      freq . put ( s . substring ( i ) , 1 ) ;
+    }
+    else {
+      freq . put ( s . substring ( i ) , 1 ) ;
+    }
+  }
+  List < Integer > v = new ArrayList < Integer > ( ) ;
+  for ( Entry < String , Integer > entry : freq . entrySet ( ) ) {
+    v . add ( entry . getValue ( ) ) ;
+  }
+  Collections . sort ( v ) ;
+  for ( int i = 0 ;
+  i < v . size ( ) ;
+  i ++ ) {
+    int mn = Math . min ( v . get ( i ) - 1 , k ) ;
+    v . set ( i , v . get ( i ) - mn ) ;
+    k -= mn ;
+  }
+  if ( k > 0 ) {
+    for ( int i = 0 ;
+    i < v . size ( ) ;
+    i ++ ) {
+      int mn = Math . min ( v . get ( i ) , k ) ;
+      v . set ( i , v . get ( i ) - mn ) ;
+      k -= mn ;
+    }
+  }
+  int res = 0 ;
+  for ( int i = 0 ;
+  i < v . size ( ) ;
+  i ++ ) {
+    if ( v . get ( i ) == 1 ) {
+      res ++ ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int findKth ( int [ ] arr , int n , int k ) {
+  HashMap < Integer , Integer > missing = new HashMap < Integer , Integer > ( ) ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    missing . put ( arr [ i ] , 1 ) ;
+  }
+  int maxM = Math . max ( arr . length , n ) ;
+  int minM = Math . min ( arr . length , n ) ;
+  for ( int i = minM + 1 ;
+  i < maxM ;
+  i ++ ) {
+    if ( arr [ i ] != missing . get ( i ) ) {
+      count ++ ;
+    }
+    if ( count == k ) {
+      return i ;
+    }
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+boolean almost_sort ( int [ ] a , int n ) {
+  for ( int i = 0 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( a [ i ] > a [ i + 1 ] ) {
+      a [ i ] = a [ i + 1 ] ;
+      a [ i + 1 ] = a [ i ] ;
+      i ++ ;
+    }
+  }
+  for ( int i = 0 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( a [ i ] > a [ i + 1 ] ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int maximumSum ( byte [ ] s , int n , int k ) {
+  int sum = 0 ;
+  int [ ] freq = new int [ 256 ] ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) freq [ ( int ) s [ i ] ] ++ ;
+  Arrays . sort ( freq ) ;
+  for ( int i = 0 ;
+  i < 256 ;
+  i ++ ) {
+    if ( k > freq [ i ] ) {
+      sum += freq [ i ] * freq [ i ] ;
+      k -= freq [ i ] ;
+    }
+    else {
+      sum += freq [ i ] * k ;
+      break ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+int findMinOperations ( int [ ] arr , int n , int k ) {
+  int operations = 0 ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    HashMap < Integer , Integer > freq = new HashMap < Integer , Integer > ( ) ;
+    for ( int j = i ;
+    j < n ;
+    j += k ) {
+      freq . put ( arr [ j ] , freq . get ( arr [ j ] ) + 1 ) ;
+    }
+    int max1 = 0 ;
+    int num = 0 ;
+    for ( Entry < Integer , Integer > entry : freq . entrySet ( ) ) {
+      if ( entry . getValue ( ) > max1 ) {
+        max1 = entry . getValue ( ) ;
+        num = entry . getKey ( ) ;
+      }
+    }
+    for ( Entry < Integer , Integer > entry : freq . entrySet ( ) ) {
+      if ( entry . getValue ( ) != num ) {
+        operations += entry . getValue ( ) ;
+      }
+    }
+  }
+  return operations ;
+}
+
+***Example ends here:
+List < String > subString ( String s , int n ) {
+  List < String > v = new ArrayList < > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int len = 1 ;
+    len <= n - i ;
+    len ++ ) {
+      String find = s . substring ( i , i + len ) ;
+      v . add ( find ) ;
+    }
+  }
+  return v ;
+}
+
+***Example ends here:
+boolean checkUniqueFrequency ( int [ ] arr , int n ) {
+  Map < Integer , Integer > freq = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) freq . put ( arr [ i ] , freq . get ( arr [ i ] ) + 1 ) ;
+  Set < Integer > uniqueFreq = new HashSet < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < freq . size ( ) ;
+  i ++ ) {
+    if ( freq . get ( i ) . contains ( uniqueFreq . get ( i ) ) ) return false ;
+    else uniqueFreq . add ( freq . get ( i ) ) ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int minCost ( String str1 , String str2 , int n ) {
+  int cost = 0 ;
+  List < String > tmp = Arrays . asList ( str1 ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( tmp . get ( i ) != str2 . charAt ( i ) ) {
+      if ( i < n - 1 && tmp . get ( i + 1 ) != str2 . charAt ( i + 1 ) ) {
+        tmp . set ( i , tmp . get ( i + 1 ) ) ;
+        cost ++ ;
+      }
+      else {
+        cost ++ ;
+      }
+    }
+  }
+  return cost ;
+}
+
+***Example ends here:
+boolean isValidNum ( String x ) {
+  Map < Character , Integer > mp = Maps . newHashMap ( ) ;
+  for ( int i = 0 ;
+  i < x . length ( ) ;
+  i ++ ) {
+    if ( Character . digit ( x . charAt ( i ) - '0' , 10 ) == - 1 ) {
+      return false ;
+    }
+    else if ( Character . digit ( x . charAt ( i ) - '0' , 10 ) > 5 ) {
+      return false ;
+    }
+    else {
+      mp . put ( Character . digit ( x . charAt ( i ) - '0' , 10 ) , 1 ) ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int minimizeDiff ( int [ ] arr , int n , int k ) {
+  int maxElement = max ( arr ) ;
+  int minElement = min ( arr ) ;
+  if ( maxElement - minElement <= k ) {
+    return maxElement - minElement ;
+  }
+  int avg = ( maxElement + minElement ) / 2 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( arr [ i ] > avg ) {
+      arr [ i ] -= k ;
+    }
+    else {
+      arr [ i ] += k ;
+    }
+  }
+  maxElement = max ( arr ) ;
+  minElement = min ( arr ) ;
+  return maxElement - minElement ;
+}
+
+***Example ends here:
+int getMinCost ( int [ ] arr , int n ) {
+  int minEle = Math . min ( arr ) ;
+  return minEle * ( n - 1 ) ;
+}
+
+***Example ends here:
+boolean possibility ( char [ ] m , int length , String s ) {
+  int countOdd = 0 ;
+  for ( int i = 0 ;
+  i < length ;
+  i ++ ) {
+    if ( m [ ( int ) s . charAt ( i ) - '0' ] & 1 ) countOdd ++ ;
+    if ( countOdd > 1 ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int minimumCostOfBreaking ( int [ ] x , int [ ] y , int m , int n ) {
+  int res = 0 ;
+  Arrays . sort ( x ) ;
+  Arrays . sort ( y ) ;
+  int hzntl = 1 , vert = 1 ;
+  int i = 0 , j = 0 ;
+  while ( i < m && j < n ) {
+    if ( x [ i ] > y [ j ] ) {
+      res += x [ i ] * vert ;
+      hzntl ++ ;
+      i ++ ;
+    }
+    else {
+      res += y [ j ] * hzntl ;
+      vert ++ ;
+      j ++ ;
+    }
+  }
+  int total = 0 ;
+  while ( i < m ) {
+    total += x [ i ] ;
+    i ++ ;
+  }
+  res += total * vert ;
+  total = 0 ;
+  while ( j < n ) {
+    total += y [ j ] ;
+    j ++ ;
+  }
+  res += total * hzntl ;
+  return res ;
+}
+
+***Example ends here:
+int findMaximumScore ( int [ ] a , int n ) {
+  HashMap < Integer , Integer > freq = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( a [ i ] < 0 ) freq . put ( a [ i ] , 1 ) ;
+    else freq . put ( a [ i ] , 1 ) ;
+  }
+  int [ ] dp = new int [ Math . max ( a . length , n ) + 1 ] ;
+  dp [ 0 ] = 0 ;
+  dp [ 1 ] = freq . get ( 1 ) ;
+  for ( int i = 2 ;
+  i < dp . length ;
+  i ++ ) {
+    dp [ i ] = Math . max ( dp [ i - 1 ] , dp [ i - 2 ] + freq . get ( i ) * i ) ;
+  }
+  return dp [ dp . length - 1 ] ;
+}
+
+***Example ends here:
+int countWays ( String s , String t , int k , int mod ) {
+  int n = s . length ( ) ;
+  int a = 0 ;
+  int b = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    String p = s . substring ( i , n ) + s . substring ( 0 , i ) ;
+    if ( p . equals ( t ) ) a ++ ;
+    else b ++ ;
+  }
+  int [ ] dp1 = new int [ k + 1 ] ;
+  int [ ] dp2 = new int [ k + 1 ] ;
+  if ( s . equals ( t ) ) {
+    dp1 [ 0 ] = 1 ;
+    dp2 [ 0 ] = 0 ;
+  }
+  else {
+    dp1 [ 0 ] = 0 ;
+    dp2 [ 0 ] = 1 ;
+  }
+  for ( int i = 1 ;
+  i <= k ;
+  i ++ ) {
+    dp1 [ i ] = ( ( dp1 [ i - 1 ] * ( a - 1 ) ) % mod + ( dp2 [ i - 1 ] * a ) % mod ) % mod ;
+    dp2 [ i ] = ( ( dp1 [ i - 1 ] * b ) % mod + ( dp2 [ i - 1 ] * ( b - 1 ) ) % mod ) % mod ;
+  }
+  return dp1 [ k ] ;
+}
+
+***Example ends here:
+int findSubArraySum ( int [ ] arr , int n , int k ) {
+  HashMap < Integer , Integer > prevSum = new HashMap < Integer , Integer > ( ) ;
+  int res = 0 ;
+  int currSum = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    currSum += arr [ i ] ;
+    if ( currSum == k ) res ++ ;
+    if ( ( currSum - k ) < prevSum . size ( ) ) res += prevSum . get ( currSum - k ) ;
+    prevSum . put ( currSum , prevSum . get ( currSum ) + 1 ) ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int maximumOccurrence ( String s ) {
+  int n = s . length ( ) ;
+  HashMap < String , Integer > freq = new HashMap < String , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    String temp = "" ;
+    temp += s . charAt ( i ) ;
+    freq . put ( temp , freq . get ( temp ) + 1 ) ;
+  }
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    j ++ ) {
+      String temp = "" ;
+      temp += s . charAt ( i ) ;
+      temp += s . charAt ( j ) ;
+      freq . put ( temp , freq . get ( temp ) + 1 ) ;
+    }
+  }
+  int answer = - Integer . MAX_VALUE ;
+  for ( Entry < String , Integer > entry : freq . entrySet ( ) ) {
+    answer = Math . max ( answer , entry . getValue ( ) ) ;
+  }
+  return answer ;
+}
+
+***Example ends here:
+int countCharacters ( List < String > strings , String chars ) {
+  int res = 0 ;
+  Map < Character , Integer > freq = new HashMap < Character , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < chars . length ( ) ;
+  i ++ ) {
+    freq . put ( chars . charAt ( i ) , freq . get ( chars . charAt ( i ) ) + 1 ) ;
+  }
+  for ( String st : strings ) {
+    boolean flag = true ;
+    for ( Character c : Arrays . asList ( st . toCharArray ( ) ) ) {
+      if ( c != freq . get ( c ) ) {
+        flag = false ;
+        break ;
+      }
+    }
+    if ( flag ) {
+      res += st . length ( ) ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int distinct_substring ( String p , String q , int k , int n ) {
+  Set < String > ss = new HashSet < String > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    int sum = 0 ;
+    String s = "" ;
+    for ( int j = i ;
+    j < n ;
+    j ++ ) {
+      int pos = Character . digit ( p . charAt ( j ) , 10 ) - Character . digit ( 'a' , 10 ) ;
+      sum += Character . digit ( q . charAt ( pos ) , 10 ) - Character . digit ( '0' , 10 ) ;
+      s += p . charAt ( j ) ;
+      if ( sum <= k ) ss . add ( s ) ;
+      else break ;
+    }
+  }
+  return ss . size ( ) ;
+}
+
+***Example ends here:
+int uniqueMorseRep ( String [ ] arr ) {
+  String morseCode [ ] = {
+    ".-" , "-..." , "-.-." , "-.." , "." , "..-." , "--." , "...." , ".." , ".---" , "-.-" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" , "---" }
+    ;
+    Set < String > st = new HashSet < String > ( ) ;
+    int n = arr . length ;
+    for ( int i = 0 ;
+    i < n ;
+    i ++ ) {
+      String temp = "" ;
+      int m = arr [ i ] . length ( ) ;
+      for ( int j = 0 ;
+      j < m ;
+      j ++ ) {
+        temp += morseCode . charAt ( ( char ) arr [ i ] . charAt ( j ) - 'a' ) ;
+      }
+      st . add ( temp ) ;
+    }
+    return st . size ( ) ;
+  }
+  
+***Example ends here:
+int countSubstrings ( String str , int k ) {
+  int n = str . length ( ) ;
+  int answer = 0 ;
+  Map < String , Integer > map = new HashMap < String , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    if ( str . charAt ( i ) != ' ' ) map . put ( str . substring ( i ) , 1 ) ;
+    else map . get ( str . substring ( i ) ) ++ ;
+  }
+  if ( map . size ( ) == k ) answer ++ ;
+  for ( int i = k ;
+  i < n ;
+  i ++ ) {
+    if ( str . charAt ( i ) != ' ' ) map . put ( str . substring ( i ) , 1 ) ;
+    else map . get ( str . substring ( i ) ) ++ ;
+    map . get ( str . substring ( i - k ) ) -- ;
+    if ( map . get ( str . substring ( i - k ) ) == 0 ) -- map . get ( str . substring ( i - k ) ) ;
+    if ( map . size ( ) == k ) answer ++ ;
+  }
+  return answer ;
+}
+
+***Example ends here:
+boolean canConstruct ( String [ ] s , int k ) {
+  Map < String , Integer > m = Maps . newHashMap ( ) ;
+  int p = 0 ;
+  if ( s . length == k ) {
+    return true ;
+  }
+  for ( int i = 0 ;
+  i < s . length ;
+  i ++ ) {
+    m . put ( s [ i ] , m . get ( s [ i ] ) + 1 ) ;
+  }
+  if ( k > s . length ) {
+    return false ;
+  }
+  else {
+    for ( Map . Entry < String , Integer > entry : m . entrySet ( ) ) {
+      if ( entry . getValue ( ) % 2 != 0 ) {
+        p = p + 1 ;
+      }
+    }
+  }
+  if ( k < p ) {
+    return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+boolean equalsIgnoreCase ( String str1 , String str2 ) {
+  str1 = str1 . toUpperCase ( ) ;
+  str2 = str2 . toUpperCase ( ) ;
+  return str1 . equals ( str2 ) ;
+}
+
+***Example ends here:
+int findLongestSub ( String bin ) {
+  int n = bin . length ( ) ;
+  int sum = 0 ;
+  int [ ] prevSum = new int [ n ] ;
+  int maxLen = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( bin . charAt ( i ) == '1' ) {
+      sum ++ ;
+    }
+    else {
+      sum -- ;
+    }
+    if ( sum > 0 ) {
+      maxLen = i + 1 ;
+    }
+    else if ( sum <= 0 ) {
+      if ( ( sum - 1 ) < prevSum . length ) {
+        int currLen = i - prevSum [ sum - 1 ] ;
+        maxLen = Math . max ( maxLen , currLen ) ;
+      }
+    }
+    if ( sum != 0 ) {
+      prevSum [ sum ] = i ;
+    }
+  }
+  return maxLen ;
+}
+
+***Example ends here:
+boolean hasAllCodes ( String s , int k ) {
+  HashSet < String > us = new HashSet < > ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) + 1 ;
+  i ++ ) us . add ( s . substring ( i , k ) ) ;
+  return us . size ( ) == 1 << k ;
+}
+
+***Example ends here:
+boolean checkPalin ( String word ) {
+  int n = word . length ( ) ;
+  word = word . toLowerCase ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( word . charAt ( i ) != word . charAt ( n - 1 ) ) {
+      return false ;
+    }
+    n -- ;
+  }
+  return true ;
+}
+
+***Example ends here:
+String convert ( String st ) {
+  String w = "" ;
+  String z = "" ;
+  st = st . toUpperCase ( ) + " " ;
+  for ( int i = 0 ;
+  i < st . length ( ) ;
+  i ++ ) {
+    char ch = st . charAt ( i ) ;
+    if ( ch != ' ' ) {
+      w += ch ;
+    }
+    else {
+      z += w . substring ( 0 , 1 ) . toLowerCase ( ) + w . substring ( 1 , w . length ( ) ) + " " ;
+      w = "" ;
+    }
+  }
+  return z ;
+}
+
+***Example ends here:
+int maxLines ( int n , double [ ] x1 , double [ ] y1 , double [ ] x2 , double [ ] y2 ) {
+  Set < Double > s = new HashSet < Double > ( ) ;
+  double slope ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( x1 [ i ] == x2 [ i ] ) slope = Double . MAX_VALUE ;
+    else slope = ( y2 [ i ] - y1 [ i ] ) * 1.0 / ( x2 [ i ] - x1 [ i ] ) ;
+    s . add ( slope ) ;
+  }
+  return s . size ( ) ;
+}
+
+***Example ends here:
+Map < Integer , Integer > prime_factor ( int n ) {
+  Map < Integer , Integer > primef = new HashMap < Integer , Integer > ( ) ;
+  while ( n % 2 == 0 ) {
+    if ( 2 < n ) primef . put ( 2 , 1 ) ;
+    else primef . put ( 2 , 1 ) ;
+    n = n / 2 ;
+  }
+  for ( int i = 3 ;
+  i <= ( int ) Math . sqrt ( n ) ;
+  i += 2 ) {
+    while ( n % i == 0 ) {
+      if ( i < n ) primef . put ( i , 1 ) ;
+      else primef . put ( i , 1 ) ;
+      n = n / i ;
+    }
+  }
+  if ( n > 2 ) primef . put ( n , 1 ) ;
+  return primef ;
+}
+
+***Example ends here:
+String isDivisibleByDivisor ( int s , int d ) {
+  s %= d ;
+  HashSet < Integer > hashMap = new HashSet < Integer > ( ) ;
+  hashMap . add ( s ) ;
+  for ( int i = 0 ;
+  i < d + 1 ;
+  i ++ ) {
+    s += s % d ;
+    s %= d ;
+    if ( s == 0 ) {
+      if ( s == 0 ) {
+        return "Yes" ;
+      }
+      return "No" ;
+    }
+    else {
+      hashMap . add ( s ) ;
+    }
+  }
+  return "Yes" ;
+}
+
+***Example ends here:
+boolean oddSum ( int [ ] a , int n , int k ) {
+  Set < Integer > odd = new HashSet < Integer > ( ) ;
+  Set < Integer > even = new HashSet < Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( a [ i ] % 2 == 0 ) even . add ( a [ i ] ) ;
+    else odd . add ( a [ i ] ) ;
+  }
+  if ( odd . size ( ) >= k ) return true ;
+  boolean flag = false ;
+  for ( int i = 1 ;
+  i < k ;
+  i += 2 ) {
+    int needed = k - i ;
+    if ( needed <= even . size ( ) ) return true ;
+  }
+  return flag ;
+}
+
+***Example ends here:
+int dayOfYear ( String date ) {
+  int days [ ] = {
+    31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31 }
+    ;
+    int year = Integer . parseInt ( date . substring ( 0 , 4 ) ) ;
+    int month = Integer . parseInt ( date . substring ( 5 , 7 ) ) ;
+    int day = Integer . parseInt ( date . substring ( 8 ) ) ;
+    if ( month > 2 && year % 4 == 0 && ( year % 100 != 0 || year % 400 == 0 ) ) {
+      day ++ ;
+    }
+    while ( month > 1 ) {
+      day = day + days [ month - 2 ] ;
+      month -- ;
+    }
+    return day ;
+  }
+  
+***Example ends here:
+boolean isPerfectSquare ( int [ ] arr , int n ) {
+  Map < Integer , Integer > umap = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    umap . put ( arr [ i ] , umap . get ( arr [ i ] ) + 1 ) ;
+  }
+  for ( Map . Entry < Integer , Integer > entry : umap . entrySet ( ) ) {
+    if ( entry . getValue ( ) % 2 == 1 ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int minMoves ( int n ) {
+  String s = String . valueOf ( n ) ;
+  int ans = Integer . MAX_VALUE ;
+  int length = s . length ( ) ;
+  for ( int i = 0 ;
+  i < length ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < length ;
+    j ++ ) {
+      if ( i == j ) continue ;
+      List < String > t = Arrays . asList ( s ) ;
+      int cur = 0 ;
+      for ( int k = i ;
+      k < length - 1 ;
+      k ++ ) {
+        t . set ( k , t . get ( k + 1 ) ) ;
+        cur ++ ;
+      }
+      for ( int k = j - ( j > i ) ;
+      k < length - 2 ;
+      k ++ ) {
+        t . set ( k , t . get ( k + 1 ) ) ;
+        cur ++ ;
+      }
+      int pos = - 1 ;
+      for ( int k = 0 ;
+      k < length ;
+      k ++ ) {
+        if ( t . get ( k ) != "0" ) {
+          pos = k ;
+          break ;
+        }
+      }
+      for ( int k = pos ;
+      k > 0 ;
+      k -- ) {
+        t . set ( k , t . get ( k - 1 ) ) ;
+        cur ++ ;
+      }
+      int nn = Integer . parseInt ( "" . join ( t ) ) ;
+      if ( nn % 25 == 0 ) ans = Math . min ( ans , cur ) ;
+    }
+  }
+  if ( ans == Integer . MAX_VALUE ) return - 1 ;
+  return ans ;
+}
+
+***Example ends here:
+int minimumOperations ( int [ ] a , int n ) {
+  Map < Integer , Integer > mp = new HashMap < Integer , Integer > ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    mp . put ( a [ i ] , mp . get ( a [ i ] ) + 1 ) ;
+  }
+  int count = 0 ;
+  for ( Map . Entry < Integer , Integer > entry : mp . entrySet ( ) ) {
+    if ( entry . getValue ( ) > 1 ) {
+      count += entry . getValue ( ) - 1 ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int kaprekarRec ( int n , int prev ) {
+  if ( n == 0 ) return 0 ;
+  prev = n ;
+  int [ ] digits = new int [ 4 ] ;
+  for ( int i = 0 ;
+  i < 4 ;
+  i ++ ) {
+    digits [ i ] = n % 10 ;
+    n = n / 10 ;
+  }
+  Arrays . sort ( digits ) ;
+  int asc = 0 ;
+  for ( int i = 0 ;
+  i < 4 ;
+  i ++ ) asc = asc * 10 + digits [ i ] ;
+  Arrays . sort ( digits ) ;
+  int desc = 0 ;
+  for ( int i = 3 ;
+  i >= 0 ;
+  i -- ) desc = desc * 10 + digits [ i ] ;
+  int diff = Math . abs ( asc - desc ) ;
+  if ( diff == prev ) return diff ;
+  return kaprekarRec ( diff , prev ) ;
+}
+
+***Example ends here:
+String fractionToDecimal ( int numr , int denr ) {
+  String res = "" ;
+  HashMap mp = new HashMap ( ) ;
+  int rem = numr % denr ;
+  while ( rem != 0 && rem != - 1 ) {
+    mp . put ( rem , res . length ( ) ) ;
+    rem = rem * 10 ;
+    int resPart = rem / denr ;
+    res += Integer . toString ( resPart ) ;
+    rem = rem % denr ;
+  }
+  if ( rem == 0 ) return "" ;
+  if ( rem < mp . size ( ) ) return res . substring ( mp . size ( ) ) ;
+  return "" ;
+}
+
+***Example ends here:
+boolean isFancy ( String num ) {
+  HashMap < String , String > fp = new HashMap < > ( ) ;
+  fp . put ( "0" , "0" ) ;
+  fp . put ( "1" , "1" ) ;
+  fp . put ( "6" , "9" ) ;
+  fp . put ( "8" , "8" ) ;
+  fp . put ( "9" , "6" ) ;
+  int n = num . length ( ) ;
+  int l = 0 , r = n - 1 ;
+  while ( l <= r ) {
+    if ( num . charAt ( l ) != fp . get ( num . charAt ( l ) ) || fp . get ( num . charAt ( r ) ) != num . charAt ( r ) ) {
+      return false ;
+    }
+    l ++ ;
+    r -- ;
+  }
+  return true ;
+}
+
+***Example ends here:
+;
+return distinct_odd_ratio ;
+}
+
+***Example ends here:
+int compareSum ( String [ ] numbers , String [ ] words ) {
+  int intSum = Integer . parseInt ( numbers [ 0 ] ) ;
+  int wordLengthSum = Integer . parseInt ( words [ 0 ] ) ;
+  if ( intSum < wordLengthSum ) {
+    return - 1 ;
+  }
+  else if ( intSum > wordLengthSum ) {
+    return 1 ;
+  }
+  else {
+    return 0 ;
+  }
+}
+
+***Example ends here:
+boolean allLongerThan ( String shortWords , String longWords ) {
+  int maxOfShort = Math . max ( shortWords . length ( ) , longWords . length ( ) ) ;
+  int minOfLong = Math . min ( shortWords . length ( ) , longWords . length ( ) ) ;
+  return minOfLong > maxOfShort ;
+}
+
+***Example ends here:
+int compareOddEvenRange ( int [ ] numbers ) {
+  int rangeOdd = Math . max ( numbers [ 0 ] , numbers [ 1 ] ) - Math . min ( numbers [ 0 ] , numbers [ 1 ] ) ;
+  int rangeEven = Math . max ( numbers [ 0 ] , numbers [ 1 ] ) - Math . min ( numbers [ 0 ] , numbers [ 1 ] ) ;
+  if ( rangeOdd < rangeEven ) {
+    return - 1 ;
+  }
+  if ( rangeOdd > rangeEven ) {
+    return 1 ;
+  }
+  return 0 ;
+}
+
+***Example ends here:
+int averageDistinctLength ( Set < String > words ) {
+  Set < String > distinctedWords = words ;
+  int averageLen = sum ( distinctedWords ) / distinctedWords . size ( ) ;
+  return averageLen ;
+}
+
+***Example ends here:
+int withdrawBalance ( int start , int withdrawals ) {
+  int end = Math . min ( withdrawals , start ) ;
+  return end ;
+}
+
+***Example ends here:
+String firstShortAndStartsWithO ( List < String > words ) {
+  String matchedElement = Iterables . getFirst ( Iterables . transform ( words , new Function < String , String > ( ) {
+    @ Override public String apply ( String w1 ) {
+      return w1 . substring ( 0 , w1 . length ( ) - 5 ) ;
+    }
+  }
+  ) , "" ) ;
+  return matchedElement ;
+}
+
+***Example ends here:
+BigInteger bigNumberAtIndex ( List < BigInteger > numbers , int index ) {
+  BigInteger targetNum = new BigInteger ( numbers . get ( index ) ) ;
+  return targetNum ;
+}
+
+***Example ends here:
+boolean containsSquareInRange ( int rangeStart , int rangeLength ) {
+  boolean containsSquare = Objects . nonNull ( rangeStart ) ;
+  return containsSquare ;
+}
+
+***Example ends here:
+Map < Integer , List < Integer >> groupNumbersByMod ( Map < Integer , List < Integer >> numbers , int mod ) {
+  Map < Integer , List < Integer >> numberGroups = new HashMap < > ( ) ;
+  for ( Map . Entry < Integer , List < Integer >> e : numbers . entrySet ( ) ) {
+    List < Integer > g = e . getValue ( ) ;
+    numberGroups . put ( e . getKey ( ) , numberGroups . get ( e . getKey ( ) ) + Lists . newArrayList ( g ) ) ;
+  }
+  return numberGroups ;
+}
+
+***Example ends here:
+Map < String , List < String >> groupWordsByFirstChar ( List < String > words ) {
+  Map < String , List < String >> wordGroups = new HashMap < > ( ) ;
+  for ( Map . Entry < String , List < String >> e : Iterables . transform ( words , new Function < String , String > ( ) {
+    @ Override public String apply ( String w ) {
+      return w . charAt ( 0 ) ;
+    }
+  }
+  ) ) {
+    wordGroups . put ( e . getKey ( ) , wordGroups . get ( e . getKey ( ) ) ) ;
+  }
+  ;
+  return wordGroups ;
+}
+
+***Example ends here:
+List < String > orderByLengthAndDescending ( List < String > words ) {
+  List < String > sortedWords = new ArrayList < > ( words ) ;
+  Collections . sort ( sortedWords , new Comparator < String > ( ) {
+    @ Override public int compare ( String o1 , String o2 ) {
+      return o1 . length ( ) - o2 . length ( ) ;
+    }
+  }
+  ) ;
+  return sortedWords ;
+}
+
+***Example ends here:
+List < String > orderFirstCharDescendingReverse ( List < String > words ) {
+  List < String > sortedWords = new ArrayList < > ( words ) ;
+  Collections . reverse ( sortedWords ) ;
+  return sortedWords ;
+}
+
+***Example ends here:
+List < Integer > getSustOfNegative ( List < Integer > numbers , int start , int length ) {
+  List < Integer > subList = new ArrayList < Integer > ( ) ;
+  for ( int n : numbers . subList ( start , length ) ) {
+    subList . add ( n ) ;
+  }
+  return subList ;
+}
+
+***Example ends here:
+List < Integer > getPositiveSequence ( List < Integer > numbers ) {
+  List < Integer > subSequence = Lists . newArrayList ( Iterables . transform ( numbers , new Function < Integer , Integer > ( ) {
+    @ Override public Integer apply ( Integer n ) {
+      return n > 0 ? n : 0 ;
+    }
+  }
+  ) ) ;
+  return subSequence ;
+}
+
+***Example ends here:
+List < Integer > getLargerThanIndexSequence ( List < Integer > numbers ) {
+  List < Integer > subSequence = new ArrayList < > ( numbers . size ( ) ) ;
+  for ( int i = 0 ;
+  i < numbers . size ( ) ;
+  i ++ ) {
+    subSequence . add ( numbers . get ( i ) . intValue ( ) ) ;
+  }
+  return subSequence ;
+}
+
+***Example ends here:
+String [ ] rearrangeWordByIndexes ( String [ ] words , int [ ] indexes ) {
+  int [ ] newIndexes = new int [ indexes . length ] ;
+  for ( int n = 0 ;
+  n < indexes . length ;
+  n ++ ) newIndexes [ n % words . length ] = indexes [ n ] ;
+  String [ ] newWords = new String [ newIndexes . length ] ;
+  System . arraycopy ( words , 0 , newWords , 0 , indexes . length ) ;
+  return newWords ;
+}
+
+***Example ends here:
+String [ ] getWordsUpperLower ( String [ ] words ) {
+  String [ ] upperLowerWords = new String [ words . length ] ;
+  for ( int i = 0 ;
+  i < words . length ;
+  i ++ ) {
+    upperLowerWords [ i ] = new String ( words [ i ] . toUpperCase ( ) ) ;
+  }
+  return upperLowerWords ;
+}
+
+***Example ends here:
+int [ ] selectIfInPlace ( int [ ] numbers ) {
+  int [ ] numsInPlace = new int [ numbers . length ] ;
+  for ( int index = 0 ;
+  index < numbers . length ;
+  index ++ ) {
+    numsInPlace [ index ] = numbers [ index ] == index ;
+  }
+  return numsInPlace ;
+}
+
+***Example ends here:
+Pair [ ] selectPairs ( int [ ] numbersA , int [ ] numbersB ) {
+  Pair [ ] pairs = new Pair [ numbersA . length ] ;
+  for ( int i = 0 ;
+  i < numbersA . length ;
+  i ++ ) {
+    pairs [ i ] = new Pair ( numbersA [ i ] , numbersB [ i ] ) ;
+  }
+  return pairs ;
+}
+
+***Example ends here:
+List < String > stringCrossJoin ( List < String > endWords , List < String > beginWords ) {
+  List < String > crossStrings = new ArrayList < > ( ) ;
+  for ( String b : beginWords ) {
+    crossStrings . add ( b + " " + b ) ;
+  }
+  return crossStrings ;
+}
+
+***Example ends here:
+int elementsContainSubword ( String [ ] words , String subword ) {
+  if ( Arrays . asList ( words ) . contains ( subword ) ) {
+    return 1 ;
+  }
+  else if ( Arrays . asList ( words ) . contains ( subword ) ) {
+    return 0 ;
+  }
+  else {
+    return - 1 ;
+  }
+}
+
+***Example ends here:
+int [ ] concatLargeNumbers ( int [ ] numbersA , int [ ] numbersB , int flag ) {
+  int [ ] allNumbers = new int [ numbersA . length + numbersB . length ] ;
+  System . arraycopy ( numbersA , 0 , allNumbers , 0 , numbersA . length ) ;
+  System . arraycopy ( numbersB , 0 , allNumbers , numbersA . length , numbersB . length ) ;
+  return allNumbers ;
+}
+
+***Example ends here:
+double dotProduct ( double [ ] vectorA , double [ ] vectorB ) {
+  double dotProduct = sum ( vectorA , vectorB ) ;
+  return dotProduct ;
+}
+
+***Example ends here:
+< E > SortedSet < E > setDifference ( SortedSet < E > set1 , SortedSet < E > set2 ) {
+  SortedSet < E > difference = new TreeSet < E > ( Ordering . natural ( ) ) ;
+  difference . addAll ( set1 ) ;
+  difference . removeAll ( set2 ) ;
+  return difference ;
+}
+
+***Example ends here:

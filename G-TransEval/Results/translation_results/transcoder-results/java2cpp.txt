@@ -1,0 +1,5916 @@
+int greatestCommonDivisor ( int a , int b ) {
+  if ( a == 0 || b == 0 ) return a + b ;
+  if ( a == b ) return a ;
+  if ( a > b ) return greatestCommonDivisor ( a % b , b ) ;
+  else return greatestCommonDivisor ( a , b % a ) ;
+}
+
+***Example ends here:
+int largestDivisor ( int n ) {
+  for ( int i = 2 ;
+  i <= n ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      return n / i ;
+    }
+  }
+  return 1 ;
+}
+
+***Example ends here:
+bool isPrime ( int n ) {
+  if ( n < 2 ) {
+    return false ;
+  }
+  for ( int k = 2 ;
+  k < n ;
+  k ++ ) {
+    if ( n % k == 0 ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int fizzBuzz ( int n ) {
+  int count = 0 ;
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( i % 11 == 0 || i % 13 == 0 ) {
+      int q = i ;
+      while ( q ) {
+        if ( q % 10 == 7 ) count += 1 ;
+        q /= 10 ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int primeFib ( int n ) {
+  int f0 = 0 ;
+  int f1 = 1 ;
+  while ( n > 0 ) {
+    int p = f0 + f1 ;
+    bool isPrime = p >= 2 ;
+    for ( int i = 2 ;
+    i < p ;
+    i ++ ) {
+      if ( p % i == 0 ) {
+        isPrime = false ;
+        break ;
+      }
+    }
+    if ( isPrime ) n -= 1 ;
+    f0 = f1 ;
+    f1 = p ;
+  }
+  return f1 ;
+}
+
+***Example ends here:
+double triangleArea ( double a , double h ) {
+  return a * h / 2 ;
+}
+
+***Example ends here:
+int modP ( int n , int p ) {
+  int ret = 1 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) ret = ( ret * 2 ) % p ;
+  return ret ;
+}
+
+***Example ends here:
+int add ( int x , int y ) {
+  return x + y ;
+}
+
+***Example ends here:
+int fib ( int n ) {
+  if ( n == 0 ) return 0 ;
+  if ( n == 1 ) return 1 ;
+  return fib ( n - 1 ) + fib ( n - 2 ) ;
+}
+
+***Example ends here:
+int largestPrimeFactor ( int n ) {
+  for ( int i = 2 ;
+  i < n ;
+  i ++ ) {
+    while ( n % i == 0 && n > i ) n /= i ;
+  }
+  return n ;
+}
+
+***Example ends here:
+int sumToN ( int n ) {
+  int result = 0 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) result += i ;
+  return result ;
+}
+
+***Example ends here:
+int fibfib ( int n ) {
+  if ( n == 0 ) return 0 ;
+  if ( n == 1 ) return 0 ;
+  if ( n == 2 ) return 1 ;
+  return fibfib ( n - 1 ) + fibfib ( n - 2 ) + fibfib ( n - 3 ) ;
+}
+
+***Example ends here:
+bool isMultiplyPrime ( int a ) {
+  int num = 0 ;
+  for ( int i = 2 ;
+  i <= a ;
+  i ++ ) {
+    while ( a % i == 0 && a >= i ) {
+      a /= i ;
+      num += 1 ;
+    }
+  }
+  return num == 3 ;
+}
+
+***Example ends here:
+bool isSimplePower ( int x , int n ) {
+  if ( n == 1 ) return x == 1 ;
+  int power = 1 ;
+  while ( power < x ) power *= n ;
+  return power == x ;
+}
+
+***Example ends here:
+int chooseNum ( int x , int y ) {
+  if ( x > y ) {
+    return - 1 ;
+  }
+  if ( y % 2 == 0 ) {
+    return y ;
+  }
+  if ( x == y ) {
+    return - 1 ;
+  }
+  return y - 1 ;
+}
+
+***Example ends here:
+bool isEqualToSumEven ( int n ) {
+  return n % 2 == 0 && n >= 8 ;
+}
+
+***Example ends here:
+int specialFactorial ( int n ) {
+  int fact = 1 , specialFact = 1 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    fact *= i ;
+    specialFact *= fact ;
+  }
+  return specialFact ;
+}
+
+***Example ends here:
+int xOrY ( int n , int x , int y ) {
+  bool isPrime = n >= 2 ;
+  for ( int i = 2 ;
+  i < n ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      isPrime = false ;
+      break ;
+    }
+  }
+  if ( isPrime ) {
+    return x ;
+  }
+  return y ;
+}
+
+***Example ends here:
+bool rightAngleTriangle ( int a , int b , int c ) {
+  return a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b ;
+}
+
+***Example ends here:
+int fastPow ( int n , int k ) {
+  if ( k == 0 ) return 1 ;
+  int temp = fastPow ( n , k / 2 ) ;
+  if ( k % 2 == 0 ) return temp * temp ;
+  else return n * temp * temp ;
+}
+
+***Example ends here:
+bool isPalin ( string s ) {
+  int l = s . length ( ) / 2 ;
+  for ( int i = 0 ;
+  i < l ;
+  i ++ ) {
+    if ( s [ i ] != s [ s . length ( ) - i - 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int findSum ( int n ) {
+  int ans = 0 , temp = 0 ;
+  for ( int i = 1 ;
+  i <= n && temp < n ;
+  i ++ ) {
+    temp = i - 1 ;
+    int num = 1 ;
+    while ( temp < n ) {
+      if ( temp + i <= n ) ans += i * num ;
+      else ans += ( n - temp ) * num ;
+      temp += i ;
+      num ++ ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int getNextGap ( int gap ) {
+  gap = gap * 10 / 13 ;
+  if ( gap < 1 ) return 1 ;
+  return gap ;
+}
+
+***Example ends here:
+int countNonDecreasing ( int n ) {
+  int k = 10 ;
+  int count = 1 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    count *= k + i - 1 ;
+    count /= i ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int power ( int x , int y ) {
+  if ( y == 0 ) return 1 ;
+  else if ( y % 2 == 0 ) return power ( x , y / 2 ) * power ( x , y / 2 ) ;
+  else return x * power ( x , y / 2 ) * power ( x , y / 2 ) ;
+}
+
+***Example ends here:
+double power ( double x , int y ) {
+  if ( y == 0 ) return 1 ;
+  double temp = power ( x , y / 2 ) ;
+  if ( y % 2 == 0 ) return temp * temp ;
+  else {
+    if ( y > 0 ) return x * temp * temp ;
+    else return temp * temp / x ;
+  }
+}
+
+***Example ends here:
+int multiply ( int x , int y ) {
+  if ( y == 0 ) return 0 ;
+  else if ( y > 0 ) return x + multiply ( x , y - 1 ) ;
+  else return - multiply ( x , - y ) ;
+}
+
+***Example ends here:
+int smallest ( int x , int y , int z ) {
+  if ( y / x == 0 ) return y / z == 0 ? y : z ;
+  return x / z == 0 ? x : z ;
+}
+
+***Example ends here:
+bool isPowerOfFour ( int n ) {
+  if ( n == 0 ) {
+    return false ;
+  }
+  while ( n != 1 ) {
+    if ( n % 4 != 0 ) {
+      return false ;
+    }
+    n = n / 4 ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int modInverse ( int a , int m ) {
+  int m0 = m ;
+  int x0 = 0 , x1 = 1 ;
+  if ( m == 1 ) {
+    return 0 ;
+  }
+  while ( a > 1 ) {
+    int q = a / m ;
+    int t = m ;
+    m = a % m ;
+    a = t ;
+    t = x0 ;
+    x0 = x1 - q * x0 ;
+    x1 = t ;
+  }
+  if ( x1 < 0 ) {
+    x1 += m0 ;
+  }
+  return x1 ;
+}
+
+***Example ends here:
+int cntRotations ( string s , int n ) {
+  string s2 = s + s ;
+  vector < int > pre ( 2 * n ) ;
+  for ( int i = 0 ;
+  i < 2 * n ;
+  i ++ ) {
+    if ( i != 0 ) pre [ i ] += pre [ i - 1 ] ;
+    if ( s2 [ i ] == 'a' || s2 [ i ] == 'e' || s2 [ i ] == 'i' || s2 [ i ] == 'o' || s2 [ i ] == 'u' ) pre [ i ] ++ ;
+  }
+  int ans = 0 ;
+  for ( int i = n - 1 ;
+  i < 2 * n - 1 ;
+  i ++ ) {
+    int r = i , l = i - n ;
+    int x1 = pre [ r ] ;
+    if ( l >= 0 ) x1 -= pre [ l ] ;
+    r = i - n / 2 ;
+    int left = pre [ r ] ;
+    if ( l >= 0 ) left -= pre [ l ] ;
+    int right = x1 - left ;
+    if ( left > right ) ans ++ ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int binomialCoeff ( int n , int k ) {
+  int res = 1 ;
+  if ( k > n - k ) k = n - k ;
+  for ( int i = 0 ;
+  i < k ;
+  ++ i ) {
+    res *= n - i ;
+    res /= i + 1 ;
+  }
+  return res ;
+}
+
+***Example ends here:
+bool isPrefix ( string temp , string s ) {
+  if ( temp . size ( ) < s . size ( ) ) {
+    return false ;
+  }
+  else {
+    for ( int i = 0 ;
+    i < s . size ( ) ;
+    i ++ ) {
+      if ( s [ i ] != temp [ i ] ) {
+        return false ;
+      }
+    }
+    return true ;
+  }
+}
+
+***Example ends here:
+string lexicographicallySmallestString ( string s , int n ) {
+  int lastZe = - 1 ;
+  string ans = "" ;
+  for ( int i = n - 1 ;
+  i >= 0 ;
+  i -- ) {
+    if ( s [ i ] == '0' ) {
+      lastZe = i ;
+      break ;
+    }
+  }
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( i <= lastZe && s [ i ] == '0' ) ans += s [ i ] ;
+    else if ( i > lastZe ) ans += s [ i ] ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int calculateMax ( int n , int m , int k ) {
+  int ans = - 1 ;
+  int low = 0 , high = m ;
+  while ( low <= high ) {
+    int mid = ( low + high ) / 2 ;
+    int val = 0 ;
+    int l = k - 1 ;
+    int r = n - k ;
+    val += mid ;
+    if ( mid >= l ) val += l * ( 2 * mid - l - 1 ) / 2 ;
+    else val += mid * ( mid - 1 ) / 2 + ( l - mid ) ;
+    if ( mid >= r ) val += r * ( 2 * mid - r - 1 ) / 2 ;
+    else val += mid * ( mid - 1 ) / 2 + ( r - mid ) ;
+    if ( val <= m ) {
+      ans = max ( ans , mid ) ;
+      low = mid + 1 ;
+    }
+    else high = mid - 1 ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int findLength ( string s , char i , char j ) {
+  char required = i ;
+  int length = 0 ;
+  for ( char curr : s ) {
+    if ( curr == required ) {
+      length += 1 ;
+      if ( required == i ) required = j ;
+      else required = i ;
+    }
+  }
+  return length ;
+}
+
+***Example ends here:
+bool checkReverse ( int leftSum , int rightSum ) {
+  int rev = 0 ;
+  int temp = rightSum ;
+  while ( temp != 0 ) {
+    rev = rev * 10 + temp % 10 ;
+    temp /= 10 ;
+  }
+  if ( rev == leftSum ) return true ;
+  return false ;
+}
+
+***Example ends here:
+bool isComposite ( int n ) {
+  if ( n <= 1 ) return false ;
+  if ( n <= 3 ) return false ;
+  if ( n % 2 == 0 || n % 3 == 0 ) return true ;
+  for ( int i = 5 ;
+  i * i <= n ;
+  i = i + 6 ) {
+    if ( n % i == 0 || n % ( i + 2 ) == 0 ) return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+int minDeletion ( string s ) {
+  int n = s . length ( ) ;
+  int firstIdx1 = - 1 ;
+  int lastIdx0 = - 1 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s [ i ] == '1' ) {
+      firstIdx1 = i ;
+      break ;
+    }
+  }
+  for ( int i = n - 1 ;
+  i >= 0 ;
+  i -- ) {
+    if ( s [ i ] == '0' ) {
+      lastIdx0 = i ;
+      break ;
+    }
+  }
+  if ( firstIdx1 == - 1 || lastIdx0 == - 1 ) return 0 ;
+  int count1 = 0 , count0 = 0 ;
+  for ( int i = 0 ;
+  i < lastIdx0 ;
+  i ++ ) {
+    if ( s [ i ] == '1' ) count1 ++ ;
+  }
+  for ( int i = firstIdx1 + 1 ;
+  i < n ;
+  i ++ ) {
+    if ( s [ i ] == '1' ) count0 ++ ;
+  }
+  return min ( count0 , count1 ) ;
+}
+
+***Example ends here:
+int minSteps ( string s , int n ) {
+  int smaller , cost = 0 ;
+  int f [ 26 ] ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    int currEle = s [ i ] - 'a' ;
+    smaller = 0 ;
+    for ( int j = 0 ;
+    j <= currEle ;
+    j ++ ) {
+      if ( f [ j ] != 0 ) smaller += f [ j ] ;
+    }
+    if ( smaller == 0 ) cost += i + 1 ;
+    else cost += i - smaller + 1 ;
+    f [ s [ i ] - 'a' ] ++ ;
+  }
+  return cost ;
+}
+
+***Example ends here:
+int numberOfWays ( int n ) {
+  int count = 0 ;
+  for ( int a = 1 ;
+  a < n ;
+  a ++ ) {
+    for ( int b = 0 ;
+    b < n ;
+    b ++ ) {
+      int c = n - ( a + b ) ;
+      if ( a + b > c && a + c > b && b + c > a ) {
+        count ++ ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int slopeOfNum ( string num , int n ) {
+  int slope = 0 ;
+  for ( int i = 1 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( num [ i ] > num [ i - 1 ] && num [ i ] > num [ i + 1 ] ) slope ++ ;
+    else if ( num [ i ] < num [ i - 1 ] && num [ i ] < num [ i + 1 ] ) slope ++ ;
+  }
+  return slope ;
+}
+
+***Example ends here:
+int middle_of_three ( int a , int b , int c ) {
+  int x = a - b ;
+  int y = b - c ;
+  int z = a - c ;
+  if ( x * y > 0 ) return b ;
+  else if ( x * z > 0 ) return c ;
+  else return a ;
+}
+
+***Example ends here:
+int countMaxSetBits ( int left , int right ) {
+  while ( ( left | ( left + 1 ) ) <= right ) left |= left + 1 ;
+  return left ;
+}
+
+***Example ends here:
+int findS ( int s ) {
+  int l = 1 , r = ( s / 2 ) + 1 ;
+  while ( l <= r ) {
+    int mid = ( l + r ) / 2 ;
+    int sum = mid * ( mid + 1 ) / 2 ;
+    if ( sum == s ) return mid ;
+    else if ( sum > s ) r = mid - 1 ;
+    else l = mid + 1 ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+bool check ( string s ) {
+  int min = INT_MAX ;
+  int max = INT_MIN ;
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    int ascii = s [ i ] ;
+    if ( ascii < 96 || ascii > 122 ) return false ;
+    sum += ascii ;
+    if ( min > ascii ) min = ascii ;
+    if ( max < ascii ) max = ascii ;
+  }
+  min -= 1 ;
+  int eSum = max * ( max + 1 ) / 2 - min * ( min + 1 ) / 2 ;
+  return sum == eSum ;
+}
+
+***Example ends here:
+int minimumPossibleProduct ( int k ) {
+  int res = 1 ;
+  int r = ( 1 << k ) - 1 ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) res *= r - 1 ;
+  res *= r ;
+  return res ;
+}
+
+***Example ends here:
+int findInGrid ( int i , int j ) {
+  if ( i == j ) return i * i - ( i - 1 ) ;
+  else if ( i > j ) {
+    if ( i % 2 == 0 ) return i * i - ( j - 1 ) ;
+    else return ( i - 1 ) * ( i - 1 ) + 1 + ( j - 1 ) ;
+  }
+  else {
+    if ( j % 2 == 0 ) return ( j - 1 ) * ( j - 1 ) + 1 + ( i - 1 ) ;
+    else return j * j - ( i - 1 ) ;
+  }
+}
+
+***Example ends here:
+int findMinOperationsReqEmpStr ( string s ) {
+  int cntOne = 0 ;
+  int cntZero = 0 ;
+  int n = s . length ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s [ i ] == '0' ) {
+      if ( cntOne != 0 ) cntOne -- ;
+      cntZero ++ ;
+    }
+    else {
+      if ( cntZero != 0 ) cntZero -- ;
+      cntOne ++ ;
+    }
+  }
+  return cntOne + cntZero ;
+}
+
+***Example ends here:
+bool isReachable ( int x1 , int y1 , int x2 , int y2 ) {
+  while ( x2 > x1 && y2 > y1 ) {
+    if ( x2 > y2 ) x2 %= y2 ;
+    else y2 %= x2 ;
+  }
+  if ( x2 == x1 ) return ( y2 - y1 ) >= 0 && ( y2 - y1 ) % x1 == 0 ;
+  else if ( y2 == y1 ) return ( x2 - x1 ) >= 0 && ( x2 - x1 ) % y1 == 0 ;
+  else return false ;
+}
+
+***Example ends here:
+int findMaxSoln ( int n , int x , int y ) {
+  int ans = INT_MIN ;
+  for ( int k = 0 ;
+  k <= n ;
+  k ++ ) {
+    if ( k % x == y ) ans = max ( ans , k ) ;
+  }
+  return ans >= 0 && ans <= n ? ans : - 1 ;
+}
+
+***Example ends here:
+int numberOfPairs ( int n ) {
+  int count = 0 ;
+  int i = 1 , j = n - 1 ;
+  while ( i < j ) {
+    if ( i + j == n ) count ++ ;
+    i ++ ;
+    j -- ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int minChanges ( string s , int n ) {
+  int count = 0 , zeros = 0 , ones = 0 ;
+  if ( s [ 0 ] != '1' ) {
+    count ++ ;
+    ones ++ ;
+  }
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( s [ i ] == '0' ) zeros ++ ;
+    else ones ++ ;
+    if ( zeros > ones ) {
+      zeros -- ;
+      ones ++ ;
+      count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int kVisibleFromLeft ( int n , int k ) {
+  if ( n == k ) return 1 ;
+  if ( k == 1 ) {
+    int ans = 1 ;
+    for ( int i = 1 ;
+    i < n ;
+    i ++ ) ans *= i ;
+    return ans ;
+  }
+  return kVisibleFromLeft ( n - 1 , k - 1 ) + ( n - 1 ) * kVisibleFromLeft ( n - 1 , k ) ;
+}
+
+***Example ends here:
+double find ( int n , int sum ) {
+  if ( sum > 6 * n || sum < n ) {
+    return 0 ;
+  }
+  if ( n == 1 ) {
+    if ( sum >= 1 && sum <= 6 ) {
+      return 1.0 / 6 ;
+    }
+    else {
+      return 0 ;
+    }
+  }
+  double s = 0 ;
+  for ( int i = 1 ;
+  i <= 6 ;
+  i ++ ) {
+    s += find ( n - 1 , sum - i ) / 6 ;
+  }
+  return s ;
+}
+
+***Example ends here:
+int binCoff ( int n , int r ) {
+  int val = 1 ;
+  if ( r > n - r ) r = n - r ;
+  for ( int i = 0 ;
+  i < r ;
+  i ++ ) {
+    val *= n - i ;
+    val /= i + 1 ;
+  }
+  return val ;
+}
+
+***Example ends here:
+int getMask ( int val ) {
+  int mask = 0 ;
+  if ( val == 0 ) {
+    return 1 ;
+  }
+  while ( val > 0 ) {
+    int d = val % 10 ;
+    mask |= 1 << d ;
+    val /= 10 ;
+  }
+  return mask ;
+}
+
+***Example ends here:
+int waysToKAdjacentSetBits ( int n , int k , int currentIndex , int adjacentSetBits , int lastBit ) {
+  if ( currentIndex == n ) {
+    if ( adjacentSetBits == k ) {
+      return 1 ;
+    }
+    return 0 ;
+  }
+  int noOfWays = 0 ;
+  if ( lastBit == 1 ) {
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits + 1 , 1 ) ;
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits , 0 ) ;
+  }
+  else if ( lastBit == 0 ) {
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits , 1 ) ;
+    noOfWays += waysToKAdjacentSetBits ( n , k , currentIndex + 1 , adjacentSetBits , 0 ) ;
+  }
+  return noOfWays ;
+}
+
+***Example ends here:
+int checkFunc ( int i , int j , string st ) {
+  if ( st [ i ] == '(' && st [ j ] == ')' ) return 1 ;
+  if ( st [ i ] == '(' && st [ j ] == '?' ) return 1 ;
+  if ( st [ i ] == '?' && st [ j ] == ')' ) return 1 ;
+  if ( st [ i ] == '[' && st [ j ] == ']' ) return 1 ;
+  if ( st [ i ] == '[' && st [ j ] == '?' ) return 1 ;
+  if ( st [ i ] == '?' && st [ j ] == ']' ) return 1 ;
+  if ( st [ i ] == '{' && st [ j ] == '}' ) return 1 ;
+  if ( st [ i ] == '{' && st [ j ] == '?' ) return 1 ;
+  if ( st [ i ] == '?' && st [ j ] == '}' ) return 1 ;
+  return 0 ;
+}
+
+***Example ends here:
+int findGolomb ( int n ) {
+  if ( n == 1 ) return 1 ;
+  return 1 + findGolomb ( n - findGolomb ( findGolomb ( n - 1 ) ) ) ;
+}
+
+***Example ends here:
+bool allOnes ( string s , int n ) {
+  int co = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) co += s [ i ] == '1' ? 1 : 0 ;
+  return co == n ;
+}
+
+***Example ends here:
+int pad ( int n ) {
+  int pPrevPrev = 1 , pPrev = 1 , pCurr = 1 , pNext = 1 ;
+  for ( int i = 3 ;
+  i <= n ;
+  i ++ ) {
+    pNext = pPrevPrev + pPrev ;
+    pPrevPrev = pPrev ;
+    pPrev = pCurr ;
+    pCurr = pNext ;
+  }
+  return pNext ;
+}
+
+***Example ends here:
+int oddLengthPalindrome ( int k ) {
+  int palin = k ;
+  k = k / 10 ;
+  while ( k > 0 ) {
+    int rev = k % 10 ;
+    palin = palin * 10 + rev ;
+    k = k / 10 ;
+  }
+  return palin ;
+}
+
+***Example ends here:
+String changeString ( String s0 ) {
+  char * s = s0 . c_str ( ) ;
+  int n = s0 . length ( ) ;
+  if ( s [ 0 ] == '?' ) {
+    s [ 0 ] = 'a' ;
+    if ( s [ 0 ] == s [ 1 ] ) s [ 0 ] ++ ;
+  }
+  for ( int i = 1 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( s [ i ] == '?' ) {
+      s [ i ] = 'a' ;
+      if ( s [ i ] == s [ i - 1 ] ) s [ i ] ++ ;
+      if ( s [ i ] == s [ i + 1 ] ) s [ i ] ++ ;
+      if ( s [ i ] == s [ i - 1 ] ) s [ i ] ++ ;
+    }
+  }
+  if ( s [ n - 1 ] == '?' ) {
+    s [ n - 1 ] = 'a' ;
+    if ( s [ n - 1 ] == s [ n - 2 ] ) s [ n - 1 ] ++ ;
+  }
+  return String ( s ) ;
+}
+
+***Example ends here:
+int totalHammingDistance ( int n ) {
+  int i = 1 , sum = 0 ;
+  while ( n / i > 0 ) {
+    sum = sum + n / i ;
+    i = i * 2 ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+int checkBitonic ( string s ) {
+  int i = 1 ;
+  for ( ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s [ i ] > s [ i - 1 ] ) continue ;
+    if ( s [ i ] <= s [ i - 1 ] ) break ;
+  }
+  if ( i == s . length ( ) - 1 ) return 1 ;
+  int j = i + 1 ;
+  for ( ;
+  j < s . length ( ) ;
+  j ++ ) {
+    if ( s [ j ] < s [ j - 1 ] ) continue ;
+    if ( s [ j ] >= s [ j - 1 ] ) break ;
+  }
+  i = j ;
+  if ( i != s . length ( ) ) return 0 ;
+  return 1 ;
+}
+
+***Example ends here:
+bool endsWith ( std :: string str , std :: string pat ) {
+  int patLen = pat . length ( ) ;
+  int strLen = str . length ( ) ;
+  if ( patLen > strLen ) {
+    return false ;
+  }
+  patLen -- ;
+  strLen -- ;
+  while ( patLen >= 0 ) {
+    if ( pat [ patLen ] != str [ strLen ] ) {
+      return false ;
+    }
+    patLen -- ;
+    strLen -- ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int getSum ( int n , int d ) {
+  if ( n < d ) return 0 ;
+  while ( n % 10 != d ) n -- ;
+  int k = n / 10 ;
+  return ( k + 1 ) * d + ( k * 10 + 10 * k * k ) / 2 ;
+}
+
+***Example ends here:
+int balancedStringBySwapping ( string s ) {
+  int unbalancedPair = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  ++ i ) {
+    if ( unbalancedPair > 0 && s [ i ] == ']' ) -- unbalancedPair ;
+    else if ( s [ i ] == '[' ) ++ unbalancedPair ;
+  }
+  return ( unbalancedPair + 1 ) / 2 ;
+}
+
+***Example ends here:
+int computeHash ( string s ) {
+  int p = 31 ;
+  unsigned long mod = ( int ) 1e9 + 7 ;
+  unsigned long hashVal = 0 ;
+  unsigned long mul = 1 ;
+  for ( char ch : s ) {
+    hashVal = ( hashVal + ( ch - 'a' + 1 ) * mul ) % mod ;
+    mul = mul * p % mod ;
+  }
+  return ( int ) hashVal ;
+}
+
+***Example ends here:
+int countOfSubstringWithOnlyOnes ( string s ) {
+  int res = 0 , count = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    count = s [ i ] == '1' ? count + 1 : 0 ;
+    res = res + count ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int composite ( int n ) {
+  int flag = 0 ;
+  int c = 0 ;
+  for ( int j = 1 ;
+  j <= n ;
+  j ++ ) {
+    if ( n % j == 0 ) c += 1 ;
+  }
+  if ( c >= 3 ) flag = 1 ;
+  return flag ;
+}
+
+***Example ends here:
+bool isDivBySix ( string s , int n ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) sum += s [ i ] - 'a' + 1 ;
+  if ( sum % 3 != 0 ) return false ;
+  int lastDigit = ( s [ n - 1 ] - 'a' + 1 ) % 10 ;
+  if ( lastDigit % 2 != 0 ) return false ;
+  return true ;
+}
+
+***Example ends here:
+bool IsRedundantBraces ( string s ) {
+  int a = 0 , b = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s [ i ] == '(' && s [ i + 2 ] == ')' ) return true ;
+    if ( s [ i ] == '*' || s [ i ] == '+' || s [ i ] == '-' || s [ i ] == '/' ) a ++ ;
+    if ( s [ i ] == '(' ) b ++ ;
+  }
+  if ( b > a ) return true ;
+  return false ;
+}
+
+***Example ends here:
+int countSubStr ( string s , int n ) {
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n - 2 ;
+  ) {
+    if ( s [ i ] == '0' && s [ i + 1 ] == '1' && s [ i + 2 ] == '0' ) {
+      count ++ ;
+      i += 3 ;
+    }
+    else if ( s [ i ] == '1' && s [ i + 1 ] == '0' && s [ i + 2 ] == '1' ) {
+      count ++ ;
+      i += 3 ;
+    }
+    else {
+      i ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int prefixOccurrences ( string s ) {
+  char c = s [ 0 ] ;
+  int countC = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s [ i ] == c ) countC ++ ;
+  }
+  return countC ;
+}
+
+***Example ends here:
+bool isValid ( const char * s , int len ) {
+  for ( int i = 1 ;
+  i < len ;
+  i ++ ) {
+    if ( s [ i ] == s [ i - 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int count ( string s , int k ) {
+  int n = s . size ( ) ;
+  int d = 0 ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) d += s [ i ] ;
+  if ( d % k == 0 ) count += 1 ;
+  for ( int i = k ;
+  i < n ;
+  i ++ ) {
+    int prev = s [ i - k ] ;
+    d -= prev ;
+    d += s [ i ] ;
+    if ( d % k == 0 ) count += 1 ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int findSubstringCount ( string s ) {
+  int result = 0 ;
+  int n = s . size ( ) ;
+  int i = 0 ;
+  while ( i < n - 1 ) {
+    if ( s [ i ] + 1 == s [ i + 1 ] ) {
+      result ++ ;
+      while ( i < n - 1 && s [ i ] + 1 == s [ i + 1 ] ) i ++ ;
+    }
+    i ++ ;
+  }
+  return result ;
+}
+
+***Example ends here:
+bool find ( string s1 , string s2 ) {
+  int len1 = s1 . length ( ) , len2 = s2 . length ( ) ;
+  if ( len1 != len2 ) {
+    return false ;
+  }
+  int d [ len1 ] ;
+  d [ 0 ] = s2 [ 0 ] - s1 [ 0 ] ;
+  for ( int i = 1 ;
+  i < len1 ;
+  i ++ ) {
+    if ( s1 [ i ] > s2 [ i ] ) {
+      return false ;
+    }
+    else {
+      d [ i ] = s2 [ i ] - s1 [ i ] ;
+    }
+  }
+  for ( int i = 0 ;
+  i < len1 - 1 ;
+  i ++ ) {
+    if ( d [ i ] < d [ i + 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+bool isInGivenBase ( string s , int bas ) {
+  if ( bas > 16 ) {
+    return false ;
+  }
+  else if ( bas <= 10 ) {
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      if ( ! ( s [ i ] >= '0' && s [ i ] < '0' + bas ) ) {
+        return false ;
+      }
+    }
+  }
+  else {
+    for ( int i = 0 ;
+    i < s . length ( ) ;
+    i ++ ) {
+      if ( ! ( ( s [ i ] >= '0' && s [ i ] < '0' + bas ) || ( s [ i ] >= 'A' && s [ i ] < 'A' + bas - 10 ) ) ) {
+        return false ;
+      }
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int countNonEmptySubstr ( string s ) {
+  int n = s . size ( ) ;
+  return n * ( n + 1 ) / 2 ;
+}
+
+***Example ends here:
+int evenDecimalValue ( string s , int n ) {
+  int result = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i ;
+    j < n ;
+    j ++ ) {
+      int decimalValue = 0 ;
+      int powerOf2 = 1 ;
+      for ( int k = i ;
+      k <= j ;
+      k ++ ) {
+        decimalValue += ( s [ k ] - '0' ) * powerOf2 ;
+        powerOf2 *= 2 ;
+      }
+      if ( decimalValue % 2 == 0 ) result ++ ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+int calculate ( string s ) {
+  int ans = 6 ;
+  for ( int i = 0 ;
+  i < 10 ;
+  ++ i ) {
+    for ( int j = 0 ;
+    j < 10 ;
+    ++ j ) {
+      for ( int k = 0 ;
+      k < 10 ;
+      ++ k ) {
+        for ( int l = 0 ;
+        l < 10 ;
+        ++ l ) {
+          for ( int m = 0 ;
+          m < 10 ;
+          ++ m ) {
+            for ( int n = 0 ;
+            n < 10 ;
+            ++ n ) {
+              if ( i + j + k == l + m + n ) {
+                int c = 0 ;
+                if ( i != s [ 0 ] - '0' ) c ++ ;
+                if ( j != s [ 1 ] - '0' ) c ++ ;
+                if ( k != s [ 2 ] - '0' ) c ++ ;
+                if ( l != s [ 3 ] - '0' ) c ++ ;
+                if ( m != s [ 4 ] - '0' ) c ++ ;
+                if ( n != s [ 5 ] - '0' ) c ++ ;
+                if ( c < ans ) ans = c ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int xorZero ( string s ) {
+  int oneCount = 0 , zeroCount = 0 ;
+  int n = s . length ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( s [ i ] == '1' ) oneCount ++ ;
+    else zeroCount ++ ;
+  }
+  if ( oneCount % 2 == 0 ) return zeroCount ;
+  return oneCount ;
+}
+
+***Example ends here:
+string evenLength ( string n ) {
+  string res = n ;
+  for ( int j = n . length ( ) - 1 ;
+  j >= 0 ;
+  -- j ) res += n [ j ] ;
+  return res ;
+}
+
+***Example ends here:
+int countSubstringWithEqualEnds ( string s ) {
+  int result = 0 ;
+  int n = s . length ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i ;
+    j < n ;
+    j ++ ) {
+      if ( s [ i ] == s [ j ] ) result ++ ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+double normalSlope ( double a , double b , double x1 , double y1 ) {
+  double g = a / 2 ;
+  double f = b / 2 ;
+  if ( g - x1 == 0 ) {
+    return - 1 ;
+  }
+  double slope = ( f - y1 ) / ( g - x1 ) ;
+  if ( slope == 0 ) {
+    return - 2 ;
+  }
+  return slope ;
+}
+
+***Example ends here:
+bool orthogonality ( int x1 , int y1 , int x2 , int y2 , int r1 , int r2 ) {
+  int dsquare = ( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 ) ;
+  if ( dsquare == r1 * r1 + r2 * r2 ) {
+    return true ;
+  }
+  else {
+    return false ;
+  }
+}
+
+***Example ends here:
+double findAreaShaded ( double a ) {
+  double sqArea = a * a ;
+  double semiCircleArea = 3.14 * ( a * a ) / 8 ;
+  double shadedArea = 4 * semiCircleArea - sqArea ;
+  return shadedArea ;
+}
+
+***Example ends here:
+int factorial ( int a , int b ) {
+  int res = 1 ;
+  for ( int i = 1 ;
+  i <= a + b ;
+  i ++ ) res = res * i ;
+  for ( int i = 1 ;
+  i <= a ;
+  i ++ ) res = res / i ;
+  for ( int i = 1 ;
+  i <= b ;
+  i ++ ) res = res / i ;
+  return res ;
+}
+
+***Example ends here:
+int factorTree ( int n ) {
+  int height = 0 ;
+  while ( n > 1 ) {
+    bool flag = false ;
+    for ( int i = 2 ;
+    i <= sqrt ( n ) ;
+    i ++ ) {
+      if ( n % i == 0 ) {
+        n = n / i ;
+        flag = true ;
+        break ;
+      }
+    }
+    height ++ ;
+    if ( ! flag ) break ;
+  }
+  return height ;
+}
+
+***Example ends here:
+String findIfPossible ( int n , int s , int x ) {
+  if ( s >= x && s % 2 == x % 2 ) {
+    if ( n >= 3 ) return "Yes" ;
+    if ( n == 1 ) {
+      if ( s == x ) return "Yes" ;
+      else return "No" ;
+    }
+    if ( n == 2 ) {
+      int c = ( s - x ) / 2 ;
+      int a = c ;
+      int b = c ;
+      a = a + x ;
+      if ( ( a ^ b ) == x ) return "Yes" ;
+      else return "No" ;
+    }
+  }
+  return "No" ;
+}
+
+***Example ends here:
+int maximumTripletXor ( int a , int b , int c ) {
+  int ans = 0 ;
+  for ( int i = 30 ;
+  i >= 0 ;
+  i -- ) {
+    int cur = 1 << i ;
+    if ( a >= cur ) {
+      ans += cur ;
+      a -= cur ;
+    }
+    else if ( b >= cur ) {
+      ans += cur ;
+      b -= cur ;
+    }
+    else if ( c >= cur ) {
+      ans += cur ;
+      c -= cur ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int itemType ( int n ) {
+  int count = 0 ;
+  int day = 1 ;
+  while ( count + day * ( day + 1 ) / 2 < n ) {
+    count += day * ( day + 1 ) / 2 ;
+    day ++ ;
+  }
+  for ( int type = day ;
+  type > 0 ;
+  type -- ) {
+    count += type ;
+    if ( count >= n ) return type ;
+  }
+  return 0 ;
+}
+
+***Example ends here:
+int maxGcdInRange ( int l , int r ) {
+  int ans = 1 ;
+  for ( int z = r ;
+  z >= 1 ;
+  z -- ) {
+    if ( r / z - ( l - 1 ) / z > 1 ) {
+      ans = z ;
+      break ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int sumOfDigits ( int n ) {
+  int sum = 0 ;
+  while ( n != 0 ) {
+    sum += n % 10 ;
+    n = n / 10 ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+bool isRepUnitNum ( int n , int b ) {
+  int length = 0 ;
+  int countOne = 0 ;
+  while ( n != 0 ) {
+    int r = n % b ;
+    length ++ ;
+    if ( r == 1 ) countOne ++ ;
+    n = n / b ;
+  }
+  return countOne >= 3 && countOne == length ;
+}
+
+***Example ends here:
+bool isStraightLineNum ( int n ) {
+  if ( n <= 99 ) {
+    return false ;
+  }
+  string s = to_string ( n ) ;
+  int d = s [ 1 ] - s [ 0 ] ;
+  for ( int i = 2 ;
+  i < s . size ( ) ;
+  i ++ ) {
+    if ( s [ i ] - s [ i - 1 ] != d ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int getCount ( int d , int n ) {
+  int no = n / d ;
+  int result = no ;
+  for ( int p = 2 ;
+  p * p <= no ;
+  ++ p ) {
+    if ( no % p == 0 ) {
+      while ( no % p == 0 ) no /= p ;
+      result -= result / p ;
+    }
+  }
+  if ( no > 1 ) result -= result / no ;
+  return result ;
+}
+
+***Example ends here:
+bool isEvenParity ( int x ) {
+  int parity = 0 ;
+  while ( x != 0 ) {
+    if ( x % 2 == 1 ) parity ++ ;
+    x = x >> 1 ;
+  }
+  if ( parity % 2 == 0 ) return true ;
+  else return false ;
+}
+
+***Example ends here:
+int isPerfect ( int n ) {
+  int sum = 1 ;
+  for ( int i = 2 ;
+  i * i <= n ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      if ( i * i != n ) sum = sum + i + n / i ;
+      else sum = sum + i ;
+    }
+  }
+  if ( sum == n && n != 1 ) return n ;
+  return 0 ;
+}
+
+***Example ends here:
+int logAToBaseB ( int a , int b ) {
+  return a > b - 1 ? 1 + logAToBaseB ( a / b , b ) : 0 ;
+}
+
+***Example ends here:
+int usingBinarySearch ( int start , int end , int n , int s ) {
+  if ( start >= end ) {
+    return start ;
+  }
+  int mid = start + ( end - start ) / 2 ;
+  int totalSum = n * ( n + 1 ) / 2 ;
+  int midSum = mid * ( mid + 1 ) / 2 ;
+  if ( totalSum - midSum <= s ) {
+    return usingBinarySearch ( start , mid , n , s ) ;
+  }
+  return usingBinarySearch ( mid + 1 , end , n , s ) ;
+}
+
+***Example ends here:
+string minInt ( string s ) {
+  char * s1 = s . c_str ( ) ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s1 [ i ] >= '5' ) s1 [ i ] = ( char ) ( '9' - s1 [ i ] + '0' ) ;
+  }
+  if ( s1 [ 0 ] == '0' ) s1 [ 0 ] = '9' ;
+  return string ( s1 ) ;
+}
+
+***Example ends here:
+int countTriplets ( int a , int b , int c ) {
+  int ans = 0 ;
+  for ( int i = 1 ;
+  i <= a ;
+  i ++ ) {
+    for ( int j = 1 ;
+    j <= b ;
+    j ++ ) {
+      for ( int k = 1 ;
+      k <= c ;
+      k ++ ) {
+        if ( i * k > j * j ) ans ++ ;
+      }
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+bool topsyTurvy ( string s ) {
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s [ i ] == '2' || s [ i ] == '4' || s [ i ] == '5' || s [ i ] == '6' || s [ i ] == '7' || s [ i ] == '9' ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int sumOfLastDig ( int n , int m ) {
+  int sum = 0 ;
+  int k = n / m ;
+  int arr [ 10 ] ;
+  for ( int i = 0 ;
+  i < 10 ;
+  i ++ ) {
+    arr [ i ] = m * ( i + 1 ) % 10 ;
+    sum += arr [ i ] ;
+  }
+  int rem = k % 10 ;
+  int ans = k / 10 * sum ;
+  for ( int i = 0 ;
+  i < rem ;
+  i ++ ) ans += arr [ i ] ;
+  return ans ;
+}
+
+***Example ends here:
+int totalPay ( int totalItems , int priceOfOneItem , int n , int m ) {
+  int freeItems , actual ;
+  freeItems = totalItems / ( n + m ) ;
+  actual = totalItems - freeItems ;
+  int amount = actual * priceOfOneItem ;
+  return amount ;
+}
+
+***Example ends here:
+int minOperations ( int x , int y , int p , int q ) {
+  if ( y % x != 0 ) return - 1 ;
+  int d = y / x ;
+  int a = 0 ;
+  while ( d % p == 0 ) {
+    d /= p ;
+    a += 1 ;
+  }
+  int b = 0 ;
+  while ( d % q == 0 ) {
+    d /= q ;
+    b += 1 ;
+  }
+  if ( d != 1 ) return - 1 ;
+  return a + b ;
+}
+
+***Example ends here:
+bool isMersenne ( int n ) {
+  while ( n != 0 ) {
+    int r = n % 2 ;
+    if ( r == 0 ) {
+      return false ;
+    }
+    n /= 2 ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int findThirdDigit ( int n ) {
+  if ( n < 3 ) {
+    return 0 ;
+  }
+  return ( n & 1 ) ? 1 : 6 ;
+}
+
+***Example ends here:
+bool isOddLength ( int num ) {
+  int count = 0 ;
+  while ( num > 0 ) {
+    num /= 10 ;
+    count ++ ;
+  }
+  if ( count % 2 != 0 ) return true ;
+  return false ;
+}
+
+***Example ends here:
+bool checkIsPossible ( int l , int r , int k ) {
+  int count = 0 ;
+  for ( int i = l ;
+  i <= r ;
+  i ++ ) {
+    if ( i % k == 0 ) count ++ ;
+  }
+  return count > 1 ;
+}
+
+***Example ends here:
+int bytes ( int kilobytes ) {
+  int b = kilobytes * 1024 ;
+  return b ;
+}
+
+***Example ends here:
+int octahedralNum ( int n ) {
+  return n * ( 2 * n * n + 1 ) / 3 ;
+}
+
+***Example ends here:
+String checkEqual ( String s ) {
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s [ i ] != '1' && s [ i ] != '0' && s [ i ] != '8' ) {
+      return "No" ;
+    }
+  }
+  int start = 0 , end = s . length ( ) - 1 ;
+  while ( start < end ) {
+    if ( s [ start ] != s [ end ] ) {
+      return "No" ;
+    }
+    start ++ ;
+    end -- ;
+  }
+  return "Yes" ;
+}
+
+***Example ends here:
+bool isUndulating ( string n ) {
+  if ( n . length ( ) <= 2 ) {
+    return false ;
+  }
+  for ( int i = 2 ;
+  i < n . length ( ) ;
+  i ++ ) {
+    if ( n [ i - 2 ] != n [ i ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int firstDigit ( int n ) {
+  while ( n >= 10 ) n /= 10 ;
+  return n ;
+}
+
+***Example ends here:
+int countDigit ( int n ) {
+  if ( n == 0 ) {
+    return 0 ;
+  }
+  return 1 + countDigit ( n / 10 ) ;
+}
+
+***Example ends here:
+bool isDivisibleBy5 ( string s ) {
+  int n = s . length ( ) ;
+  return s [ n - 1 ] - '0' == 0 || s [ n - 1 ] - '0' == 5 ;
+}
+
+***Example ends here:
+int inv ( int a , int m ) {
+  int m0 = m ;
+  int x0 = 0 , x1 = 1 ;
+  if ( m == 1 ) {
+    return 0 ;
+  }
+  while ( a > 1 ) {
+    int q = a / m ;
+    int t = m ;
+    m = a % m ;
+    a = t ;
+    t = x0 ;
+    x0 = x1 - q * x0 ;
+    x1 = t ;
+  }
+  if ( x1 < 0 ) {
+    x1 += m0 ;
+  }
+  return x1 ;
+}
+
+***Example ends here:
+bool onlyFirstAndLastAreSet ( int n ) {
+  if ( n == 1 ) return true ;
+  if ( n == 2 ) return false ;
+  return ( ( n - 1 ) & ( n - 2 ) ) == 0 ;
+}
+
+***Example ends here:
+int divide ( int dividend , int divisor ) {
+  int sign = ( ( dividend < 0 ) ^ ( divisor < 0 ) ) ? - 1 : 1 ;
+  dividend = abs ( dividend ) ;
+  divisor = abs ( divisor ) ;
+  int quotient = 0 ;
+  unsigned long long temp = 0 ;
+  for ( int i = 31 ;
+  i >= 0 ;
+  -- i ) {
+    if ( temp + ( ( unsigned long long ) divisor << i ) <= dividend ) {
+      temp += ( unsigned long long ) divisor << i ;
+      quotient |= 1 << i ;
+    }
+  }
+  if ( sign == - 1 ) quotient = - quotient ;
+  return quotient ;
+}
+
+***Example ends here:
+char findProfession ( int level , int pos ) {
+  if ( level == 1 ) return 'e' ;
+  if ( findProfession ( level - 1 , ( pos + 1 ) / 2 ) == 'd' ) return pos % 2 != 0 ? 'd' : 'e' ;
+  return pos % 2 != 0 ? 'e' : 'd' ;
+}
+
+***Example ends here:
+bool hasCloseElements ( vector < double > numbers , double threshold ) {
+  for ( int i = 0 ;
+  i < numbers . size ( ) ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < numbers . size ( ) ;
+    j ++ ) {
+      double distance = fabs ( numbers [ i ] - numbers [ j ] ) ;
+      if ( distance < threshold ) return true ;
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+double truncateNumber ( double number ) {
+  return number % 1.0 ;
+}
+
+***Example ends here:
+bool belowZero ( std :: vector < int > operations ) {
+  int balance = 0 ;
+  for ( var op : operations ) {
+    balance += op ;
+    if ( balance < 0 ) {
+      return true ;
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+double meanAbsoluteDeviation ( std :: vector < double > numbers ) {
+  double sumNum = 0 ;
+  for ( var num : numbers ) sumNum += num ;
+  double mean = sumNum / numbers . size ( ) ;
+  double sumAbsDiff = 0 ;
+  for ( var num : numbers ) sumAbsDiff += fabs ( num - mean ) ;
+  return sumAbsDiff / numbers . size ( ) ;
+}
+
+***Example ends here:
+vector < int > intersperse ( vector < int > numbers , int delimiter ) {
+  vector < int > result ;
+  if ( numbers . empty ( ) ) {
+    return result ;
+  }
+  for ( int i = 0 ;
+  i < numbers . size ( ) - 1 ;
+  i ++ ) {
+    result . push_back ( numbers [ i ] ) ;
+    result . push_back ( delimiter ) ;
+  }
+  result . push_back ( numbers [ numbers . size ( ) - 1 ] ) ;
+  return result ;
+}
+
+***Example ends here:
+vector < int > sumProduct ( vector < int > numbers ) {
+  int sumValue = 0 ;
+  int prodValue = 1 ;
+  for ( int n : numbers ) {
+    sumValue += n ;
+    prodValue *= n ;
+  }
+  return vector < int > ( sumValue , prodValue ) ;
+}
+
+***Example ends here:
+vector < string > allPrefixes ( string s ) {
+  vector < string > result ;
+  for ( int i = 1 ;
+  i <= s . length ( ) ;
+  i ++ ) result . push_back ( s . substr ( 0 , i ) ) ;
+  return result ;
+}
+
+***Example ends here:
+vector < int > parseMusic ( string musicString ) {
+  string current ;
+  vector < int > result ;
+  for ( int i = 0 ;
+  i <= musicString . size ( ) ;
+  i ++ ) {
+    if ( i == musicString . size ( ) || musicString [ i ] == ' ' ) {
+      if ( current . compare ( "o" ) == 0 ) result . push_back ( 4 ) ;
+      if ( current . compare ( "o|" ) == 0 ) result . push_back ( 2 ) ;
+      if ( current . compare ( ".|" ) == 0 ) result . push_back ( 1 ) ;
+      current . clear ( ) ;
+    }
+    else {
+      current += musicString [ i ] ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+int strlen ( const char * s ) {
+  return strlen ( s ) ;
+}
+
+***Example ends here:
+vector < int > factorize ( int n ) {
+  vector < int > factors ;
+  for ( int i = 2 ;
+  i <= n ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      n /= i ;
+      factors . push_back ( i ) ;
+      i -- ;
+    }
+  }
+  return factors ;
+}
+
+***Example ends here:
+String concatenate ( std :: vector < std :: string > strings ) {
+  std :: string result ;
+  for ( var s : strings ) result += s ;
+  return result ;
+}
+
+***Example ends here:
+vector < double > getPositive ( vector < double > l ) {
+  vector < double > result ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    if ( l [ i ] > 0 ) result . push_back ( l [ i ] ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+vector < double > sortEven ( vector < double > l ) {
+  vector < double > evens ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i += 2 ) evens . push_back ( l [ i ] ) ;
+  sort ( evens . begin ( ) , evens . end ( ) ) ;
+  vector < double > result ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    if ( i % 2 == 0 ) result . push_back ( evens [ i / 2 ] ) ;
+    if ( i % 2 == 1 ) result . push_back ( l [ i ] ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+String decodeCyclic ( String s ) {
+  String output ;
+  int i = 0 ;
+  while ( i <= s . length ( ) - 3 ) {
+    String x = s [ i + 2 ] + s [ i ] ;
+    output += x ;
+    i += 3 ;
+  }
+  return output + s . substr ( i ) ;
+}
+
+***Example ends here:
+int carRaceCollision ( int n ) {
+  return ( int ) pow ( n , 2 ) ;
+}
+
+***Example ends here:
+vector < int > incrList ( vector < int > l ) {
+  vector < int > result ;
+  for ( auto i : l ) result . push_back ( i + 1 ) ;
+  return result ;
+}
+
+***Example ends here:
+bool pairsSumToZero ( std :: vector < int > l ) {
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < l . size ( ) ;
+    j ++ ) {
+      if ( l [ i ] + l [ j ] == 0 ) {
+        return true ;
+      }
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+String changeBase ( int x , int b ) {
+  String ret ;
+  while ( x > 0 ) {
+    ret . insert ( 0 , x % b ) ;
+    x /= b ;
+  }
+  return ret ;
+}
+
+***Example ends here:
+double median ( std :: vector < double > l ) {
+  std :: sort ( l . begin ( ) , l . end ( ) ) ;
+  if ( l . size ( ) % 2 == 1 ) return l [ l . size ( ) / 2 ] ;
+  return ( l [ l . size ( ) / 2 - 1 ] + l [ l . size ( ) / 2 ] ) / 2.0 ;
+}
+
+***Example ends here:
+String decodeShift ( String s ) {
+  String result ;
+  for ( char ch : s ) {
+    char w = ( char ) ( ( ch + 21 - 'a' ) % 26 + 'a' ) ;
+    result . append ( w ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+bool belowThreshold ( std :: vector < int > l , int t ) {
+  for ( auto n : l ) {
+    if ( n >= t ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+bool correctBracketing ( string brackets ) {
+  int depth = 0 ;
+  for ( char b : brackets ) {
+    if ( b == '<' ) depth += 1 ;
+    if ( b == '>' ) depth -= 1 ;
+    if ( depth < 0 ) return false ;
+  }
+  return depth == 0 ;
+}
+
+***Example ends here:
+bool monotonic ( std :: vector < double > l ) {
+  int incr = 0 ;
+  int decr = 0 ;
+  for ( int i = 1 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    if ( l [ i ] > l [ i - 1 ] ) incr = 1 ;
+    if ( l [ i ] < l [ i - 1 ] ) decr = 1 ;
+  }
+  return incr + decr != 2 ;
+}
+
+***Example ends here:
+vector < double > derivative ( vector < double > xs ) {
+  vector < double > result ;
+  for ( int i = 1 ;
+  i < xs . size ( ) ;
+  i ++ ) result . push_back ( i * xs [ i ] ) ;
+  return result ;
+}
+
+***Example ends here:
+int vowelsCount ( string s ) {
+  string vowels = "aeiouAEIOU" ;
+  int count = 0 ;
+  for ( char ch : s ) {
+    if ( vowels . find ( ch ) != string :: npos ) count += 1 ;
+  }
+  if ( s [ s . length ( ) - 1 ] == 'y' || s [ s . length ( ) - 1 ] == 'Y' ) count += 1 ;
+  return count ;
+}
+
+***Example ends here:
+int digitSum ( string s ) {
+  int sum = 0 ;
+  for ( char c : s ) {
+    if ( isupper ( c ) ) sum += c ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+int fruitDistribution ( string s , int n ) {
+  string num1 ;
+  string num2 ;
+  bool flag = false ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( isdigit ( s [ i ] ) ) {
+      if ( ! flag ) num1 += s [ i ] ;
+      if ( flag ) num2 += s [ i ] ;
+    }
+    else if ( ! flag && num1 . length ( ) > 0 ) flag = true ;
+  }
+  return n - atoi ( num1 . c_str ( ) ) - atoi ( num2 . c_str ( ) ) ;
+}
+
+***Example ends here:
+vector < int > pluck ( vector < int > arr ) {
+  vector < int > result ;
+  for ( int i = 0 ;
+  i < arr . size ( ) ;
+  i ++ ) {
+    if ( arr [ i ] % 2 == 0 ) {
+      if ( result . empty ( ) ) {
+        result . push_back ( arr [ i ] ) ;
+        result . push_back ( i ) ;
+      }
+      else if ( arr [ i ] < result [ 0 ] ) {
+        result [ 0 ] = arr [ i ] ;
+        result [ 1 ] = i ;
+      }
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+vector < int > strangeSortList ( vector < int > lst ) {
+  vector < int > res ;
+  sort ( lst . begin ( ) , lst . end ( ) ) ;
+  int l = 0 ;
+  int r = lst . size ( ) - 1 ;
+  while ( l < r ) {
+    res . push_back ( lst [ l ] ) ;
+    l += 1 ;
+    res . push_back ( lst [ r ] ) ;
+    r -= 1 ;
+  }
+  if ( l == r ) res . push_back ( lst [ l ] ) ;
+  return res ;
+}
+
+***Example ends here:
+double triangleArea ( double a , double b , double c ) {
+  if ( a + b <= c || a + c <= b || b + c <= a ) {
+    return - 1 ;
+  }
+  double s = ( a + b + c ) / 2 ;
+  return sqrt ( s * ( s - a ) * ( s - b ) * ( s - c ) ) ;
+}
+
+***Example ends here:
+bool willItFly ( std :: vector < int > q , int w ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < q . size ( ) ;
+  i ++ ) {
+    if ( ! q [ i ] ) return false ;
+    sum += q [ i ] ;
+  }
+  return sum <= w ;
+}
+
+***Example ends here:
+bool isCube ( int a ) {
+  a = abs ( a ) ;
+  int i = ( int ) round ( pow ( a , 1.0 / 3 ) ) ;
+  return ( int ) pow ( i , 3 ) == a ;
+}
+
+***Example ends here:
+int hexKey ( string num ) {
+  string key = "2357BD" ;
+  int total = 0 ;
+  for ( char c : num ) {
+    if ( key . find ( c ) != string :: npos ) total += 1 ;
+  }
+  return total ;
+}
+
+***Example ends here:
+string decimalToBinary ( int dec ) {
+  string ans ;
+  if ( dec != 0 ) {
+    while ( dec > 0 ) {
+      ans . insert ( 0 , dec % 2 ) ;
+      dec /= 2 ;
+    }
+  }
+  else {
+    ans . push_back ( "0" ) ;
+  }
+  return "db" + ans + "db" ;
+}
+
+***Example ends here:
+bool primeLength ( string s ) {
+  int l = s . length ( ) ;
+  if ( l < 2 ) {
+    return false ;
+  }
+  for ( int i = 2 ;
+  i < l ;
+  i ++ ) {
+    if ( l % i == 0 ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int startsOneEnds ( int n ) {
+  if ( n < 1 ) return 0 ;
+  if ( n == 1 ) return 1 ;
+  return int ( 18 * pow ( 10 , n - 2 ) ) ;
+}
+
+***Example ends here:
+int add ( std :: vector < int > lst ) {
+  int sum = 0 ;
+  for ( int i = 1 ;
+  i < lst . size ( ) ;
+  i += 2 ) {
+    if ( lst [ i ] % 2 == 0 ) sum += lst [ i ] ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+vector < vector < int >> getRow ( vector < vector < int >> lst , int x ) {
+  vector < vector < int >> coords ;
+  for ( int i = 0 ;
+  i < lst . size ( ) ;
+  i ++ ) {
+    for ( int j = lst [ i ] . size ( ) - 1 ;
+    j >= 0 ;
+    j -- ) {
+      if ( lst [ i ] [ j ] == x ) {
+        coords . push_back ( vector < int > ( i , j ) ) ;
+      }
+    }
+  }
+  return coords ;
+}
+
+***Example ends here:
+int nextSmallest ( std :: vector < int > lst ) {
+  std :: sort ( lst . begin ( ) , lst . end ( ) ) ;
+  for ( int i = 1 ;
+  i < lst . size ( ) ;
+  i ++ ) {
+    if ( ! lst [ i ] ) {
+      return lst [ i ] ;
+    }
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+bool anyInt ( double a , double b , double c ) {
+  if ( round ( a ) != a || round ( b ) != b || round ( c ) != c ) return false ;
+  return a + b == c || a + c == b || b + c == a ;
+}
+
+***Example ends here:
+vector < int > countUpTo ( int n ) {
+  vector < int > primes ;
+  for ( int i = 2 ;
+  i < n ;
+  i ++ ) {
+    bool isPrime = true ;
+    for ( int j = 2 ;
+    j < i ;
+    j ++ ) {
+      if ( i % j == 0 ) {
+        isPrime = false ;
+        break ;
+      }
+    }
+    if ( isPrime ) primes . push_back ( i ) ;
+  }
+  return primes ;
+}
+
+***Example ends here:
+int closestInteger ( std :: string value ) {
+  double w = atof ( value . c_str ( ) ) ;
+  return ( int ) round ( w ) ;
+}
+
+***Example ends here:
+vector < int > makeAPile ( int n ) {
+  vector < int > result ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) result . push_back ( n + 2 * i ) ;
+  return result ;
+}
+
+***Example ends here:
+vector < string > wordStrings ( string s ) {
+  string current ;
+  vector < string > words ;
+  for ( int i = 0 ;
+  i <= s . length ( ) ;
+  i ++ ) {
+    if ( i == s . length ( ) || s [ i ] == ' ' || s [ i ] == ',' ) {
+      if ( current . size ( ) > 0 ) {
+        words . push_back ( current ) ;
+        current . clear ( ) ;
+      }
+    }
+    else {
+      current . push_back ( s [ i ] ) ;
+    }
+  }
+  return words ;
+}
+
+***Example ends here:
+string roundedAvg ( int n , int m ) {
+  if ( n > m ) {
+    return "-1" ;
+  }
+  int num = ( m + n ) / 2 ;
+  string ret ;
+  while ( num > 0 ) {
+    ret . insert ( ret . end ( ) , num % 2 , "" ) ;
+    num /= 2 ;
+  }
+  return ret ;
+}
+
+***Example ends here:
+vector < int > uniqueDigits ( vector < int > x ) {
+  vector < int > digits ;
+  for ( auto i : x ) {
+    bool isUnique = true ;
+    for ( auto c : string ( i ) ) {
+      if ( c % 2 == 0 ) {
+        isUnique = false ;
+        break ;
+      }
+    }
+    if ( isUnique ) digits . push_back ( i ) ;
+  }
+  sort ( digits . begin ( ) , digits . end ( ) ) ;
+  return digits ;
+}
+
+***Example ends here:
+int countNums ( vector < int > arr ) {
+  int num = 0 ;
+  for ( int n : arr ) {
+    int neg = n < 0 ? - 1 : 1 ;
+    n = abs ( n ) ;
+    vector < int > digits ;
+    for ( char c : string ( n ) . c_str ( ) ) digits . push_back ( c - '0' ) ;
+    digits [ 0 ] = digits [ 0 ] * neg ;
+    int sum = 0 ;
+    for ( int d : digits ) sum += d ;
+    if ( sum > 0 ) num += 1 ;
+  }
+  return num ;
+}
+
+***Example ends here:
+bool moveOneBall ( std :: vector < int > arr ) {
+  if ( arr . empty ( ) ) return true ;
+  int num = 0 ;
+  for ( int i = 1 ;
+  i < arr . size ( ) ;
+  i ++ ) {
+    if ( arr [ i ] < arr [ i - 1 ] ) num += 1 ;
+  }
+  if ( arr [ arr . size ( ) - 1 ] > arr [ 0 ] ) num += 1 ;
+  if ( num < 2 ) return true ;
+  return false ;
+}
+
+***Example ends here:
+string exchange ( vector < int > lst1 , vector < int > lst2 ) {
+  int odd = 0 ;
+  int even = 0 ;
+  for ( int n : lst1 ) {
+    if ( n % 2 == 1 ) odd += 1 ;
+  }
+  for ( int n : lst2 ) {
+    if ( n % 2 == 0 ) even += 1 ;
+  }
+  if ( even >= odd ) return "YES" ;
+  return "NO" ;
+}
+
+***Example ends here:
+vector < string > oddCount ( vector < string > lst ) {
+  vector < string > results ;
+  string originalStr = "the number of odd elements in the string i of the input." ;
+  for ( auto s : lst ) {
+    int sum = 0 ;
+    for ( auto d : s ) {
+      if ( isdigit ( d ) && d % 2 == 1 ) sum += 1 ;
+    }
+    string result ;
+    for ( auto c : originalStr ) {
+      if ( c == 'i' ) result += sum ;
+      else result += c ;
+    }
+    results . push_back ( result ) ;
+  }
+  return results ;
+}
+
+***Example ends here:
+int minSubArraySum ( vector < int > nums ) {
+  int minSum = INT_MAX ;
+  int sum = 0 ;
+  for ( int num : nums ) {
+    sum += num ;
+    if ( minSum > sum ) minSum = sum ;
+    if ( sum > 0 ) sum = 0 ;
+  }
+  return minSum ;
+}
+
+***Example ends here:
+int maxFill ( std :: vector < std :: vector < int >> grid , int capacity ) {
+  int res = 0 ;
+  for ( var well : grid ) {
+    int sum = 0 ;
+    for ( int n : well ) sum += n ;
+    if ( sum > 0 ) res += ( sum - 1 ) / capacity + 1 ;
+  }
+  return res ;
+}
+
+***Example ends here:
+vector < string > selectWords ( string s , int n ) {
+  string vowels = "aeiouAEIOU" ;
+  string current ;
+  vector < string > result ;
+  int consonantNum = 0 ;
+  for ( int i = 0 ;
+  i <= s . length ( ) ;
+  i ++ ) {
+    if ( i == s . length ( ) || s [ i ] == ' ' ) {
+      if ( consonantNum == n ) result . push_back ( current ) ;
+      current . clear ( ) ;
+      consonantNum = 0 ;
+    }
+    else {
+      current += s [ i ] ;
+      if ( vowels . find ( s [ i ] ) == string :: npos ) consonantNum += 1 ;
+    }
+  }
+  return result ;
+}
+
+***Example ends here:
+int solution ( vector < int > lst ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < lst . size ( ) ;
+  i += 2 ) {
+    if ( ( lst [ i ] % 2 ) == 1 ) sum += lst [ i ] ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+int addElements ( std :: vector < int > arr , int k ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    if ( arr [ i ] >= - 99 && arr [ i ] <= 99 ) sum += arr [ i ] ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+vector < int > getOddCollatz ( int n ) {
+  vector < int > oddCollatz ;
+  while ( n != 1 ) {
+    if ( n % 2 == 1 ) {
+      oddCollatz . push_back ( n ) ;
+      n = n * 3 + 1 ;
+    }
+    else {
+      n /= 2 ;
+    }
+  }
+  oddCollatz . push_back ( 1 ) ;
+  sort ( oddCollatz . begin ( ) , oddCollatz . end ( ) ) ;
+  return oddCollatz ;
+}
+
+***Example ends here:
+bool isSorted ( std :: vector < int > lst ) {
+  for ( int i = 1 ;
+  i < lst . size ( ) ;
+  i ++ ) {
+    if ( lst [ i ] < lst [ i - 1 ] ) {
+      return false ;
+    }
+    if ( i >= 2 && lst [ i ] == lst [ i - 1 ] && lst [ i ] == lst [ i - 2 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+String intersection ( const std :: vector < int > interval1 , const std :: vector < int > interval2 ) {
+  int inter1 = std :: max ( interval1 [ 0 ] , interval2 [ 0 ] ) ;
+  int inter2 = std :: min ( interval1 [ 1 ] , interval2 [ 1 ] ) ;
+  int l = inter2 - inter1 ;
+  if ( l < 2 ) {
+    return "NO" ;
+  }
+  for ( int i = 2 ;
+  i < l ;
+  i ++ ) {
+    if ( l % i == 0 ) {
+      return "NO" ;
+    }
+  }
+  return "YES" ;
+}
+
+***Example ends here:
+int prodSigns ( std :: vector < int > arr ) {
+  if ( arr . empty ( ) ) return - 32768 ;
+  int sum = 0 ;
+  int prods = 1 ;
+  for ( auto i : arr ) {
+    sum += abs ( i ) ;
+    if ( i == 0 ) prods = 0 ;
+    if ( i < 0 ) prods = - prods ;
+  }
+  return sum * prods ;
+}
+
+***Example ends here:
+vector < int > minPath ( vector < vector < int >> grid , int k ) {
+  int n = grid . size ( ) ;
+  int minNum = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < n ;
+    j ++ ) {
+      if ( grid [ i ] [ j ] == 1 ) {
+        vector < int > tmp ;
+        if ( i != 0 ) tmp . push_back ( grid [ i - 1 ] [ j ] ) ;
+        if ( j != 0 ) tmp . push_back ( grid [ i ] [ j - 1 ] ) ;
+        if ( i != n - 1 ) tmp . push_back ( grid [ i + 1 ] [ j ] ) ;
+        if ( j != n - 1 ) tmp . push_back ( grid [ i ] [ j + 1 ] ) ;
+        minNum = min ( tmp . begin ( ) , tmp . end ( ) ) ;
+      }
+    }
+  }
+  vector < int > ans ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    if ( i % 2 == 0 ) ans . push_back ( 1 ) ;
+    else ans . push_back ( minNum ) ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int digits ( int n ) {
+  int prod = 0 ;
+  for ( char digit : String ( n ) ) {
+    if ( digit % 2 == 1 ) {
+      if ( prod == 0 ) prod = 1 ;
+      prod *= digit - '0' ;
+    }
+  }
+  return prod ;
+}
+
+***Example ends here:
+bool isNested ( string s ) {
+  int count = 0 ;
+  int maxCount = 0 ;
+  for ( char ch : s ) {
+    if ( ch == '[' ) count += 1 ;
+    if ( ch == ']' ) count -= 1 ;
+    if ( count < 0 ) count = 0 ;
+    if ( count > maxCount ) maxCount = count ;
+    if ( count <= maxCount - 2 ) return true ;
+  }
+  return false ;
+}
+
+***Example ends here:
+int sum_squares ( std :: vector < double > lst ) {
+  int sum = 0 ;
+  for ( auto i : lst ) sum += ceil ( i ) * ceil ( i ) ;
+  return sum ;
+}
+
+***Example ends here:
+int canArrange ( vector < int > arr ) {
+  int index = - 1 ;
+  for ( int i = 0 ;
+  i < arr . size ( ) ;
+  i ++ ) {
+    if ( arr [ i ] <= i ) index = i ;
+  }
+  return index ;
+}
+
+***Example ends here:
+QList < int > largestSmallestIntegers ( QList < int > lst ) {
+  int maxNeg = 0 , minPos = 0 ;
+  foreach ( int n , lst ) {
+    if ( n < 0 && ( maxNeg == 0 || n > maxNeg ) ) maxNeg = n ;
+    if ( n > 0 && ( minPos == 0 || n < minPos ) ) minPos = n ;
+  }
+  return QList < int > ( maxNeg , minPos ) ;
+}
+
+***Example ends here:
+String fixSpaces ( String text ) {
+  String res ;
+  int spaceLen = 0 ;
+  for ( int i = 0 ;
+  i <= text . length ( ) ;
+  i ++ ) {
+    if ( i == text . length ( ) || text [ i ] != ' ' ) {
+      if ( spaceLen == 1 ) res << '_' ;
+      if ( spaceLen == 2 ) res << "__" ;
+      if ( spaceLen > 2 ) res << '-' ;
+      spaceLen = 0 ;
+      if ( i != text . length ( ) ) res << text [ i ] ;
+    }
+    else spaceLen += 1 ;
+  }
+  return res ;
+}
+
+***Example ends here:
+String filenameCheck ( String fileName ) {
+  int digitNum = 0 , dotNum = 0 ;
+  if ( fileName . length ( ) < 5 || ! isLetter ( fileName [ 0 ] ) ) return "No" ;
+  String suffix = fileName . substring ( fileName . length ( ) - 4 ) ;
+  if ( ! suffix . equals ( ".txt" ) && ! suffix . equals ( ".exe" ) && ! suffix . equals ( ".dll" ) ) return "No" ;
+  for ( char c : fileName ) {
+    if ( isDigit ( c ) ) digitNum += 1 ;
+    if ( c == '.' ) dotNum += 1 ;
+  }
+  if ( digitNum > 3 || dotNum != 1 ) return "No" ;
+  return "Yes" ;
+}
+
+***Example ends here:
+int sumSquares ( std :: vector < int > lst ) {
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < lst . size ( ) ;
+  i ++ ) {
+    if ( i % 3 == 0 ) sum += lst [ i ] * lst [ i ] ;
+    else if ( i % 4 == 0 ) sum += lst [ i ] * lst [ i ] * lst [ i ] ;
+    else sum += lst [ i ] ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+string wordsInSentence ( string sentence ) {
+  string result ;
+  string current ;
+  for ( int i = 0 ;
+  i <= sentence . length ( ) ;
+  i ++ ) {
+    if ( i == sentence . length ( ) || sentence [ i ] == ' ' ) {
+      bool isPrime = true ;
+      int l = current . length ( ) ;
+      if ( l < 2 ) isPrime = false ;
+      for ( int j = 2 ;
+      j < l ;
+      j ++ ) {
+        if ( l % j == 0 ) {
+          isPrime = false ;
+          break ;
+        }
+      }
+      if ( isPrime ) result += current + ' ' ;
+      current . clear ( ) ;
+    }
+    else {
+      current += sentence [ i ] ;
+    }
+  }
+  if ( result . length ( ) > 0 ) result . erase ( result . end ( ) - 1 ) ;
+  return result ;
+}
+
+***Example ends here:
+bool simplify ( string x , string n ) {
+  int a = 0 , b = 0 , c = 0 , d = 0 ;
+  for ( int i = 0 ;
+  i < x . length ( ) ;
+  i ++ ) {
+    if ( x [ i ] == '/' ) {
+      a = atoi ( x . c_str ( ) + i ) ;
+      b = atoi ( x . c_str ( ) + i + 1 ) ;
+    }
+  }
+  for ( int i = 0 ;
+  i < n . length ( ) ;
+  i ++ ) {
+    if ( n [ i ] == '/' ) {
+      c = atoi ( n . c_str ( ) + i ) ;
+      d = atoi ( n . c_str ( ) + i + 1 ) ;
+    }
+  }
+  return ( a * c ) % ( b * d ) == 0 ;
+}
+
+***Example ends here:
+int specialFilter ( vector < int > nums ) {
+  int count = 0 ;
+  for ( int num : nums ) {
+    if ( num > 10 ) {
+      string w = string ( num ) ;
+      if ( w [ 0 ] % 2 == 1 && w [ w . size ( ) - 1 ] % 2 == 1 ) count += 1 ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int getMaxTriples ( int n ) {
+  vector < int > arr ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) arr . push_back ( i * i - i + 1 ) ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    j ++ ) {
+      for ( int k = j + 1 ;
+      k < n ;
+      k ++ ) {
+        if ( ( arr [ i ] + arr [ j ] + arr [ k ] ) % 3 == 0 ) count += 1 ;
+      }
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+int doubleTheDifference ( vector < double > lst ) {
+  int sum = 0 ;
+  for ( auto d : lst ) {
+    int num = ( int ) round ( d ) ;
+    if ( d == num ) {
+      if ( num > 0 && num % 2 == 1 ) sum += num * num ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+vector < int > compare ( vector < int > game , vector < int > guess ) {
+  vector < int > result ;
+  for ( int i = 0 ;
+  i < game . size ( ) ;
+  i ++ ) result . push_back ( abs ( game [ i ] - guess [ i ] ) ) ;
+  return result ;
+}
+
+***Example ends here:
+string strongestExtension ( string className , vector < string > extensions ) {
+  string strongest = "" ;
+  int max = numeric_limits < int > :: min ( ) ;
+  for ( var extension : extensions ) {
+    int strength = 0 ;
+    for ( char chr : extension ) {
+      if ( isupper ( chr ) ) strength += 1 ;
+      if ( islower ( chr ) ) strength -= 1 ;
+    }
+    if ( strength > max ) {
+      max = strength ;
+      strongest = extension ;
+    }
+  }
+  return className + '.' + strongest ;
+}
+
+***Example ends here:
+String intToMiniRoman ( int number ) {
+  std :: vector < int > num = {
+    1000 , 900 , 500 , 400 , 100 , 90 , 50 , 40 , 10 , 9 , 5 , 4 , 1 }
+    ;
+    std :: vector < std :: string > sym = {
+      "m" , "cm" , "d" , "cd" , "c" , "xc" , "l" , "xl" , "x" , "ix" , "v" , "iv" , "i" }
+      ;
+      int pos = 0 ;
+      std :: string res ;
+      while ( number ) {
+        while ( number >= num [ pos ] ) {
+          res += sym [ pos ] ;
+          number -= num [ pos ] ;
+        }
+        if ( number ) pos += 1 ;
+      }
+      return res ;
+    }
+    
+***Example ends here:
+vector < int > eat ( int number , int need , int remaining ) {
+  return need > remaining ? vector < int > ( number + remaining , 0 ) : vector < int > ( number + need , remaining - need ) ;
+}
+
+***Example ends here:
+int doAlgebra ( vector < string > ops , vector < int > operands ) {
+  vector < int > nums ( operands ) ;
+  vector < string > currentOps ( ops ) ;
+  int i = currentOps . size ( ) - 1 ;
+  while ( i >= 0 ) {
+    if ( currentOps [ i ] == "**" ) {
+      nums [ i ] = ( int ) pow ( nums [ i ] , nums [ i + 1 ] ) ;
+      nums . erase ( nums . begin ( ) + i + 1 ) ;
+      currentOps . erase ( currentOps . begin ( ) + i ) ;
+    }
+    i -- ;
+  }
+  i = 0 ;
+  while ( i < currentOps . size ( ) ) {
+    if ( currentOps [ i ] == "*" ) {
+      nums [ i ] = nums [ i ] * nums [ i + 1 ] ;
+      nums . erase ( nums . begin ( ) + i + 1 ) ;
+      currentOps . erase ( currentOps . begin ( ) + i ) ;
+    }
+    else if ( currentOps [ i ] == "//" ) {
+      nums [ i ] = nums [ i ] / nums [ i + 1 ] ;
+      nums . erase ( nums . begin ( ) + i + 1 ) ;
+      currentOps . erase ( currentOps . begin ( ) + i ) ;
+    }
+    else i ++ ;
+  }
+  i = 0 ;
+  while ( i < currentOps . size ( ) ) {
+    if ( currentOps [ i ] == "+" ) {
+      nums [ i ] = nums [ i ] + nums [ i + 1 ] ;
+      nums . erase ( nums . begin ( ) + i + 1 ) ;
+      currentOps . erase ( currentOps . begin ( ) + i ) ;
+    }
+    else if ( currentOps [ i ] == "-" ) {
+      nums [ i ] = nums [ i ] - nums [ i + 1 ] ;
+      nums . erase ( nums . begin ( ) + i + 1 ) ;
+      currentOps . erase ( currentOps . begin ( ) + i ) ;
+    }
+    else i ++ ;
+  }
+  return nums [ i ] ;
+}
+
+***Example ends here:
+vector < int > generateIntegers ( int a , int b ) {
+  int lower = max ( 2 , min ( a , b ) ) ;
+  int upper = min ( 8 , max ( a , b ) ) ;
+  vector < int > result ;
+  for ( int i = lower ;
+  i <= upper ;
+  i += 2 ) result . push_back ( i ) ;
+  return result ;
+}
+
+***Example ends here:
+bool isStepNum ( int n ) {
+  int prevDigit = - 1 ;
+  while ( n > 0 ) {
+    int curDigit = n % 10 ;
+    if ( prevDigit != - 1 ) {
+      if ( abs ( curDigit - prevDigit ) != 1 ) {
+        return false ;
+      }
+    }
+    n /= 10 ;
+    prevDigit = curDigit ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int numOfWays ( int n , int k ) {
+  int p = 1 ;
+  if ( k % 2 != 0 ) p = - 1 ;
+  return ( int ) ( pow ( n - 1 , k ) + p * ( n - 1 ) ) / n ;
+}
+
+***Example ends here:
+vector < int > findDivisors ( int n ) {
+  vector < int > v ;
+  for ( int i = 1 ;
+  i <= sqrt ( n ) ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      if ( n / i == i ) v . push_back ( i ) ;
+      else {
+        v . push_back ( i ) ;
+        v . push_back ( n / i ) ;
+      }
+    }
+  }
+  return v ;
+}
+
+***Example ends here:
+int eggDrop ( int n , int k ) {
+  if ( k == 1 || k == 0 ) return k ;
+  if ( n == 1 ) return k ;
+  int min = INT_MAX ;
+  int x , res ;
+  for ( x = 1 ;
+  x <= k ;
+  x ++ ) {
+    res = max ( eggDrop ( n - 1 , x - 1 ) , eggDrop ( n , k - x ) ) ;
+    if ( res < min ) min = res ;
+  }
+  return min + 1 ;
+}
+
+***Example ends here:
+bool isPowerOfTwo ( int n ) {
+  if ( n == 0 ) return false ;
+  return ceil ( log ( n ) / log ( 2 ) ) == floor ( log ( n ) / log ( 2 ) ) ;
+}
+
+***Example ends here:
+string shortestPalindrome ( string s ) {
+  int n = s . length ( ) ;
+  vector < string > v ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    int l = i ;
+    int r = i ;
+    string ans1 = "" ;
+    string ans2 = "" ;
+    while ( l >= 0 && r < n && s [ l ] == s [ r ] ) {
+      ans1 += s [ l ] ;
+      l -- ;
+      r ++ ;
+    }
+    l = i - 1 ;
+    r = i ;
+    while ( l >= 0 && r < n && s [ l ] == s [ r ] ) {
+      ans2 += s [ l ] ;
+      l -- ;
+      r ++ ;
+    }
+    v . push_back ( ans1 ) ;
+    v . push_back ( ans2 ) ;
+  }
+  string ans = v [ 0 ] ;
+  for ( int i = 0 ;
+  i < v . size ( ) ;
+  i ++ ) {
+    if ( v [ i ] != "" ) {
+      if ( ans [ 0 ] >= v [ i ] [ 0 ] ) ans = v [ i ] ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int minimumAdjacentDifference ( vector < int > a , int n , int k ) {
+  int minDiff = INT_MAX ;
+  for ( int i = 0 ;
+  i <= k ;
+  i ++ ) {
+    int maxDiff = INT_MIN ;
+    for ( int j = 0 ;
+    j < n - k - 1 ;
+    j ++ ) {
+      for ( int p = i ;
+      p <= i + j ;
+      p ++ ) maxDiff = max ( maxDiff , a [ p + 1 ] - a [ p ] ) ;
+    }
+    minDiff = min ( minDiff , maxDiff ) ;
+  }
+  return minDiff ;
+}
+
+***Example ends here:
+int cal ( std :: vector < int > arr , int mid ) {
+  int chocolate = 0 ;
+  for ( var i : arr ) {
+    if ( i >= mid ) chocolate += i - mid ;
+  }
+  return chocolate ;
+}
+
+***Example ends here:
+bool check ( int v , std :: vector < int > a , int m ) {
+  int tec = 0 , ans = 0 ;
+  std :: vector < int > b ( std :: nth_element ( a . begin ( ) , a . end ( ) , 3 ) , 0 ) ;
+  for ( int i = 0 ;
+  i < a . size ( ) ;
+  i ++ ) {
+    tec -= b [ i ] ;
+    if ( a [ i ] + tec < v ) {
+      int mov = v - a [ i ] - tec ;
+      ans = ans + mov ;
+      tec += mov ;
+      b [ i + 2 ] = mov ;
+    }
+  }
+  return ans <= m ;
+}
+
+***Example ends here:
+int largestNum ( vector < int > arr ) {
+  int res = 0 ;
+  sort ( arr . begin ( ) , arr . end ( ) ) ;
+  int l = 0 , r = arr . size ( ) - 1 ;
+  while ( l < r ) {
+    int sum = arr [ l ] + arr [ r ] ;
+    if ( sum == 0 ) {
+      res = max ( res , max ( arr [ l ] , arr [ r ] ) ) ;
+      return res ;
+    }
+    else if ( sum < 0 ) l ++ ;
+    else r -- ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int binarySearch ( vector < int > p , int n ) {
+  int i = 0 ;
+  int j = p . size ( ) - 1 ;
+  int index = - 1 ;
+  while ( i <= j ) {
+    int mid = i + ( j - i ) / 2 ;
+    if ( p [ mid ] >= n ) {
+      index = mid ;
+      j = mid - 1 ;
+    }
+    else {
+      i = mid + 1 ;
+    }
+  }
+  return index ;
+}
+
+***Example ends here:
+int findMinLength ( std :: vector < int > arr ) {
+  int index = arr . size ( ) - 1 ;
+  while ( index > 0 && arr [ index ] >= arr [ index - 1 ] ) index -- ;
+  return index ;
+}
+
+***Example ends here:
+int minDigits ( int n , int k ) {
+  int digitsNum = ( int ) floor ( log ( n ) + 1 ) ;
+  int tempSum = 0 ;
+  int temp = digitsNum ;
+  int result = 0 ;
+  int x , v ;
+  int sum = 0 ;
+  int num2 = n ;
+  while ( num2 != 0 ) {
+    sum += num2 % 10 ;
+    num2 /= 10 ;
+  }
+  if ( sum <= k ) {
+    x = 0 ;
+  }
+  else {
+    while ( temp > 0 ) {
+      v = n / ( int ) pow ( 10 , temp - 1 ) ;
+      tempSum += v % 10 ;
+      if ( tempSum >= k ) {
+        v /= 10 ;
+        v ++ ;
+        result = v * ( int ) pow ( 10 , temp ) ;
+        break ;
+      }
+      temp -- ;
+    }
+    x = result - n ;
+    return x ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+int checkForPerfectSquare ( vector < int > arr , int i , int j ) {
+  int mid , sum = 0 ;
+  for ( int m = i ;
+  m <= j ;
+  m ++ ) sum += arr [ m ] ;
+  int low = 0 , high = sum / 2 ;
+  while ( low <= high ) {
+    mid = low + ( high - low ) / 2 ;
+    if ( mid * mid == sum ) return mid ;
+    else if ( mid * mid > sum ) high = mid - 1 ;
+    else low = mid + 1 ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+int minFlips ( vector < vector < int >> mat , string s ) {
+  int n = mat . size ( ) ;
+  int m = mat [ 0 ] . size ( ) ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = 0 ;
+    j < m ;
+    j ++ ) {
+      if ( mat [ i ] [ j ] != s [ i + j ] - '0' ) count ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+vector < vector < int >> constructTree ( int n , vector < vector < int >> edges ) {
+  vector < vector < int >> adjl ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) adjl . push_back ( vector < int > ( ) ) ;
+  for ( var e : edges ) {
+    int u = e [ 0 ] ;
+    int v = e [ 1 ] ;
+    adjl [ u ] . push_back ( v ) ;
+    adjl [ v ] . push_back ( u ) ;
+  }
+  return adjl ;
+}
+
+***Example ends here:
+int findSumOfValues ( int v , std :: vector < int > parent , std :: vector < int > valuesChildren ) {
+  int curNode = v ;
+  int sum = 0 ;
+  while ( curNode != - 1 ) {
+    sum += valuesChildren [ curNode ] ;
+    curNode = parent [ curNode ] ;
+  }
+  return sum ;
+}
+
+***Example ends here:
+int getDistinct ( int d , int count ) {
+  int num = 0 ;
+  count = ( int ) pow ( 10 , count - 1 ) ;
+  while ( count > 0 ) {
+    num += count * d ;
+    count /= 10 ;
+  }
+  return num ;
+}
+
+***Example ends here:
+bool isIncreasing ( std :: vector < int > arr ) {
+  for ( int i = 0 ;
+  i < arr . size ( ) - 1 ;
+  i ++ ) {
+    if ( arr [ i ] > arr [ i + 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int minAdjSwaps ( vector < vector < int >> mat ) {
+  int n = mat . size ( ) ;
+  vector < int > cntZero ( n , 0 ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = n - 1 ;
+    j >= 0 && mat [ i ] [ j ] == 0 ;
+    j -- ) cntZero [ i ] = cntZero [ i ] + 1 ;
+  }
+  int cntSwaps = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( cntZero [ i ] < ( n - i - 1 ) ) {
+      int first = i ;
+      while ( first < n && cntZero [ first ] < ( n - i - 1 ) ) first ++ ;
+      if ( first == n ) return - 1 ;
+      while ( first > i ) {
+        swap ( cntZero [ first ] , cntZero [ first - 1 ] ) ;
+        first -- ;
+        cntSwaps ++ ;
+      }
+    }
+  }
+  return cntSwaps ;
+}
+
+***Example ends here:
+int solve ( vector < int > values , vector < int > salary , int mod ) {
+  int ret = 1 ;
+  int amt = 0 ;
+  sort ( values . begin ( ) , values . end ( ) ) ;
+  sort ( salary . begin ( ) , salary . end ( ) ) ;
+  while ( salary . size ( ) > 0 ) {
+    while ( values . size ( ) > 0 && values [ values . size ( ) - 1 ] >= salary [ salary . size ( ) - 1 ] ) {
+      amt ++ ;
+      values . pop_back ( ) ;
+    }
+    if ( amt == 0 ) return 0 ;
+    ret *= amt -- ;
+    ret %= mod ;
+    salary . pop_back ( ) ;
+  }
+  return ret ;
+}
+
+***Example ends here:
+vector < int > organizeInOrder ( vector < int > vec , vector < char > op , int n ) {
+  vector < int > result ( std :: nth_element ( vec . begin ( ) , vec . end ( ) , op . begin ( ) ) , op . end ( ) ) ;
+  sort ( vec . begin ( ) , vec . end ( ) ) ;
+  int i = 0 , j = n - 1 , k = 0 ;
+  while ( i <= j && k <= n - 2 ) {
+    if ( op [ k ] == '<' ) result [ k ] = vec [ i ++ ] ;
+    else result [ k ] = vec [ j -- ] ;
+    k ++ ;
+  }
+  result [ n - 1 ] = vec [ i ] ;
+  return result ;
+}
+
+***Example ends here:
+int countPoints ( int n , int m , vector < int > a , vector < int > b , int x , int y ) {
+  sort ( a . begin ( ) , a . end ( ) ) ;
+  sort ( b . begin ( ) , b . end ( ) ) ;
+  int j = 0 ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    while ( j < m ) {
+      if ( a [ i ] + y < b [ j ] ) break ;
+      if ( b [ j ] >= a [ i ] - x && b [ j ] <= a [ i ] + y ) {
+        count ++ ;
+        j ++ ;
+        break ;
+      }
+      else j ++ ;
+    }
+  }
+  return count ;
+}
+
+***Example ends here:
+bool areSame ( std :: vector < int > a , std :: vector < int > b ) {
+  std :: sort ( a . begin ( ) , a . end ( ) ) ;
+  std :: sort ( b . begin ( ) , b . end ( ) ) ;
+  return a == b ;
+}
+
+***Example ends here:
+int countNumberOfStrings ( string s ) {
+  int n = s . size ( ) - 1 ;
+  int count = ( int ) pow ( 2 , n ) ;
+  return count ;
+}
+
+***Example ends here:
+vector < int > primePower ( int x ) {
+  vector < int > primePow ;
+  for ( int i = 2 ;
+  i * i <= x ;
+  i ++ ) {
+    if ( x % i == 0 ) {
+      int p = 1 ;
+      while ( x % i == 0 ) {
+        x /= i ;
+        p *= i ;
+      }
+      primePow . push_back ( p ) ;
+    }
+  }
+  if ( x > 1 ) primePow . push_back ( x ) ;
+  return primePow ;
+}
+
+***Example ends here:
+bool isPerfect ( int n0 ) {
+  double n = sqrt ( n0 ) ;
+  if ( floor ( n ) != ceil ( n ) ) {
+    return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int findSum ( int l , int r ) {
+  vector < int > arr ;
+  int i = 0 ;
+  int x = 2 ;
+  while ( i <= r ) {
+    arr . push_back ( i + x ) ;
+    if ( i + 1 <= r ) arr . push_back ( i + 1 + x ) ;
+    x *= - 1 ;
+    i += 2 ;
+  }
+  int sum = 0 ;
+  for ( i = l ;
+  i <= r ;
+  ++ i ) sum += arr [ i ] ;
+  return sum ;
+}
+
+***Example ends here:
+int results ( int n , int k ) {
+  return int ( pow ( n , 1.0 / pow ( 2.0 , k ) ) ) ;
+}
+
+***Example ends here:
+vector < int > factors ( int n ) {
+  vector < int > v ;
+  v . push_back ( 1 ) ;
+  for ( int i = 2 ;
+  i <= sqrt ( n ) ;
+  i ++ ) {
+    if ( n % i == 0 ) {
+      v . push_back ( i ) ;
+      if ( n / i != i ) v . push_back ( n / i ) ;
+    }
+  }
+  return v ;
+}
+
+***Example ends here:
+int smallestNum ( int n ) {
+  double x = pow ( 10 , ( n - 1 ) / 2.0 ) ;
+  return ( int ) ceil ( x ) ;
+}
+
+***Example ends here:
+int smallest ( string s ) {
+  vector < int > a ( std :: nth_element ( s . begin ( ) , s . end ( ) , 0 ) ) ;
+  for ( int i = 0 ;
+  i < a . size ( ) ;
+  i ++ ) a [ i ] = a [ i ] - '0' ;
+  vector < int > b ;
+  for ( int i = 0 ;
+  i < a . size ( ) ;
+  i ++ ) {
+    if ( a [ i ] % 2 != 0 ) b [ i ] = a [ i ] ;
+  }
+  sort ( b . begin ( ) , b . end ( ) ) ;
+  if ( b . size ( ) > 1 ) return b [ 0 ] * 10 + b [ 1 ] ;
+  return - 1 ;
+}
+
+***Example ends here:
+vector < double > Diagonals ( double a , double b , double c , double d ) {
+  vector < double > ans ;
+  ans . push_back ( sqrt ( ( a * c + b * d ) * ( a * d + b * c ) / ( a * b + c * d ) ) ) ;
+  ans . push_back ( sqrt ( ( a * c + b * d ) * ( a * b + c * d ) / ( a * d + b * c ) ) ) ;
+  return ans ;
+}
+
+***Example ends here:
+int findNumberOfDigits ( int n , int bas ) {
+  int dig = ( int ) floor ( log ( n ) / log ( bas ) ) + 1 ;
+  return dig ;
+}
+
+***Example ends here:
+double nGon ( int n ) {
+  double proAngleVar ;
+  if ( n % 4 == 0 ) proAngleVar = M_PI * ( 180.0 / n ) / 180 ;
+  else proAngleVar = M_PI * ( 180.0 / ( 2 * n ) ) / 180 ;
+  double negX = 1.0e+99 , posX = - 1.0e+99 , negY = 1.0e+99 , posY = - 1.0e+99 ;
+  for ( int j = 0 ;
+  j < n ;
+  ++ j ) {
+    double px = cos ( 2 * M_PI * j / n + proAngleVar ) ;
+    double py = sin ( 2 * M_PI * j / n + proAngleVar ) ;
+    negX = min ( negX , px ) ;
+    posX = max ( posX , px ) ;
+    negY = min ( negY , py ) ;
+    posY = max ( posY , py ) ;
+  }
+  double opt2 = max ( posX - negX , posY - negY ) ;
+  return opt2 / sin ( M_PI / n ) / 2 ;
+}
+
+***Example ends here:
+int findMaxK ( int n ) {
+  int p = int ( log ( n ) / log ( 2 ) ) ;
+  return int ( pow ( 2 , p ) ) ;
+}
+
+***Example ends here:
+int nthFibo ( int n ) {
+  double a = ( pow ( 5 , 0.5 ) + 1 ) / 2 ;
+  double b = ( - 1 * pow ( 5 , 0.5 ) + 1 ) / 2 ;
+  double r = pow ( 5 , 0.5 ) ;
+  double ans = ( pow ( a , n ) - pow ( b , n ) ) / r ;
+  return ( int ) ans ;
+}
+
+***Example ends here:
+double findProb ( int l , int r ) {
+  double countOfPs = floor ( sqrt ( r ) ) - ceil ( sqrt ( l ) ) + 1 ;
+  double total = r - l + 1 ;
+  double prob = countOfPs / total ;
+  return prob ;
+}
+
+***Example ends here:
+int previousFibonacci ( int n ) {
+  double a = n / ( ( 1 + sqrt ( 5 ) ) / 2.0 ) ;
+  return ( int ) round ( a ) ;
+}
+
+***Example ends here:
+vector < int > distPrime ( vector < int > arr , vector < int > allPrimes ) {
+  vector < int > list1 ;
+  for ( int i : allPrimes ) {
+    for ( int j : arr ) {
+      if ( j % i == 0 ) {
+        list1 . push_back ( i ) ;
+        break ;
+      }
+    }
+  }
+  return list1 ;
+}
+
+***Example ends here:
+vector < int > getArray ( int n ) {
+  vector < int > ans ;
+  int p2 = 1 ;
+  while ( n ) {
+    if ( n % 2 == 1 ) ans . push_back ( p2 ) ;
+    n >>= 1 ;
+    p2 *= 2 ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int maximumLength ( vector < int > a ) {
+  vector < int > counts ( std :: nth_element ( a . begin ( ) , a . end ( ) , 0 ) , 0 ) ;
+  int ans = 0 ;
+  for ( int index = 0 ;
+  index < a . size ( ) ;
+  ++ index ) {
+    counts [ a [ index ] ] = counts [ a [ index ] ] + 1 ;
+    vector < int > k ;
+    for ( var i : counts ) {
+      if ( i != 0 ) k . push_back ( i ) ;
+    }
+    sort ( k . begin ( ) , k . end ( ) ) ;
+    if ( k . size ( ) == 1 || ( k [ 0 ] == k [ k . size ( ) - 2 ] && k [ k . size ( ) - 1 ] - k [ k . size ( ) - 2 ] == 1 ) || ( k [ 0 ] == 1 && k [ 1 ] == k [ k . size ( ) - 1 ] ) ) ) ans = index ;
+  }
+  return ans + 1 ;
+}
+
+***Example ends here:
+int maxEdges ( double n ) {
+  double edges = floor ( n * n / 4 ) ;
+  return ( int ) edges ;
+}
+
+***Example ends here:
+int findK ( int n , int k ) {
+  vector < int > a ;
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( i % 2 == 1 ) a . push_back ( i ) ;
+  }
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    if ( i % 2 == 0 ) a . push_back ( i ) ;
+  }
+  return a [ k - 1 ] ;
+}
+
+***Example ends here:
+bool isKeith ( int x , int temp ) {
+  vector < int > terms ;
+  int n = 0 ;
+  while ( temp > 0 ) {
+    terms . push_back ( temp % 10 ) ;
+    temp = temp / 10 ;
+    n ++ ;
+  }
+  sort ( terms . begin ( ) , terms . end ( ) ) ;
+  int nextTerm = 0 , i = n ;
+  while ( nextTerm < x ) {
+    nextTerm = 0 ;
+    for ( int j = 1 ;
+    j <= n ;
+    j ++ ) nextTerm += terms [ i - j ] ;
+    terms . push_back ( nextTerm ) ;
+    i ++ ;
+  }
+  return nextTerm == x ;
+}
+
+***Example ends here:
+bool factors ( int n , int k ) {
+  vector < int > v ;
+  while ( n % 2 == 0 ) {
+    v . push_back ( 2 ) ;
+    n /= 2 ;
+  }
+  if ( v . size ( ) >= k ) return true ;
+  for ( int i = 3 ;
+  i * i <= n ;
+  i += 2 ) {
+    while ( n % i == 0 ) {
+      n = n / i ;
+      v . push_back ( i ) ;
+    }
+    if ( v . size ( ) >= k ) return true ;
+  }
+  if ( n > 2 ) v . push_back ( n ) ;
+  if ( v . size ( ) >= k ) return true ;
+  return false ;
+}
+
+***Example ends here:
+vector < string > separateParenGroups ( string parenString ) {
+  vector < string > allParens ;
+  string currentParen ;
+  int currentDepth = 0 ;
+  for ( var c : parenString ) {
+    if ( c == '(' ) {
+      currentDepth += 1 ;
+      currentParen += c ;
+    }
+    else if ( c == ')' ) {
+      currentDepth -= 1 ;
+      currentParen += c ;
+      if ( currentDepth == 0 ) {
+        allParens . push_back ( currentParen ) ;
+        currentParen . clear ( ) ;
+      }
+    }
+  }
+  return allParens ;
+}
+
+***Example ends here:
+vector < int > parseNestedParens ( string parenString ) {
+  vector < int > allLevels ;
+  int level = 0 ;
+  int maxLevel = 0 ;
+  for ( string :: size_type i = 0 ;
+  i < parenString . size ( ) ;
+  i ++ ) {
+    char chr = parenString [ i ] ;
+    if ( chr == '(' ) {
+      level += 1 ;
+      if ( level > maxLevel ) maxLevel = level ;
+    }
+    if ( chr == ')' ) {
+      level -= 1 ;
+      if ( level == 0 ) {
+        allLevels . push_back ( maxLevel ) ;
+        maxLevel = 0 ;
+      }
+    }
+  }
+  return allLevels ;
+}
+
+***Example ends here:
+foreach ( var s , strings ) {
+  if ( s . contains ( substring ) ) result . append ( s ) ;
+}
+
+***Example ends here:
+vector < int > rolling_max ( vector < int > numbers ) {
+  vector < int > result ;
+  int running_max = 0 ;
+  for ( auto n : numbers ) {
+    if ( n > running_max ) running_max = n ;
+    result . push_back ( running_max ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+string makePalindrome ( string s ) {
+  if ( s . empty ( ) ) {
+    return "" ;
+  }
+  for ( int i = 0 ;
+  i < s . size ( ) ;
+  i ++ ) {
+    string rStr = s . substr ( i ) ;
+    if ( rStr == string ( rStr ) . reverse ( ) . str ( ) ) {
+      string nStr = s . substr ( 0 , i ) ;
+      string n2Str = string ( nStr ) . reverse ( ) . str ( ) ;
+      return s + n2Str ;
+    }
+  }
+  return s . substr ( 0 , s . size ( ) - 1 ) + string ( s ) . reverse ( ) . str ( ) ;
+}
+
+***Example ends here:
+String stringXor ( String a , String b ) {
+  String result ;
+  for ( int i = 0 ;
+  i < a . length ( ) ;
+  i ++ ) {
+    if ( a [ i ] == b [ i ] ) result . push_back ( '0' ) ;
+    else result . push_back ( '1' ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+String longest ( Vector < String > strings ) {
+  if ( strings . isEmpty ( ) ) return "" ;
+  int maxLen = strings . size ( ) ;
+  for ( int i = 0 ;
+  i < strings . size ( ) ;
+  i ++ ) {
+    if ( strings [ i ] . length ( ) == maxLen ) return strings [ i ] ;
+  }
+  return "" ;
+}
+
+***Example ends here:
+String StringSequence ( int n ) {
+  String s ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    s . Append ( i ) ;
+    s . Append ( " " ) ;
+  }
+  s . Append ( n ) ;
+  return s ;
+}
+
+***Example ends here:
+unsigned countDistinctCharacters ( String s ) {
+  HashSet < UChar > distinct ;
+  for ( UChar c : s ) distinct . add ( c ) ;
+  return distinct . size ( ) ;
+}
+
+***Example ends here:
+int howManyTimes ( string s , string sub ) {
+  int times = 0 ;
+  for ( int i = 0 ;
+  i <= s . length ( ) - sub . length ( ) ;
+  i ++ ) {
+    if ( s . substr ( i , sub . length ( ) ) == sub ) times += 1 ;
+  }
+  return times ;
+}
+
+***Example ends here:
+string sortNumbers ( string numbers ) {
+  unordered_map < string , int > toNum = unordered_map < string , int > {
+    {
+      "zero" , 0 }
+      , {
+        "one" , 1 }
+        , {
+          "two" , 2 }
+          , {
+            "three" , 3 }
+            , {
+              "four" , 4 }
+              , {
+                "five" , 5 }
+                , {
+                  "six" , 6 }
+                  , {
+                    "seven" , 7 }
+                    , {
+                      "eight" , 8 }
+                      , {
+                        "nine" , 9 }
+                      }
+                      ;
+                      unordered_map < int , string > fromNum = unordered_map < int , string > {
+                        {
+                          0 , "zero" }
+                          , {
+                            1 , "one" }
+                            , {
+                              2 , "two" }
+                              , {
+                                3 , "three" }
+                                , {
+                                  4 , "four" }
+                                  , {
+                                    5 , "five" }
+                                    , {
+                                      6 , "six" }
+                                      , {
+                                        7 , "seven" }
+                                        , {
+                                          8 , "eight" }
+                                          , {
+                                            9 , "nine" }
+                                          }
+                                          ;
+                                          vector < int > ints ;
+                                          string current ;
+                                          for ( int i = 0 ;
+                                          i <= numbers . size ( ) ;
+                                          i ++ ) {
+                                            if ( i == numbers . size ( ) || numbers [ i ] == ' ' ) {
+                                              if ( toNum . find ( current ) != toNum . end ( ) ) {
+                                                ints . push_back ( toNum [ current ] ) ;
+                                                current . clear ( ) ;
+                                              }
+                                            }
+                                            else {
+                                              current . push_back ( numbers [ i ] ) ;
+                                            }
+                                          }
+                                          sort ( ints . begin ( ) , ints . end ( ) ) ;
+                                          string result ;
+                                          for ( int i = 0 ;
+                                          i < ints . size ( ) ;
+                                          i ++ ) {
+                                            result += fromNum [ ints [ i ] ] ;
+                                            if ( i != ints . size ( ) - 1 ) result += " " ;
+                                          }
+                                          return result ;
+                                        }
+                                        
+***Example ends here:
+vector < double > findClosestElements ( vector < double > numbers ) {
+  vector < double > closestPair ( std :: begin ( numbers ) , std :: end ( numbers ) ) ;
+  double distance = abs ( numbers [ 0 ] - numbers [ 1 ] ) ;
+  for ( int i = 0 ;
+  i < numbers . size ( ) ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < numbers . size ( ) ;
+    j ++ ) {
+      if ( abs ( numbers [ i ] - numbers [ j ] ) < distance ) {
+        closestPair [ 0 ] = numbers [ i ] ;
+        closestPair [ 1 ] = numbers [ j ] ;
+        distance = abs ( numbers [ i ] - numbers [ j ] ) ;
+      }
+    }
+  }
+  sort ( closestPair . begin ( ) , closestPair . end ( ) ) ;
+  return closestPair ;
+}
+
+***Example ends here:
+vector < double > rescaleToUnit ( vector < double > numbers ) {
+  double minNum = std :: min ( numbers . begin ( ) , numbers . end ( ) ) ;
+  double maxNum = std :: max ( numbers . begin ( ) , numbers . end ( ) ) ;
+  vector < double > result ;
+  for ( auto n : numbers ) result . push_back ( ( n - minNum ) / ( maxNum - minNum ) ) ;
+  return result ;
+}
+
+***Example ends here:
+std :: vector < int > filterIntergers ( std :: vector < var > values ) {
+  std :: vector < int > result ;
+  for ( var e : values ) {
+    if ( e . isInteger ( ) ) result . push_back ( e ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+vector < int > removeDuplicates ( vector < int > numbers ) {
+  unordered_map < int , int > c ;
+  for ( auto i : numbers ) c [ i ] = c . at ( i ) + 1 ;
+  vector < int > result ;
+  for ( auto i : numbers ) {
+    if ( c . at ( i ) == 1 ) result . push_back ( i ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+String flipCase ( String s ) {
+  StringBuilder result ;
+  for ( UChar c : s ) {
+    if ( isASCIIUpper ( c ) ) result . append ( toASCIIUpper ( c ) ) ;
+    else result . append ( toASCIILower ( c ) ) ;
+  }
+  return result . toString ( ) ;
+}
+
+***Example ends here:
+QStringList filterByPrefix ( QStringList strings , QString prefix ) {
+  QStringList result ;
+  for ( int i = 0 ;
+  i < strings . count ( ) ;
+  ++ i ) {
+    if ( strings . at ( i ) . startsWith ( prefix ) ) result << strings . at ( i ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+double findZero ( std :: vector < double > xs ) {
+  double ans = 0 ;
+  double value = 0 ;
+  for ( int i = 0 ;
+  i < xs . size ( ) ;
+  i ++ ) value += xs [ i ] * pow ( ans , i ) ;
+  while ( fabs ( value ) > 1e - 6 ) {
+    double driv = 0 ;
+    for ( int i = 1 ;
+    i < xs . size ( ) ;
+    i ++ ) driv += xs [ i ] * pow ( ans , i - 1 ) * i ;
+    ans -= value / driv ;
+    value = 0 ;
+    for ( int i = 0 ;
+    i < xs . size ( ) ;
+    i ++ ) value += xs [ i ] * pow ( ans , i ) ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+vector < int > sortThird ( vector < int > l ) {
+  vector < int > thirds ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i += 3 ) thirds . push_back ( l [ i ] ) ;
+  sort ( thirds . begin ( ) , thirds . end ( ) ) ;
+  vector < int > result ;
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    if ( i % 3 == 0 ) result . push_back ( thirds [ i / 3 ] ) ;
+    else result . push_back ( l [ i ] ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+vector < int > unique ( vector < int > l ) {
+  vector < int > result ( {
+    l . begin ( ) , l . end ( ) }
+    ) ;
+    sort ( result . begin ( ) , result . end ( ) ) ;
+    return result ;
+  }
+  
+***Example ends here:
+double max_element ( list < double > l ) {
+  return std :: max ( l . begin ( ) , l . end ( ) ) ;
+}
+
+***Example ends here:
+bool triplesSumToZero ( std :: vector < int > l ) {
+  for ( int i = 0 ;
+  i < l . size ( ) ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < l . size ( ) ;
+    j ++ ) {
+      for ( int k = j + 1 ;
+      k < l . size ( ) ;
+      k ++ ) {
+        if ( l [ i ] + l [ j ] + l [ k ] == 0 ) {
+          return true ;
+        }
+      }
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+int fib4 ( int n ) {
+  std :: vector < int > results ( std :: vector < int > {
+    0 , 0 , 2 , 0 }
+    ) ;
+    for ( int i = 4 ;
+    i <= n ;
+    i ++ ) results [ i ] = results [ i - 4 ] + results [ i - 3 ] + results [ i - 2 ] + results [ i - 1 ] ;
+    return results [ n ] ;
+  }
+  
+***Example ends here:
+bool isPalindrome ( string text ) {
+  string pr = string ( text ) . reverse ( ) . str ( ) ;
+  return pr == text ;
+}
+
+***Example ends here:
+String removeVowels ( String text ) {
+  String result ;
+  String vowels = "aeiou" ;
+  for ( char ch : text ) {
+    if ( vowels . indexOf ( std :: tolower ( ch ) ) == - 1 ) result += ch ;
+  }
+  return result ;
+}
+
+***Example ends here:
+bool sameChars ( std :: string s0 , std :: string s1 ) {
+  std :: set < char > set0 ;
+  for ( char c : s0 ) set0 . insert ( c ) ;
+  std :: set < char > set1 ;
+  for ( char c : s1 ) set1 . insert ( c ) ;
+  return set0 == set1 ;
+}
+
+***Example ends here:
+vector < int > common ( vector < int > l1 , vector < int > l2 ) {
+  set < int > us ;
+  for ( auto e1 : l1 ) {
+    for ( auto e2 : l2 ) {
+      if ( e1 == e2 ) us . insert ( e1 ) ;
+    }
+  }
+  vector < int > ret ( us ) ;
+  sort ( ret . begin ( ) , ret . end ( ) ) ;
+  return ret ;
+}
+
+***Example ends here:
+bool correctBracketing ( string brackets ) {
+  int depth = 0 ;
+  for ( char b : brackets ) {
+    if ( b == '(' ) depth += 1 ;
+    if ( b == ')' ) depth -= 1 ;
+    if ( depth < 0 ) return false ;
+  }
+  return depth == 0 ;
+}
+
+***Example ends here:
+String circularShift ( int x , int shift ) {
+  String xs = String ( x ) ;
+  if ( shift > xs . length ( ) ) return String ( xs ) . reverse ( ) ;
+  return xs . substr ( xs . length ( ) - shift ) + xs . substr ( 0 , xs . length ( ) - shift ) ;
+}
+
+***Example ends here:
+int search ( list < int > lst ) {
+  unordered_map < int , int > counter ;
+  for ( int i : lst ) counter [ i ] = counter . getOrDefault ( i , 0 ) + 1 ;
+  int ans = - 1 ;
+  for ( var item : counter ) {
+    if ( item . second >= item . first && item . first > ans ) ans = item . first ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int smallestChange ( vector < int > arr ) {
+  int ans = 0 ;
+  for ( int i = 0 ;
+  i < arr . size ( ) / 2 ;
+  i ++ ) {
+    if ( ! arr [ i ] ) ans += 1 ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+vector < string > totalMatch ( vector < string > lst1 , vector < string > lst2 ) {
+  int sum1 = 0 ;
+  for ( var st : lst1 ) sum1 += st . length ( ) ;
+  int sum2 = 0 ;
+  for ( var st : lst2 ) sum2 += st . length ( ) ;
+  return sum1 > sum2 ? lst2 : lst1 ;
+}
+
+***Example ends here:
+bool isHappy ( string s ) {
+  if ( s . length ( ) < 3 ) {
+    return false ;
+  }
+  for ( int i = 0 ;
+  i < s . length ( ) - 2 ;
+  i ++ ) {
+    if ( s [ i ] == s [ i + 1 ] || s [ i ] == s [ i + 2 ] || s [ i + 1 ] == s [ i + 2 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+vector < string > numericalLetterGrade ( vector < double > grades ) {
+  vector < string > letterGrade ;
+  for ( double gpa : grades ) {
+    if ( gpa == 4.0 ) letterGrade . push_back ( "A+" ) ;
+    else if ( gpa > 3.7 ) letterGrade . push_back ( "A" ) ;
+    else if ( gpa > 3.3 ) letterGrade . push_back ( "A-" ) ;
+    else if ( gpa > 3.0 ) letterGrade . push_back ( "B+" ) ;
+    else if ( gpa > 2.7 ) letterGrade . push_back ( "B" ) ;
+    else if ( gpa > 2.3 ) letterGrade . push_back ( "B-" ) ;
+    else if ( gpa > 2.0 ) letterGrade . push_back ( "C+" ) ;
+    else if ( gpa > 1.7 ) letterGrade . push_back ( "C" ) ;
+    else if ( gpa > 1.3 ) letterGrade . push_back ( "C-" ) ;
+    else if ( gpa > 1.0 ) letterGrade . push_back ( "D+" ) ;
+    else if ( gpa > 0.7 ) letterGrade . push_back ( "D" ) ;
+    else if ( gpa > 0.0 ) letterGrade . push_back ( "D-" ) ;
+    else letterGrade . push_back ( "E" ) ;
+  }
+  return letterGrade ;
+}
+
+***Example ends here:
+string solve ( int n ) {
+  string biStr ;
+  int sum = 0 ;
+  for ( char c : string ( n ) ) sum += c - '0' ;
+  while ( sum > 0 ) {
+    biStr . insert ( biStr . begin ( ) , sum % 2 ) ;
+    sum /= 2 ;
+  }
+  return biStr ;
+}
+
+***Example ends here:
+string antiShuffle ( string s ) {
+  string ret ;
+  string current ;
+  for ( int i = 0 ;
+  i <= s . length ( ) ;
+  i ++ ) {
+    if ( i == s . length ( ) || s [ i ] == ' ' ) {
+      char * tmp = current . c_str ( ) ;
+      std :: sort ( tmp , tmp + s . length ( ) ) ;
+      if ( ! ret . empty ( ) ) ret += ' ' ;
+      ret += string ( tmp , tmp + s . length ( ) ) ;
+      current . clear ( ) ;
+    }
+    else {
+      current += s [ i ] ;
+    }
+  }
+  return ret ;
+}
+
+***Example ends here:
+void sortArray ( std :: vector < int > array ) {
+  if ( array . empty ( ) ) return ;
+  if ( ( array [ 0 ] + array [ array . size ( ) - 1 ] ) % 2 == 1 ) std :: sort ( array . begin ( ) , array . end ( ) ) ;
+  else array . sort ( std :: greater < int > ( ) ) ;
+}
+
+***Example ends here:
+string encrypt ( string s ) {
+  string ans ;
+  for ( char c : s ) {
+    if ( isalpha ( c ) ) ans . push_back ( ( char ) ( 'a' + ( c - 'a' + 4 ) % 26 ) ) ;
+    else ans . push_back ( c ) ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int isBored ( string s ) {
+  bool isStart = true ;
+  int sum = 0 ;
+  for ( int i = 0 ;
+  i < s . length ( ) ;
+  i ++ ) {
+    if ( s [ i ] == '.' || s [ i ] == '?' || s [ i ] == '!' ) isStart = true ;
+    else if ( isStart ) {
+      if ( s [ i ] == ' ' ) continue ;
+      if ( s . startsWith ( "I " , i ) ) sum += 1 ;
+      isStart = false ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+string encode ( string message ) {
+  string vowels = "aeiouAEIOU" ;
+  string ret ;
+  for ( char c : message ) {
+    if ( isupper ( c ) ) {
+      c = tolower ( c ) ;
+      if ( vowels . find ( c ) != string :: npos ) c = char ( 'a' + ( c - 'a' + 2 ) % 26 ) ;
+    }
+    else if ( islower ( c ) ) {
+      c = toupper ( c ) ;
+      if ( vowels . find ( c ) != string :: npos ) c = char ( 'A' + ( c - 'A' + 2 ) % 26 ) ;
+    }
+    ret += c ;
+  }
+  return ret ;
+}
+
+***Example ends here:
+int skjkasdkd ( vector < int > lst ) {
+  int largest = 0 ;
+  for ( int n : lst ) {
+    if ( n > largest ) {
+      bool prime = true ;
+      for ( int i = 2 ;
+      i < n ;
+      i ++ ) {
+        if ( n % i == 0 ) prime = false ;
+      }
+      if ( prime ) largest = n ;
+    }
+  }
+  int sum = 0 ;
+  string s = to_string ( largest ) ;
+  for ( int i = 0 ;
+  i < s . size ( ) ;
+  i ++ ) sum += s [ i ] - '0' ;
+  return sum ;
+}
+
+***Example ends here:
+bool checkDictCase ( std :: unordered_map < std :: string , std :: string > dict ) {
+  if ( dict . empty ( ) ) {
+    return false ;
+  }
+  int isLower = 0 ;
+  int isUpper = 0 ;
+  for ( var key : dict ) {
+    for ( char c : key ) {
+      if ( islower ( c ) ) {
+        isLower = 1 ;
+      }
+      else if ( isupper ( c ) ) {
+        isUpper = 1 ;
+      }
+      else {
+        return false ;
+      }
+    }
+  }
+  return isLower + isUpper == 1 ;
+}
+
+***Example ends here:
+int multiply ( int a , int b ) {
+  return ( abs ( a ) % 10 ) * ( abs ( b ) % 10 ) ;
+}
+
+***Example ends here:
+int countUpper ( string s ) {
+  string uVowel = "AEIOU" ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < s . size ( ) ;
+  i += 2 ) {
+    if ( uVowel . find ( s [ i ] ) != string :: npos ) count += 1 ;
+  }
+  return count ;
+}
+
+***Example ends here:
+vector < string > byLength ( vector < int > arr ) {
+  unordered_map < int , string > numTo = {
+    {
+      1 , "One" }
+      , {
+        2 , "Two" }
+        , {
+          3 , "Three" }
+          , {
+            4 , "Four" }
+            , {
+              5 , "Five" }
+              , {
+                6 , "Six" }
+                , {
+                  7 , "Seven" }
+                  , {
+                    8 , "Eight" }
+                    , {
+                      9 , "Nine" }
+                    }
+                    ;
+                    vector < int > sortedArr ( arr . begin ( ) , arr . end ( ) ) ;
+                    sort ( sortedArr . begin ( ) , sortedArr . end ( ) ) ;
+                    vector < string > newArr ;
+                    for ( int n : sortedArr ) {
+                      if ( n >= 1 && n <= 9 ) newArr . push_back ( numTo [ n ] ) ;
+                    }
+                    return newArr ;
+                  }
+                  
+***Example ends here:
+vector < int > f ( int n ) {
+  int sum = 0 ;
+  int prod = 1 ;
+  vector < int > result ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    sum += i ;
+    prod *= i ;
+    if ( i % 2 == 0 ) result . push_back ( prod ) ;
+    else result . push_back ( sum ) ;
+  }
+  return result ;
+}
+
+***Example ends here:
+vector < int > evenOddPalindrome ( int n ) {
+  int evenCount = 0 , oddCount = 0 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    string s = to_string ( i ) ;
+    string rStr = string ( s ) . reverse ( ) ;
+    if ( s == rStr ) {
+      if ( i % 2 == 1 ) oddCount += 1 ;
+      else evenCount += 1 ;
+    }
+  }
+  return vector < int > {
+    evenCount , oddCount }
+    ;
+  }
+  
+***Example ends here:
+map < char , int > histogram ( string test ) {
+  unordered_map < char , int > count ;
+  int max = 0 ;
+  for ( int i = 0 ;
+  i < test . size ( ) ;
+  i ++ ) {
+    if ( test [ i ] != ' ' ) {
+      count [ test [ i ] ] = count . getOrDefault ( test [ i ] , 0 ) + 1 ;
+      if ( count [ test [ i ] ] > max ) max = count [ test [ i ] ] ;
+    }
+  }
+  unordered_map < char , int > result ;
+  for ( var item : count ) {
+    if ( item . second == max ) result [ item . first ] = item . second ;
+  }
+  return result ;
+}
+
+***Example ends here:
+foreach ( QChar ch , s ) {
+  if ( c . indexOf ( ch ) == - 1 ) ret << ch ;
+}
+
+***Example ends here:
+vector < int > sortArray ( vector < int > arr ) {
+  vector < int > bin ;
+  for ( int i : arr ) {
+    int b = 0 ;
+    int n = abs ( i ) ;
+    while ( n > 0 ) {
+      b += n % 2 ;
+      n /= 2 ;
+    }
+    bin . push_back ( b ) ;
+  }
+  for ( int i = 0 ;
+  i < arr . size ( ) ;
+  i ++ ) {
+    for ( int j = 1 ;
+    j < arr . size ( ) ;
+    j ++ ) {
+      if ( bin [ j ] < bin [ j - 1 ] || ( bin [ j ] == bin [ j - 1 ] && arr [ j ] < arr [ j - 1 ] ) ) {
+        swap ( bin [ j ] , bin [ j - 1 ] ) ;
+        swap ( arr [ j ] , arr [ j - 1 ] ) ;
+      }
+    }
+  }
+  return arr ;
+}
+
+***Example ends here:
+string getClosestVowel ( string word ) {
+  string vowels = "AEIOUaeiou" ;
+  for ( int i = word . size ( ) - 2 ;
+  i > 0 ;
+  i -- ) {
+    if ( vowels . find ( word [ i ] ) != string :: npos && vowels . find ( word [ i + 1 ] ) == string :: npos && vowels . find ( word [ i - 1 ] ) == string :: npos ) {
+      return string ( word [ i ] ) ;
+    }
+  }
+  return "" ;
+}
+
+***Example ends here:
+String matchParens ( std :: vector < std :: string > lst ) {
+  std :: vector < std :: string > strings = std :: vector < std :: string > {
+    lst [ 0 ] + lst [ 1 ] , lst [ 1 ] + lst [ 0 ] }
+    ;
+    for ( var l : strings ) {
+      int count = 0 ;
+      for ( char c : l ) {
+        if ( c == '(' ) count += 1 ;
+        else count -= 1 ;
+        if ( count < 0 ) break ;
+      }
+      if ( count == 0 ) return "Yes" ;
+    }
+    return "No" ;
+  }
+  
+***Example ends here:
+vector < int > maximum ( vector < int > arr , int k ) {
+  if ( k == 0 ) {
+    return {
+    }
+    ;
+  }
+  sort ( arr . begin ( ) , arr . end ( ) ) ;
+  return arr [ arr . size ( ) - k ] ;
+}
+
+***Example ends here:
+bool valid_date ( string date ) {
+  if ( date . length ( ) != 10 ) {
+    return false ;
+  }
+  for ( int i = 0 ;
+  i < 10 ;
+  i ++ ) {
+    if ( i == 2 || i == 5 ) {
+      if ( date [ i ] != '-' ) {
+        return false ;
+      }
+    }
+    else if ( ! isdigit ( date [ i ] ) ) {
+      return false ;
+    }
+  }
+  int month = atoi ( date . substr ( 0 , 2 ) . c_str ( ) ) ;
+  int day = atoi ( date . substr ( 3 , 5 ) . c_str ( ) ) ;
+  int year = atoi ( date . substr ( 6 , 10 ) . c_str ( ) ) ;
+  if ( month < 1 || month > 12 ) {
+    return false ;
+  }
+  if ( day < 1 || day > 31 ) {
+    return false ;
+  }
+  if ( day == 31 && ( month == 4 || month == 6 || month == 9 || month == 11 || month == 2 ) ) {
+    return false ;
+  }
+  if ( day == 30 && month == 2 ) {
+    return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+Object splitWords ( string txt ) {
+  string current ;
+  vector < string > result ;
+  if ( txt . find ( ' ' ) != string :: npos ) {
+    for ( int i = 0 ;
+    i <= txt . length ( ) ;
+    i ++ ) {
+      if ( i == txt . length ( ) || txt [ i ] == ' ' ) {
+        if ( current . size ( ) > 0 ) result . push_back ( current ) ;
+        current . clear ( ) ;
+      }
+      else current . push_back ( txt [ i ] ) ;
+    }
+    return result ;
+  }
+  if ( txt . find ( ',' ) != string :: npos ) {
+    for ( int i = 0 ;
+    i <= txt . length ( ) ;
+    i ++ ) {
+      if ( i == txt . length ( ) || txt [ i ] == ',' ) {
+        if ( current . size ( ) > 0 ) result . push_back ( current ) ;
+        current . clear ( ) ;
+      }
+      else current . push_back ( txt [ i ] ) ;
+    }
+    return result ;
+  }
+  int num = 0 ;
+  for ( char c : txt ) {
+    if ( islower ( c ) && c % 2 == 0 ) num += 1 ;
+  }
+  return vector < string > ( string ( num , ' ' ) ) ;
+}
+
+***Example ends here:
+vector < int > tri ( int n ) {
+  if ( n == 0 ) return vector < int > {
+    1 }
+    ;
+    vector < int > tris ( vector < int > {
+      1 , 3 }
+      ) ;
+      for ( int i = 2 ;
+      i <= n ;
+      i ++ ) {
+        if ( i % 2 == 0 ) tris [ i / 2 + 1 ] = i ;
+        else tris [ i ] = tris [ i - 1 ] + tris [ i - 2 ] + ( i + 3 ) / 2 ;
+      }
+      return tris ;
+    }
+    
+***Example ends here:
+bool checkIfLastCharIsALetter ( string txt ) {
+  if ( txt . empty ( ) ) {
+    return false ;
+  }
+  return isLetter ( txt [ txt . length ( ) - 1 ] ) && ( txt . length ( ) == 1 || ! isLetter ( txt [ txt . length ( ) - 2 ] ) ) ;
+}
+
+***Example ends here:
+vector < int > orderByPoints ( vector < int > nums ) {
+  vector < int > result ;
+  for ( int num : nums ) {
+    string w = to_string ( abs ( num ) ) ;
+    int sum = 0 ;
+    for ( char c : w ) sum += c - '0' ;
+    if ( num < 0 ) sum -= 2 * ( w [ 0 ] - '0' ) ;
+    result . push_back ( sum ) ;
+  }
+  for ( int i = 0 ;
+  i < nums . size ( ) ;
+  i ++ ) {
+    for ( int j = 1 ;
+    j < nums . size ( ) ;
+    j ++ ) {
+      if ( result [ j - 1 ] > result [ j ] ) {
+        swap ( result [ j ] , result [ j - 1 ] ) ;
+        swap ( nums [ j ] , nums [ j - 1 ] ) ;
+      }
+    }
+  }
+  return nums ;
+}
+
+***Example ends here:
+vector < string > bf ( string planet1 , string planet2 ) {
+  vector < string > planets = {
+    "Mercury" , "Venus" , "Earth" , "Mars" , "Jupiter" , "Saturn" , "Uranus" , "Neptune" }
+    ;
+    auto idx1 = planets . find ( planet1 ) ;
+    auto idx2 = planets . find ( planet2 ) ;
+    if ( idx1 == string :: npos || idx2 == string :: npos || idx1 == idx2 ) {
+      return {
+      }
+      ;
+    }
+    return idx1 > idx2 ? planets . substr ( idx2 + 1 , idx1 - idx2 - 1 ) : planets . substr ( idx1 + 1 , idx2 - idx1 - 1 ) ;
+  }
+  
+***Example ends here:
+foreach ( var i , lst ) {
+  if ( i . length ( ) % 2 == 0 ) result . append ( i ) ;
+}
+
+***Example ends here:
+bool cycpatternCheck ( string a , string b ) {
+  for ( int i = 0 ;
+  i <= b . length ( ) ;
+  i ++ ) {
+    string rotate = b . substr ( i ) + b . substr ( 0 , i ) ;
+    if ( a . find ( rotate ) != string :: npos ) {
+      return true ;
+    }
+  }
+  return false ;
+}
+
+***Example ends here:
+vector < int > evenOddCount ( int num ) {
+  int evenCount = 0 , oddCount = 0 ;
+  for ( char i : string ( abs ( num ) ) . c_str ( ) ) {
+    if ( i % 2 == 0 ) evenCount += 1 ;
+    else oddCount += 1 ;
+  }
+  return vector < int > {
+    evenCount , oddCount }
+    ;
+  }
+  
+***Example ends here:
+string findMax ( vector < string > words ) {
+  string max = "" ;
+  int maxLength = 0 ;
+  for ( var word : words ) {
+    vector < char > unique ;
+    for ( char w : word ) {
+      if ( ! unique . find ( w ) ) unique . push_back ( w ) ;
+    }
+    if ( unique . size ( ) > maxLength || ( unique . size ( ) == maxLength && word < max ) ) {
+      max = word ;
+      maxLength = unique . size ( ) ;
+    }
+  }
+  return max ;
+}
+
+***Example ends here:
+string solve ( string s ) {
+  bool noLetter = true ;
+  string result ;
+  for ( char ch : s ) {
+    if ( isupper ( ch ) ) {
+      ch = tolower ( ch ) ;
+      noLetter = false ;
+    }
+    else if ( islower ( ch ) ) {
+      ch = toupper ( ch ) ;
+      noLetter = false ;
+    }
+    result += ch ;
+  }
+  if ( noLetter ) return result . reverse ( ) . string ( ) ;
+  else return result ;
+}
+
+***Example ends here:
+int mostFrequent ( std :: vector < int > arr , int n ) {
+  std :: unordered_map < int , int > hp ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( hp . count ( arr [ i ] ) ) hp [ arr [ i ] ] = hp [ arr [ i ] ] + 1 ;
+    else hp [ arr [ i ] ] = 1 ;
+  }
+  int maxCount = 0 , res = - 1 ;
+  for ( var & entry : hp ) {
+    if ( maxCount < entry . second ) {
+      res = entry . first ;
+      maxCount = entry . second ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int find ( vector < int > a , vector < int > b , int k , int n1 , int n2 ) {
+  set < int > s ;
+  for ( int i = 0 ;
+  i < n2 ;
+  i ++ ) s . insert ( b [ i ] ) ;
+  int missing = 0 ;
+  for ( int i = 0 ;
+  i < n1 ;
+  i ++ ) {
+    if ( ! s . count ( a [ i ] ) ) missing ++ ;
+    if ( missing == k ) return a [ i ] ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+int solveQuery ( int start , int end , std :: vector < int > arr ) {
+  std :: unordered_map < int , int > mp ;
+  for ( int i = start ;
+  i <= end ;
+  i ++ ) mp [ arr [ i ] ] = mp . getOrDefault ( arr [ i ] , 0 ) + 1 ;
+  int count = 0 ;
+  for ( var it : mp ) {
+    if ( it . first == it . second ) count ++ ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int segregate ( std :: vector < int > arr , int size ) {
+  int j = 0 ;
+  for ( int i = 0 ;
+  i < size ;
+  i ++ ) {
+    if ( arr [ i ] <= 0 ) {
+      std :: swap ( arr [ i ] , arr [ j ] ) ;
+      j ++ ;
+    }
+  }
+  return j ;
+}
+
+***Example ends here:
+int countTriplets ( vector < int > a , int n ) {
+  set < int > s ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) s . insert ( a [ i ] ) ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    j ++ ) {
+      int xr = a [ i ] ^ a [ j ] ;
+      if ( s . count ( xr ) && xr != a [ i ] && xr != a [ j ] ) count ++ ;
+    }
+  }
+  return count / 3 ;
+}
+
+***Example ends here:
+int leastFrequent ( vector < int > arr , int n ) {
+  unordered_map < int , int > hp ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( hp . count ( arr [ i ] ) ) hp [ arr [ i ] ] = hp [ arr [ i ] ] + 1 ;
+    else hp [ arr [ i ] ] = 1 ;
+  }
+  int minCount = n + 1 , res = - 1 ;
+  for ( var it = hp . begin ( ) ;
+  it != hp . end ( ) ;
+  it ++ ) {
+    if ( minCount >= it -> second ) {
+      res = it -> first ;
+      minCount = it -> second ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+int findPermutations ( vector < int > arr ) {
+  int cnt = 0 ;
+  int maxInd = - 1 , minInd = 10000000 ;
+  int n = arr . size ( ) ;
+  unordered_map < int , int > indexOf ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) indexOf [ arr [ i ] ] = i + 1 ;
+  for ( int i = 1 ;
+  i <= n ;
+  i ++ ) {
+    maxInd = max ( maxInd , indexOf . find ( i ) -> second ) ;
+    minInd = min ( minInd , indexOf . find ( i ) -> second ) ;
+    if ( maxInd - minInd + 1 == i ) cnt ++ ;
+  }
+  return cnt ;
+}
+
+***Example ends here:
+int formQuadruplets ( std :: vector < int > arr , int n ) {
+  int ans = 0 , pairs ;
+  pairs = n / 4 ;
+  arr . sort ( std :: greater < int > ( ) ) ;
+  for ( int i = 0 ;
+  i < n - pairs ;
+  i += 3 ) ans += arr [ i + 2 ] ;
+  return ans ;
+}
+
+***Example ends here:
+string lexicographicallyMaximum ( string s , int n ) {
+  unordered_map < char , int > m ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    if ( m . count ( s [ i ] ) ) m [ s [ i ] ] = m [ s [ i ] ] + 1 ;
+    else m [ s [ i ] ] = 1 ;
+  }
+  vector < char > v ;
+  for ( char i = 'a' ;
+  i < 'a' + min ( n , 25 ) ;
+  ++ i ) {
+    if ( ! m . count ( i ) ) v . push_back ( i ) ;
+  }
+  int j = v . size ( ) - 1 ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    if ( s [ i ] >= 'a' + min ( n , 25 ) || ( m . count ( s [ i ] ) && m [ s [ i ] ] > 1 ) ) {
+      if ( v [ j ] < s [ i ] ) continue ;
+      m [ s [ i ] ] = m [ s [ i ] ] - 1 ;
+      s = s . substr ( 0 , i ) + v [ j ] + s . substr ( i + 1 ) ;
+      j -- ;
+    }
+    if ( j < 0 ) break ;
+  }
+  int l = 0 ;
+  for ( int i = n - 1 ;
+  i >= 0 ;
+  -- i ) {
+    if ( l > j ) break ;
+    if ( s [ i ] >= 'a' + min ( n , 25 ) || m . count ( s [ i ] ) && m [ s [ i ] ] > 1 ) {
+      m [ s [ i ] ] = m [ s [ i ] ] - 1 ;
+      s = s . substr ( 0 , i ) + v [ l ] + s . substr ( i + 1 ) ;
+      l ++ ;
+    }
+  }
+  return s ;
+}
+
+***Example ends here:
+int noOfValidKbers ( int k , vector < int > arr ) {
+  set < int > s ;
+  while ( k != 0 ) {
+    s . insert ( k % 10 ) ;
+    k = k / 10 ;
+  }
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < arr . size ( ) ;
+  i ++ ) {
+    int no = arr [ i ] ;
+    bool flag = true ;
+    while ( no != 0 ) {
+      int digit = no % 10 ;
+      if ( ! s . count ( digit ) ) {
+        flag = false ;
+        break ;
+      }
+      no = no / 10 ;
+    }
+    if ( flag ) count ++ ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int delCost ( string s , vector < int > cost ) {
+  int ans = 0 ;
+  unordered_map < char , int > forMax ;
+  unordered_map < char , int > forTot ;
+  for ( int i = 0 ;
+  i < s . size ( ) ;
+  i ++ ) {
+    if ( ! forMax . count ( s [ i ] ) ) forMax [ s [ i ] ] = cost [ i ] ;
+    else forMax [ s [ i ] ] = max ( cost [ i ] , forMax [ s [ i ] ] ) ;
+    if ( ! forTot . count ( s [ i ] ) ) forTot [ s [ i ] ] = cost [ i ] ;
+    else forTot [ s [ i ] ] = forTot [ s [ i ] ] + cost [ i ] ;
+  }
+  for ( var i : forMax ) ans += forTot [ i [ 0 ] ] - i [ 1 ] ;
+  return ans ;
+}
+
+***Example ends here:
+void replaceDuplicates ( std :: vector < std :: string > names ) {
+  std :: unordered_map < std :: string , int > hash ;
+  for ( int i = 0 ;
+  i < names . size ( ) ;
+  i ++ ) {
+    if ( ! hash . count ( names [ i ] ) ) {
+      hash [ names [ i ] ] = 1 ;
+    }
+    else {
+      int count = hash [ names [ i ] ] ;
+      hash [ names [ i ] ] = hash [ names [ i ] ] + 1 ;
+      names [ i ] = names [ i ] + std :: to_string ( count ) ;
+    }
+  }
+}
+
+***Example ends here:
+vector < int > minmaxNumbers ( vector < vector < int >> matrix , vector < int > res ) {
+  set < int > set ;
+  for ( int i = 0 ;
+  i < matrix . size ( ) ;
+  i ++ ) {
+    int minR = INT_MAX ;
+    for ( int j = 0 ;
+    j < matrix [ i ] . size ( ) ;
+    j ++ ) minR = min ( minR , matrix [ i ] [ j ] ) ;
+    set . insert ( minR ) ;
+  }
+  for ( int j = 0 ;
+  j < matrix [ 0 ] . size ( ) ;
+  j ++ ) {
+    int maxC = INT_MIN ;
+    for ( int i = 0 ;
+    i < matrix . size ( ) ;
+    i ++ ) maxC = max ( maxC , matrix [ i ] [ j ] ) ;
+    if ( set . count ( maxC ) ) res . push_back ( maxC ) ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int lengthOfLongestAP ( vector < int > a , int n ) {
+  unordered_map < int , unordered_map < int , int >> dp ;
+  int res = 2 ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    for ( int j = i + 1 ;
+    j < n ;
+    ++ j ) {
+      int d = a [ j ] - a [ i ] ;
+      if ( dp . count ( d ) ) {
+        if ( dp [ d ] . count ( i ) ) dp [ d ] [ j ] = dp [ d ] [ i ] + 1 ;
+        else dp [ d ] [ j ] = 2 ;
+      }
+      else {
+        dp [ d ] [ j ] = {
+        }
+        ;
+        dp [ d ] [ j ] = 2 ;
+      }
+      res = max ( res , dp [ d ] [ j ] ) ;
+    }
+  }
+  return res ;
+}
+
+***Example ends here:
+char findKthChar ( int n , int k ) {
+  string prev = "A" ;
+  string cur ;
+  if ( n == 1 ) {
+    return 'A' ;
+  }
+  for ( int j = 2 ;
+  j <= n ;
+  j ++ ) {
+    cur = prev + "B" ;
+    for ( int i = 0 ;
+    i < prev . size ( ) ;
+    i ++ ) {
+      if ( prev [ i ] == 'A' ) {
+        prev [ i ] = 'B' + prev [ i + 1 ] ;
+      }
+      else {
+        prev [ i ] = 'A' + prev [ i + 1 ] ;
+      }
+    }
+    prev = string ( prev . begin ( ) , prev . end ( ) ) ;
+    cur += prev ;
+    prev = cur ;
+  }
+  return cur [ k - 1 ] ;
+}
+
+***Example ends here:
+char findKthLargest ( string s , int k ) {
+  vector < char > tmp = s . chars ( ) ;
+  sort ( tmp . begin ( ) , tmp . end ( ) ) ;
+  reverse ( tmp . begin ( ) , tmp . end ( ) ) ;
+  return tmp [ k - 1 ] ;
+}
+
+***Example ends here:
+int subArraylen ( vector < int > arr , int n , int k ) {
+  unordered_map < int , int > mp ;
+  mp [ arr [ 0 ] ] = 0 ;
+  for ( int i = 1 ;
+  i < n ;
+  i ++ ) {
+    arr [ i ] = arr [ i ] + arr [ i - 1 ] ;
+    mp [ arr [ i ] ] = i ;
+  }
+  int len = INT_MAX ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( arr [ i ] < k ) continue ;
+    else {
+      int x = arr [ i ] - k ;
+      if ( x == 0 ) len = min ( len , i ) ;
+      if ( ! mp . count ( x ) ) continue ;
+      else len = min ( len , i - mp [ x ] ) ;
+    }
+  }
+  return len ;
+}
+
+***Example ends here:
+int findMaxLen ( vector < int > a , int k ) {
+  int n = a . size ( ) ;
+  sort ( a . begin ( ) , a . end ( ) ) ;
+  vector < bool > vis ( n , false ) ;
+  unordered_map < int , int > mp ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) mp [ a [ i ] ] = i ;
+  int c = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( ! vis [ i ] ) {
+      int check = a [ i ] * k ;
+      if ( mp . count ( check ) ) {
+        c ++ ;
+        vis [ mp [ check ] ] = true ;
+      }
+    }
+  }
+  return n - c ;
+}
+
+***Example ends here:
+vector < int > minDistancePoints ( vector < int > a , int k , int n ) {
+  unordered_map < int , int > m ;
+  queue < int > q ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    m [ a [ i ] ] = 1 ;
+    q . push ( a [ i ] ) ;
+  }
+  vector < int > ans ;
+  while ( k > 0 ) {
+    int x = q . front ( ) ;
+    if ( ! m . count ( x - 1 ) && k > 0 ) {
+      m [ x - 1 ] = 1 ;
+      q . push ( x - 1 ) ;
+      ans . push_back ( x - 1 ) ;
+      k -- ;
+    }
+    if ( ! m . count ( x + 1 ) && k > 0 ) {
+      m [ x + 1 ] = 1 ;
+      q . push ( x + 1 ) ;
+      ans . push_back ( x + 1 ) ;
+      k -- ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+bool isValidLen ( string s , int len , int k ) {
+  int n = s . length ( ) ;
+  unordered_map < char , int > mp ;
+  int right = 0 ;
+  while ( right < len ) {
+    if ( mp . count ( s [ right ] ) ) mp [ s [ right ] ] = mp [ s [ right ] ] + 1 ;
+    else mp [ s [ right ] ] = 1 ;
+    right ++ ;
+  }
+  if ( mp . size ( ) <= k ) return true ;
+  while ( right < n ) {
+    if ( mp . count ( s [ right ] ) ) mp [ s [ right ] ] = mp [ s [ right ] ] + 1 ;
+    else mp [ s [ right ] ] = 1 ;
+    if ( mp . count ( s [ right - len ] ) ) mp [ s [ right - len ] ] = mp [ s [ right - len ] ] - 1 ;
+    if ( mp [ s [ right - len ] ] == 0 ) mp . erase ( s [ right - len ] ) ;
+    if ( mp . size ( ) <= k ) return true ;
+    right ++ ;
+  }
+  return mp . size ( ) <= k ;
+}
+
+***Example ends here:
+int partition ( vector < int > arr , int low , int high ) {
+  int pivot = arr [ high ] ;
+  int i = ( low - 1 ) ;
+  for ( int j = low ;
+  j <= high - 1 ;
+  j ++ ) {
+    if ( arr [ j ] <= pivot ) {
+      i ++ ;
+      swap ( arr [ i ] , arr [ j ] ) ;
+    }
+  }
+  swap ( arr [ i + 1 ] , arr [ high ] ) ;
+  return i + 1 ;
+}
+
+***Example ends here:
+int strScore ( vector < string > strs , string s , int n ) {
+  unordered_map < string , int > m ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) m [ strs [ i ] ] = i + 1 ;
+  if ( ! m . count ( s ) ) return 0 ;
+  int score = 0 ;
+  for ( int i = 0 ;
+  i < s . size ( ) ;
+  i ++ ) score += s [ i ] - 'a' + 1 ;
+  score = score * m [ s ] ;
+  return score ;
+}
+
+***Example ends here:
+vector < int > countEle ( vector < int > s , vector < int > a , int n ) {
+  unordered_map < int , bool > mp ;
+  vector < int > ans ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    int num = a [ i ] ;
+    if ( mp . find ( num ) != mp . end ( ) ) {
+      ans . push_back ( 0 ) ;
+    }
+    else {
+      int cnt = 0 ;
+      while ( s [ 0 ] != num ) {
+        mp [ s [ 0 ] ] = true ;
+        s . erase ( s . begin ( ) ) ;
+        cnt ++ ;
+      }
+      s . erase ( s . begin ( ) ) ;
+      cnt ++ ;
+      ans . push_back ( cnt ) ;
+    }
+  }
+  return ans ;
+}
+
+***Example ends here:
+int maxDistinctChar ( string s , int n , int k ) {
+  unordered_map < char , int > freq ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( freq . find ( s [ i ] ) != freq . end ( ) ) freq [ s [ i ] ] = freq [ s [ i ] ] + 1 ;
+    else freq [ s [ i ] ] = 1 ;
+  }
+  vector < int > v ;
+  for ( var it : freq ) v . push_back ( it . second ) ;
+  sort ( v . begin ( ) , v . end ( ) ) ;
+  for ( int i = 0 ;
+  i < v . size ( ) ;
+  i ++ ) {
+    int mn = min ( v [ i ] - 1 , k ) ;
+    v [ i ] = v [ i ] - mn ;
+    k -= mn ;
+  }
+  if ( k > 0 ) {
+    for ( int i = 0 ;
+    i < v . size ( ) ;
+    i ++ ) {
+      int mn = min ( v [ i ] , k ) ;
+      v [ i ] = v [ i ] - mn ;
+      k -= mn ;
+    }
+  }
+  int res = 0 ;
+  for ( int i = 0 ;
+  i < v . size ( ) ;
+  i ++ ) {
+    if ( v [ i ] == 1 ) res ++ ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int findKth ( vector < int > arr , int n , int k ) {
+  set < int > missing ;
+  int count = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) missing . insert ( arr [ i ] ) ;
+  int maxM = max ( arr . begin ( ) , arr . end ( ) ) ;
+  int minM = min ( arr . begin ( ) , arr . end ( ) ) ;
+  for ( int i = minM + 1 ;
+  i < maxM ;
+  i ++ ) {
+    if ( ! missing . count ( i ) ) count ++ ;
+    if ( count == k ) return i ;
+  }
+  return - 1 ;
+}
+
+***Example ends here:
+bool almostSort ( vector < int > a , int n ) {
+  for ( int i = 0 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( a [ i ] > a [ i + 1 ] ) {
+      swap ( a [ i ] , a [ i + 1 ] ) ;
+      i ++ ;
+    }
+  }
+  for ( int i = 0 ;
+  i < n - 1 ;
+  i ++ ) {
+    if ( a [ i ] > a [ i + 1 ] ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int maximumSum ( string s , int n , int k ) {
+  int sum = 0 ;
+  vector < int > freq ( std :: nth_element ( s . begin ( ) , s . end ( ) , 0 ) , 0 ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) freq [ s [ i ] ] = freq [ s [ i ] ] + 1 ;
+  sort ( freq . begin ( ) , freq . end ( ) ) ;
+  for ( int i = 0 ;
+  i < 256 ;
+  i ++ ) {
+    if ( k > freq [ i ] ) {
+      sum += freq [ i ] * freq [ i ] ;
+      k -= freq [ i ] ;
+    }
+    else {
+      sum += freq [ i ] * k ;
+      break ;
+    }
+  }
+  return sum ;
+}
+
+***Example ends here:
+int findMinOperations ( std :: vector < int > arr , int N , int K ) {
+  int operations = 0 ;
+  for ( int i = 0 ;
+  i < K ;
+  i ++ ) {
+    std :: unordered_map < int , int > freq ;
+    for ( int j = i ;
+    j < N ;
+    j += K ) freq [ arr [ j ] ] = freq . getOrDefault ( arr [ j ] , 0 ) + 1 ;
+    int max1 = 0 , num = 0 ;
+    for ( var it : freq ) {
+      if ( it > max1 ) {
+        max1 = it ;
+        num = it ;
+      }
+    }
+    for ( var it : freq ) {
+      if ( it != num ) operations += it ;
+    }
+  }
+  return operations ;
+}
+
+***Example ends here:
+vector < string > subString ( string s , int n ) {
+  vector < string > v ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( int len = 1 ;
+    len <= n - i ;
+    len ++ ) {
+      string find = s . substr ( i , len ) ;
+      v . push_back ( find ) ;
+    }
+  }
+  return v ;
+}
+
+***Example ends here:
+bool checkUniqueFrequency ( std :: vector < int > arr , int n ) {
+  std :: unordered_map < int , int > freq ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) freq [ arr [ i ] ] = freq . getOrDefault ( arr [ i ] , 0 ) + 1 ;
+  std :: set < int > uniqueFreq ;
+  for ( var & entry : freq ) {
+    if ( uniqueFreq . find ( entry . second ) != uniqueFreq . end ( ) ) {
+      return false ;
+    }
+    else {
+      uniqueFreq . insert ( entry . second ) ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int minCost ( string str1 , string str2 , int n ) {
+  int cost = 0 ;
+  char * tmp = str1 . c_str ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( tmp [ i ] != str2 [ i ] ) {
+      if ( i < n - 1 && tmp [ i + 1 ] != str2 [ i + 1 ] ) {
+        char c = tmp [ i ] ;
+        tmp [ i ] = tmp [ i + 1 ] ;
+        tmp [ i + 1 ] = c ;
+        cost ++ ;
+      }
+      else cost ++ ;
+    }
+  }
+  return cost ;
+}
+
+***Example ends here:
+bool isValidNum ( string x ) {
+  unordered_map < int , int > mp ;
+  for ( int i = 0 ;
+  i < x . length ( ) ;
+  i ++ ) {
+    if ( mp . count ( x [ i ] - '0' ) == 0 ) {
+      return false ;
+    }
+    else if ( x [ i ] - '0' > 5 ) {
+      return false ;
+    }
+    else {
+      mp [ x [ i ] - '0' ] ++ ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+int minimizeDiff ( vector < int > arr , int n , int k ) {
+  int max = std :: max ( arr . begin ( ) , arr . end ( ) ) ;
+  int min = std :: min ( arr . begin ( ) , arr . end ( ) ) ;
+  if ( max - min <= k ) return max - min ;
+  int avg = ( max + min ) / 2 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( arr [ i ] > avg ) arr [ i ] = arr [ i ] - k ;
+    else arr [ i ] = arr [ i ] + k ;
+  }
+  max = std :: max ( arr . begin ( ) , arr . end ( ) ) ;
+  min = std :: min ( arr . begin ( ) , arr . end ( ) ) ;
+  return max - min ;
+}
+
+***Example ends here:
+int getMinCost ( std :: vector < int > arr , int n ) {
+  int minEle = std :: min ( arr . begin ( ) , arr . end ( ) ) ;
+  return minEle * ( n - 1 ) ;
+}
+
+***Example ends here:
+bool possibility ( unordered_map < int , int > m , int length , string s ) {
+  int countOdd = 0 ;
+  for ( int i = 0 ;
+  i < length ;
+  i ++ ) {
+    if ( ( m [ s [ i ] - '0' ] & 1 ) != 0 ) countOdd ++ ;
+    if ( countOdd > 1 ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int minimumCostOfBreaking ( vector < int > x , vector < int > y , int m , int n ) {
+  int res = 0 ;
+  sort ( x . begin ( ) , x . end ( ) ) ;
+  sort ( y . begin ( ) , y . end ( ) ) ;
+  int hzntl = 1 , vert = 1 ;
+  int i = 0 , j = 0 ;
+  while ( i < m && j < n ) {
+    if ( x [ i ] > y [ j ] ) {
+      res += x [ i ] * vert ;
+      hzntl ++ ;
+      i ++ ;
+    }
+    else {
+      res += y [ j ] * hzntl ;
+      vert ++ ;
+      j ++ ;
+    }
+  }
+  int total = 0 ;
+  while ( i < m ) total += x [ i ++ ] ;
+  res += total * vert ;
+  total = 0 ;
+  while ( j < n ) total += y [ j ++ ] ;
+  res += total * hzntl ;
+  return res ;
+}
+
+***Example ends here:
+int findMaximumScore ( vector < int > a , int n ) {
+  unordered_map < int , int > freq ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( freq . find ( a [ i ] ) != freq . end ( ) ) freq [ a [ i ] ] = freq [ a [ i ] ] + 1 ;
+    else freq [ a [ i ] ] = 1 ;
+  }
+  vector < int > dp ( std :: max_element ( a . begin ( ) , a . end ( ) ) + 1 , 0 ) ;
+  dp [ 0 ] = 0 ;
+  dp [ 1 ] = freq . getOrDefault ( 1 , 0 ) ;
+  for ( int i = 2 ;
+  i < dp . size ( ) ;
+  i ++ ) dp [ i ] = max ( dp [ i - 1 ] , dp [ i - 2 ] + freq . getOrDefault ( i , 0 ) * i ) ;
+  return dp [ dp . size ( ) - 1 ] ;
+}
+
+***Example ends here:
+int countWays ( string s , string t , int k , int mod ) {
+  int n = s . length ( ) ;
+  int a = 0 , b = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    string p = s . substr ( i , n - i ) + s . substr ( 0 , i ) ;
+    if ( p == t ) a ++ ;
+    else b ++ ;
+  }
+  int dp1 [ k + 1 ] ;
+  int dp2 [ k + 1 ] ;
+  if ( s == t ) {
+    dp1 [ 0 ] = 1 ;
+    dp2 [ 0 ] = 0 ;
+  }
+  else {
+    dp1 [ 0 ] = 0 ;
+    dp2 [ 0 ] = 1 ;
+  }
+  for ( int i = 1 ;
+  i <= k ;
+  i ++ ) {
+    dp1 [ i ] = ( ( dp1 [ i - 1 ] * ( a - 1 ) ) % mod + ( dp2 [ i - 1 ] * a ) % mod ) % mod ;
+    dp2 [ i ] = ( ( dp1 [ i - 1 ] * ( b ) ) % mod + ( dp2 [ i - 1 ] * ( b - 1 ) ) % mod ) % mod ;
+  }
+  return dp1 [ k ] ;
+}
+
+***Example ends here:
+int findSubarraySum ( vector < int > arr , int n , int k ) {
+  unordered_map < int , int > prevSum ;
+  int res = 0 ;
+  int currSum = 0 ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    currSum += arr [ i ] ;
+    if ( currSum == k ) res ++ ;
+    if ( prevSum . find ( currSum - k ) != prevSum . end ( ) ) res += prevSum [ currSum - k ] ;
+    prevSum [ currSum ] = prevSum . find ( currSum ) -> second + 1 ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int maximumOccurrence ( string s ) {
+  int n = s . length ( ) ;
+  unordered_map < string , int > freq ;
+  int i , j ;
+  for ( i = 0 ;
+  i < n ;
+  i ++ ) {
+    string temp = "" ;
+    temp += s [ i ] ;
+    freq [ temp ] = freq . getOrDefault ( temp , 0 ) + 1 ;
+  }
+  for ( i = 0 ;
+  i < n ;
+  i ++ ) {
+    for ( j = i + 1 ;
+    j < n ;
+    j ++ ) {
+      string temp = "" ;
+      temp += s [ i ] ;
+      temp += s [ j ] ;
+      freq [ temp ] = freq . getOrDefault ( temp , 0 ) + 1 ;
+    }
+  }
+  int answer = INT_MAX ;
+  for ( var it = freq . begin ( ) ;
+  it != freq . end ( ) ;
+  it ++ ) answer = max ( answer , it -> second ) ;
+  return answer ;
+}
+
+***Example ends here:
+int countCharacters ( vector < string > strings , string chars ) {
+  int res = 0 ;
+  unordered_map < char , int > freq ;
+  for ( int i = 0 ;
+  i < chars . size ( ) ;
+  i ++ ) freq [ chars [ i ] ] = freq . getOrDefault ( chars [ i ] , 0 ) + 1 ;
+  for ( string st : strings ) {
+    bool flag = true ;
+    for ( char c : st ) {
+      if ( ! freq . containsKey ( c ) ) {
+        flag = false ;
+        break ;
+      }
+    }
+    if ( flag ) res += st . size ( ) ;
+  }
+  return res ;
+}
+
+***Example ends here:
+int distinctSubstring ( string p , string q , int k , int n ) {
+  set < string > ss ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    int sum = 0 ;
+    string s ;
+    for ( int j = i ;
+    j < n ;
+    ++ j ) {
+      int pos = p [ j ] - 'a' ;
+      sum += q [ pos ] - '0' ;
+      s += p [ j ] ;
+      if ( sum <= k ) ss . insert ( s ) ;
+      else break ;
+    }
+  }
+  return ss . size ( ) ;
+}
+
+***Example ends here:
+int uniqueMorseRep ( vector < string > arr ) {
+  vector < string > morseCode = vector < string > ( ) ;
+  morseCode . push_back ( ".-" ) ;
+  morseCode . push_back ( "-..." ) ;
+  morseCode . push_back ( "-.-." ) ;
+  morseCode . push_back ( "." ) ;
+  morseCode . push_back ( "..-." ) ;
+  morseCode . push_back ( "--." ) ;
+  morseCode . push_back ( "...." ) ;
+  morseCode . push_back ( ".." ) ;
+  morseCode . push_back ( ".---" ) ;
+  morseCode . push_back ( "-.-" ) ;
+  morseCode . push_back ( "-.--" ) ;
+  morseCode . push_back ( "..." ) ;
+  morseCode . push_back ( "-" ) ;
+  morseCode . push_back ( "...-" ) ;
+  morseCode . push_back ( ".--" ) ;
+  morseCode . push_back ( "-.--" ) ;
+  morseCode . push_back ( "--.." ) ;
+  set < string > st ;
+  int n = arr . size ( ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    string temp = "" ;
+    int m = arr [ i ] . size ( ) ;
+    for ( int j = 0 ;
+    j < m ;
+    j ++ ) temp += morseCode [ arr [ i ] [ j ] - 'a' ] ;
+    st . insert ( temp ) ;
+  }
+  return st . size ( ) ;
+}
+
+***Example ends here:
+int countSubstrings ( string st , int k ) {
+  int n = st . size ( ) ;
+  int answer = 0 ;
+  unordered_map < char , int > map ;
+  for ( int i = 0 ;
+  i < k ;
+  i ++ ) {
+    if ( ! map . count ( st [ i ] ) ) map [ st [ i ] ] = 1 ;
+    else map [ st [ i ] ] = map [ st [ i ] ] + 1 ;
+  }
+  if ( map . size ( ) == k ) answer ++ ;
+  for ( int i = k ;
+  i < n ;
+  i ++ ) {
+    if ( ! map . count ( st [ i ] ) ) map [ st [ i ] ] = 1 ;
+    else map [ st [ i ] ] = map [ st [ i ] ] + 1 ;
+    map [ st [ i - k ] ] = map [ st [ i - k ] ] - 1 ;
+    if ( map [ st [ i - k ] ] == 0 ) map . erase ( st [ i - k ] ) ;
+    if ( map . size ( ) == k ) answer ++ ;
+  }
+  return answer ;
+}
+
+***Example ends here:
+bool canConstruct ( string s , int k ) {
+  unordered_map < char , int > m ;
+  int p = 0 ;
+  if ( s . size ( ) == k ) {
+    return true ;
+  }
+  for ( int i = 0 ;
+  i < s . size ( ) ;
+  i ++ ) {
+    m [ s [ i ] ] = m . getOrDefault ( s [ i ] , 0 ) + 1 ;
+  }
+  if ( k > s . size ( ) ) {
+    return false ;
+  }
+  else {
+    for ( var h : m ) {
+      if ( h % 2 != 0 ) {
+        p = p + 1 ;
+      }
+    }
+  }
+  if ( k < p ) {
+    return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+bool equalIgnoreCase ( std :: string str1 , std :: string str2 ) {
+  str1 . erase ( str1 . begin ( ) , str1 . end ( ) ) ;
+  str2 . erase ( str2 . begin ( ) , str2 . end ( ) ) ;
+  return str1 == str2 ;
+}
+
+***Example ends here:
+int findLongestSub ( string bin ) {
+  int n = bin . length ( ) , i ;
+  int sum = 0 ;
+  unordered_map < int , int > prevSum ;
+  int maxLen = 0 ;
+  for ( i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( bin [ i ] == '1' ) sum ++ ;
+    else sum -- ;
+    if ( sum > 0 ) maxLen = i + 1 ;
+    else if ( sum <= 0 ) {
+      if ( prevSum . count ( sum - 1 ) ) {
+        int currLen = i - prevSum [ sum - 1 ] ;
+        maxLen = max ( maxLen , currLen ) ;
+      }
+    }
+    if ( ! prevSum . count ( sum ) ) prevSum [ sum ] = i ;
+  }
+  return maxLen ;
+}
+
+***Example ends here:
+bool hasAllCodes ( string s , int k ) {
+  set < string > us ;
+  for ( int i = 0 ;
+  i + k <= s . size ( ) ;
+  i ++ ) us . insert ( s . substr ( i , k ) ) ;
+  return us . size ( ) == 1 << k ;
+}
+
+***Example ends here:
+bool checkPalin ( string word ) {
+  int n = word . length ( ) ;
+  word . erase ( word . begin ( ) , word . end ( ) ) ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ , n -- ) {
+    if ( word [ i ] != word [ n - 1 ] ) {
+      return false ;
+    }
+  }
+  return true ;
+}
+
+***Example ends here:
+string convert ( string st ) {
+  string w , z ;
+  st . erase ( 0 , 1 ) ;
+  for ( int i = 0 ;
+  i < st . length ( ) ;
+  i ++ ) {
+    char ch = st [ i ] ;
+    if ( ch != ' ' ) w += ch ;
+    else {
+      z += tolower ( w [ 0 ] ) + w . substr ( 1 ) + " " ;
+      w . clear ( ) ;
+    }
+  }
+  return z ;
+}
+
+***Example ends here:
+int maxLines ( int n , std :: vector < int > x1 , std :: vector < int > y1 , std :: vector < int > x2 , std :: vector < int > y2 ) {
+  std :: set < double > s ;
+  double slope ;
+  for ( int i = 0 ;
+  i < n ;
+  ++ i ) {
+    if ( x1 [ i ] == x2 [ i ] ) slope = std :: numeric_limits < double > :: infinity ( ) ;
+    else slope = ( y2 [ i ] - y1 [ i ] ) * 1.0 / ( x2 [ i ] - x1 [ i ] ) ;
+    s . insert ( slope ) ;
+  }
+  return s . size ( ) ;
+}
+
+***Example ends here:
+unordered_map < int , int > PrimeFactor ( int n ) {
+  unordered_map < int , int > primef ;
+  while ( n % 2 == 0 ) {
+    if ( primef . count ( 2 ) ) primef [ 2 ] = primef [ 2 ] + 1 ;
+    else primef [ 2 ] = 1 ;
+    n /= 2 ;
+  }
+  for ( int i = 3 ;
+  i <= sqrt ( n ) ;
+  i ++ ) {
+    while ( n % i == 0 ) {
+      if ( primef . count ( i ) ) primef [ i ] = primef [ i ] + 1 ;
+      else primef [ i ] = 1 ;
+      n /= i ;
+    }
+  }
+  if ( n > 2 ) primef [ n ] = 1 ;
+  return primef ;
+}
+
+***Example ends here:
+String isDivisibleByDivisor ( int s , int d ) {
+  s %= d ;
+  HashSet < int > hashMap ;
+  hashMap . add ( s ) ;
+  for ( int i = 0 ;
+  i <= d ;
+  i ++ ) {
+    s += s % d ;
+    s %= d ;
+    if ( hashMap . contains ( s ) ) {
+      if ( s == 0 ) return "Yes" ;
+      return "No" ;
+    }
+    else hashMap . add ( s ) ;
+  }
+  return "Yes" ;
+}
+
+***Example ends here:
+bool oddSum ( vector < int > a , int n , int k ) {
+  set < int > odd ;
+  set < int > even ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) {
+    if ( a [ i ] % 2 == 0 ) even . insert ( a [ i ] ) ;
+    else odd . insert ( a [ i ] ) ;
+  }
+  if ( odd . size ( ) >= k ) return true ;
+  bool flag = false ;
+  for ( int i = 1 ;
+  i < k ;
+  i += 2 ) {
+    int needed = k - i ;
+    if ( needed <= even . size ( ) ) return true ;
+  }
+  return flag ;
+}
+
+***Example ends here:
+int dayOfYear ( string date ) {
+  std :: vector < int > days = {
+    31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31 }
+    ;
+    int year = atoi ( date . substr ( 0 , 4 ) . c_str ( ) ) ;
+    int month = atoi ( date . substr ( 5 , 7 ) . c_str ( ) ) ;
+    int day = atoi ( date . substr ( 8 ) . c_str ( ) ) ;
+    if ( month > 2 && year % 4 == 0 && ( year % 100 != 0 || year % 400 == 0 ) ) ++ day ;
+    while ( month > 1 ) {
+      day = day + days [ month - 2 ] ;
+      -- month ;
+    }
+    return day ;
+  }
+  
+***Example ends here:
+bool isPerfectSquare ( std :: vector < int > arr , int n ) {
+  std :: unordered_map < int , int > umap ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) umap [ arr [ i ] ] = umap . getOrDefault ( arr [ i ] , 0 ) + 1 ;
+  for ( var itr : umap ) {
+    if ( itr % 2 == 1 ) return false ;
+  }
+  return true ;
+}
+
+***Example ends here:
+int minMoves ( int n ) {
+  string s = to_string ( n ) ;
+  int ans = INT_MAX ;
+  int length = s . length ( ) ;
+  for ( int i = 0 ;
+  i < length ;
+  ++ i ) {
+    for ( int j = 0 ;
+    j < length ;
+    ++ j ) {
+      if ( i == j ) {
+        continue ;
+      }
+      char * t = s . c_str ( ) ;
+      int cur = 0 ;
+      for ( int k = i ;
+      k < length - 1 ;
+      ++ k ) {
+        char c = t [ k ] ;
+        t [ k ] = t [ k + 1 ] ;
+        t [ k + 1 ] = c ;
+        ++ cur ;
+      }
+      for ( int k = j - ( j > i ? 1 : 0 ) ;
+      k < length - 2 ;
+      ++ k ) {
+        char c = t [ k ] ;
+        t [ k ] = t [ k + 1 ] ;
+        t [ k + 1 ] = c ;
+        ++ cur ;
+      }
+      int pos = - 1 ;
+      for ( int k = 0 ;
+      k < length ;
+      ++ k ) {
+        if ( t [ k ] != '0' ) {
+          pos = k ;
+          break ;
+        }
+      }
+      for ( int k = pos ;
+      k > 0 ;
+      -- k ) {
+        char c = t [ k ] ;
+        t [ k ] = t [ k - 1 ] ;
+        t [ k - 1 ] = c ;
+        ++ cur ;
+      }
+      int nn = atoi ( string ( t ) . c_str ( ) ) ;
+      if ( nn % 25 == 0 ) {
+        ans = min ( ans , cur ) ;
+      }
+    }
+  }
+  if ( ans == INT_MAX ) {
+    return - 1 ;
+  }
+  return ans ;
+}
+
+***Example ends here:
+int minimumOperations ( vector < int > a , int n ) {
+  unordered_map < int , int > mp ;
+  for ( int i = 0 ;
+  i < n ;
+  i ++ ) mp [ a [ i ] ] = mp . getOrDefault ( a [ i ] , 0 ) + 1 ;
+  int count = 0 ;
+  for ( var it = mp . begin ( ) ;
+  it != mp . end ( ) ;
+  ++ it ) {
+    if ( it -> second > 1 ) count += it -> second - 1 ;
+  }
+  return count ;
+}
+
+***Example ends here:
+int kaprekarRec ( int n , int prev ) {
+  if ( n == 0 ) {
+    return 0 ;
+  }
+  prev = n ;
+  int digits [ 4 ] ;
+  for ( int i = 0 ;
+  i < 4 ;
+  i ++ ) {
+    digits [ i ] = n % 10 ;
+    n = n / 10 ;
+  }
+  sort ( digits , digits + 4 ) ;
+  int asc = 0 ;
+  for ( int i = 0 ;
+  i < 4 ;
+  i ++ ) {
+    asc = asc * 10 + digits [ i ] ;
+  }
+  sort ( digits + 4 , digits + 4 ) ;
+  int desc = 0 ;
+  for ( int i = 3 ;
+  i >= 0 ;
+  i -- ) {
+    desc = desc * 10 + digits [ i ] ;
+  }
+  int diff = abs ( asc - desc ) ;
+  if ( diff == prev ) {
+    return diff ;
+  }
+  return kaprekarRec ( diff , prev ) ;
+}
+
+***Example ends here:
+string fraction_to_decimal ( int numr , int denr ) {
+  string res ;
+  unordered_map < int , int > mp ;
+  int rem = numr % denr ;
+  while ( rem != 0 && ! mp . count ( rem ) ) {
+    mp [ rem ] = res . size ( ) ;
+    rem = rem * 10 ;
+    int res_part = rem / denr ;
+    res += to_string ( res_part ) ;
+    rem = rem % denr ;
+  }
+  if ( rem == 0 ) return "" ;
+  if ( mp . count ( rem ) ) return res . substr ( mp [ rem ] ) ;
+  return "" ;
+}
+
+***Example ends here:
+bool isFancy ( string num ) {
+  unordered_map < char , char > fp = {
+    {
+      '0' , '0' }
+      , {
+        '1' , '1' }
+        , {
+          '6' , '9' }
+          , {
+            '8' , '8' }
+            , {
+              '9' , '6' }
+            }
+            ;
+            int n = num . length ( ) ;
+            int l = 0 , r = n - 1 ;
+            while ( l <= r ) {
+              if ( ! fp . count ( num [ l ] ) || fp [ num [ l ] ] != num [ r ] ) {
+                return false ;
+              }
+              l ++ ;
+              r -- ;
+            }
+            return true ;
+          }
+          
+***Example ends here:
+double distinctOddRatio ( std :: vector < int > numbers ) {
+  int distinctCount = ( int ) numbers . size ( ) ;
+  int distinctOddCount = ( int ) numbers . size ( ) ;
+  return ( double ) distinctOddCount / distinctCount ;
+}
+
+***Example ends here:
+int compareSum ( QList < int > numbers , QList < QString > words ) {
+  int intSum = numbers . count ( ) ;
+  int wordLengthSum = words . count ( ) ;
+  if ( intSum < wordLengthSum ) return - 1 ;
+  if ( intSum > wordLengthSum ) return 1 ;
+  return 0 ;
+}
+
+***Example ends here:
+bool allLongerThan ( QStringList shortWords , QStringList longWords ) {
+  int maxOfShort = shortWords . count ( ) ;
+  int minOfLong = longWords . count ( ) ;
+  return minOfLong > maxOfShort ;
+}
+
+***Example ends here:
+int compareOddEvenRange ( QList < int > numbers ) {
+  int rangeOdd = numbers . count ( ) - numbers . last ( ) ;
+  int rangeEven = numbers . count ( ) - numbers . first ( ) ;
+  if ( rangeOdd < rangeEven ) return - 1 ;
+  if ( rangeOdd > rangeEven ) return 1 ;
+  return 0 ;
+}
+
+***Example ends here:
+double average_distinct_length ( std :: vector < std :: string > words ) {
+  double average_len = words . stream ( ) . distinct ( ) . average ( ) . getAsDouble ( ) ;
+  return average_len ;
+}
+
+***Example ends here:
+int withDrawBalance ( int start , std :: vector < int > withdrawals ) {
+  int end = withdrawals . stream ( ) . reduce ( start , ( balance , nextWithdrawal ) -> second <= balance ? balance - nextWithdrawal : balance ) ;
+  return end ;
+}
+
+***Example ends here:
+String firstShortAndStartsWithO ( std :: vector < std :: string > words ) {
+  auto matchedElement = words . begin ( ) + 5 ;
+  return matchedElement ;
+}
+
+***Example ends here:
+int bigNumberAtIndex ( std :: vector < int > numbers , int index ) {
+  int targetNum = numbers . at ( index ) ;
+  return targetNum ;
+}
+
+***Example ends here:
+bool containsSquareInRange ( int rangeStart , int rangeLength ) {
+  bool containsSquare = IntStream :: rangeContains ( rangeStart , rangeStart + rangeLength ) ;
+  return containsSquare ;
+}
+
+***Example ends here:
+std :: unordered_map < int , std :: vector < int >> groupNumbersByMod ( std :: vector < int > numbers , int mod ) {
+  var numberGroups = numbers . stream ( ) >> mod ;
+  return numberGroups ;
+}
+
+***Example ends here:
+std :: unordered_map < char , std :: vector < std :: string >> groupWordsByFirstChar ( std :: vector < std :: string > words ) {
+  var wordGroups = words . stream ( ) >> std :: endl ;
+  return wordGroups ;
+}
+
+***Example ends here:
+std :: vector < std :: string > orderByLengthAndDescending ( std :: vector < std :: string > words ) {
+  var sortedWords = words . sort ( std :: greater < std :: string > ( ) ) ;
+  return sortedWords ;
+}
+
+***Example ends here:
+std :: vector < std :: string > orderFirstCharDescendingReverse ( std :: vector < std :: string > words ) {
+  var sortedWords = words . stream ( ) . sorted ( std :: greater < std :: string > ( ) ) . reversed ( ) . thenComparing ( std :: greater < std :: string > ( ) ) ;
+  std :: reverse ( sortedWords . begin ( ) , sortedWords . end ( ) ) ;
+  return sortedWords ;
+}
+
+***Example ends here:
+QList < int > getSubListOfNegative ( QList < int > numbers , int start , int length ) {
+  QList < int > subList = numbers . mid ( start , length ) ;
+  return subList ;
+}
+
+***Example ends here:
+QList < int > getPositiveSequence ( QList < int > numbers ) {
+  QList < int > subSequence = numbers . takeFirst ( ) . dropWhile ( n <= 0 ) . takeFirst ( ) ;
+  return subSequence ;
+}
+
+***Example ends here:
+QList < int > getLargerThanIndexSequence ( QList < int > numbers ) {
+  QList < int > subSequence = IntStream :: range ( 0 , numbers . size ( ) ) . dropWhile ( i -> value < i ) . takeWhile ( i -> value >= i ) . mapToObj ( i -> value ) ;
+  return subSequence ;
+}
+
+***Example ends here:
+vector < string > rearrangeWordByIndexes ( vector < string > words , vector < int > indexes ) {
+  vector < int > newIndexes = indexes . at ( indexes . size ( ) - 1 ) ;
+  vector < string > newWords = newIndexes . at ( indexes . size ( ) - 1 ) ;
+  return newWords ;
+}
+
+***Example ends here:
+foreach ( QString w , words ) {
+  upperLowerWords << w . toUpper ( ) << w . toLower ( ) ;
+}
+
+***Example ends here:
+QList < bool > selectIfInPlace ( QList < int > numbers ) {
+  QList < bool > numsInPlace = IntStream :: range ( 0 , numbers . count ( ) ) ;
+  return numsInPlace ;
+}
+
+***Example ends here:
+std :: vector < std :: vector < int >> selectPairs ( std :: vector < int > numbersA , std :: vector < int > numbersB ) {
+  std :: vector < std :: vector < int >> pairs = numbersA + numbersB ;
+  return pairs ;
+}
+
+***Example ends here:
+vector < string > stringCrossJoin ( vector < string > endWords , vector < string > beginWords ) {
+  vector < string > crossStrings = beginWords + endWords ;
+  return crossStrings ;
+}
+
+***Example ends here:
+int elementsContainSubword ( std :: vector < std :: string > words , std :: string subword ) {
+  if ( words . stream ( ) . limit ( 5 ) . allMatch ( w -> contains ( subword ) ) ) {
+    return 1 ;
+  }
+  else if ( words . stream ( ) . limit ( 5 ) . anyMatch ( w -> contains ( subword ) ) ) {
+    return 0 ;
+  }
+  else {
+    return - 1 ;
+  }
+}
+
+***Example ends here:
+vector < int > ConcatLargeNumbers ( vector < int > numbersA , vector < int > numbersB , int flag ) {
+  vector < int > allNumbers = Stream :: concat ( numbersA . begin ( ) , numbersA . end ( ) , numbersB . begin ( ) , flag ) ;
+  return allNumbers ;
+}
+
+***Example ends here:
+int DotProduct ( std :: vector < int > vectorA , std :: vector < int > vectorB ) {
+  int dotProduct = IntProduct ( vectorA , vectorB ) ;
+  return dotProduct ;
+}
+
+***Example ends here:
+void SetDifference ( std :: vector < int > setA , std :: vector < int > setB ) {
+  std :: vector < int > difference ( setA . begin ( ) , setA . end ( ) ) ;
+  std :: vector < int > intersection ( setA . begin ( ) , setA . end ( ) ) ;
+  intersection . erase ( intersection . begin ( ) , intersection . end ( ) ) ;
+  difference . erase ( difference . begin ( ) , difference . end ( ) ) ;
+  std :: sort ( difference . begin ( ) , difference . end ( ) ) ;
+}
+
+***Example ends here:
