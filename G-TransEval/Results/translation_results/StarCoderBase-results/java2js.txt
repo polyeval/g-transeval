@@ -1,0 +1,5799 @@
+function greatestCommonDivisor(a, b) {
+ if (a == 0 || b == 0) {
+   return a + b;
+ }
+ if (a == b) {
+   return a;
+ }
+ if (a > b) {
+   return greatestCommonDivisor(a % b, b);
+ } else {
+   return greatestCommonDivisor(a, b % a);
+ }
+}
+--------------------------------
+function largestDivisor(n) {
+ for (let i = 2; i <= n; i++) {
+   if (n % i == 0) {
+     return n / i;
+   }
+ }
+ return 1;
+}
+--------------------------------
+function isPrime(n) {
+    if (n < 2) {
+        return false;
+    }
+    for (let k = 2; k < n; k++) {
+        if (n % k == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function fizzBuzz(n) {
+    let count = 0;
+    for (let i = 1; i < n; i++) {
+        if (i % 11 == 0 || i % 13 == 0) {
+            let q = i;
+            while (q > 0) {
+                if (q % 10 == 7) {
+                    count += 1;
+                }
+                q /= 10;
+            }
+        }
+    }
+    return count;
+}
+--------------------------------
+function primeFib(n) {
+    let f0 = 0;
+    let f1 = 1;
+    while (n > 0) {
+        let p = f0 + f1;
+        let isPrime = p >= 2;
+        for (let i = 2; i < p; i++) {
+            if (p % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            n -= 1;
+        }
+        f0 = f1;
+        f1 = p;
+    }
+    return f1;
+}
+--------------------------------
+function triangleArea(a, h) {
+    return a * h / 2;
+}
+--------------------------------
+function modp(n, p) {
+    let ret = 1;
+    for (let i = 0; i < n; i++) {
+        ret = (ret * 2) % p;
+    }
+    return ret;
+}
+--------------------------------
+function add(x, y) {
+ return x + y;
+}
+--------------------------------
+function fib(n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+--------------------------------
+function largestPrimeFactor(n) {
+    for (let i = 2; i < n; i++) {
+        while (n % i == 0 && n > i) {
+            n /= i;
+        }
+    }
+    return n;
+}
+--------------------------------
+function sumToN(n) {
+    let result = 0;
+    for (let i = 1; i <= n; i++) {
+        result += i;
+    }
+    return result;
+}
+--------------------------------
+function fibfib(n) {
+if (n == 0) {
+return 0;
+}
+if (n == 1) {
+return 0;
+}
+if (n == 2) {
+return 1;
+}
+return fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3);
+}
+--------------------------------
+function isMultiplyPrime(a) {
+    let num = 0;
+    for (let i = 2; i <= a; i++) {
+        while (a % i == 0 && a >= i) {
+            a /= i;
+            num += 1;
+        }
+    }
+    return num == 3;
+}
+--------------------------------
+function isSimplePower(x, n) {
+    if (n == 1) {
+        return x == 1;
+    }
+    let power = 1;
+    while (power < x) {
+        power *= n;
+    }
+    return power == x;
+}
+--------------------------------
+function chooseNum(x, y) {
+    if (x > y) {
+        return -1;
+    }
+    if (y % 2 == 0) {
+        return y;
+    }
+    if (x == y) {
+        return -1;
+    }
+    return y - 1;
+}
+--------------------------------
+function isEqualToSumEven(n) {
+    return (n % 2 == 0) && (n >= 8);
+}
+--------------------------------
+function specialFactorial(n) {
+    let fact = 1, specialFact = 1;
+    for (let i = 1; i <= n; i++) {
+        fact *= i;
+        specialFact *= fact;
+    }
+    return specialFact;
+}
+--------------------------------
+function xOrY(n, x, y) {
+    let isPrime = n >= 2;
+    for (let i = 2; i < n; i++) {
+        if (n % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime) {
+        return x;
+    }
+    return y;
+}
+--------------------------------
+function rightAngleTriangle(a, b, c) {
+    return (a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == a * a + b * b);
+}
+--------------------------------
+function fastPow(n, k) {
+    if (k == 0) {
+        return 1;
+    }
+    let temp = fastPow(n, k / 2);
+    if (k % 2 == 0) {
+        return temp * temp;
+    } else {
+        return n * temp * temp;
+    }
+}
+--------------------------------
+function isPalin(s) {
+    let l = s.length / 2;
+    for (let i = 0; i < l; i++) {
+        if (s.charAt(i)!= s.charAt(s.length - i - 1)) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function findSum(n) {
+    let ans = 0, temp = 0;
+    for (let i = 1; i <= n && temp < n; i++) {
+        temp = i - 1;
+        let num = 1;
+        while (temp < n) {
+            if (temp + i <= n) {
+                ans += i * num;
+            } else {
+                ans += (n - temp) * num;
+            }
+            temp += i;
+            num++;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function getNextGap(gap) {
+    gap = gap * 10 / 13;
+    if (gap < 1) {
+        return 1;
+    }
+    return gap;
+}
+--------------------------------
+function countNonDecreasing(n) {
+    let k = 10;
+    let count = 1;
+    for (let i = 1; i <= n; i++) {
+        count *= k + i - 1;
+        count /= i;
+    }
+    return count;
+}
+--------------------------------
+function power(x, y) {
+    if (y == 0) {
+        return 1;
+    } else if (y % 2 == 0) {
+        return power(x, y / 2) * power(x, y / 2);
+    } else {
+        return x * power(x, y / 2) * power(x, y / 2);
+    }
+}
+--------------------------------
+function power(x, y) {
+    if (y == 0) {
+        return 1;
+    }
+    let temp = power(x, Math.floor(y / 2));
+    if (y % 2 == 0) {
+        return temp * temp;
+    } else {
+        if (y > 0) {
+            return x * temp * temp;
+        } else {
+            return temp * temp / x;
+        }
+    }
+}
+--------------------------------
+function multiply(x, y) {
+    if (y == 0) {
+        return 0;
+    } else if (y > 0) {
+        return x + multiply(x, y - 1);
+    } else {
+        return -multiply(x, -y);
+    }
+}
+--------------------------------
+function smallest(x, y, z) {
+ if (y / x == 0) {
+  return y / z == 0? y : z;
+ }
+ return x / z == 0? x : z;
+}
+--------------------------------
+function isPowerOfFour(n) {
+    if (n == 0) {
+        return false;
+    }
+    while (n!= 1) {
+        if (n % 4!= 0) {
+            return false;
+        }
+        n = n / 4;
+    }
+    return true;
+}
+--------------------------------
+function modInverse(a, m) {
+    let m0 = m;
+    let x0 = 0, x1 = 1;
+    if (m === 1) {
+        return 0;
+    }
+    while (a > 1) {
+        let q = Math.floor(a / m);
+        let t = m;
+        m = a % m;
+        a = t;
+        t = x0;
+        x0 = x1 - q * x0;
+        x1 = t;
+    }
+    if (x1 < 0) {
+        x1 += m0;
+    }
+    return x1;
+}
+--------------------------------
+function cntRotations(s, n) {
+    let s2 = s + s;
+    let pre = new Array(2 * n).fill(0);
+    for (let i = 0; i < 2 * n; i++) {
+        if (i!= 0) {
+            pre[i] += pre[i - 1];
+        }
+        if (s2[i] == 'a' || s2[i] == 'e' || s2[i] == 'i' || s2[i] == 'o' || s2[i] == 'u') {
+            pre[i]++;
+        }
+    }
+    let ans = 0;
+    for (let i = n - 1; i < 2 * n - 1; i++) {
+        let r = i, l = i - n;
+        let x1 = pre[r];
+        if (l >= 0) {
+            x1 -= pre[l];
+        }
+        r = i - n / 2;
+        let left = pre[r];
+        if (l >= 0) {
+            left -= pre[l];
+        }
+        let right = x1 - left;
+        if (left > right) {
+            ans++;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function binomialCoeff(n, k) {
+    let res = 1;
+    if (k > n - k) {
+        k = n - k;
+    }
+    for (let i = 0; i < k; ++i) {
+        res *= n - i;
+        res /= i + 1;
+    }
+    return res;
+}
+--------------------------------
+function isPrefix(temp, s) {
+if (temp.length < s.length) {
+  return false;
+} else {
+  for (let i = 0; i < s.length; i++) {
+    if (s.charAt(i)!= temp.charAt(i)) {
+      return false;
+    }
+  }
+  return true;
+}
+}
+--------------------------------
+function lexicographicallySmallestString(s, n) {
+    let lastZe = -1;
+    let ans = "";
+    for (let i = n - 1; i >= 0; i--) {
+        if (s.charAt(i) == '0') {
+            lastZe = i;
+            break;
+        }
+    }
+    for (let i = 0; i < n; i++) {
+        if (i <= lastZe && s.charAt(i) == '0') {
+            ans += s.charAt(i);
+        } else if (i > lastZe) {
+            ans += s.charAt(i);
+        }
+    }
+    return ans;
+}
+--------------------------------
+function calculateMax(n, m, k) {
+    let ans = -1;
+    let low = 0, high = m;
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+        let val = 0;
+        let l = k - 1;
+        let r = n - k;
+        val += mid;
+        if (mid >= l) {
+            val += l * (2 * mid - l - 1) / 2;
+        } else {
+            val += mid * (mid - 1) / 2 + (l - mid);
+        }
+        if (mid >= r) {
+            val += r * (2 * mid - r - 1) / 2;
+        } else {
+            val += mid * (mid - 1) / 2 + (r - mid);
+        }
+        if (val <= m) {
+            ans = Math.max(ans, mid);
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function findLength(s, i, j) {
+    let required = i;
+    let length = 0;
+    for (let curr of s) {
+        if (curr == required) {
+            length += 1;
+            if (required == i) {
+                required = j;
+            } else {
+                required = i;
+            }
+        }
+    }
+    return length;
+}
+--------------------------------
+function checkReverse(leftSum, rightSum) {
+    let rev = 0;
+    let temp = rightSum;
+    while (temp!= 0) {
+        rev = rev * 10 + temp % 10;
+        temp /= 10;
+    }
+    return (rev == leftSum);
+}
+--------------------------------
+function isComposite(n) {
+    if (n <= 1) {
+        return false;
+    }
+    if (n <= 3) {
+        return false;
+    }
+    if (n % 2 == 0 || n % 3 == 0) {
+        return true;
+    }
+    for (let i = 5; i * i <= n; i = i + 6) {
+        if (n % i == 0 || n % (i + 2) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
+--------------------------------
+function minDeletion(s) {
+    let n = s.length;
+    let firstIdx1 = -1;
+    let lastIdx0 = -1;
+    for (let i = 0; i < n; i++) {
+        if (s.charAt(i) == '1') {
+            firstIdx1 = i;
+            break;
+        }
+    }
+    for (let i = n - 1; i >= 0; i--) {
+        if (s.charAt(i) == '0') {
+            lastIdx0 = i;
+            break;
+        }
+    }
+    if (firstIdx1 == -1 || lastIdx0 == -1) {
+        return 0;
+    }
+    let count1 = 0, count0 = 0;
+    for (let i = 0; i < lastIdx0; i++) {
+        if (s.charAt(i) == '1') {
+            count1++;
+        }
+    }
+    for (let i = firstIdx1 + 1; i < n; i++) {
+        if (s.charAt(i) == '1') {
+            count0++;
+        }
+    }
+    return Math.min(count0, count1);
+}
+--------------------------------
+function minSteps(s, n) {
+    let smaller, cost = 0;
+    let f = new Array(26).fill(0);
+    for (let i = 0; i < n; i++) {
+        let currEle = s.charCodeAt(i) - 97;
+        smaller = 0;
+        for (let j = 0; j <= currEle; j++) {
+            if (f[j]!= 0) {
+                smaller += f[j];
+            }
+        }
+        if (smaller == 0) {
+            cost += i + 1;
+        } else {
+            cost += i - smaller + 1;
+        }
+        f[s.charCodeAt(i) - 97]++;
+    }
+    return cost;
+}
+--------------------------------
+function numberOfWays(n) {
+    let count = 0;
+    for (let a = 1; a < n; a++) {
+        for (let b = 0; b < n; b++) {
+            let c = n - (a + b);
+            if (a + b > c && a + c > b && b + c > a) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+--------------------------------
+function slopeOfNum(num, n) {
+    let slope = 0;
+    for (let i = 1; i < n - 1; i++) {
+        if (num.charAt(i) > num.charAt(i - 1) && num.charAt(i) > num.charAt(i + 1)) {
+            slope++;
+        } else if (num.charAt(i) < num.charAt(i - 1) && num.charAt(i) < num.charAt(i + 1)) {
+            slope++;
+        }
+    }
+    return slope;
+}
+--------------------------------
+function middleOfThree(a, b, c) {
+    let x = a - b;
+    let y = b - c;
+    let z = a - c;
+    if (x * y > 0) {
+        return b;
+    } else if (x * z > 0) {
+        return c;
+    } else {
+        return a;
+    }
+}
+--------------------------------
+function countMaxSetBits(left, right) {
+    while ((left | (left + 1)) <= right) {
+        left |= left + 1;
+    }
+    return left;
+}
+--------------------------------
+function findS(s) {
+    let l = 1, r = Math.floor((s / 2) + 1);
+    while (l <= r) {
+        let mid = Math.floor((l + r) / 2);
+        let sum = mid * (mid + 1) / 2;
+        if (sum == s) {
+            return mid;
+        } else if (sum > s) {
+            r = mid - 1;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return -1;
+}
+--------------------------------
+function check(s) {
+    let min = Number.MAX_SAFE_INTEGER;
+    let max = Number.MIN_SAFE_INTEGER;
+    let sum = 0;
+    for (let i = 0; i < s.length; i++) {
+        let ascii = s.charCodeAt(i);
+        if (ascii < 96 || ascii > 122) {
+            return false;
+        }
+        sum += ascii;
+        if (min > ascii) {
+            min = ascii;
+        }
+        if (max < ascii) {
+            max = ascii;
+        }
+    }
+    min -= 1;
+    let eSum = max * (max + 1) / 2 - min * (min + 1) / 2;
+    return sum == eSum;
+}
+--------------------------------
+function minimumPossibleProduct(k) {
+    let res = 1;
+    let r = (1 << k) - 1;
+    for (let i = 0; i < k; i++) {
+        res *= r - 1;
+    }
+    res *= r;
+    return res;
+}
+--------------------------------
+function findInGrid(i, j) {
+    if (i == j) {
+        return i * i - (i - 1);
+    } else if (i > j) {
+        if (i % 2 == 0) {
+            return i * i - (j - 1);
+        } else {
+            return (i - 1) * (i - 1) + 1 + (j - 1);
+        }
+    } else {
+        if (j % 2 == 0) {
+            return (j - 1) * (j - 1) + 1 + (i - 1);
+        } else {
+            return j * j - (i - 1);
+        }
+    }
+}
+--------------------------------
+function findMinOperationsReqEmpStr(s) {
+    let cntOne = 0;
+    let cntZero = 0;
+    let n = s.length;
+    for (let i = 0; i < n; i++) {
+        if (s.charAt(i) == '0') {
+            if (cntOne!= 0) {
+                cntOne--;
+            }
+            cntZero++;
+        } else {
+            if (cntZero!= 0) {
+                cntZero--;
+            }
+            cntOne++;
+        }
+    }
+    return cntOne + cntZero;
+}
+--------------------------------
+function isReachable(x1, y1, x2, y2) {
+    while (x2 > x1 && y2 > y1) {
+        if (x2 > y2) {
+            x2 %= y2;
+        } else {
+            y2 %= x2;
+        }
+    }
+    if (x2 == x1) {
+        return (y2 - y1) >= 0 && (y2 - y1) % x1 == 0;
+    } else if (y2 == y1) {
+        return (x2 - x1) >= 0 && (x2 - x1) % y1 == 0;
+    } else {
+        return false;
+    }
+}
+--------------------------------
+function findMaxSoln(n, x, y) {
+    let ans = Number.MIN_VALUE;
+    for (let k = 0; k <= n; k++) {
+        if (k % x == y) {
+            ans = Math.max(ans, k);
+        }
+    }
+    return ans >= 0 && ans <= n? ans : -1;
+}
+--------------------------------
+function numberOfPairs(n) {
+    let count = 0;
+    let i = 1, j = n - 1;
+    while (i < j) {
+        if (i + j == n) {
+            count++;
+        }
+        i++;
+        j--;
+    }
+    return count;
+}
+--------------------------------
+function minChanges(s, n) {
+    let count = 0, zeros = 0, ones = 0;
+    if (s.charAt(0)!= '1') {
+        count++;
+        ones++;
+    }
+    for (let i = 1; i < n; i++) {
+        if (s.charAt(i) == '0') {
+            zeros++;
+        } else {
+            ones++;
+        }
+        if (zeros > ones) {
+            zeros--;
+            ones++;
+            count++;
+        }
+    }
+    return count;
+}
+--------------------------------
+function kVisibleFromLeft(n, k) {
+    if (n == k) {
+        return 1;
+    }
+    if (k == 1) {
+        let ans = 1;
+        for (let i = 1; i < n; i++) {
+            ans *= i;
+        }
+        return ans;
+    }
+    return kVisibleFromLeft(n - 1, k - 1) + (n - 1) * kVisibleFromLeft(n - 1, k);
+}
+--------------------------------
+function find(n, sum) {
+    if (sum > 6 * n || sum < n) {
+        return 0;
+    }
+    if (n == 1) {
+        if (sum >= 1 && sum <= 6) {
+            return 1.0 / 6;
+        } else {
+            return 0;
+        }
+    }
+    let s = 0;
+    for (let i = 1; i <= 6; i++) {
+        s += find(n - 1, sum - i) / 6;
+    }
+    return s;
+}
+--------------------------------
+function binCoff(n, r) {
+    let val = 1;
+    if (r > n - r) {
+        r = n - r;
+    }
+    for (let i = 0; i < r; i++) {
+        val *= n - i;
+        val /= i + 1;
+    }
+    return val;
+}
+--------------------------------
+function getMask(val) {
+    let mask = 0;
+    if (val == 0) {
+        return 1;
+    }
+    while (val > 0) {
+        let d = val % 10;
+        mask |= 1 << d;
+        val /= 10;
+    }
+    return mask;
+}
+--------------------------------
+function waysToKAdjacentSetBits(n, k, currentIndex, adjacentSetBits, lastBit) {
+    if (currentIndex == n) {
+        if (adjacentSetBits == k) {
+            return 1;
+        }
+        return 0;
+    }
+    let noOfWays = 0;
+    if (lastBit == 1) {
+        noOfWays += waysToKAdjacentSetBits(n, k, currentIndex + 1, adjacentSetBits + 1, 1);
+        noOfWays += waysToKAdjacentSetBits(n, k, currentIndex + 1, adjacentSetBits, 0);
+    } else if (lastBit == 0) {
+        noOfWays += waysToKAdjacentSetBits(n, k, currentIndex + 1, adjacentSetBits, 1);
+        noOfWays += waysToKAdjacentSetBits(n, k, currentIndex + 1, adjacentSetBits, 0);
+    }
+    return noOfWays;
+}
+--------------------------------
+function checkFunc(i, j, st) {
+if (st.charAt(i) == '(' && st.charAt(j) == ')') {
+return 1;
+}
+if (st.charAt(i) == '(' && st.charAt(j) == '?') {
+return 1;
+}
+if (st.charAt(i) == '?' && st.charAt(j) == ')') {
+return 1;
+}
+if (st.charAt(i) == '[' && st.charAt(j) == ']') {
+return 1;
+}
+if (st.charAt(i) == '[' && st.charAt(j) == '?') {
+return 1;
+}
+if (st.charAt(i) == '?' && st.charAt(j) == ']') {
+return 1;
+}
+if (st.charAt(i) == '{' && st.charAt(j) == '}') {
+return 1;
+}
+if (st.charAt(i) == '{' && st.charAt(j) == '?') {
+return 1;
+}
+if (st.charAt(i) == '?' && st.charAt(j) == '}') {
+return 1;
+}
+return 0;
+}
+--------------------------------
+function findGolomb(n) {
+    if (n == 1) {
+        return 1;
+    }
+    return 1 + findGolomb(n - findGolomb(findGolomb(n - 1)));
+}
+--------------------------------
+function allOnes(s, n) {
+    let co = 0;
+    for (let i = 0; i < s.length; i++) {
+        co += s.charAt(i) == '1'? 1 : 0;
+    }
+    return co == n;
+}
+--------------------------------
+function pad(n) {
+    let pPrevPrev = 1, pPrev = 1, pCurr = 1, pNext = 1;
+    for (let i = 3; i <= n; i++) {
+        pNext = pPrevPrev + pPrev;
+        pPrevPrev = pPrev;
+        pPrev = pCurr;
+        pCurr = pNext;
+    }
+    return pNext;
+}
+--------------------------------
+function oddLengthPalindrome(k) {
+    let palin = k;
+    k = k / 10;
+    while (k > 0) {
+        let rev = k % 10;
+        palin = palin * 10 + rev;
+        k = k / 10;
+    }
+    return palin;
+}
+--------------------------------
+function changeString(s0) {
+    let s = s0.split('');
+    let n = s0.length;
+    if (s[0] == '?') {
+        s[0] = 'a';
+        if (s[0] == s[1]) {
+            s[0]++;
+        }
+    }
+    for (let i = 1; i < n - 1; i++) {
+        if (s[i] == '?') {
+            s[i] = 'a';
+            if (s[i] == s[i - 1]) {
+                s[i]++;
+            }
+            if (s[i] == s[i + 1]) {
+                s[i]++;
+            }
+            if (s[i] == s[i - 1]) {
+                s[i]++;
+            }
+        }
+    }
+    if (s[n - 1] == '?') {
+        s[n - 1] = 'a';
+        if (s[n - 1] == s[n - 2]) {
+            s[n - 1]++;
+        }
+    }
+    return s.join('');
+}
+--------------------------------
+function totalHammingDistance(n) {
+    let i = 1, sum = 0;
+    while (n / i > 0) {
+        sum = sum + n / i;
+        i = i * 2;
+    }
+    return sum;
+}
+--------------------------------
+function checkBitonic(s) {
+    let i = 1;
+    for (; i < s.length; i++) {
+        if (s[i] > s[i - 1]) {
+            continue;
+        }
+        if (s[i] <= s[i - 1]) {
+            break;
+        }
+    }
+    if (i == s.length - 1) {
+        return 1;
+    }
+    let j = i + 1;
+    for (; j < s.length; j++) {
+        if (s[j] < s[j - 1]) {
+            continue;
+        }
+        if (s[j] >= s[j - 1]) {
+            break;
+        }
+    }
+    i = j;
+    if (i!= s.length) {
+        return 0;
+    }
+    return 1;
+}
+--------------------------------
+function endsWith(str, pat) {
+    let patLen = pat.length;
+    let strLen = str.length;
+    if (patLen > strLen) {
+        return false;
+    }
+    patLen--;
+    strLen--;
+    while (patLen >= 0) {
+        if (pat.charAt(patLen)!= str.charAt(strLen)) {
+            return false;
+        }
+        patLen--;
+        strLen--;
+    }
+    return true;
+}
+--------------------------------
+function getSum(n, d) {
+    if (n < d) {
+        return 0;
+    }
+    while (n % 10!= d) {
+        n--;
+    }
+    let k = n / 10;
+    return (k + 1) * d + (k * 10 + 10 * k * k) / 2;
+}
+--------------------------------
+function balancedStringBySwapping(s) {
+    let unbalancedPair = 0;
+    for (let i = 0; i < s.length; ++i) {
+        if (unbalancedPair > 0 && s.charAt(i) == "]") {
+            --unbalancedPair;
+        } else if (s.charAt(i) == "[") {
+            ++unbalancedPair;
+        }
+    }
+    return (unbalancedPair + 1) / 2;
+}
+--------------------------------
+function computeHash(s) {
+    let p = 31;
+    let mod = 1000000007;
+    let hashVal = 0;
+    let mul = 1;
+    for (let ch of s) {
+        hashVal = (hashVal + (ch.charCodeAt(0) - 'a'.charCodeAt(0) + 1) * mul) % mod;
+        mul = mul * p % mod;
+    }
+    return hashVal;
+}
+--------------------------------
+function countOfSubstringWithOnlyOnes(s) {
+    let res = 0, count = 0;
+    for (let i = 0; i < s.length; i++) {
+        count = s.charAt(i) === '1'? count + 1 : 0;
+        res = res + count;
+    }
+    return res;
+}
+--------------------------------
+function composite(n) {
+    let flag = 0;
+    let c = 0;
+    for (let j = 1; j <= n; j++) {
+        if (n % j == 0) {
+            c += 1;
+        }
+    }
+    if (c >= 3) {
+        flag = 1;
+    }
+    return flag;
+}
+--------------------------------
+function isDivBySix(s, n) {
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+        sum += s.charCodeAt(i) - 97 + 1;
+    }
+    if (sum % 3!== 0) {
+        return false;
+    }
+    let lastDigit = (s.charCodeAt(n - 1) - 97 + 1) % 10;
+    if (lastDigit % 2!== 0) {
+        return false;
+    }
+    return true;
+}
+--------------------------------
+function isRedundantBraces(s) {
+    let a = 0, b = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i) == '(' && s.charAt(i + 2) == ')') {
+            return true;
+        }
+        if (s.charAt(i) == '*' || s.charAt(i) == '+' || s.charAt(i) == '-' || s.charAt(i) == '/') {
+            a++;
+        }
+        if (s.charAt(i) == '(') {
+            b++;
+        }
+    }
+    if (b > a) {
+        return true;
+    }
+    return false;
+}
+--------------------------------
+function countSubStr(s, n) {
+    let count = 0;
+    for (let i = 0; i < n - 2;) {
+        if (s.charAt(i) == '0' && s.charAt(i + 1) == '1' && s.charAt(i + 2) == '0') {
+            count++;
+            i += 3;
+        } else if (s.charAt(i) == '1' && s.charAt(i + 1) == '0' && s.charAt(i + 2) == '1') {
+            count++;
+            i += 3;
+        } else {
+            i++;
+        }
+    }
+    return count;
+}
+--------------------------------
+function prefixOccurrences(s) {
+    let c = s.charAt(0);
+    let countC = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i) == c) {
+            countC++;
+        }
+    }
+    return countC;
+}
+--------------------------------
+function isValid(s, len) {
+    for (let i = 1; i < len; i++) {
+        if (s.charAt(i) == s.charAt(i - 1)) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function count(s, k) {
+    let n = s.length;
+    let d = 0;
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        d += s.charAt(i);
+    }
+    if (d % k == 0) {
+        count += 1;
+    }
+    for (let i = k; i < n; i++) {
+        let prev = s.charAt(i - k);
+        d -= prev;
+        d += s.charAt(i);
+        if (d % k == 0) {
+            count += 1;
+        }
+    }
+    return count;
+}
+--------------------------------
+function findSubstringCount(s) {
+    let result = 0;
+    let n = s.length;
+    let i = 0;
+    while (i < n - 1) {
+        if (s.charAt(i) + 1 == s.charAt(i + 1)) {
+            result++;
+            while (i < n - 1 && s.charAt(i) + 1 == s.charAt(i + 1)) {
+                i++;
+            }
+        }
+        i++;
+    }
+    return result;
+}
+--------------------------------
+function find(s1, s2) {
+    let len1 = s1.length, len2 = s2.length;
+    if (len1!= len2) {
+        return false;
+    }
+    let d = new Array(len1);
+    d[0] = s2.charCodeAt(0) - s1.charCodeAt(0);
+    for (let i = 1; i < len1; i++) {
+        if (s1.charCodeAt(i) > s2.charCodeAt(i)) {
+            return false;
+        } else {
+            d[i] = s2.charCodeAt(i) - s1.charCodeAt(i);
+        }
+    }
+    for (let i = 0; i < len1 - 1; i++) {
+        if (d[i] < d[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function isInGivenBase(s, bas) {
+    if (bas > 16) {
+        return false;
+    } else if (bas <= 10) {
+        for (let i = 0; i < s.length; i++) {
+            if (!(s.charAt(i) >= '0' && s.charAt(i) < '0' + bas)) {
+                return false;
+            }
+        }
+    } else {
+        for (let i = 0; i < s.length; i++) {
+            if (!((s.charAt(i) >= '0' && s.charAt(i) < '0' + bas) || (s.charAt(i) >= 'A' && s.charAt(i) < 'A' + bas - 10))) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+--------------------------------
+function countNonEmptySubstr(s) {
+    let n = s.length;
+    return n * (n + 1) / 2;
+}
+--------------------------------
+function evenDecimalValue(s, n) {
+    let result = 0;
+    for (let i = 0; i < n; i++) {
+        for (let j = i; j < n; j++) {
+            let decimalValue = 0;
+            let powerOf2 = 1;
+            for (let k = i; k <= j; k++) {
+                decimalValue += (s.charAt(k) - '0') * powerOf2;
+                powerOf2 *= 2;
+            }
+            if (decimalValue % 2 == 0) {
+                result++;
+            }
+        }
+    }
+    return result;
+}
+--------------------------------
+function calculate(s) {
+    let ans = 6;
+    for (let i = 0; i < 10; ++i) {
+        for (let j = 0; j < 10; ++j) {
+            for (let k = 0; k < 10; ++k) {
+                for (let l = 0; l < 10; ++l) {
+                    for (let m = 0; m < 10; ++m) {
+                        for (let n = 0; n < 10; ++n) {
+                            if (i + j + k == l + m + n) {
+                                let c = 0;
+                                if (i!= s.charAt(0) - '0') {
+                                    c++;
+                                }
+                                if (j!= s.charAt(1) - '0') {
+                                    c++;
+                                }
+                                if (k!= s.charAt(2) - '0') {
+                                    c++;
+                                }
+                                if (l!= s.charAt(3) - '0') {
+                                    c++;
+                                }
+                                if (m!= s.charAt(4) - '0') {
+                                    c++;
+                                }
+                                if (n!= s.charAt(5) - '0') {
+                                    c++;
+                                }
+                                if (c < ans) {
+                                    ans = c;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
+--------------------------------
+function xorZero(s) {
+    let oneCount = 0, zeroCount = 0;
+    let n = s.length;
+    for (let i = 0; i < n; i++) {
+        if (s.charAt(i) == '1') {
+            oneCount++;
+        } else {
+            zeroCount++;
+        }
+    }
+    if (oneCount % 2 == 0) {
+        return zeroCount;
+    }
+    return oneCount;
+}
+--------------------------------
+function evenLength(n) {
+    var res = n;
+    for (var j = n.length - 1; j >= 0; --j) {
+        res += n.charAt(j);
+    }
+    return res;
+}
+--------------------------------
+function countSubstringWithEqualEnds(s) {
+    let result = 0;
+    let n = s.length;
+    for (let i = 0; i < n; i++) {
+        for (let j = i; j < n; j++) {
+            if (s.charAt(i) == s.charAt(j)) {
+                result++;
+            }
+        }
+    }
+    return result;
+}
+--------------------------------
+function normalSlope(a, b, x1, y1) {
+    let g = a / 2;
+    let f = b / 2;
+    if (g - x1 == 0) {
+        return -1;
+    }
+    let slope = (f - y1) / (g - x1);
+    if (slope == 0) {
+        return -2;
+    }
+    return slope;
+}
+--------------------------------
+function orthogonality(x1, y1, x2, y2, r1, r2) {
+    let dsquare = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+    if (dsquare == r1 * r1 + r2 * r2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+--------------------------------
+function findAreaShaded(a) {
+    let sqArea = a * a;
+    let semiCircleArea = 3.14 * (a * a) / 8;
+    let shadedArea = 4 * semiCircleArea - sqArea;
+    return shadedArea;
+}
+--------------------------------
+function factorial(a, b) {
+    let res = 1;
+    for (let i = 1; i <= a + b; i++) {
+        res = res * i;
+    }
+    for (let i = 1; i <= a; i++) {
+        res = res / i;
+    }
+    for (let i = 1; i <= b; i++) {
+        res = res / i;
+    }
+    return res;
+}
+--------------------------------
+function factorTree(n) {
+    let height = 0;
+    while (n > 1) {
+        let flag = false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                n = n / i;
+                flag = true;
+                break;
+            }
+        }
+        height++;
+        if (!flag) {
+            break;
+        }
+    }
+    return height;
+}
+--------------------------------
+function findIfPossible(n, s, x) {
+if (s >= x && s % 2 == x % 2) {
+if (n >= 3) {
+return "Yes";
+}
+if (n == 1) {
+if (s == x) {
+return "Yes";
+} else {
+return "No";
+}
+}
+if (n == 2) {
+let c = (s - x) / 2;
+let a = c;
+let b = c;
+a = a + x;
+if ((a ^ b) == x) {
+return "Yes";
+} else {
+return "No";
+}
+}
+}
+return "No";
+}
+--------------------------------
+function maximumTripletXor(a, b, c) {
+    let ans = 0;
+    for (let i = 30; i >= 0; i--) {
+        const cur = 1 << i;
+        if (a >= cur) {
+            ans += cur;
+            a -= cur;
+        } else if (b >= cur) {
+            ans += cur;
+            b -= cur;
+        } else if (c >= cur) {
+            ans += cur;
+            c -= cur;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function itemType(n) {
+    let count = 0;
+    let day = 1;
+    while (count + day * (day + 1) / 2 < n) {
+        count += day * (day + 1) / 2;
+        day++;
+    }
+    for (let type = day; type > 0; type--) {
+        count += type;
+        if (count >= n) {
+            return type;
+        }
+    }
+    return 0;
+}
+--------------------------------
+function maxGcdInRange(l, r) {
+    let ans = 1;
+    for (let z = r; z >= 1; z--) {
+        if (r / z - (l - 1) / z > 1) {
+            ans = z;
+            break;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function sumOfDigits(n) {
+    let sum = 0;
+    while (n!= 0) {
+        sum += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return sum;
+}
+--------------------------------
+function isRepUnitNum(n, b) {
+    let length = 0;
+    let countOne = 0;
+    while (n!= 0) {
+        let r = n % b;
+        length++;
+        if (r == 1) {
+            countOne++;
+        }
+        n = n / b;
+    }
+    return countOne >= 3 && countOne == length;
+}
+--------------------------------
+function isStraightLineNum(n) {
+    if (n <= 99) {
+        return false;
+    }
+    const s = n.toString();
+    const d = s.charAt(1) - s.charAt(0);
+    for (let i = 2; i < s.length; i++) {
+        if (s.charAt(i) - s.charAt(i - 1)!= d) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function getCount(d, n) {
+    let no = n / d;
+    let result = no;
+    for (let p = 2; p * p <= no; ++p) {
+        if (no % p == 0) {
+            while (no % p == 0) {
+                no /= p;
+            }
+            result -= result / p;
+        }
+    }
+    if (no > 1) {
+        result -= result / no;
+    }
+    return result;
+}
+--------------------------------
+function isEvenParity(x) {
+    let parity = 0;
+    while (x!= 0) {
+        if (x % 2 == 1) {
+            parity++;
+        }
+        x = x >> 1;
+    }
+    if (parity % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+--------------------------------
+function isPerfect(n) {
+    let sum = 1;
+    for (let i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            if (i * i!= n) {
+                sum = sum + i + n / i;
+            } else {
+                sum = sum + i;
+            }
+        }
+    }
+    if (sum == n && n!= 1) {
+        return n;
+    }
+    return 0;
+}
+--------------------------------
+function logAToBaseB(a, b) {
+    return a > b - 1? 1 + logAToBaseB(a / b, b) : 0;
+}
+--------------------------------
+function usingBinarySearch(start, end, n, s) {
+    if (start >= end) {
+        return start;
+    }
+    let mid = start + (end - start) / 2;
+    let totalSum = n * (n + 1) / 2;
+    let midSum = mid * (mid + 1) / 2;
+    if (totalSum - midSum <= s) {
+        return usingBinarySearch(start, mid, n, s);
+    }
+    return usingBinarySearch(mid + 1, end, n, s);
+}
+--------------------------------
+function minInt(s) {
+    var s1 = s.split('');
+    for (var i = 0; i < s.length; i++) {
+        if (s1[i] >= '5') {
+            s1[i] = String.fromCharCode('9'.charCodeAt(0) - s1[i].charCodeAt(0) + '0'.charCodeAt(0));
+        }
+    }
+    if (s1[0] == '0') {
+        s1[0] = '9';
+    }
+    return s1.join('');
+}
+--------------------------------
+function countTriplets(a, b, c) {
+    let ans = 0;
+    for (let i = 1; i <= a; i++) {
+        for (let j = 1; j <= b; j++) {
+            for (let k = 1; k <= c; k++) {
+                if (i * k > j * j) {
+                    ans++;
+                }
+            }
+        }
+    }
+    return ans;
+}
+--------------------------------
+function topsyTurvy(s) {
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i) == '2' || s.charAt(i) == '4' || s.charAt(i) == '5' || s.charAt(i) == '6' || s.charAt(i) == '7' || s.charAt(i) == '9') {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function sumOfLastDig(n, m) {
+    let sum = 0;
+    let k = n / m;
+    let arr = new Array(10).fill(0);
+    for (let i = 0; i < 10; i++) {
+        arr[i] = m * (i + 1) % 10;
+        sum += arr[i];
+    }
+    let rem = k % 10;
+    let ans = k / 10 * sum;
+    for (let i = 0; i < rem; i++) {
+        ans += arr[i];
+    }
+    return ans;
+}
+--------------------------------
+function totalPay(totalItems, priceOfOneItem, n, m) {
+    let freeItems = 0, actual = 0;
+    freeItems = totalItems / (n + m);
+    actual = totalItems - freeItems;
+    let amount = actual * priceOfOneItem;
+    return amount;
+}
+--------------------------------
+function minOperations(x, y, p, q) {
+    if (y % x!== 0) {
+        return -1;
+    }
+    let d = y / x;
+    let a = 0;
+    while (d % p === 0) {
+        d /= p;
+        a += 1;
+    }
+    let b = 0;
+    while (d % q === 0) {
+        d /= q;
+        b += 1;
+    }
+    if (d!== 1) {
+        return -1;
+    }
+    return a + b;
+}
+--------------------------------
+function isMersenne(n) {
+ while (n!= 0) {
+   let r = n % 2;
+   if (r == 0) {
+     return false;
+   }
+   n /= 2;
+ }
+ return true;
+}
+--------------------------------
+function findThirdDigit(n) {
+    if (n < 3) {
+        return 0;
+    }
+    return (n & 1)!= 0? 1 : 6;
+}
+--------------------------------
+function isOddLength(num) {
+    let count = 0;
+    while (num > 0) {
+        num /= 10;
+        count++;
+    }
+    if (count % 2!= 0) {
+        return true;
+    }
+    return false;
+}
+--------------------------------
+function Check_is_possible(l, r, k) {
+    let count = 0;
+    for (let i = l; i <= r; i++) {
+        if (i % k == 0) {
+            count++;
+        }
+    }
+    return count > 1;
+}
+--------------------------------
+function bytes(kilobytes) {
+    let b = kilobytes * 1024;
+    return b;
+}
+--------------------------------
+function octahedralNum(n) {
+    return n * ((2 * n * n) + 1) / 3;
+}
+--------------------------------
+function checkEqual(s) {
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i)!== '1' && s.charAt(i)!== '0' && s.charAt(i)!== '8') {
+            return "No";
+        }
+    }
+    let start = 0, end = s.length - 1;
+    while (start < end) {
+        if (s.charAt(start)!== s.charAt(end)) {
+            return "No";
+        }
+        start++;
+        end--;
+    }
+    return "Yes";
+}
+--------------------------------
+function isUndulating(n) {
+    if (n.length <= 2) {
+        return false;
+    }
+    for (let i = 2; i < n.length; i++) {
+        if (n.charAt(i - 2)!= n.charAt(i)) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function firstDigit(n) {
+    while (n >= 10) {
+        n /= 10;
+    }
+    return n;
+}
+--------------------------------
+function countDigit(n) {
+    if (n == 0) {
+        return 0;
+    }
+    return 1 + countDigit(n / 10);
+}
+--------------------------------
+function isDivisibleBy5(s) {
+    var n = s.length;
+    return (s.charAt(n - 1) - '0') == 0 || (s.charAt(n - 1) - '0') == 5;
+}
+--------------------------------
+function inv(a, m) {
+    let m0 = m;
+    let x0 = 0, x1 = 1;
+    if (m == 1) {
+        return 0;
+    }
+    while (a > 1) {
+        let q = Math.floor(a / m);
+        let t = m;
+        m = a % m;
+        a = t;
+        t = x0;
+        x0 = x1 - q * x0;
+        x1 = t;
+    }
+    if (x1 < 0) {
+        x1 += m0;
+    }
+    return x1;
+}
+--------------------------------
+function onlyFirstAndLastAreSet(n) {
+    if (n == 1) {
+        return true;
+    }
+    if (n == 2) {
+        return false;
+    }
+    return ((n - 1) & (n - 2)) == 0;
+}
+--------------------------------
+function divide(dividend, divisor) {
+    let sign = ((dividend < 0) ^ (divisor < 0))? -1 : 1;
+    dividend = Math.abs(dividend);
+    divisor = Math.abs(divisor);
+    let quotient = 0;
+    let temp = 0;
+    for (let i = 31; i >= 0; --i) {
+        if (temp + (divisor << i) <= dividend) {
+            temp += divisor << i;
+            quotient |= 1 << i;
+        }
+    }
+    if (sign == -1) {
+        quotient = -quotient;
+    }
+    return quotient;
+}
+--------------------------------
+function findProfession(level, pos) {
+    if (level == 1) {
+        return 'e';
+    }
+    if (findProfession(level - 1, (pos + 1) / 2) == 'd') {
+        return pos % 2!= 0? 'd' : 'e';
+    }
+    return pos % 2!= 0? 'e' : 'd';
+}
+--------------------------------
+function hasCloseElements(numbers, threshold) {
+for (let i = 0; i < numbers.length; i++) {
+  for (let j = i + 1; j < numbers.length; j++) {
+    const distance = Math.abs(numbers[i] - numbers[j]);
+    if (distance < threshold) return true;
+  }
+}
+return false;
+}
+--------------------------------
+function truncateNumber(number) {
+return number % 1.0;
+}
+--------------------------------
+function belowZero(operations) {
+    var balance = 0;
+    for (var op of operations) {
+        balance += op;
+        if (balance < 0) {
+            return true;
+        }
+    }
+    return false;
+}
+--------------------------------
+function meanAbsoluteDeviation(numbers) {
+    let sumNum = 0;
+    for (const num of numbers) {
+        sumNum += num;
+    }
+    const mean = sumNum / numbers.length;
+    let sumAbsDiff = 0;
+    for (const num of numbers) {
+        sumAbsDiff += Math.abs(num - mean);
+    }
+    return sumAbsDiff / numbers.length;
+}
+--------------------------------
+function intersperse(numbers, delimiter) {
+    const result = [];
+    if (numbers.length === 0) {
+        return result;
+    }
+    for (let i = 0; i < numbers.length - 1; i++) {
+        result.push(numbers[i]);
+        result.push(delimiter);
+    }
+    result.push(numbers[numbers.length - 1]);
+    return result;
+}
+--------------------------------
+function sumProduct(numbers) {
+    let sumValue = 0;
+    let prodValue = 1;
+    for (let n of numbers) {
+        sumValue += n;
+        prodValue *= n;
+    }
+    return [sumValue, prodValue];
+}
+--------------------------------
+function allPrefixes(string) {
+    let result = [];
+    for (let i = 1; i <= string.length; i++) {
+        result.push(string.substring(0, i));
+    }
+    return result;
+}
+--------------------------------
+function parseMusic(musicString) {
+    let current = "";
+    let result = [];
+    for (let i = 0; i <= musicString.length; i++) {
+        if (i == musicString.length || musicString.charAt(i) == " ") {
+            if (current == "o") {
+                result.push(4);
+            }
+            if (current == "o|") {
+                result.push(2);
+            }
+            if (current == ".|") {
+                result.push(1);
+            }
+            current = "";
+        } else {
+            current += musicString.charAt(i);
+        }
+    }
+    return result;
+}
+--------------------------------
+function strlen(s) {
+    return s.length;
+}
+--------------------------------
+function factorize(n) {
+    let factors = [];
+    for (let i = 2; i <= n; i++) {
+        if (n % i == 0) {
+            n /= i;
+            factors.push(i);
+            i--;
+        }
+    }
+    return factors;
+}
+--------------------------------
+function concatenate(strings) {
+    var result = "";
+    for (var s of strings) {
+        result += s;
+    }
+    return result;
+}
+--------------------------------
+function getPositive(l) {
+    var result = [];
+    for (var i = 0; i < l.length; i++) {
+        if (l[i] > 0) {
+            result.push(l[i]);
+        }
+    }
+    return result;
+}
+--------------------------------
+function sortEven(l) {
+    let evens = [];
+    for (let i = 0; i < l.length; i += 2) {
+        evens.push(l[i]);
+    }
+    evens.sort((a, b) => a - b);
+    let result = [];
+    for (let i = 0; i < l.length; i++) {
+        if (i % 2 == 0) {
+            result.push(evens[i / 2]);
+        }
+        if (i % 2 == 1) {
+            result.push(l[i]);
+        }
+    }
+    return result;
+}
+--------------------------------
+function decodeCyclic(s) {
+    let output = "";
+    let i = 0;
+    while (i <= s.length - 3) {
+        let x = s.charAt(i + 2) + s.substring(i, i + 2);
+        output += x;
+        i += 3;
+    }
+    return output + s.substring(i);
+}
+--------------------------------
+function carRaceCollision(n) {
+return Math.pow(n, 2);
+}
+--------------------------------
+function incrList(l) {
+    var result = [];
+    for (var i of l) {
+        result.push(i + 1);
+    }
+    return result;
+}
+--------------------------------
+function pairsSumToZero(l) {
+    for (let i = 0; i < l.length; i++) {
+        for (let j = i + 1; j < l.length; j++) {
+            if (l[i] + l[j] == 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+--------------------------------
+function changeBase(x, b) {
+    var ret = "";
+    while (x > 0) {
+        ret = x % b + ret;
+        x = Math.floor(x / b);
+    }
+    return ret;
+}
+--------------------------------
+function median(l) {
+    l.sort((a, b) => a - b);
+    if (l.length % 2 == 1) {
+        return l[Math.floor(l.length / 2)];
+    }
+    return (l[Math.floor(l.length / 2 - 1)] + l[Math.floor(l.length / 2)]) / 2.0;
+}
+--------------------------------
+function decodeShift(s) {
+    var sb = "";
+    for (var i = 0; i < s.length; i++) {
+        var w = String.fromCharCode((s.charCodeAt(i) + 21 - 'a'.charCodeAt(0)) % 26 + 'a'.charCodeAt(0));
+        sb += w;
+    }
+    return sb;
+}
+--------------------------------
+function belowThreshold(l, t) {
+    for (let n of l) {
+        if (n >= t) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function correctBracketing(brackets) {
+    let depth = 0;
+    for (let b of brackets) {
+        if (b == '<') {
+            depth += 1;
+        }
+        if (b == '>') {
+            depth -= 1;
+        }
+        if (depth < 0) {
+            return false;
+        }
+    }
+    return depth == 0;
+}
+--------------------------------
+function monotonic(l) {
+    let incr = 0;
+    let decr = 0;
+    for (let i = 1; i < l.length; i++) {
+        if (l[i] > l[i - 1]) {
+            incr = 1;
+        }
+        if (l[i] < l[i - 1]) {
+            decr = 1;
+        }
+    }
+    return incr + decr!= 2;
+}
+--------------------------------
+function derivative(xs) {
+    var result = [];
+    for (var i = 1; i < xs.length; i++) {
+        result.push(i * xs[i]);
+    }
+    return result;
+}
+--------------------------------
+function vowelsCount(s) {
+    var vowels = "aeiouAEIOU";
+    var count = 0;
+    for (var ch of s.split("")) {
+        if (vowels.indexOf(ch)!= -1) {
+            count += 1;
+        }
+    }
+    if (s.charAt(s.length - 1) == 'y' || s.charAt(s.length - 1) == 'Y') {
+        count += 1;
+    }
+    return count;
+}
+--------------------------------
+function digitSum(s) {
+    let sum = 0;
+    for (let c of s) {
+        if (c.toUpperCase() === c) {
+            sum += c;
+        }
+    }
+    return sum;
+}
+--------------------------------
+function fruitDistribution(s, n) {
+    let num1 = "";
+    let num2 = "";
+    let flag = false;
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i).match(/[0-9]/)) {
+            if (!flag) {
+                num1 += s.charAt(i);
+            }
+            if (flag) {
+                num2 += s.charAt(i);
+            }
+        } else if (!flag && num1.length > 0) {
+            flag = true;
+        }
+    }
+    return n - parseInt(num1) - parseInt(num2);
+}
+--------------------------------
+function pluck(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+            if (result.length == 0) {
+                result.push(arr[i]);
+                result.push(i);
+            } else if (arr[i] < result[0]) {
+                result[0] = arr[i];
+                result[1] = i;
+            }
+        }
+    }
+    return result;
+}
+--------------------------------
+function strangeSortList(lst) {
+    let res = [];
+    lst.sort();
+    let l = 0;
+    let r = lst.length - 1;
+    while (l < r) {
+        res.push(lst[l]);
+        l += 1;
+        res.push(lst[r]);
+        r -= 1;
+    }
+    if (l == r) {
+        res.push(lst[l]);
+    }
+    return res;
+}
+--------------------------------
+function triangleArea(a, b, c) {
+    if (a + b <= c || a + c <= b || b + c <= a) {
+        return -1;
+    }
+    let s = (a + b + c) / 2;
+    return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+}
+--------------------------------
+function willItFly(q, w) {
+    let sum = 0;
+    for (let i = 0; i < q.length; i++) {
+        if (q[i]!== q[q.length - i - 1]) {
+            return false;
+        }
+        sum += q[i];
+    }
+    return sum <= w;
+}
+--------------------------------
+function isCube(a) {
+    a = Math.abs(a);
+    var i = Math.round(Math.pow(a, 1 / 3));
+    return Math.pow(i, 3) == a;
+}
+--------------------------------
+function hexKey(num) {
+    var key = "2357BD";
+    var total = 0;
+    for (var i = 0; i < num.length; i++) {
+        if (key.indexOf(num[i])!= -1) {
+            total += 1;
+        }
+    }
+    return total;
+}
+--------------------------------
+function decimalToBinary(dec) {
+    let ans = "";
+    if (dec!= 0) {
+        while (dec > 0) {
+            ans = dec % 2 + ans;
+            dec = Math.floor(dec / 2);
+        }
+    } else {
+        ans = "0";
+    }
+    return "db" + ans + "db";
+}
+--------------------------------
+function primeLength(s) {
+    let l = s.length;
+    if (l < 2) {
+        return false;
+    }
+    for (let i = 2; i < l; i++) {
+        if (l % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function startsOneEnds(n) {
+    if (n < 1) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    return 18 * Math.pow(10, n - 2);
+}
+--------------------------------
+function add(lst) {
+    let sum = 0;
+    for (let i = 1; i < lst.length; i += 2) {
+        if (lst[i] % 2 == 0) {
+            sum += lst[i];
+        }
+    }
+    return sum;
+}
+--------------------------------
+function getRow(lst, x) {
+    let coords = [];
+    for (let i = 0; i < lst.length; i++) {
+        for (let j = lst[i].length - 1; j >= 0; j--) {
+            if (lst[i][j] == x) {
+                coords.push([i, j]);
+            }
+        }
+    }
+    return coords;
+}
+--------------------------------
+function nextSmallest(lst) {
+    lst.sort();
+    for (let i = 1; i < lst.length; i++) {
+        if (lst[i]!== lst[i - 1]) {
+            return lst[i];
+        }
+    }
+    return -1;
+}
+--------------------------------
+function anyInt(a, b, c) {
+    return (Math.round(a) == a && Math.round(b) == b && Math.round(c) == c) && (a + b == c || a + c == b || b + c == a);
+}
+--------------------------------
+function countUpTo(n) {
+    let primes = [];
+    for (let i = 2; i < n; i++) {
+        let isPrime = true;
+        for (let j = 2; j < i; j++) {
+            if (i % j == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            primes.push(i);
+        }
+    }
+    return primes;
+}
+--------------------------------
+function closestInteger(value) {
+    return Math.round(parseFloat(value));
+}
+--------------------------------
+function makeAPile(n) {
+    let result = [];
+    for (let i = 0; i < n; i++) {
+        result.push(n + 2 * i);
+    }
+    return result;
+}
+--------------------------------
+function wordsString(s) {
+    let current = "";
+    let words = [];
+    for (let i = 0; i <= s.length; i++) {
+        if (i == s.length || s.charAt(i) == " " || s.charAt(i) == ",") {
+            if (current.length > 0) {
+                words.push(current);
+                current = "";
+            }
+        } else {
+            current += s.charAt(i);
+        }
+    }
+    return words;
+}
+--------------------------------
+function roundedAvg(n, m) {
+    if (n > m) {
+        return "-1";
+    }
+    let num = (m + n) / 2;
+    let ret = "";
+    while (num > 0) {
+        ret = num % 2 + ret;
+        num = Math.floor(num / 2);
+    }
+    return ret;
+}
+--------------------------------
+function uniqueDigits(x) {
+    var digits = [];
+    for (var i of x) {
+        var isUnique = true;
+        for (var c of String(i).split("")) {
+            if (c % 2 == 0) {
+                isUnique = false;
+                break;
+            }
+        }
+        if (isUnique) {
+            digits.push(i);
+        }
+    }
+    digits.sort(function(a, b) {
+        return a - b;
+    });
+    return digits;
+}
+--------------------------------
+function countNums(arr) {
+    let num = 0;
+    for (let n of arr) {
+        let neg = n < 0? -1 : 1;
+        n = Math.abs(n);
+        let digits = [];
+        for (let c of String(n).split('')) {
+            digits.push(c - '0');
+        }
+        digits[0] *= neg;
+        let sum = 0;
+        for (let d of digits) {
+            sum += d;
+        }
+        if (sum > 0) {
+            num += 1;
+        }
+    }
+    return num;
+}
+--------------------------------
+function moveOneBall(arr) {
+    if (arr.length == 0) {
+        return true;
+    }
+    let num = 0;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) {
+            num += 1;
+        }
+    }
+    if (arr[arr.length - 1] > arr[0]) {
+        num += 1;
+    }
+    if (num < 2) {
+        return true;
+    }
+    return false;
+}
+--------------------------------
+function exchange(lst1, lst2) {
+    let odd = 0;
+    let even = 0;
+    for (let n of lst1) {
+        if (n % 2 == 1) {
+            odd += 1;
+        }
+    }
+    for (let n of lst2) {
+        if (n % 2 == 0) {
+            even += 1;
+        }
+    }
+    if (even >= odd) {
+        return "YES";
+    }
+    return "NO";
+}
+--------------------------------
+function oddCount(lst) {
+    let results = [];
+    let originalStr = "the number of odd elements in the string i of the input.";
+    for (let s of lst) {
+        let sum = 0;
+        for (let d of s.split("")) {
+            if (d.match(/[0-9]/) && d % 2 == 1) {
+                sum += 1;
+            }
+        }
+        let result = "";
+        for (let c of originalStr.split("")) {
+            if (c == "i") {
+                result += sum;
+            } else {
+                result += c;
+            }
+        }
+        results.push(result);
+    }
+    return results;
+}
+--------------------------------
+function minSubArraySum(nums) {
+    let minSum = Number.MAX_SAFE_INTEGER;
+    let sum = 0;
+    for (let num of nums) {
+        sum += num;
+        if (minSum > sum) {
+            minSum = sum;
+        }
+        if (sum > 0) {
+            sum = 0;
+        }
+    }
+    return minSum;
+}
+--------------------------------
+function maxFill(grid, capacity) {
+    let res = 0;
+    for (const well of grid) {
+        let sum = 0;
+        for (const n of well) {
+            sum += n;
+        }
+        if (sum > 0) {
+            res += (sum - 1) / capacity + 1;
+        }
+    }
+    return res;
+}
+--------------------------------
+function selectWords(s, n) {
+    const vowels = "aeiouAEIOU";
+    let current = "";
+    let result = [];
+    let consonantNum = 0;
+    for (let i = 0; i <= s.length; i++) {
+        if (i == s.length || s.charAt(i) == " ") {
+            if (consonantNum == n) {
+                result.push(current);
+            }
+            current = "";
+            consonantNum = 0;
+        } else {
+            current += s.charAt(i);
+            if (vowels.indexOf(s.charAt(i)) == -1) {
+                consonantNum += 1;
+            }
+        }
+    }
+    return result;
+}
+--------------------------------
+function solution(lst) {
+    let sum = 0;
+    for (let i = 0; i < lst.length; i += 2) {
+        if ((lst[i] % 2) == 1) {
+            sum += lst[i];
+        }
+    }
+    return sum;
+}
+--------------------------------
+function addElements(arr, k) {
+    let sum = 0;
+    for (let i = 0; i < k; i++) {
+        if (arr[i] >= -99 && arr[i] <= 99) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
+--------------------------------
+function getOddCollatz(n) {
+    let oddCollatz = [];
+    while (n!= 1) {
+        if (n % 2 == 1) {
+            oddCollatz.push(n);
+            n = n * 3 + 1;
+        } else {
+            n /= 2;
+        }
+    }
+    oddCollatz.push(1);
+    oddCollatz.sort((a, b) => a - b);
+    return oddCollatz;
+}
+--------------------------------
+function isSorted(lst) {
+    for (let i = 1; i < lst.length; i++) {
+        if (lst[i] < lst[i - 1]) {
+            return false;
+        }
+        if (i >= 2 && lst[i] == lst[i - 1] && lst[i] == lst[i - 2]) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function intersection(interval1, interval2) {
+    let inter1 = Math.max(interval1[0], interval2[0]);
+    let inter2 = Math.min(interval1[1], interval2[1]);
+    let l = inter2 - inter1;
+    if (l < 2) {
+        return "NO";
+    }
+    for (let i = 2; i < l; i++) {
+        if (l % i == 0) {
+            return "NO";
+        }
+    }
+    return "YES";
+}
+--------------------------------
+function prodSigns(arr) {
+    if (arr.length == 0) {
+        return -32768;
+    }
+    let sum = 0;
+    let prods = 1;
+    for (let i of arr) {
+        sum += Math.abs(i);
+        if (i == 0) {
+            prods = 0;
+        }
+        if (i < 0) {
+            prods = -prods;
+        }
+    }
+    return sum * prods;
+}
+--------------------------------
+function minPath(grid, k) {
+    let n = grid.length;
+    let minNum = 0;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] == 1) {
+                let tmp = [];
+                if (i!= 0) {
+                    tmp.push(grid[i - 1][j]);
+                }
+                if (j!= 0) {
+                    tmp.push(grid[i][j - 1]);
+                }
+                if (i!= n - 1) {
+                    tmp.push(grid[i + 1][j]);
+                }
+                if (j!= n - 1) {
+                    tmp.push(grid[i][j + 1]);
+                }
+                minNum = Math.min(...tmp);
+            }
+        }
+    }
+    let ans = [];
+    for (let i = 0; i < k; i++) {
+        if (i % 2 == 0) {
+            ans.push(1);
+        } else {
+            ans.push(minNum);
+        }
+    }
+    return ans;
+}
+--------------------------------
+function digits(n) {
+    let prod = 0;
+    for (let digit of String(n).split('')) {
+        if (digit % 2 == 1) {
+            if (prod == 0) {
+                prod = 1;
+            }
+            prod *= digit - '0';
+        }
+    }
+    return prod;
+}
+--------------------------------
+function isNested(s) {
+    let count = 0;
+    let maxCount = 0;
+    for (let ch of s) {
+        if (ch == '[') {
+            count += 1;
+        }
+        if (ch == ']') {
+            count -= 1;
+        }
+        if (count < 0) {
+            count = 0;
+        }
+        if (count > maxCount) {
+            maxCount = count;
+        }
+        if (count <= maxCount - 2) {
+            return true;
+        }
+    }
+    return false;
+}
+--------------------------------
+function sumSquares(lst) {
+    let sum = 0;
+    for (let i of lst) {
+        sum += Math.ceil(i) * Math.ceil(i);
+    }
+    return sum;
+}
+--------------------------------
+function canArrange(arr) {
+    let index = -1;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] <= i) {
+            index = i;
+        }
+    }
+    return index;
+}
+--------------------------------
+function largestSmallestIntegers(lst) {
+    let maxNeg = 0, minPos = 0;
+    for (let n of lst) {
+        if (n < 0 && (maxNeg == 0 || n > maxNeg)) {
+            maxNeg = n;
+        }
+        if (n > 0 && (minPos == 0 || n < minPos)) {
+            minPos = n;
+        }
+    }
+    return [maxNeg, minPos];
+}
+--------------------------------
+function fixSpaces(text) {
+    var res = "";
+    var spaceLen = 0;
+    for (var i = 0; i <= text.length; i++) {
+        if (i == text.length || text.charAt(i)!='') {
+            if (spaceLen == 1) {
+                res += '_';
+            }
+            if (spaceLen == 2) {
+                res += '__';
+            }
+            if (spaceLen > 2) {
+                res += '-';
+            }
+            spaceLen = 0;
+            if (i!= text.length) {
+                res += text.charAt(i);
+            }
+        } else {
+            spaceLen += 1;
+        }
+    }
+    return res;
+}
+--------------------------------
+function fileNameCheck(fileName) {
+    let digitNum = 0, dotNum = 0;
+    if (fileName.length < 5 ||!fileName.charAt(0).isLetter()) {
+        return "No";
+    }
+    let suffix = fileName.substring(fileName.length - 4);
+    if (!suffix.equals(".txt") &&!suffix.equals(".exe") &&!suffix.equals(".dll")) {
+        return "No";
+    }
+    for (let c of fileName) {
+        if (c.isDigit()) {
+            digitNum += 1;
+        }
+        if (c == ".") {
+            dotNum += 1;
+        }
+    }
+    if (digitNum > 3 || dotNum!= 1) {
+        return "No";
+    }
+    return "Yes";
+}
+--------------------------------
+function sumSquares(lst) {
+    let sum = 0;
+    for (let i = 0; i < lst.length; i++) {
+        if (i % 3 == 0) {
+            sum += lst[i] * lst[i];
+        } else if (i % 4 == 0) {
+            sum += lst[i] * lst[i] * lst[i];
+        } else {
+            sum += lst[i];
+        }
+    }
+    return sum;
+}
+--------------------------------
+function wordsInSentence(sentence) {
+    var result = "";
+    var current = "";
+    for (var i = 0; i <= sentence.length; i++) {
+        if (i == sentence.length || sentence.charAt(i) =='') {
+            var isPrime = true;
+            var l = current.length;
+            if (l < 2) {
+                isPrime = false;
+            }
+            for (var j = 2; j < l; j++) {
+                if (l % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                result += current +'';
+            }
+            current = "";
+        } else {
+            current += sentence.charAt(i);
+        }
+    }
+    if (result.length > 0) {
+        result = result.substring(0, result.length - 1);
+    }
+    return result;
+}
+--------------------------------
+function simplify(x, n) {
+    let a = 0, b = 0, c = 0, d = 0;
+    for (let i = 0; i < x.length; i++) {
+        if (x.charAt(i) == '/') {
+            a = parseInt(x.substring(0, i));
+            b = parseInt(x.substring(i + 1));
+        }
+    }
+    for (let i = 0; i < n.length; i++) {
+        if (n.charAt(i) == '/') {
+            c = parseInt(n.substring(0, i));
+            d = parseInt(n.substring(i + 1));
+        }
+    }
+    return (a * c) % (b * d) == 0;
+}
+--------------------------------
+function specialFilter(nums) {
+    let count = 0;
+    for (let num of nums) {
+        if (num > 10) {
+            let w = num.toString();
+            if (w.charAt(0) % 2 == 1 && w.charAt(w.length - 1) % 2 == 1) {
+                count += 1;
+            }
+        }
+    }
+    return count;
+}
+--------------------------------
+function getMaxTriples(n) {
+    let arr = [];
+    for (let i = 1; i <= n; i++) {
+        arr.push(i * i - i + 1);
+    }
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            for (let k = j + 1; k < n; k++) {
+                if ((arr[i] + arr[j] + arr[k]) % 3 == 0) {
+                    count += 1;
+                }
+            }
+        }
+    }
+    return count;
+}
+--------------------------------
+function doubleTheDifference(lst) {
+    let sum = 0;
+    for (let d of lst) {
+        let num = Math.round(d);
+        if (d == num) {
+            if (num > 0 && num % 2 == 1) {
+                sum += num * num;
+            }
+        }
+    }
+    return sum;
+}
+--------------------------------
+function compare(game, guess) {
+    var result = [];
+    for (var i = 0; i < game.length; i++) {
+        result.push(Math.abs(game[i] - guess[i]));
+    }
+    return result;
+}
+--------------------------------
+function strongestExtension(className, extensions) {
+    let strongest = "";
+    let max = Number.MIN_SAFE_INTEGER;
+    for (const extension of extensions) {
+        let strength = 0;
+        for (const chr of extension.split("")) {
+            if (chr.toUpperCase() === chr) {
+                strength += 1;
+            }
+            if (chr.toLowerCase() === chr) {
+                strength -= 1;
+            }
+        }
+        if (strength > max) {
+            max = strength;
+            strongest = extension;
+        }
+    }
+    return className + "." + strongest;
+}
+--------------------------------
+function intToMiniRoman(number) {
+    const num = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const sym = ["m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"];
+    let pos = 0;
+    let res = "";
+    while (number > 0) {
+        while (number >= num[pos]) {
+            res += sym[pos];
+            number -= num[pos];
+        }
+        if (number > 0) {
+            pos += 1;
+        }
+    }
+    return res;
+}
+--------------------------------
+function eat(number, need, remaining) {
+    return need > remaining? [number + remaining, 0] : [number + need, remaining - need];
+}
+--------------------------------
+function doAlgebra(ops, operands) {
+    let nums = operands.slice();
+    let currentOps = ops.slice();
+    let i = currentOps.length - 1;
+    while (i >= 0) {
+        if (currentOps[i] === "**") {
+            nums[i] = Math.pow(nums[i], nums[i + 1]);
+            nums.splice(i + 1, 1);
+            currentOps.splice(i, 1);
+        }
+        i--;
+    }
+    i = 0;
+    while (i < currentOps.length) {
+        if (currentOps[i] === "*") {
+            nums[i] *= nums[i + 1];
+            nums.splice(i + 1, 1);
+            currentOps.splice(i, 1);
+        } else if (currentOps[i] === "//") {
+            nums[i] /= nums[i + 1];
+            nums.splice(i + 1, 1);
+            currentOps.splice(i, 1);
+        } else {
+            i++;
+        }
+    }
+    i = 0;
+    while (i < currentOps.length) {
+        if (currentOps[i] === "+") {
+            nums[i] += nums[i + 1];
+            nums.splice(i + 1, 1);
+            currentOps.splice(i, 1);
+        } else if (currentOps[i] === "-") {
+            nums[i] -= nums[i + 1];
+            nums.splice(i + 1, 1);
+            currentOps.splice(i, 1);
+        } else {
+            i++;
+        }
+    }
+    return nums[0];
+}
+--------------------------------
+function generateIntegers(a, b) {
+    let lower = Math.max(2, Math.min(a, b));
+    let upper = Math.min(8, Math.max(a, b));
+    let result = [];
+    for (let i = lower; i <= upper; i += 2) {
+        result.push(i);
+    }
+    return result;
+}
+--------------------------------
+function isStepNum(n) {
+    let prevDigit = -1;
+    while (n > 0) {
+        let curDigit = n % 10;
+        if (prevDigit!= -1) {
+            if (Math.abs(curDigit - prevDigit)!= 1) {
+                return false;
+            }
+        }
+        n = Math.floor(n / 10);
+        prevDigit = curDigit;
+    }
+    return true;
+}
+--------------------------------
+function numOfWays(n, k) {
+    let p = 1;
+    if (k % 2!= 0) {
+        p = -1;
+    }
+    return (Math.pow(n - 1, k) + p * (n - 1)) / n;
+}
+--------------------------------
+function findDivisors(n) {
+    let v = [];
+    for (let i = 1; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) {
+            if (n / i == i) {
+                v.push(i);
+            } else {
+                v.push(i);
+                v.push(n / i);
+            }
+        }
+    }
+    return v;
+}
+--------------------------------
+function eggDrop(n, k) {
+    if (k == 1 || k == 0) {
+        return k;
+    }
+    if (n == 1) {
+        return k;
+    }
+    let min = Number.MAX_VALUE;
+    let x, res;
+    for (x = 1; x <= k; x++) {
+        res = Math.max(eggDrop(n - 1, x - 1), eggDrop(n, k - x));
+        if (res < min) {
+            min = res;
+        }
+    }
+    return min + 1;
+}
+--------------------------------
+function isPowerOfTwo(n) {
+    if (n == 0) {
+        return false;
+    }
+    return Math.ceil(Math.log(n) / Math.log(2)) == Math.floor(Math.log(n) / Math.log(2));
+}
+--------------------------------
+function shortestPalindrome(s) {
+    let n = s.length;
+    let v = [];
+    for (let i = 0; i < n; i++) {
+        let l = i;
+        let r = i;
+        let ans1 = "";
+        let ans2 = "";
+        while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+            ans1 += s.charAt(l);
+            l--;
+            r++;
+        }
+        l = i - 1;
+        r = i;
+        while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+            ans2 += s.charAt(l);
+            l--;
+            r++;
+        }
+        v.push(ans1);
+        v.push(ans2);
+    }
+    let ans = v[0];
+    for (let i = 0; i < v.length; i++) {
+        if (v[i]!= "") {
+            if (ans.charAt(0) >= v[i].charAt(0)) {
+                ans = v[i];
+            }
+        }
+    }
+    return ans;
+}
+--------------------------------
+function minimumAdjacentDifference(a, n, k) {
+    let minDiff = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i <= k; i++) {
+        let maxDiff = Number.MIN_SAFE_INTEGER;
+        for (let j = 0; j < n - k - 1; j++) {
+            for (let p = i; p <= i + j; p++) {
+                maxDiff = Math.max(maxDiff, a[p + 1] - a[p]);
+            }
+        }
+        minDiff = Math.min(minDiff, maxDiff);
+    }
+    return minDiff;
+}
+--------------------------------
+function cal(arr, mid) {
+    let chocolate = 0;
+    for (const i of arr) {
+        if (i >= mid) {
+            chocolate += i - mid;
+        }
+    }
+    return chocolate;
+}
+--------------------------------
+function check(v, a, m) {
+    let tec = 0, ans = 0;
+    let b = new Array(a.length + 3).fill(0);
+    for (let i = 0; i < a.length; i++) {
+        tec -= b[i];
+        if (a[i] + tec < v) {
+            let mov = v - a[i] - tec;
+            ans += mov;
+            tec += mov;
+            b[i + 2] = mov;
+        }
+    }
+    return ans <= m;
+}
+--------------------------------
+function largestNum(arr) {
+    let res = 0;
+    arr.sort((a, b) => a - b);
+    let l = 0, r = arr.length - 1;
+    while (l < r) {
+        let sum = arr[l] + arr[r];
+        if (sum == 0) {
+            res = Math.max(res, Math.max(arr[l], arr[r]));
+            return res;
+        } else if (sum < 0) {
+            l++;
+        } else {
+            r--;
+        }
+    }
+    return res;
+}
+--------------------------------
+function binarySearch(p, n) {
+    let i = 0;
+    let j = p.length - 1;
+    let index = -1;
+    while (i <= j) {
+        let mid = Math.floor(i + (j - i) / 2);
+        if (p[mid] >= n) {
+            index = mid;
+            j = mid - 1;
+        } else {
+            i = mid + 1;
+        }
+    }
+    return index;
+}
+--------------------------------
+function findMinLength(arr) {
+    let index = arr.length - 1;
+    while (index > 0 && arr[index] >= arr[index - 1]) {
+        index--;
+    }
+    return index;
+}
+--------------------------------
+function minDigits(n, k) {
+    let digitsNum = Math.floor(Math.log(n) + 1);
+    let tempSum = 0;
+    let temp = digitsNum;
+    let result = 0;
+    let x, v;
+    let sum = 0;
+    let num2 = n;
+    while (num2!= 0) {
+        sum += num2 % 10;
+        num2 /= 10;
+    }
+    if (sum <= k) {
+        x = 0;
+    } else {
+        while (temp > 0) {
+            v = n / Math.pow(10, temp - 1);
+            tempSum += v % 10;
+            if (tempSum >= k) {
+                v /= 10;
+                v++;
+                result = v * Math.pow(10, temp);
+                break;
+            }
+            temp--;
+        }
+        x = result - n;
+        return x;
+    }
+    return -1;
+}
+--------------------------------
+function checkForPerfectSquare(arr, i, j) {
+    let mid, sum = 0;
+    for (let m = i; m <= j; m++) {
+        sum += arr[m];
+    }
+    let low = 0, high = sum / 2;
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        if (mid * mid == sum) {
+            return mid;
+        } else if (mid * mid > sum) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+    return -1;
+}
+--------------------------------
+function minFlips(mat, s) {
+    let n = mat.length;
+    let m = mat[0].length;
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
+            if (mat[i][j]!= s[i + j] - '0') {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+--------------------------------
+function constructTree(n, edges) {
+    var adjl = [];
+    for (var i = 0; i < n; i++) {
+        adjl.push([]);
+    }
+    for (var e of edges) {
+        var u = e[0];
+        var v = e[1];
+        adjl[u].push(v);
+        adjl[v].push(u);
+    }
+    return adjl;
+}
+--------------------------------
+function findSumOfValues(v, parent, valuesChildren) {
+    let curNode = v;
+    let sum = 0;
+    while (curNode!= -1) {
+        sum += valuesChildren.get(curNode);
+        curNode = parent.get(curNode);
+    }
+    return sum;
+}
+--------------------------------
+function getDistinct(d, count) {
+    let num = 0;
+    count = Math.pow(10, count - 1);
+    while (count > 0) {
+        num += count * d;
+        count /= 10;
+    }
+    return num;
+}
+--------------------------------
+function isIncreasing(arr) {
+for (let i = 0; i < arr.length - 1; i++) {
+  if (arr[i] > arr[i + 1]) {
+    return false;
+  }
+}
+return true;
+}
+--------------------------------
+function minAdjSwaps(mat) {
+    let n = mat.length;
+    let cntZero = Array(n).fill(0);
+    for (let i = 0; i < n; i++) {
+        for (let j = n - 1; j >= 0 && mat[i][j] == 0; j--) {
+            cntZero[i] += 1;
+        }
+    }
+    let cntSwaps = 0;
+    for (let i = 0; i < n; i++) {
+        if (cntZero[i] < (n - i - 1)) {
+            let first = i;
+            while (first < n && cntZero[first] < (n - i - 1)) {
+                first++;
+            }
+            if (first == n) {
+                return -1;
+            }
+            while (first > i) {
+                [cntZero[first], cntZero[first - 1]] = [cntZero[first - 1], cntZero[first]];
+                first--;
+                cntSwaps++;
+            }
+        }
+    }
+    return cntSwaps;
+}
+--------------------------------
+function solve(values, salary, mod) {
+    let ret = 1;
+    let amt = 0;
+    values.sort((a, b) => a - b);
+    salary.sort((a, b) => a - b);
+    while (salary.length > 0) {
+        while (values.length > 0 && values[values.length - 1] >= salary[salary.length - 1]) {
+            amt++;
+            values.pop();
+        }
+        if (amt == 0) {
+            return 0;
+        }
+        ret *= amt--;
+        ret %= mod;
+        salary.pop();
+    }
+    return ret;
+}
+--------------------------------
+function organizeInOrder(vec, op, n) {
+    let result = new Array(n).fill(0);
+    vec.sort((a, b) => a - b);
+    let i = 0, j = n - 1, k = 0;
+    while (i <= j && k <= n - 2) {
+        if (op[k] == '<') {
+            result[k] = vec[i++];
+        } else {
+            result[k] = vec[j--];
+        }
+        k++;
+    }
+    result[n - 1] = vec[i];
+    return result;
+}
+--------------------------------
+function countPoints(n, m, a, b, x, y) {
+    a.sort(function(a, b) {
+        return a - b;
+    });
+    b.sort(function(a, b) {
+        return a - b;
+    });
+    var j = 0;
+    var count = 0;
+    for (var i = 0; i < n; i++) {
+        while (j < m) {
+            if (a[i] + y < b[j]) {
+                break;
+            }
+            if (b[j] >= a[i] - x && b[j] <= a[i] + y) {
+                count++;
+                j++;
+                break;
+            } else {
+                j++;
+            }
+        }
+    }
+    return count;
+}
+--------------------------------
+function areSame(a, b) {
+    return a.sort().join() === b.sort().join();
+}
+--------------------------------
+function countNumberOfStrings(s) {
+    let n = s.length - 1;
+    let count = Math.pow(2, n);
+    return count;
+}
+--------------------------------
+function primePower(x) {
+    var primePow = [];
+    for (var i = 2; i * i <= x; i++) {
+        if (x % i == 0) {
+            var p = 1;
+            while (x % i == 0) {
+                x /= i;
+                p *= i;
+            }
+            primePow.push(p);
+        }
+    }
+    if (x > 1) {
+        primePow.push(x);
+    }
+    return primePow;
+}
+--------------------------------
+function isPerfect(n0) {
+    let n = Math.sqrt(n0);
+    if (Math.floor(n)!= Math.ceil(n)) {
+        return false;
+    }
+    return true;
+}
+--------------------------------
+function findSum(l, r) {
+    let arr = [];
+    let i = 0;
+    let x = 2;
+    while (i <= r) {
+        arr.push(i + x);
+        if (i + 1 <= r) {
+            arr.push(i + 1 + x);
+        }
+        x *= -1;
+        i += 2;
+    }
+    let sum = 0;
+    for (i = l; i <= r; ++i) {
+        sum += arr[i];
+    }
+    return sum;
+}
+--------------------------------
+function results(n, k) {
+    return Math.round(Math.pow(n, 1 / Math.pow(2, k)));
+}
+--------------------------------
+function factors(n) {
+    let v = [];
+    v.push(1);
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) {
+            v.push(i);
+            if (n / i!= i) {
+                v.push(n / i);
+            }
+        }
+    }
+    return v;
+}
+--------------------------------
+function smallestNum(n) {
+    let x = Math.pow(10, (n - 1) / 2.0);
+    return Math.ceil(x);
+}
+--------------------------------
+function smallest(s) {
+    let a = new Array(s.length).fill(0);
+    for (let i = 0; i < s.length; i++) {
+        a[i] = s.charCodeAt(i) - '0'.charCodeAt(0);
+    }
+    let b = [];
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] % 2!= 0) {
+            b.push(a[i]);
+        }
+    }
+    b.sort((a, b) => a - b);
+    if (b.length > 1) {
+        return b[0] * 10 + b[1];
+    }
+    return -1;
+}
+--------------------------------
+function Diagonals(a, b, c, d) {
+    var ans = [];
+    ans.push(Math.sqrt((a * c + b * d) * (a * d + b * c) / (a * b + c * d)));
+    ans.push(Math.sqrt((a * c + b * d) * (a * b + c * d) / (a * d + b * c)));
+    return ans;
+}
+--------------------------------
+function findNumberOfDigits(n, bas) {
+    let dig = Math.floor(Math.log(n) / Math.log(bas)) + 1;
+    return dig;
+}
+--------------------------------
+function nGon(n) {
+    let proAngleVar;
+    if (n % 4 == 0) {
+        proAngleVar = Math.PI * (180.0 / n) / 180;
+    } else {
+        proAngleVar = Math.PI * (180.0 / (2 * n)) / 180;
+    }
+    let negX = 1.0e+99, posX = -1.0e+99, negY = 1.0e+99, posY = -1.0e+99;
+    for (let j = 0; j < n; ++j) {
+        let px = Math.cos(2 * Math.PI * j / n + proAngleVar);
+        let py = Math.sin(2 * Math.PI * j / n + proAngleVar);
+        negX = Math.min(negX, px);
+        posX = Math.max(posX, px);
+        negY = Math.min(negY, py);
+        posY = Math.max(posY, py);
+    }
+    let opt2 = Math.max(posX - negX, posY - negY);
+    return opt2 / Math.sin(Math.PI / n) / 2;
+}
+--------------------------------
+function findMaxK(n) {
+    let p = Math.log2(n);
+    return Math.pow(2, p);
+}
+--------------------------------
+function nthFibo(n) {
+    const a = (Math.pow(5, 0.5) + 1) / 2;
+    const b = (-1 * Math.pow(5, 0.5) + 1) / 2;
+    const r = Math.pow(5, 0.5);
+    const ans = (Math.pow(a, n) - Math.pow(b, n)) / r;
+    return Math.floor(ans);
+}
+--------------------------------
+function findProb(l, r) {
+    let countOfPs = Math.floor(Math.sqrt(r)) - Math.ceil(Math.sqrt(l)) + 1;
+    let total = r - l + 1;
+    let prob = countOfPs / total;
+    return prob;
+}
+--------------------------------
+function previousFibonacci(n) {
+    return Math.round(n / ((1 + Math.sqrt(5)) / 2.0));
+}
+--------------------------------
+function distPrime(arr, allPrimes) {
+    let list1 = [];
+    for (let i of allPrimes) {
+        for (let j of arr) {
+            if (j % i == 0) {
+                list1.push(i);
+                break;
+            }
+        }
+    }
+    return list1;
+}
+--------------------------------
+function getArray(n) {
+    let ans = [];
+    let p2 = 1;
+    while (n > 0) {
+        if (n % 2 == 1) {
+            ans.push(p2);
+        }
+        n >>= 1;
+        p2 *= 2;
+    }
+    return ans;
+}
+--------------------------------
+function maximumLength(a) {
+    var counts = new Array(11).fill(0);
+    var ans = 0;
+    for (var index = 0; index < a.length; index++) {
+        counts[a[index]]++;
+        var k = [];
+        for (var i = 0; i < counts.length; i++) {
+            if (counts[i]!= 0) {
+                k.push(counts[i]);
+            }
+        }
+        k.sort((a, b) => a - b);
+        if (k.length == 1 || (k[0] == k[k.length - 2] && k[k.length - 1] - k[k.length - 2] == 1) || (k[0] == 1 && k[1] == k[k.length - 1])) {
+            ans = index;
+        }
+    }
+    return ans + 1;
+}
+--------------------------------
+function maxEdges(n) {
+    let edges = Math.floor(n * n / 4);
+    return Math.floor(edges);
+}
+--------------------------------
+function findK(n, k) {
+    let a = [];
+    for (let i = 1; i < n; i++) {
+        if (i % 2 == 1) {
+            a.push(i);
+        }
+    }
+    for (let i = 1; i < n; i++) {
+        if (i % 2 == 0) {
+            a.push(i);
+        }
+    }
+    return a[k - 1];
+}
+--------------------------------
+function isKeith(x, temp) {
+    let terms = [];
+    let n = 0;
+    while (temp > 0) {
+        terms.push(temp % 10);
+        temp = Math.floor(temp / 10);
+        n++;
+    }
+    terms.reverse();
+    let nextTerm = 0, i = n;
+    while (nextTerm < x) {
+        nextTerm = 0;
+        for (let j = 1; j <= n; j++) {
+            nextTerm += terms[i - j];
+        }
+        terms.push(nextTerm);
+        i++;
+    }
+    return nextTerm == x;
+}
+--------------------------------
+function factors(n, k) {
+    let v = [];
+    while (n % 2 == 0) {
+        v.push(2);
+        n /= 2;
+    }
+    if (v.length >= k) {
+        return true;
+    }
+    for (let i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            n = n / i;
+            v.push(i);
+        }
+        if (v.length >= k) {
+            return true;
+        }
+    }
+    if (n > 2) {
+        v.push(n);
+    }
+    if (v.length >= k) {
+        return true;
+    }
+    return false;
+}
+--------------------------------
+function separateParenGroups(parenString) {
+    var allParens = [];
+    var currentParen = "";
+    var currentDepth = 0;
+    for (var c of parenString) {
+        if (c == "(") {
+            currentDepth += 1;
+            currentParen += c;
+        } else if (c == ")") {
+            currentDepth -= 1;
+            currentParen += c;
+            if (currentDepth == 0) {
+                allParens.push(currentParen);
+                currentParen = "";
+            }
+        }
+    }
+    return allParens;
+}
+--------------------------------
+function parseNestedParens(parenString) {
+    let allLevels = [];
+    let level = 0;
+    let maxLevel = 0;
+    for (let i = 0; i < parenString.length; i++) {
+        let chr = parenString.charAt(i);
+        if (chr == '(') {
+            level += 1;
+            if (level > maxLevel) {
+                maxLevel = level;
+            }
+        }
+        if (chr == ')') {
+            level -= 1;
+            if (level == 0) {
+                allLevels.push(maxLevel);
+                maxLevel = 0;
+            }
+        }
+    }
+    return allLevels;
+}
+--------------------------------
+function filterBySubstring(strings, substring) {
+    var result = [];
+    for (var s of strings) {
+        if (s.includes(substring)) {
+            result.push(s);
+        }
+    }
+    return result;
+}
+--------------------------------
+function rollingMax(numbers) {
+    let result = [];
+    let runningMax = 0;
+    for (let n of numbers) {
+        if (n > runningMax) {
+            runningMax = n;
+        }
+        result.push(runningMax);
+    }
+    return result;
+}
+--------------------------------
+function makePalindrome(s) {
+    if (s.length === 0) {
+        return "";
+    }
+    for (let i = 0; i < s.length; i++) {
+        const rStr = s.substring(i);
+        if (rStr === new StringBuilder(rStr).reverse().toString()) {
+            const nStr = s.substring(0, i);
+            const n2Str = new StringBuilder(nStr).reverse().toString();
+            return s + n2Str;
+        }
+    }
+    return s.substring(0, s.length - 1) + new StringBuilder(s).reverse().toString();
+}
+--------------------------------
+function stringXor(a, b) {
+    var result = "";
+    for (var i = 0; i < a.length; i++) {
+        if (a.charAt(i) == b.charAt(i)) {
+            result += "0";
+        } else {
+            result += "1";
+        }
+    }
+    return result;
+}
+--------------------------------
+function longest(strings) {
+    if (strings.length == 0) return "";
+    var maxLen = strings.map(s => s.length).reduce((a, b) => Math.max(a, b));
+    for (var s of strings) {
+        if (s.length == maxLen) {
+            return s;
+        }
+    }
+    return "";
+}
+--------------------------------
+function stringSequence(n) {
+    let s = "";
+    for (let i = 0; i < n; i++) {
+        s += i + " ";
+    }
+    s += n;
+    return s;
+}
+--------------------------------
+function countDistinctCharacters(s) {
+    let distinct = new Set();
+    for (let c of s.toLowerCase().split("")) {
+        distinct.add(c);
+    }
+    return distinct.size;
+}
+--------------------------------
+function howManyTimes(s, sub) {
+    let times = 0;
+    for (let i = 0; i <= s.length - sub.length; i++) {
+        if (s.startsWith(sub, i)) {
+            times += 1;
+        }
+    }
+    return times;
+}
+--------------------------------
+function sortNumbers(numbers) {
+    const toNum = {
+        zero: 0,
+        one: 1,
+        two: 2,
+        three: 3,
+        four: 4,
+        five: 5,
+        six: 6,
+        seven: 7,
+        eight: 8,
+        nine: 9
+    };
+    const fromNum = {
+        0: "zero",
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine"
+    };
+    const ints = [];
+    let current = "";
+    for (let i = 0; i <= numbers.length; i++) {
+        if (i === numbers.length || numbers.charAt(i) === " ") {
+            if (toNum[current]) {
+                ints.push(toNum[current]);
+                current = "";
+            }
+        } else {
+            current += numbers.charAt(i);
+        }
+    }
+    ints.sort((a, b) => a - b);
+    let result = "";
+    for (let i = 0; i < ints.length; i++) {
+        result += fromNum[ints[i]];
+        if (i!== ints.length - 1) {
+            result += " ";
+        }
+    }
+    return result;
+}
+--------------------------------
+function findClosestElements(numbers) {
+    let closestPair = [numbers[0], numbers[1]];
+    let distance = Math.abs(numbers[0] - numbers[1]);
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            if (Math.abs(numbers[i] - numbers[j]) < distance) {
+                closestPair[0] = numbers[i];
+                closestPair[1] = numbers[j];
+                distance = Math.abs(numbers[i] - numbers[j]);
+            }
+        }
+    }
+    closestPair.sort((a, b) => a - b);
+    return closestPair;
+}
+--------------------------------
+function rescaleToUnit(numbers) {
+    let minNum = Math.min(...numbers);
+    let maxNum = Math.max(...numbers);
+    let result = [];
+    for (let n of numbers) {
+        result.push((n - minNum) / (maxNum - minNum));
+    }
+    return result;
+}
+--------------------------------
+function filterIntegers(values) {
+    var result = [];
+    for (var e of values) {
+        if (e instanceof Integer) {
+            result.push(e);
+        }
+    }
+    return result;
+}
+--------------------------------
+function removeDuplicates(numbers) {
+    const c = {};
+    for (const i of numbers) {
+        c[i] = (c[i] || 0) + 1;
+    }
+    const result = [];
+    for (const i of numbers) {
+        if (c[i] === 1) {
+            result.push(i);
+        }
+    }
+    return result;
+}
+--------------------------------
+function flipCase(s) {
+    var result = "";
+    for (var i = 0; i < s.length; i++) {
+        if (s[i] >= 'a' && s[i] <= 'z') {
+            result += s[i].toUpperCase();
+        } else if (s[i] >= 'A' && s[i] <= 'Z') {
+            result += s[i].toLowerCase();
+        } else {
+            result += s[i];
+        }
+    }
+    return result;
+}
+--------------------------------
+function filterByPrefix(strings, prefix) {
+    var result = [];
+    for (var i = 0; i < strings.length; i++) {
+        if (strings[i].startsWith(prefix)) {
+            result.push(strings[i]);
+        }
+    }
+    return result;
+}
+--------------------------------
+function findZero(xs) {
+    let ans = 0;
+    let value = 0;
+    for (let i = 0; i < xs.length; i++) {
+        value += xs[i] * Math.pow(ans, i);
+    }
+    while (Math.abs(value) > 1e-6) {
+        let driv = 0;
+        for (let i = 1; i < xs.length; i++) {
+            driv += xs[i] * Math.pow(ans, i - 1) * i;
+        }
+        ans -= value / driv;
+        value = 0;
+        for (let i = 0; i < xs.length; i++) {
+            value += xs[i] * Math.pow(ans, i);
+        }
+    }
+    return ans;
+}
+--------------------------------
+function sortThird(l) {
+    let thirds = [];
+    for (let i = 0; i < l.length; i += 3) {
+        thirds.push(l[i]);
+    }
+    thirds.sort((a, b) => a - b);
+    let result = [];
+    for (let i = 0; i < l.length; i++) {
+        if (i % 3 == 0) {
+            result.push(thirds[i / 3]);
+        } else {
+            result.push(l[i]);
+        }
+    }
+    return result;
+}
+--------------------------------
+function unique(l) {
+    return [...new Set(l)].sort((a, b) => a - b);
+}
+--------------------------------
+function maxElement(l) {
+    return Math.max(...l);
+}
+--------------------------------
+function triplesSumToZero(l) {
+for (let i = 0; i < l.length; i++) {
+  for (let j = i + 1; j < l.length; j++) {
+    for (let k = j + 1; k < l.length; k++) {
+      if (l[i] + l[j] + l[k] == 0) {
+        return true;
+      }
+    }
+  }
+}
+return false;
+}
+--------------------------------
+function fib4(n) {
+    let results = [0, 0, 2, 0];
+    for (let i = 4; i <= n; i++) {
+        results.push(results[i - 4] + results[i - 3] + results[i - 2] + results[i - 1]);
+    }
+    return results[n];
+}
+--------------------------------
+function isPalindrome(text) {
+    var pr = text.split("").reverse().join("");
+    return pr == text;
+}
+--------------------------------
+function removeVowels(text) {
+    var result = "";
+    var vowels = "aeiou";
+    for (var i = 0; i < text.length; i++) {
+        if (vowels.indexOf(text[i].toLowerCase()) == -1) {
+            result += text[i];
+        }
+    }
+    return result;
+}
+--------------------------------
+function sameChars(s0, s1) {
+    const set0 = new Set();
+    for (const c of s0) {
+        set0.add(c);
+    }
+    const set1 = new Set();
+    for (const c of s1) {
+        set1.add(c);
+    }
+    return set0.equals(set1);
+}
+--------------------------------
+function common(l1, l2) {
+    let us = new Set();
+    for (let e1 of l1) {
+        for (let e2 of l2) {
+            if (e1 == e2) {
+                us.add(e1);
+            }
+        }
+    }
+    let ret = Array.from(us);
+    ret.sort();
+    return ret;
+}
+--------------------------------
+function correctBracketing(brackets) {
+    let depth = 0;
+    for (let b of brackets.split("")) {
+        if (b == "(") {
+            depth += 1;
+        }
+        if (b == ")") {
+            depth -= 1;
+        }
+        if (depth < 0) {
+            return false;
+        }
+    }
+    return depth == 0;
+}
+--------------------------------
+function circularShift(x, shift) {
+    var xs = x.toString();
+    if (shift > xs.length) {
+        return xs.split('').reverse().join('');
+    }
+    return xs.substring(xs.length - shift) + xs.substring(0, xs.length - shift);
+}
+--------------------------------
+function search(lst) {
+    let counter = new Map();
+    for (let i of lst) {
+        counter.set(i, (counter.get(i) || 0) + 1);
+    }
+    let ans = -1;
+    for (let item of counter.entries()) {
+        if (item[1] >= item[0] && item[0] > ans) {
+            ans = item[0];
+        }
+    }
+    return ans;
+}
+--------------------------------
+function smallestChange(arr) {
+    let ans = 0;
+    for (let i = 0; i < arr.length / 2; i++) {
+        if (arr[i]!== arr[arr.length - i - 1]) {
+            ans += 1;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function totalMatch(lst1, lst2) {
+    let sum1 = 0;
+    for (let st of lst1) {
+        sum1 += st.length;
+    }
+    let sum2 = 0;
+    for (let st of lst2) {
+        sum2 += st.length;
+    }
+    return sum1 > sum2? lst2 : lst1;
+}
+--------------------------------
+function isHappy(s) {
+    if (s.length < 3) {
+        return false;
+    }
+    for (let i = 0; i < s.length - 2; i++) {
+        if (s.charAt(i) == s.charAt(i + 1) || s.charAt(i) == s.charAt(i + 2) || s.charAt(i + 1) == s.charAt(i + 2)) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function numericalLetterGrade(grades) {
+    let letterGrade = [];
+    for (let gpa of grades) {
+        if (gpa == 4.0) {
+            letterGrade.push("A+");
+        } else if (gpa > 3.7) {
+            letterGrade.push("A");
+        } else if (gpa > 3.3) {
+            letterGrade.push("A-");
+        } else if (gpa > 3.0) {
+            letterGrade.push("B+");
+        } else if (gpa > 2.7) {
+            letterGrade.push("B");
+        } else if (gpa > 2.3) {
+            letterGrade.push("B-");
+        } else if (gpa > 2.0) {
+            letterGrade.push("C+");
+        } else if (gpa > 1.7) {
+            letterGrade.push("C");
+        } else if (gpa > 1.3) {
+            letterGrade.push("C-");
+        } else if (gpa > 1.0) {
+            letterGrade.push("D+");
+        } else if (gpa > 0.7) {
+            letterGrade.push("D");
+        } else if (gpa > 0.0) {
+            letterGrade.push("D-");
+        } else {
+            letterGrade.push("E");
+        }
+    }
+    return letterGrade;
+}
+--------------------------------
+function solve(n) {
+    let biStr = "";
+    let sum = 0;
+    for (let c of String(n).split("")) {
+        sum += parseInt(c);
+    }
+    while (sum > 0) {
+        biStr = (sum % 2) + biStr;
+        sum = Math.floor(sum / 2);
+    }
+    return biStr;
+}
+--------------------------------
+function antiShuffle(s) {
+    let ret = "";
+    let current = "";
+    for (let i = 0; i <= s.length; i++) {
+        if (i == s.length || s.charAt(i) == " ") {
+            let tmp = current.split("");
+            tmp.sort();
+            if (ret!= "") {
+                ret += " ";
+            }
+            ret += tmp.join("");
+            current = "";
+        } else {
+            current += s.charAt(i);
+        }
+    }
+    return ret;
+}
+--------------------------------
+function sortArray(array) {
+    if (array.length == 0) {
+        return array;
+    }
+    if ((array[0] + array[array.length - 1]) % 2 == 1) {
+        array.sort();
+    } else {
+        array.sort((a, b) => b - a);
+    }
+    return array;
+}
+--------------------------------
+function encrypt(s) {
+    var ans = "";
+    for (var c of s) {
+        if (c.match(/[a-z]/i)) {
+            ans += String.fromCharCode((c.charCodeAt(0) - 'a'.charCodeAt(0) + 4) % 26 + 'a'.charCodeAt(0));
+        } else {
+            ans += c;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function isBored(s) {
+    let isStart = true;
+    let sum = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i) == "." || s.charAt(i) == "?" || s.charAt(i) == "!") {
+            isStart = true;
+        } else if (isStart) {
+            if (s.charAt(i) == " ") {
+                continue;
+            }
+            if (s.startsWith("I ", i)) {
+                sum += 1;
+            }
+            isStart = false;
+        }
+    }
+    return sum;
+}
+--------------------------------
+function encode(message) {
+    var vowels = "aeiouAEIOU";
+    var ret = "";
+    for (var i = 0; i < message.length; i++) {
+        var c = message.charAt(i);
+        if (c.toUpperCase() == c) {
+            c = c.toLowerCase();
+            if (vowels.indexOf(c)!= -1) {
+                c = String.fromCharCode(c.charCodeAt(0) + 2);
+            }
+        } else if (c.toLowerCase() == c) {
+            c = c.toUpperCase();
+            if (vowels.indexOf(c)!= -1) {
+                c = String.fromCharCode(c.charCodeAt(0) - 2);
+            }
+        }
+        ret += c;
+    }
+    return ret;
+}
+--------------------------------
+function skjkasdkd(lst) {
+    let largest = 0;
+    for (let n of lst) {
+        if (n > largest) {
+            let prime = true;
+            for (let i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    prime = false;
+                }
+            }
+            if (prime) {
+                largest = n;
+            }
+        }
+    }
+    let sum = 0;
+    let s = String(largest);
+    for (let i = 0; i < s.length; i++) {
+        sum += s.charCodeAt(i) - '0'.charCodeAt(0);
+    }
+    return sum;
+}
+--------------------------------
+function checkDictCase(dict) {
+    if (dict.size == 0) {
+        return false;
+    }
+    let isLower = 0;
+    let isUpper = 0;
+    for (const key of dict.keys()) {
+        for (const c of key.split("")) {
+            if (c.toLowerCase() == c) {
+                isLower = 1;
+            } else if (c.toUpperCase() == c) {
+                isUpper = 1;
+            } else {
+                return false;
+            }
+        }
+    }
+    return isLower + isUpper == 1;
+}
+--------------------------------
+function multiply(a, b) {
+    return Math.abs(a) % 10 * Math.abs(b) % 10;
+}
+--------------------------------
+function countUpper(s) {
+    var uVowel = "AEIOU";
+    var count = 0;
+    for (var i = 0; i < s.length; i += 2) {
+        if (uVowel.indexOf(s.charAt(i))!= -1) {
+            count += 1;
+        }
+    }
+    return count;
+}
+--------------------------------
+function byLength(arr) {
+    const numTo = {
+        1: "One",
+        2: "Two",
+        3: "Three",
+        4: "Four",
+        5: "Five",
+        6: "Six",
+        7: "Seven",
+        8: "Eight",
+        9: "Nine"
+    };
+    const sortedArr = [...arr].sort((a, b) => b - a);
+    const newArr = [];
+    for (const n of sortedArr) {
+        if (n >= 1 && n <= 9) {
+            newArr.push(numTo[n]);
+        }
+    }
+    return newArr;
+}
+--------------------------------
+function f(n) {
+    let sum = 0;
+    let prod = 1;
+    let result = [];
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+        prod *= i;
+        if (i % 2 == 0) {
+            result.push(prod);
+        } else {
+            result.push(sum);
+        }
+    }
+    return result;
+}
+--------------------------------
+function evenOddPalindrome(n) {
+    let evenCount = 0, oddCount = 0;
+    for (let i = 1; i <= n; i++) {
+        let s = String(i);
+        let rStr = s.split("").reverse().join("");
+        if (s === rStr) {
+            if (i % 2 === 1) {
+                oddCount += 1;
+            } else {
+                evenCount += 1;
+            }
+        }
+    }
+    return [evenCount, oddCount];
+}
+--------------------------------
+function histogram(test) {
+    let count = new Map();
+    let max = 0;
+    for (let i = 0; i < test.length; i++) {
+        if (test.charAt(i)!='') {
+            count.set(test.charAt(i), count.get(test.charAt(i)) + 1 || 1);
+            if (count.get(test.charAt(i)) > max) {
+                max = count.get(test.charAt(i));
+            }
+        }
+    }
+    let result = new Map();
+    for (let item of count.entries()) {
+        if (item[1] == max) {
+            result.set(item[0], item[1]);
+        }
+    }
+    return result;
+}
+--------------------------------
+function reverseDelete(s, c) {
+    var ret = "";
+    for (var ch of s) {
+        if (c.indexOf(ch) == -1) {
+            ret += ch;
+        }
+    }
+    var flag = "False";
+    if (ret == ret.split("").reverse().join("")) {
+        flag = "True";
+    }
+    return [ret, flag];
+}
+--------------------------------
+function sortArray(arr) {
+    let bin = [];
+    for (let i of arr) {
+        let b = 0;
+        let n = Math.abs(i);
+        while (n > 0) {
+            b += n % 2;
+            n /= 2;
+        }
+        bin.push(b);
+    }
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 1; j < arr.length; j++) {
+            if (bin[j] < bin[j - 1] || (bin[j] == bin[j - 1] && arr[j] < arr[j - 1])) {
+                [bin[j], bin[j - 1]] = [bin[j - 1], bin[j]];
+                [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
+            }
+        }
+    }
+    return arr;
+}
+--------------------------------
+function getClosestVowel(word) {
+    const vowels = "AEIOUaeiou";
+    for (let i = word.length - 2; i > 0; i--) {
+        if (vowels.indexOf(word[i])!= -1 && vowels.indexOf(word[i + 1]) == -1 && vowels.indexOf(word[i - 1]) == -1) {
+            return word[i];
+        }
+    }
+    return "";
+}
+--------------------------------
+function matchParens(lst) {
+    let strings = [lst[0] + lst[1], lst[1] + lst[0]];
+    for (let l of strings) {
+        let count = 0;
+        for (let c of l.split("")) {
+            if (c == "(") {
+                count += 1;
+            } else {
+                count -= 1;
+            }
+            if (count < 0) {
+                break;
+            }
+        }
+        if (count == 0) {
+            return "Yes";
+        }
+    }
+    return "No";
+}
+--------------------------------
+function maximum(arr, k) {
+    if (k == 0) {
+        return [];
+    }
+    arr.sort((a, b) => a - b);
+    return arr.slice(arr.length - k, arr.length);
+}
+--------------------------------
+function validDate(date) {
+    if (date.length!= 10) {
+        return false;
+    }
+    for (let i = 0; i < 10; i++) {
+        if (i == 2 || i == 5) {
+            if (date.charAt(i)!= '-') {
+                return false;
+            }
+        } else if (!Character.isDigit(date.charAt(i))) {
+            return false;
+        }
+    }
+    let month = parseInt(date.substring(0, 2));
+    let day = parseInt(date.substring(3, 5));
+    let year = parseInt(date.substring(6, 10));
+    if (month < 1 || month > 12) {
+        return false;
+    }
+    if (day < 1 || day > 31) {
+        return false;
+    }
+    if (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11 || month == 2)) {
+        return false;
+    }
+    if (day == 30 && month == 2) {
+        return false;
+    }
+    return true;
+}
+--------------------------------
+function splitWords(txt) {
+    let current = new StringBuilder();
+    let result = new ArrayList();
+    if (txt.indexOf(' ')!= -1) {
+        for (let i = 0; i <= txt.length(); i++) {
+            if (i == txt.length() || txt.charAt(i) =='') {
+                if (current.length() > 0) {
+                    result.add(current.toString());
+                }
+                current.setLength(0);
+            } else {
+                current.append(txt.charAt(i));
+            }
+        }
+        return result;
+    }
+    if (txt.indexOf(',')!= -1) {
+        for (let i = 0; i <= txt.length(); i++) {
+            if (i == txt.length() || txt.charAt(i) == ',') {
+                if (current.length() > 0) {
+                    result.add(current.toString());
+                }
+                current.setLength(0);
+            } else {
+                current.append(txt.charAt(i));
+            }
+        }
+        return result;
+    }
+    let num = 0;
+    for (let c of txt.toCharArray()) {
+        if (Character.isLowerCase(c) && c % 2 == 0) {
+            num += 1;
+        }
+    }
+    return Arrays.asList(String.valueOf(num));
+}
+--------------------------------
+function tri(n) {
+    if (n == 0) {
+        return [1];
+    }
+    let tris = [1, 3];
+    for (let i = 2; i <= n; i++) {
+        if (i % 2 == 0) {
+            tris.push(i / 2 + 1);
+        } else {
+            tris.push(tris[i - 1] + tris[i - 2] + (i + 3) / 2);
+        }
+    }
+    return tris;
+}
+--------------------------------
+function checkIfLastCharIsALetter(txt) {
+    if (txt.length == 0) {
+        return false;
+    }
+    return (txt.charAt(txt.length - 1).match(/[a-zA-Z]/g)!= null) && (txt.length == 1 || txt.charAt(txt.length - 2).match(/[a-zA-Z]/g) == null);
+}
+--------------------------------
+function orderByPoints(nums) {
+    const result = [];
+    for (const num of nums) {
+        const w = Math.abs(num).toString();
+        let sum = 0;
+        for (const c of w) {
+            sum += c - '0';
+        }
+        if (num < 0) {
+            sum -= 2 * (w.charAt(0) - '0');
+        }
+        result.push(sum);
+    }
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = 1; j < nums.length; j++) {
+            if (result[j - 1] > result[j]) {
+                [result[j - 1], result[j]] = [result[j], result[j - 1]];
+                [nums[j - 1], nums[j]] = [nums[j], nums[j - 1]];
+            }
+        }
+    }
+    return nums;
+}
+--------------------------------
+function bf(planet1, planet2) {
+    const planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+    const idx1 = planets.indexOf(planet1);
+    const idx2 = planets.indexOf(planet2);
+    if (idx1 === -1 || idx2 === -1 || idx1 === idx2) {
+        return [];
+    }
+    return idx1 > idx2? planets.slice(idx2 + 1, idx1) : planets.slice(idx1 + 1, idx2);
+}
+--------------------------------
+function sortedListSum(lst) {
+    let result = [];
+    for (let i of lst) {
+        if (i.length % 2 == 0) {
+            result.push(i);
+        }
+    }
+    result.sort((l, r) => {
+        if (l.length == r.length) {
+            return l.localeCompare(r);
+        }
+        return l.length - r.length;
+    });
+    return result;
+}
+--------------------------------
+function cycpatternCheck(a, b) {
+    for (let i = 0; i <= b.length; i++) {
+        let rotate = b.substring(i) + b.substring(0, i);
+        if (a.includes(rotate)) {
+            return true;
+        }
+    }
+    return false;
+}
+--------------------------------
+function evenOddCount(num) {
+    let evenCount = 0, oddCount = 0;
+    for (const i of String(Math.abs(num)).split("")) {
+        if (i % 2 == 0) {
+            evenCount += 1;
+        } else {
+            oddCount += 1;
+        }
+    }
+    return [evenCount, oddCount];
+}
+--------------------------------
+function findMax(words) {
+    var max = "";
+    var maxLength = 0;
+    for (var word of words) {
+        var unique = [];
+        for (var w of word.split("")) {
+            if (!unique.includes(w)) {
+                unique.push(w);
+            }
+        }
+        if (unique.length > maxLength || (unique.length == maxLength && word < max)) {
+            max = word;
+            maxLength = unique.length;
+        }
+    }
+    return max;
+}
+--------------------------------
+function solve(s) {
+    let noLetter = true;
+    let result = "";
+    for (let ch of s) {
+        if (ch.toUpperCase() == ch) {
+            ch = ch.toLowerCase();
+            noLetter = false;
+        } else if (ch.toLowerCase() == ch) {
+            ch = ch.toUpperCase();
+            noLetter = false;
+        }
+        result += ch;
+    }
+    if (noLetter) {
+        return result.split("").reverse().join("");
+    } else {
+        return result;
+    }
+}
+--------------------------------
+function mostFrequent(arr, n) {
+    let hp = new Map();
+    for (let i = 0; i < n; i++) {
+        if (hp.has(arr[i])) {
+            hp.set(arr[i], hp.get(arr[i]) + 1);
+        } else {
+            hp.set(arr[i], 1);
+        }
+    }
+    let maxCount = 0, res = -1;
+    for (let entry of hp.entries()) {
+        if (maxCount < entry[1]) {
+            res = entry[0];
+            maxCount = entry[1];
+        }
+    }
+    return res;
+}
+--------------------------------
+function find(a, b, k, n1, n2) {
+    let s = new Set();
+    for (let i = 0; i < n2; i++) {
+        s.add(b[i]);
+    }
+    let missing = 0;
+    for (let i = 0; i < n1; i++) {
+        if (!s.has(a[i])) {
+            missing++;
+        }
+        if (missing == k) {
+            return a[i];
+        }
+    }
+    return -1;
+}
+--------------------------------
+function solveQuery(start, end, arr) {
+    let mp = new Map();
+    for (let i = start; i <= end; i++) {
+        mp.set(arr[i], (mp.get(arr[i]) || 0) + 1);
+    }
+    let count = 0;
+    for (let [key, value] of mp.entries()) {
+        if (key == value) {
+            count++;
+        }
+    }
+    return count;
+}
+--------------------------------
+function segregate(arr, size) {
+    let j = 0;
+    for (let i = 0; i < size; i++) {
+        if (arr[i] <= 0) {
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+            j++;
+        }
+    }
+    return j;
+}
+--------------------------------
+function countTriplets(a, n) {
+    let s = new Set();
+    for (let i = 0; i < n; i++) {
+        s.add(a[i]);
+    }
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            let xr = a[i] ^ a[j];
+            if (s.has(xr) && xr!= a[i] && xr!= a[j]) {
+                count++;
+            }
+        }
+    }
+    return count / 3;
+}
+--------------------------------
+function leastFrequent(arr, n) {
+    let hp = new Map();
+    for (let i = 0; i < n; i++) {
+        if (hp.has(arr[i])) {
+            hp.set(arr[i], hp.get(arr[i]) + 1);
+        } else {
+            hp.set(arr[i], 1);
+        }
+    }
+    let minCount = n + 1, res = -1;
+    for (let [key, value] of hp) {
+        if (minCount >= value) {
+            res = key;
+            minCount = value;
+        }
+    }
+    return res;
+}
+--------------------------------
+function findPermutations(arr) {
+    let cnt = 0;
+    let maxInd = -1, minInd = 10000000;
+    let n = arr.length;
+    let indexOf = new Map();
+    for (let i = 0; i < n; i++) {
+        indexOf.set(arr[i], i + 1);
+    }
+    for (let i = 1; i <= n; i++) {
+        maxInd = Math.max(maxInd, indexOf.get(i) || 0);
+        minInd = Math.min(minInd, indexOf.get(i) || 0);
+        if (maxInd - minInd + 1 == i) {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+--------------------------------
+function formQuadruplets(arr, n) {
+    let ans = 0, pairs = 0;
+    pairs = n / 4;
+    arr.sort((a, b) => b - a);
+    for (let i = 0; i < n - pairs; i += 3) {
+        ans += arr[i + 2];
+    }
+    return ans;
+}
+--------------------------------
+function lexicographicallyMaximum(s, n) {
+    let m = new Map();
+    for (let i = 0; i < n; ++i) {
+        if (m.has(s[i])) {
+            m.set(s[i], m.get(s[i]) + 1);
+        } else {
+            m.set(s[i], 1);
+        }
+    }
+    let v = [];
+    for (let i = 'a'.charCodeAt(0); i < 'a'.charCodeAt(0) + Math.min(n, 25); ++i) {
+        if (!m.has(String.fromCharCode(i))) {
+            v.push(String.fromCharCode(i));
+        }
+    }
+    let j = v.length - 1;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] >= 'a'.charCodeAt(0) + Math.min(n, 25) || (m.has(s[i]) && m.get(s[i]) > 1)) {
+            if (v[j] < s[i]) {
+                continue;
+            }
+            m.set(s[i], m.get(s[i]) - 1);
+            s = s.substring(0, i) + v[j] + s.substring(i + 1);
+            j--;
+        }
+        if (j < 0) {
+            break;
+        }
+    }
+    let l = 0;
+    for (let i = n - 1; i >= 0; i--) {
+        if (l > j) {
+            break;
+        }
+        if (s[i] >= 'a'.charCodeAt(0) + Math.min(n, 25) || m.has(s[i]) && m.get(s[i]) > 1) {
+            m.set(s[i], m.get(s[i]) - 1);
+            s = s.substring(0, i) + v[l] + s.substring(i + 1);
+            l++;
+        }
+    }
+    return s;
+}
+--------------------------------
+function noOfValidKbers(k, arr) {
+    let s = new Set();
+    while (k!= 0) {
+        s.add(k % 10);
+        k = k / 10;
+    }
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let no = arr[i];
+        let flag = true;
+        while (no!= 0) {
+            let digit = no % 10;
+            if (!s.has(digit)) {
+                flag = false;
+                break;
+            }
+            no = no / 10;
+        }
+        if (flag) {
+            count++;
+        }
+    }
+    return count;
+}
+--------------------------------
+function delCost(s, cost) {
+    let ans = 0;
+    let forMax = new Map();
+    let forTot = new Map();
+    for (let i = 0; i < s.length; i++) {
+        if (!forMax.has(s[i])) {
+            forMax.set(s[i], cost[i]);
+        } else {
+            forMax.set(s[i], Math.max(cost[i], forMax.get(s[i])));
+        }
+        if (!forTot.has(s[i])) {
+            forTot.set(s[i], cost[i]);
+        } else {
+            forTot.set(s[i], forTot.get(s[i]) + cost[i]);
+        }
+    }
+    for (let i of forMax.entries()) {
+        ans += forTot.get(i[0]) - i[1];
+    }
+    return ans;
+}
+--------------------------------
+function replaceDuplicates(names) {
+    let hash = {};
+    for (let i = 0; i < names.length; i++) {
+        if (!hash.hasOwnProperty(names[i])) {
+            hash[names[i]] = 1;
+        } else {
+            let count = hash[names[i]];
+            hash[names[i]] = hash[names[i]] + 1;
+            names[i] = names[i] + count;
+        }
+    }
+    return names;
+}
+--------------------------------
+function minmaxNumbers(matrix, res) {
+    const set = new Set();
+    for (let i = 0; i < matrix.length; i++) {
+        let minR = Number.MAX_VALUE;
+        for (let j = 0; j < matrix[i].length; j++) {
+            minR = Math.min(minR, matrix[i][j]);
+        }
+        set.add(minR);
+    }
+    for (let j = 0; j < matrix[0].length; j++) {
+        let maxC = Number.MIN_VALUE;
+        for (let i = 0; i < matrix.length; i++) {
+            maxC = Math.max(maxC, matrix[i][j]);
+        }
+        if (set.has(maxC)) {
+            res.push(maxC);
+        }
+    }
+    return res;
+}
+--------------------------------
+function lengthOfLongestAP(a, n) {
+    let dp = new Map();
+    let res = 2;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            let d = a[j] - a[i];
+            if (dp.has(d)) {
+                if (dp.get(d).has(i)) {
+                    dp.get(d).set(j, dp.get(d).get(i) + 1);
+                } else {
+                    dp.get(d).set(j, 2);
+                }
+            } else {
+                dp.set(d, new Map());
+                dp.get(d).set(j, 2);
+            }
+            res = Math.max(res, dp.get(d).get(j));
+        }
+    }
+    return res;
+}
+--------------------------------
+function findKthChar(n, k) {
+    let prev = "A";
+    let cur = "";
+    if (n == 1) {
+        return "A";
+    }
+    for (let j = 2; j <= n; j++) {
+        cur = prev + "B";
+        for (let i = 0; i < prev.length; i++) {
+            if (prev.charAt(i) == "A") {
+                prev = prev.substring(0, i) + "B" + prev.substring(i + 1);
+            } else {
+                prev = prev.substring(0, i) + "A" + prev.substring(i + 1);
+            }
+        }
+        prev = prev.split("").reverse().join("");
+        cur += prev;
+        prev = cur;
+    }
+    return cur.charAt(k - 1);
+}
+--------------------------------
+function findKthLargest(s, k) {
+    var tmp = s.split('').map(e=>e.charCodeAt(0));
+    tmp.sort((a, b) => b - a);
+    return String.fromCharCode(tmp[k - 1]);
+}
+--------------------------------
+function subArraylen(arr, n, K) {
+    let mp = new Map();
+    mp.set(arr[0], 0);
+    for (let i = 1; i < n; i++) {
+        arr[i] += arr[i - 1];
+        mp.set(arr[i], i);
+    }
+    let len = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < n; i++) {
+        if (arr[i] < K) {
+            continue;
+        } else {
+            let x = arr[i] - K;
+            if (x == 0) {
+                len = Math.min(len, i);
+            }
+            if (!mp.has(x)) {
+                continue;
+            } else {
+                len = Math.min(len, i - mp.get(x));
+            }
+        }
+    }
+    return len;
+}
+--------------------------------
+function findMaxLen(a, k) {
+    let n = a.length;
+    a.sort((a, b) => a - b);
+    let vis = new Array(n).fill(false);
+    let mp = new Map();
+    for (let i = 0; i < n; i++) {
+        mp.set(a[i], i);
+    }
+    let c = 0;
+    for (let i = 0; i < n; ++i) {
+        if (!vis[i]) {
+            let check = a[i] * k;
+            if (mp.has(check)) {
+                c++;
+                vis[mp.get(check)] = true;
+            }
+        }
+    }
+    return n - c;
+}
+--------------------------------
+function minDistancePoints(a, k, n) {
+    let m = new Map();
+    let q = new Array();
+    for (let i = 0; i < n; ++i) {
+        m.set(a[i], 1);
+        q.push(a[i]);
+    }
+    let ans = new Array();
+    while (k > 0) {
+        let x = q.shift();
+        if (!m.has(x - 1) && k > 0) {
+            m.set(x - 1, 1);
+            q.push(x - 1);
+            ans.push(x - 1);
+            k--;
+        }
+        if (!m.has(x + 1) && k > 0) {
+            m.set(x + 1, 1);
+            q.push(x + 1);
+            ans.push(x + 1);
+            k--;
+        }
+    }
+    return ans;
+}
+--------------------------------
+function isValidLen(s, length, k) {
+    let n = s.length;
+    let mp = new Map();
+    let right = 0;
+    while (right < length) {
+        if (mp.has(s[right])) {
+            mp.set(s[right], mp.get(s[right]) + 1);
+        } else {
+            mp.set(s[right], 1);
+        }
+        right++;
+    }
+    if (mp.size <= k) {
+        return true;
+    }
+    while (right < n) {
+        if (mp.has(s[right])) {
+            mp.set(s[right], mp.get(s[right]) + 1);
+        } else {
+            mp.set(s[right], 1);
+        }
+        if (mp.has(s[right - length])) {
+            mp.set(s[right - length], mp.get(s[right - length]) - 1);
+        }
+        if (mp.get(s[right - length]) == 0) {
+            mp.delete(s[right - length]);
+        }
+        if (mp.size <= k) {
+            return true;
+        }
+        right++;
+    }
+    return mp.size <= k;
+}
+--------------------------------
+function partition(arr, low, high) {
+    let pivot = arr[high];
+    let i = low - 1;
+    for (let j = low; j <= high - 1; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    return i + 1;
+}
+--------------------------------
+function strScore(strs, s, n) {
+    let m = new Map();
+    for (let i = 0; i < n; i++) {
+        m.set(strs[i], i + 1);
+    }
+    if (!m.has(s)) {
+        return 0;
+    }
+    let score = 0;
+    for (let i = 0; i < s.length; i++) {
+        score += s.charCodeAt(i) - 'a'.charCodeAt(0) + 1;
+    }
+    score = score * m.get(s);
+    return score;
+}
+--------------------------------
+function countEle(s, a, n) {
+    var mp = new Map();
+    var ans = [];
+    for (var i = 0; i < n; ++i) {
+        var num = a[i];
+        if (mp.has(num)) {
+            ans.push(0);
+        } else {
+            var cnt = 0;
+            while (s[0]!= num) {
+                mp.set(s[0], true);
+                s.shift();
+                cnt++;
+            }
+            s.shift();
+            cnt++;
+            ans.push(cnt);
+        }
+    }
+    return ans;
+}
+--------------------------------
+function maxDistinctChar(s, n, k) {
+    var freq = {};
+    for (var i = 0; i < n; i++) {
+        if (freq[s[i]]) {
+            freq[s[i]]++;
+        } else {
+            freq[s[i]] = 1;
+        }
+    }
+    var v = [];
+    for (var key in freq) {
+        v.push(freq[key]);
+    }
+    v.sort(function(a, b) {
+        return a - b;
+    });
+    for (var i = 0; i < v.length; i++) {
+        var mn = Math.min(v[i] - 1, k);
+        v[i] -= mn;
+        k -= mn;
+    }
+    if (k > 0) {
+        for (var i = 0; i < v.length; i++) {
+            var mn = Math.min(v[i], k);
+            v[i] -= mn;
+            k -= mn;
+        }
+    }
+    var res = 0;
+    for (var i = 0; i < v.length; i++) {
+        if (v[i] == 1) {
+            res++;
+        }
+    }
+    return res;
+}
+--------------------------------
+function findKth(arr, n, k) {
+    let missing = new Set();
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        missing.add(arr[i]);
+    }
+    let maxM = Math.max(...arr);
+    let minM = Math.min(...arr);
+    for (let i = minM + 1; i < maxM; i++) {
+        if (!missing.has(i)) {
+            count++;
+        }
+        if (count == k) {
+            return i;
+        }
+    }
+    return -1;
+}
+--------------------------------
+function almostSort(a, n) {
+    for (let i = 0; i < n - 1; i++) {
+        if (a[i] > a[i + 1]) {
+            [a[i], a[i + 1]] = [a[i + 1], a[i]];
+            i++;
+        }
+    }
+    for (let i = 0; i < n - 1; i++) {
+        if (a[i] > a[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function maximumSum(s, n, k) {
+    let sum = 0;
+    let freq = Array(256).fill(0);
+    for (let i = 0; i < n; i++) {
+        freq[s.charCodeAt(i)]++;
+    }
+    freq.sort((a, b) => b - a);
+    for (let i = 0; i < 256; i++) {
+        if (k > freq[i]) {
+            sum += freq[i] * freq[i];
+            k -= freq[i];
+        } else {
+            sum += freq[i] * k;
+            break;
+        }
+    }
+    return sum;
+}
+--------------------------------
+function findMinOperations(arr, n, k) {
+    let operations = 0;
+    for (let i = 0; i < k; i++) {
+        let freq = new Map();
+        for (let j = i; j < n; j += k) {
+            freq.set(arr[j], (freq.get(arr[j]) || 0) + 1);
+        }
+        let max1 = 0, num = 0;
+        for (let [key, value] of freq) {
+            if (value > max1) {
+                max1 = value;
+                num = key;
+            }
+        }
+        for (let [key, value] of freq) {
+            if (key!== num) {
+                operations += value;
+            }
+        }
+    }
+    return operations;
+}
+--------------------------------
+function subString(s, n) {
+    var v = [];
+    for (var i = 0; i < n; i++) {
+        for (var len = 1; len <= n - i; len++) {
+            var find = s.substring(i, i + len);
+            v.push(find);
+        }
+    }
+    return v;
+}
+--------------------------------
+function checkUniqueFrequency(arr, n) {
+    let freq = new Map();
+    for (let i = 0; i < n; i++) {
+        freq.set(arr[i], (freq.get(arr[i]) || 0) + 1);
+    }
+    let uniqueFreq = new Set();
+    for (let entry of freq.entries()) {
+        if (uniqueFreq.has(entry[1])) {
+            return false;
+        } else {
+            uniqueFreq.add(entry[1]);
+        }
+    }
+    return true;
+}
+--------------------------------
+function minCost(str1, str2, n) {
+    let cost = 0;
+    const tmp = str1.split('');
+    for (let i = 0; i < n; i++) {
+        if (tmp[i]!== str2[i]) {
+            if (i < n - 1 && tmp[i + 1]!== str2[i + 1]) {
+                const c = tmp[i];
+                tmp[i] = tmp[i + 1];
+                tmp[i + 1] = c;
+                cost++;
+            } else {
+                cost++;
+            }
+        }
+    }
+    return cost;
+}
+--------------------------------
+function isValidNum(x) {
+    let mp = new Map();
+    for (let i = 0; i < x.length; i++) {
+        if (mp.has(x.charAt(i) - '0')) {
+            return false;
+        } else if (x.charAt(i) - '0' > 5) {
+            return false;
+        } else {
+            mp.set(x.charAt(i) - '0', 1);
+        }
+    }
+    return true;
+}
+--------------------------------
+function minimizeDiff(arr, n, k) {
+    let max = Math.max(...arr);
+    let min = Math.min(...arr);
+    if (max - min <= k) {
+        return max - min;
+    }
+    let avg = (max + min) / 2;
+    for (let i = 0; i < n; i++) {
+        if (arr[i] > avg) {
+            arr[i] -= k;
+        } else {
+            arr[i] += k;
+        }
+    }
+    max = Math.max(...arr);
+    min = Math.min(...arr);
+    return max - min;
+}
+--------------------------------
+function getMinCost(arr, n) {
+    let minEle = Math.min(...arr);
+    return minEle * (n - 1);
+}
+--------------------------------
+function possibility(m, length, s) {
+    let countOdd = 0;
+    for (let i = 0; i < length; i++) {
+        if ((m.get(s.charAt(i) - '0') & 1)!= 0) {
+            countOdd++;
+        }
+        if (countOdd > 1) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function minimumCostOfBreaking(x, y, m, n) {
+    let res = 0;
+    x.sort((a, b) => b - a);
+    y.sort((a, b) => b - a);
+    let hzntl = 1, vert = 1;
+    let i = 0, j = 0;
+    while (i < m && j < n) {
+        if (x[i] > y[j]) {
+            res += x[i] * vert;
+            hzntl++;
+            i++;
+        } else {
+            res += y[j] * hzntl;
+            vert++;
+            j++;
+        }
+    }
+    let total = 0;
+    while (i < m) {
+        total += x[i++];
+    }
+    res += total * vert;
+    total = 0;
+    while (j < n) {
+        total += y[j++];
+    }
+    res += total * hzntl;
+    return res;
+}
+--------------------------------
+function findMaximumScore(a, n) {
+    const freq = {};
+    for (let i = 0; i < n; i++) {
+        if (freq[a[i]]) {
+            freq[a[i]]++;
+        } else {
+            freq[a[i]] = 1;
+        }
+    }
+    const dp = new Array(Math.max(...a) + 1).fill(0);
+    dp[0] = 0;
+    dp[1] = freq[1] || 0;
+    for (let i = 2; i < dp.length; i++) {
+        dp[i] = Math.max(dp[i - 1], dp[i - 2] + (freq[i] || 0) * i);
+    }
+    return dp[dp.length - 1];
+}
+--------------------------------
+function countWays(s, t, k, mod) {
+    let n = s.length;
+    let a = 0, b = 0;
+    for (let i = 0; i < n; i++) {
+        let p = s.substring(i, n) + s.substring(0, i);
+        if (p == t) {
+            a++;
+        } else {
+            b++;
+        }
+    }
+    let dp1 = new Array(k + 1).fill(0);
+    let dp2 = new Array(k + 1).fill(0);
+    if (s == t) {
+        dp1[0] = 1;
+        dp2[0] = 0;
+    } else {
+        dp1[0] = 0;
+        dp2[0] = 1;
+    }
+    for (let i = 1; i <= k; i++) {
+        dp1[i] = ((dp1[i - 1] * (a - 1)) % mod + (dp2[i - 1] * a) % mod) % mod;
+        dp2[i] = ((dp1[i - 1] * (b)) % mod + (dp2[i - 1] * (b - 1)) % mod) % mod;
+    }
+    return dp1[k];
+}
+--------------------------------
+function findSubarraySum(arr, n, k) {
+    let prevSum = new Map();
+    let res = 0;
+    let currSum = 0;
+    for (let i = 0; i < n; i++) {
+        currSum += arr[i];
+        if (currSum == k) {
+            res++;
+        }
+        if (prevSum.has(currSum - k)) {
+            res += prevSum.get(currSum - k);
+        }
+        prevSum.set(currSum, prevSum.get(currSum) + 1 || 1);
+    }
+    return res;
+}
+--------------------------------
+function maximumOccurrence(s) {
+    let n = s.length;
+    let freq = new Map();
+    let i, j;
+    for (i = 0; i < n; i++) {
+        let temp = "";
+        temp += s.charAt(i);
+        freq.set(temp, freq.get(temp) + 1 || 1);
+    }
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            let temp = "";
+            temp += s.charAt(i);
+            temp += s.charAt(j);
+            freq.set(temp, freq.get(temp) + 1 || 1);
+        }
+    }
+    let answer = Number.MIN_VALUE;
+    for (let entry of freq.entries()) {
+        answer = Math.max(answer, entry[1]);
+    }
+    return answer;
+}
+--------------------------------
+function countCharacters(strings, chars) {
+    let res = 0;
+    const freq = {};
+    for (let i = 0; i < chars.length; i++) {
+        freq[chars.charAt(i)] = (freq[chars.charAt(i)] || 0) + 1;
+    }
+    for (const st of strings) {
+        let flag = true;
+        for (const c of st) {
+            if (!freq[c]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            res += st.length;
+        }
+    }
+    return res;
+}
+--------------------------------
+function distinctSubstring(p, q, k, n) {
+    let ss = new Set();
+    for (let i = 0; i < n; ++i) {
+        let sum = 0;
+        let s = "";
+        for (let j = i; j < n; ++j) {
+            let pos = p.charAt(j) - 'a';
+            sum += q.charAt(pos) - '0';
+            s += p.charAt(j);
+            if (sum <= k) {
+                ss.add(s);
+            } else {
+                break;
+            }
+        }
+    }
+    return ss.size();
+}
+--------------------------------
+function uniqueMorseRep(arr) {
+    const morseCode = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+    const st = new Set();
+    const n = arr.length;
+    for (let i = 0; i < n; i++) {
+        let temp = "";
+        const m = arr[i].length;
+        for (let j = 0; j < m; j++) {
+            temp += morseCode[arr[i].charCodeAt(j) - 'a'.charCodeAt(0)];
+        }
+        st.add(temp);
+    }
+    return st.size;
+}
+--------------------------------
+function countSubstrings(st, k) {
+    let n = st.length;
+    let answer = 0;
+    let map = new Map();
+    for (let i = 0; i < k; i++) {
+        if (!map.has(st[i])) {
+            map.set(st[i], 1);
+        } else {
+            map.set(st[i], map.get(st[i]) + 1);
+        }
+    }
+    if (map.size == k) {
+        answer++;
+    }
+    for (let i = k; i < n; i++) {
+        if (!map.has(st[i])) {
+            map.set(st[i], 1);
+        } else {
+            map.set(st[i], map.get(st[i]) + 1);
+        }
+        map.set(st[i - k], map.get(st[i - k]) - 1);
+        if (map.get(st[i - k]) == 0) {
+            map.delete(st[i - k]);
+        }
+        if (map.size == k) {
+            answer++;
+        }
+    }
+    return answer;
+}
+--------------------------------
+function canConstruct(s, k) {
+    let m = new Map();
+    let p = 0;
+    if (s.length === k) {
+        return true;
+    }
+    for (let i = 0; i < s.length; i++) {
+        m.set(s.charAt(i), m.get(s.charAt(i)) + 1 || 1);
+    }
+    if (k > s.length) {
+        return false;
+    } else {
+        for (let h of m.entries()) {
+            if (h[1] % 2!== 0) {
+                p = p + 1;
+            }
+        }
+    }
+    if (k < p) {
+        return false;
+    }
+    return true;
+}
+--------------------------------
+function equalIgnoreCase(str1, str2) {
+    str1 = str1.toUpperCase();
+    str2 = str2.toUpperCase();
+    return str1.equals(str2);
+}
+--------------------------------
+function findLongestSub(bin) {
+    let n = bin.length, i;
+    let sum = 0;
+    let prevSum = new Map();
+    let maxLen = 0;
+    for (i = 0; i < n; i++) {
+        if (bin.charAt(i) == '1') {
+            sum++;
+        } else {
+            sum--;
+        }
+        if (sum > 0) {
+            maxLen = i + 1;
+        } else if (sum <= 0) {
+            if (prevSum.has(sum - 1)) {
+                let currLen = i - prevSum.get(sum - 1);
+                maxLen = Math.max(maxLen, currLen);
+            }
+        }
+        if (!prevSum.has(sum)) {
+            prevSum.set(sum, i);
+        }
+    }
+    return maxLen;
+}
+--------------------------------
+function hasAllCodes(s, k) {
+    let us = new Set();
+    for (let i = 0; i + k <= s.length; i++) {
+        us.add(s.substring(i, i + k));
+    }
+    return us.size == 2 ** k;
+}
+--------------------------------
+function checkPalin(word) {
+    let n = word.length;
+    word = word.toLowerCase();
+    for (let i = 0; i < n; i++, n--) {
+        if (word.charAt(i)!= word.charAt(n - 1)) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function convert(st) {
+    var w = "", z = "";
+    st = st.toUpperCase() + " ";
+    for (var i = 0; i < st.length; i++) {
+        var ch = st.charAt(i);
+        if (ch!='') {
+            w += ch;
+        } else {
+            z += w.charAt(0).toLowerCase() + w.substring(1) + " ";
+            w = "";
+        }
+    }
+    return z;
+}
+--------------------------------
+function maxLines(n, x1, y1, x2, y2) {
+    var s = new Set();
+    var slope;
+    for (var i = 0; i < n; ++i) {
+        if (x1[i] == x2[i]) {
+            slope = Number.MAX_VALUE;
+        } else {
+            slope = (y2[i] - y1[i]) / (x2[i] - x1[i]);
+        }
+        s.add(slope);
+    }
+    return s.size;
+}
+--------------------------------
+function PrimeFactor(n) {
+    let primef = new Map();
+    while (n % 2 == 0) {
+        if (primef.has(2)) {
+            primef.set(2, primef.get(2) + 1);
+        } else {
+            primef.set(2, 1);
+        }
+        n /= 2;
+    }
+    for (let i = 3; i <= Math.sqrt(n); i++) {
+        while (n % i == 0) {
+            if (primef.has(i)) {
+                primef.set(i, primef.get(i) + 1);
+            } else {
+                primef.set(i, 1);
+            }
+            n /= i;
+        }
+    }
+    if (n > 2) {
+        primef.set(n, 1);
+    }
+    return primef;
+}
+--------------------------------
+function isDivisibleByDivisor(s, d) {
+    s %= d;
+    const hashMap = new Set();
+    hashMap.add(s);
+    for (let i = 0; i <= d; i++) {
+        s += s % d;
+        s %= d;
+        if (hashMap.has(s)) {
+            if (s === 0) {
+                return "Yes";
+            }
+            return "No";
+        } else {
+            hashMap.add(s);
+        }
+    }
+    return "Yes";
+}
+--------------------------------
+function oddSum(a, n, k) {
+    let odd = new Set();
+    let even = new Set();
+    for (let i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            even.add(a[i]);
+        } else {
+            odd.add(a[i]);
+        }
+    }
+    if (odd.size() >= k) {
+        return true;
+    }
+    let flag = false;
+    for (let i = 1; i < k; i += 2) {
+        let needed = k - i;
+        if (needed <= even.size()) {
+            return true;
+        }
+    }
+    return flag;
+}
+--------------------------------
+function dayOfYear(date) {
+    const days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const year = parseInt(date.substring(0, 4));
+    const month = parseInt(date.substring(5, 7));
+    let day = parseInt(date.substring(8));
+    if (month > 2 && year % 4 == 0 && (year % 100!= 0 || year % 400 == 0)) {
+        ++day;
+    }
+    while (month > 1) {
+        day = day + days[month - 2];
+        --month;
+    }
+    return day;
+}
+--------------------------------
+function isPerfectSquare(arr, n) {
+    let umap = new Map();
+    for (let i = 0; i < n; i++) {
+        umap.set(arr[i], (umap.get(arr[i]) || 0) + 1);
+    }
+    for (let [key, value] of umap.entries()) {
+        if (value % 2 == 1) {
+            return false;
+        }
+    }
+    return true;
+}
+--------------------------------
+function minMoves(n) {
+    let s = n.toString();
+    let ans = Number.MAX_SAFE_INTEGER;
+    let length = s.length;
+    for (let i = 0; i < length; ++i) {
+        for (let j = 0; j < length; ++j) {
+            if (i == j) {
+                continue;
+            }
+            let t = s.split('');
+            let cur = 0;
+            for (let k = i; k < length - 1; ++k) {
+                let c = t[k];
+                t[k] = t[k + 1];
+                t[k + 1] = c;
+                ++cur;
+            }
+            for (let k = j - (j > i? 1 : 0); k < length - 2; ++k) {
+                let c = t[k];
+                t[k] = t[k + 1];
+                t[k + 1] = c;
+                ++cur;
+            }
+            let pos = -1;
+            for (let k = 0; k < length; ++k) {
+                if (t[k]!= '0') {
+                    pos = k;
+                    break;
+                }
+            }
+            for (let k = pos; k > 0; --k) {
+                let c = t[k];
+                t[k] = t[k - 1];
+                t[k - 1] = c;
+                ++cur;
+            }
+            let nn = parseInt(t.join(''));
+            if (nn % 25 == 0) {
+                ans = Math.min(ans, cur);
+            }
+        }
+    }
+    if (ans == Number.MAX_SAFE_INTEGER) {
+        return -1;
+    }
+    return ans;
+}
+--------------------------------
+function minimumOperations(a, n) {
+    var mp = new Map();
+    for (var i = 0; i < n; i++) {
+        mp.set(a[i], (mp.get(a[i]) || 0) + 1);
+    }
+    var count = 0;
+    for (var [key, value] of mp) {
+        if (value > 1) {
+            count += value - 1;
+        }
+    }
+    return count;
+}
+--------------------------------
+function kaprekarRec(n, prev) {
+    if (n == 0) {
+        return 0;
+    }
+    prev = n;
+    let digits = [];
+    for (let i = 0; i < 4; i++) {
+        digits.push(n % 10);
+        n = Math.floor(n / 10);
+    }
+    digits.sort((a, b) => a - b);
+    let asc = 0;
+    for (let i = 0; i < 4; i++) {
+        asc = asc * 10 + digits[i];
+    }
+    digits.sort((a, b) => b - a);
+    let desc = 0;
+    for (let i = 3; i >= 0; i--) {
+        desc = desc * 10 + digits[i];
+    }
+    let diff = Math.abs(asc - desc);
+    if (diff == prev) {
+        return diff;
+    }
+    return kaprekarRec(diff, prev);
+}
+--------------------------------
+function fractionToDecimal(numr, denr) {
+    let res = "";
+    let mp = new Map();
+    let rem = numr % denr;
+    while (rem!= 0 &&!mp.has(rem)) {
+        mp.set(rem, res.length);
+        rem = rem * 10;
+        let resPart = rem / denr;
+        res += String(resPart);
+        rem = rem % denr;
+    }
+    if (rem == 0) {
+        return "";
+    }
+    if (mp.has(rem)) {
+        return res.substring(mp.get(rem));
+    }
+    return "";
+}
+--------------------------------
+function isFancy(num) {
+    const fp = new Map();
+    fp.set('0', '0');
+    fp.set('1', '1');
+    fp.set('6', '9');
+    fp.set('8', '8');
+    fp.set('9', '6');
+    let n = num.length;
+    let l = 0, r = n - 1;
+    while (l <= r) {
+        if (!fp.has(num[l]) || fp.get(num[l])!== num[r]) {
+            return false;
+        }
+        l++;
+        r--;
+    }
+    return true;
+}
+--------------------------------
+function distinctOddRatio(numbers) {
+    let distinctCount = numbers.filter(n => numbers.indexOf(n) == numbers.lastIndexOf(n)).length;
+    let distinctOddCount = numbers.filter(n => numbers.indexOf(n) == numbers.lastIndexOf(n) && n % 2 == 1).length;
+    return distinctOddCount / distinctCount;
+}
+--------------------------------
+function compareSum(numbers, words) {
+    let intSum = numbers.reduce((a, b) => a + b, 0);
+    let wordLengthSum = words.reduce((a, b) => a + b.length, 0);
+    if (intSum < wordLengthSum) {
+        return -1;
+    }
+    if (intSum > wordLengthSum) {
+        return 1;
+    }
+    return 0;
+}
+--------------------------------
+function allLongerThan(shortWords, longWords) {
+    var maxOfShort = shortWords.map(String.prototype.length).reduce(Math.max);
+    var minOfLong = longWords.map(String.prototype.length).reduce(Math.min);
+    return minOfLong > maxOfShort;
+}
+--------------------------------
+function compareOddEvenRange(numbers) {
+    let rangeOdd = numbers.filter(n => n % 2 == 1).map(n => n).reduce((a, b) => a > b? a : b) - numbers.filter(n => n % 2 == 1).map(n => n).reduce((a, b) => a < b? a : b);
+    let rangeEven = numbers.filter(n => n % 2 == 0).map(n => n).reduce((a, b) => a > b? a : b) - numbers.filter(n => n % 2 == 0).map(n => n).reduce((a, b) => a < b? a : b);
+    if (rangeOdd < rangeEven) {
+        return -1;
+    }
+    if (rangeOdd > rangeEven) {
+        return 1;
+    }
+    return 0;
+}
+--------------------------------
+function averageDistinctLength(words) {
+    let averageLen = words.filter(word => words.indexOf(word) === words.lastIndexOf(word)).map(word => word.length).reduce((a, b) => a + b, 0) / words.length;
+    return averageLen;
+}
+--------------------------------
+function withdrawBalance(start, withdrawals) {
+    let end = withdrawals.reduce((balance, nextWithdrawal) => nextWithdrawal <= balance? balance - nextWithdrawal : balance, start);
+    return end;
+}
+--------------------------------
+function firstShortAndStartsWithO(words) {
+    return words.filter(w=>w.length < 5).filter(w=>w.charAt(0) == 'o').first();
+}
+--------------------------------
+function bigNumberAtIndex(numbers, index) {
+    let targetNum = numbers.filter(n => n > 5).slice(index, index + 1)[0];
+    return targetNum;
+}
+--------------------------------
+function containsSquareInRange(rangeStart, rangeLength) {
+    return IntStream.range(rangeStart, rangeStart + rangeLength).anyMatch(n => Math.pow(Math.sqrt(n), 2) == n);
+}
+--------------------------------
+function groupNumbersByMod(numbers, mod) {
+    var numberGroups = {};
+    for (var i = 0; i < numbers.length; i++) {
+        var n = numbers[i];
+        var modVal = n % mod;
+        if (numberGroups[modVal] == null) {
+            numberGroups[modVal] = [];
+        }
+        numberGroups[modVal].push(n);
+    }
+    return numberGroups;
+}
+--------------------------------
+function groupNumbersByFirstChar(words) {
+    var wordGroups = words.reduce((acc, w) => {
+        var firstChar = w.charAt(0);
+        if (acc[firstChar] == null) {
+            acc[firstChar] = [];
+        }
+        acc[firstChar].push(w);
+        return acc;
+    }, {});
+    return wordGroups;
+}
+--------------------------------
+function orderByLengthAndDescending(words) {
+    var sortedWords = words.sort(function(a, b) {
+        return a.length - b.length || b.localeCompare(a);
+    });
+    return sortedWords;
+}
+--------------------------------
+function orderFirstCharDescendingReverse(words) {
+    var sortedWords = words.sort((w1, w2) => w1.charAt(0) > w2.charAt(0)? -1 : (w1.charAt(0) < w2.charAt(0)? 1 : w1 > w2));
+    sortedWords.reverse();
+    return sortedWords;
+}
+--------------------------------
+function getSubListOfNegative(numbers, start, length) {
+    return numbers.slice(start).filter(n => n < 0).slice(0, length);
+}
+--------------------------------
+function getPositiveSequence(numbers) {
+    return numbers.filter(n => n > 0);
+}
+--------------------------------
+function getLargerThanIndexSequence(numbers) {
+    return numbers.filter(function(number, index) {
+        return number >= index;
+    });
+}
+--------------------------------
+function rearrangeWordByIndexes(words, indexes) {
+    return indexes.filter(n => n >= words.length).map(n => n % words.length).map(n => words[n]);
+}
+--------------------------------
+function getWordsUpperLower(words) {
+    var upperLowerWords = words.map(w=>[w.toUpperCase(), w.toLowerCase()]);
+    return upperLowerWords;
+}
+--------------------------------
+function selectIfInPlace(numbers) {
+    return numbers.map(function(number, index) {
+        return number == index;
+    });
+}
+--------------------------------
+function selectPairs(numbersA, numbersB) {
+    var pairs = numbersA.flatMap(function(a) {
+        return numbersB.filter(function(b) {
+            return a < b;
+        }).map(function(b) {
+            return [a, b];
+        });
+    });
+    return pairs;
+}
+--------------------------------
+function stringCrossJoin(endWords, beginWords) {
+    return beginWords.flatMap(b=>endWords.filter(e=>b.charAt(0) == e.charAt(e.length - 1)).map(e=>e + " " + b));
+}
+--------------------------------
+function elementsContainSubword(words, subword) {
+    if (words.slice(0, 5).every(w => w.includes(subword))) {
+        return 1;
+    } else if (words.slice(0, 5).some(w => w.includes(subword))) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+--------------------------------
+function concatLargeNumbers(numbersA, numbersB, flag) {
+    var allNumbers = numbersA.filter(n => n > flag).concat(numbersB.filter(n => n > flag));
+    return allNumbers;
+}
+--------------------------------
+function dotProduct(vectorA, vectorB) {
+    let dotProduct = 0;
+    for (let i = 0; i < vectorA.length; i++) {
+        dotProduct += vectorA[i] * vectorB[i];
+    }
+    return dotProduct;
+}
+--------------------------------
+function setDifference(setA, setB) {
+    const difference = new Set(setA);
+    difference.addAll(setB);
+    const intersection = new Set(setA);
+    intersection.retainAll(setB);
+    difference.difference(intersection);
+    return Array.from(difference).sort();
+}
+--------------------------------
